@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="multiple_of_17_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="multiple_of_17_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="177480750fs"></ZoomEndTime>
+      <Cursor1Time time="170000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="132"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/multiple_of_17_tb/INPUT_s" type="array">
+      <obj_property name="ElementShortName">INPUT_s[7:0]</obj_property>
+      <obj_property name="ObjectShortName">INPUT_s[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/multiple_of_17_tb/OUTPUT_s" type="logic">
+      <obj_property name="ElementShortName">OUTPUT_s</obj_property>
+      <obj_property name="ObjectShortName">OUTPUT_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/multiple_of_17_tb/TEST_INPUT" type="array">
+      <obj_property name="ElementShortName">TEST_INPUT[1:18][7:0]</obj_property>
+      <obj_property name="ObjectShortName">TEST_INPUT[1:18][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/multiple_of_17_tb/TEST_OUTPUT_SIGNAL" type="array">
+      <obj_property name="ElementShortName">TEST_OUTPUT_SIGNAL[1:18]</obj_property>
+      <obj_property name="ObjectShortName">TEST_OUTPUT_SIGNAL[1:18]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/multiple_of_17_tb/i" type="other">
+      <obj_property name="ElementShortName">i</obj_property>
+      <obj_property name="ObjectShortName">i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/multiple_of_17_tb/TEST_ELEMENTS" type="other">
+      <obj_property name="ElementShortName">TEST_ELEMENTS</obj_property>
+      <obj_property name="ObjectShortName">TEST_ELEMENTS</obj_property>
+   </wvobject>
+</wave_config>

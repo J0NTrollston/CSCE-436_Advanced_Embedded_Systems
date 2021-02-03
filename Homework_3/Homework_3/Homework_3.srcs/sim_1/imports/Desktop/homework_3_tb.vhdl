@@ -36,10 +36,11 @@ ARCHITECTURE behavior OF multiple_of_17_tb IS
 	signal INPUT_s: unsigned(7 downto 0);
 	signal OUTPUT_s: std_logic;
 	
-	CONSTANT	TEST_ELEMENTS:integer:=17;
+	CONSTANT	TEST_ELEMENTS:integer:=18;
 	SUBTYPE INPUT is std_logic_vector(7 downto 0);
 	TYPE TEST_INPUT_VECTOR is array (1 to TEST_ELEMENTS) of INPUT;
-	SIGNAL TEST_INPUT: TEST_INPUT_VECTOR := (x"11",
+	SIGNAL TEST_INPUT: TEST_INPUT_VECTOR := (x"ab",
+	                                        x"11",
 											x"22",
 											x"21",
 											x"33",
@@ -59,7 +60,8 @@ ARCHITECTURE behavior OF multiple_of_17_tb IS
 
 	SUBTYPE OUTPUT is std_logic;
 	TYPE TEST_OUTPUT is array (1 to TEST_ELEMENTS) of OUTPUT;
-	SIGNAL TEST_OUTPUT_SIGNAL: TEST_OUTPUT := ('1',
+	SIGNAL TEST_OUTPUT_SIGNAL: TEST_OUTPUT := ('0',
+	                                        '1',
 											'1',
 											'0',
 											'1',
@@ -106,7 +108,8 @@ BEGIN
 			-------------------------------------------
 			-- If these two don't match the simulation will halt
 			-------------------------------------------		
-			assert OUTPUT_s = test_output(i)
+			--assert OUTPUT_s = test_output(i)
+			assert OUTPUT_s = TEST_OUTPUT_SIGNAL(i)
 				report "Error in circuit for input "  & integer'image(i)
 				severity failure;
 		end loop;

@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Homework_4.srcs/sources_1/imports/Desktop/Homework_4.vhdl" \
+"../../../../Homework_4.srcs/sim_1/imports/Desktop/Homework_4_tb.vhdl" \
+
+# Do not sort compile order
+nosort

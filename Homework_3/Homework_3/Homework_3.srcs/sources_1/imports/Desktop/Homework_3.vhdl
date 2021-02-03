@@ -29,24 +29,31 @@ entity multiple_of_17 is
 end multiple_of_17;
 
 architecture structure of multiple_of_17 is
-		
+signal top4bits, bottom4bits: unsigned(3 downto 0);
+	
 begin 
-OUTPUT<=    '1' when INPUT = x"11" else
-            '1' when INPUT = x"22" else
-            '1' when INPUT = x"33" else
-            '1' when INPUT = x"44" else
-            '1' when INPUT = x"55" else
-            '1' when INPUT = x"66" else
-            '1' when INPUT = x"77" else
-            '1' when INPUT = x"88" else
-            '1' when INPUT = x"99" else
-            '1' when INPUT = x"AA" else
-            '1' when INPUT = x"BB" else
-            '1' when INPUT = x"CC" else
-            '1' when INPUT = x"DD" else
-            '1' when INPUT = x"EE" else
-            '1' when INPUT = x"FF" else
-            '0';
+top4bits <= INPUT(7 downto 4);
+bottom4bits <= INPUT(3 downto 0);
+
+OUTPUT <=       '1' when (top4bits = bottom4bits) else
+                '0';
+--OUTPUT<=    '1' when INPUT = x"0" else
+--            '1' when INPUT = x"11" else
+--            '1' when INPUT = x"22" else
+--            '1' when INPUT = x"33" else
+--            '1' when INPUT = x"44" else
+--            '1' when INPUT = x"55" else
+--            '1' when INPUT = x"66" else
+--            '1' when INPUT = x"77" else
+--            '1' when INPUT = x"88" else
+--            '1' when INPUT = x"99" else
+--            '1' when INPUT = x"AA" else
+--            '1' when INPUT = x"BB" else
+--            '1' when INPUT = x"CC" else
+--            '1' when INPUT = x"DD" else
+--            '1' when INPUT = x"EE" else
+--            '1' when INPUT = x"FF" else
+--            '0';
 		
 end structure;
  
