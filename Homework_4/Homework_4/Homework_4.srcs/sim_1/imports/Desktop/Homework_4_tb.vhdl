@@ -24,28 +24,21 @@ USE ieee.numeric_std.ALL;
  
 ENTITY Homework_4_tb IS
 END Homework_4_tb;
+
+
  
 ARCHITECTURE behavior OF Homework_4_tb IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT CounterL
-    PORT(
-         clk : IN  std_logic;
-         reset : IN  std_logic;
-			ctrl: in std_logic;
-         Q : OUT  unsigned(2 downto 0)
-        );
-    END COMPONENT;
     
-    COMPONENT CounterH
-    PORT(
-         clk : IN  std_logic;
-         reset : IN  std_logic;
-			ctrl: in std_logic;
-         Q : OUT  unsigned(2 downto 0)
-        );
-    END COMPONENT;
+    
+COMPONENT hw4 is
+        port(	clk, reset: in std_logic; 
+		ctrl: in std_logic;
+		Q1, Q0: out unsigned(2 downto 0));
+		
+end COMPONENT;
     
 
    --Inputs
@@ -54,31 +47,24 @@ ARCHITECTURE behavior OF Homework_4_tb IS
    signal ctrl : std_logic := '0';
 
  	--Outputs
-   signal Q : unsigned(2 downto 0);
-   signal Q_h: unsigned(2 downto0);
+   signal Q0 : unsigned(2 downto 0);
+   signal Q1 : unsigned(2 downto 0);
+ 
+--   signal Q_h: unsigned(2 downto0);
 
    -- Clock period definitions
    constant clk_period : time := 500 ns;
  
 BEGIN
- 
-	-- Instantiate the Unit Under Test (UUT)
-   uut: CounterL PORT MAP (
+
+  uut: hw4 PORT MAP (
           clk => clk,
           reset => reset,
 			 ctrl => ctrl,
-          Q => Q
+			 Q1 => Q1,
+          Q0 => Q0
         );
         
-        uut: CounterH PORT MAP (
-          clk => clk,
-          reset => reset,
-			 ctrl => ctrl,
-          Q => Q
-        );
-   
-   
-
    -- Clock process definitions
    clk_process :process
    begin
