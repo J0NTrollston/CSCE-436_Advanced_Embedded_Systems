@@ -63,6 +63,14 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/Desktop/counter.vhdl">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="C:/Users/owner/Desktop/counter.vhdl"/>
+          <Attr Name="ImportTime" Val="1612502681"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/Code/dvid.vhdl">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../Code/dvid.vhdl"/>
@@ -104,15 +112,6 @@
       <File Path="$PSRCDIR/sources_1/new/scopeFace.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Desktop/counter.vhdl">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="C:/Users/owner/Desktop/counter.vhdl"/>
-          <Attr Name="ImportTime" Val="1612502681"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

@@ -4,6 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 -- This will be the counter with I/O
 entity Counter is
+generic(countLimit : integer);
 	Port(	clk:   in  std_logic;
 			reset: in  std_logic;
 			ctrl:  in  std_logic;
@@ -29,10 +30,10 @@ begin
 			if (reset = '0') then
 				processQ <= (others => '0');
 				rollSynch <= '0';
-			elsif ((processQ < 5) and (ctrl = '1')) then 
+			elsif ((processQ < countLimit) and (ctrl = '1')) then 
 				processQ <= processQ + 1;
 				rollSynch <= '0';
-			elsif ((processQ = 5) and (ctrl = '1')) then
+			elsif ((processQ = countLimit) and (ctrl = '1')) then
 				processQ <= (others => '0');
 				rollSynch <= '1';
 			end if;

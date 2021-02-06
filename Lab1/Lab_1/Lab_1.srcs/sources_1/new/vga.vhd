@@ -39,20 +39,57 @@ entity vga is
 			blank : out  STD_LOGIC;
 			r: out STD_LOGIC_VECTOR(7 downto 0);
 			g: out STD_LOGIC_VECTOR(7 downto 0);
-			b: out STD_LOGIC_VECTOR(7 downto 0);
-			trigger_time: in unsigned(9 downto 0);
-			trigger_volt: in unsigned (9 downto 0);
-			row: out unsigned(9 downto 0);
-			column: out unsigned(9 downto 0);
+			b:            out STD_LOGIC_VECTOR(7 downto 0);
+			trigger_time: in  unsigned(9 downto 0);
+			trigger_volt: in  unsigned (9 downto 0);
+			row:          out unsigned(9 downto 0);
+			column:       out unsigned(9 downto 0);
 			ch1: in std_logic;
 			ch1_enb: in std_logic;
 			ch2: in std_logic;
 			ch2_enb: in std_logic);
 end vga;
 
-architecture Behavioral of vga is
+architecture Behavioral of vga is ---------------------------------------------------
 
-begin
+    --Signals for the glue between the counters rollover
+    signal col_roll: std_logic;
+    signal glue_s:   std_logic;
+    
+    --Create an object of the counter module
+    component Counter
+    generic(countLimit : integer);
+        port(
+            clk:   in  std_logic;
+            reset: in  std_logic;
+            ctrl:  in  std_logic;
+            roll:  out std_logic;
+            Q:     out unsigned(9 downto 0));
+    end component;
+
+begin ----------------------------------------------------
+
+    --Column counter will go up to 800
+    Column_Counter: Counter
+    generic map(countLimit => 800)
+    port map(
+        clk   => clk,
+        reset => reset_n,
+        ctrl  => ctrl,
+        roll  => col_roll,
+        Q     => column
+        );
+    
+    --Row counter will go up to 525
+    Row_Counter: Counter 
+    generic map(countLimit => 525)
+    port map(
+         clk   => clk,
+         reset => reset_n,
+         ctrl  => glue_s,
+         --roll
+         Q     => row
+         );
 
 
-end Behavioral;
+end Behavioral;----------------------------------------------------------------------
