@@ -1,53 +1,42 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 02/05/2021 02:05:21 PM
--- Design Name: 
--- Module Name: scopeFace - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Name:	Brandon Ramos
+-- Date:	2/5/2021
+-- Course: 	CSCE 436
+-- File: 	vga.vhd
+-- Project:	Lab 1
+-- Purp:	Building an O'Scope
+--
+-- Doc:	Consulted with Prof. Falkinburg
+--                     TA Fox
+-- 	
+-- Academic Integrity Statement: I certify that, while others may have 
+-- assisted me in brain storming, debugging and validating this program, 
+-- the program itself is my own work. I understand that submitting code 
+-- which is the work of other individuals is a violation of the honor   
+-- code.  I also understand that if I knowingly give my original work to 
+-- another individual is also a violation of the honor code. 
 ----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity vga is
-	Port(	clk: in  STD_LOGIC;
-			reset_n : in  STD_LOGIC;
-			h_sync : out  STD_LOGIC;
-			v_sync : out  STD_LOGIC; 
-			blank : out  STD_LOGIC;
-			r: out STD_LOGIC_VECTOR(7 downto 0);
-			g: out STD_LOGIC_VECTOR(7 downto 0);
+	Port(	clk:          in  STD_LOGIC;
+			reset_n:      in  STD_LOGIC;
+			h_sync:       out  STD_LOGIC;
+			v_sync:       out  STD_LOGIC; 
+			blank:        out  STD_LOGIC;
+			r:            out STD_LOGIC_VECTOR(7 downto 0);
+			g:            out STD_LOGIC_VECTOR(7 downto 0);
 			b:            out STD_LOGIC_VECTOR(7 downto 0);
 			trigger_time: in  unsigned(9 downto 0);
 			trigger_volt: in  unsigned (9 downto 0);
 			row:          out unsigned(9 downto 0);
 			column:       out unsigned(9 downto 0);
-			ch1: in std_logic;
-			ch1_enb: in std_logic;
-			ch2: in std_logic;
-			ch2_enb: in std_logic);
+			ch1:          in std_logic;
+			ch1_enb:      in std_logic;
+			ch2:          in std_logic;
+			ch2_enb:      in std_logic);
 end vga;
 
 architecture Behavioral of vga is ---------------------------------------------------
@@ -55,15 +44,25 @@ architecture Behavioral of vga is ----------------------------------------------
     --Signals for the glue between the counters rollover
     signal col_roll: std_logic;
     signal glue_s:   std_logic;
+    signal h_synch:  std_logic;
+    signal v_synch:  std_logic;
+    
     
     --Create an object of the counter module
     component Counter
-    generic(countLimit : integer);
+    generic(countLimit: integer;
+            synch_i:    integer;
+            synch_f:    integer;
+            blank_i:    integer;
+            blank_f:    integer);
+            
         port(
             clk:   in  std_logic;
             reset: in  std_logic;
             ctrl:  in  std_logic;
             roll:  out std_logic;
+            synch: out std_logic;
+			blank: out std_logic;
             Q:     out unsigned(9 downto 0));
     end component;
 
@@ -71,25 +70,38 @@ begin ----------------------------------------------------
 
     --Column counter will go up to 800
     Column_Counter: Counter
-    generic map(countLimit => 800)
+    generic map(countLimit => 800,
+                synch_i => 0,
+                synch_f => 639,
+                blank_i => 640,
+                blank_f => 800
+                )
     port map(
         clk   => clk,
         reset => reset_n,
-        ctrl  => ctrl,
+        ctrl  => '1',
         roll  => col_roll,
-        Q     => column
+        Q     => column,
+        synch => h_synch,
+        blank => blank
         );
     
     --Row counter will go up to 525
     Row_Counter: Counter 
-    generic map(countLimit => 525)
+    generic map(countLimit => 525,
+                synch_i => 0,
+                synch_f => 479,
+                blank_i => 480,
+                blank_f => 525)
     port map(
          clk   => clk,
          reset => reset_n,
          ctrl  => glue_s,
          --roll
-         Q     => row
+         Q     => row,
+         synch => v_synch,
+         blank => blank
          );
-
-
+         
+--    h_sync <= '1' when (column = 20"
 end Behavioral;----------------------------------------------------------------------
