@@ -67,10 +67,11 @@ architecture Behavioral of vga is ----------------------------------------------
     end component;
 
 begin ----------------------------------------------------
+glue_s <= col_roll;
 
     --Column counter will go up to 800
     Column_Counter: Counter
-    generic map(countLimit => 800,
+    generic map(countLimit => 799,
                 synch_i => 0,
                 synch_f => 639,
                 blank_i => 640,
@@ -88,7 +89,7 @@ begin ----------------------------------------------------
     
     --Row counter will go up to 525
     Row_Counter: Counter 
-    generic map(countLimit => 525,
+    generic map(countLimit => 524,
                 synch_i => 0,
                 synch_f => 479,
                 blank_i => 480,

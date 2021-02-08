@@ -39,7 +39,7 @@ end Counter;
 
 architecture Counter_module of Counter is
 
-	signal rollSynch: std_logic;
+	signal rollSynch, rollCombo: std_logic;
 	signal processQ:  unsigned(9 downto 0);
 	
 begin
@@ -61,23 +61,28 @@ begin
 			elsif ((processQ = countLimit) and (ctrl = '1')) then
 				processQ <= (others => '0');
 				rollSynch <= '1';
+				rollCombo <= '0';
+			end if;
+			
+			if (processQ = countLimit -1) then
+			    rollCombo <= '1';
 			end if;
 			
 			if (reset = '0') then
 			    blank <= '0';
 			    synch <= '0';
-			elsif ((processQ > synch_i) and (processQ < synch_f)) then
+			elsif ((processQ >= synch_i) and (processQ <= synch_f)) then
 			     synch <= '1';
 			     blank <= '0';
 			elsif
-			     ((processQ > blank_i) and (processQ < blank_f)) then
+			     ((processQ >= blank_i) and (processQ <= blank_f)) then
 			     synch <= '0';
 			     blank <= '1';
 			end if;
 		end if;
 	end process;
 	
-	roll <= rollSynch;
+	roll <= rollCombo;
 	Q 	 <= processQ;
 
 end Counter_module;

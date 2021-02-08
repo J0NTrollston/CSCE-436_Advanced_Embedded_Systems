@@ -68,30 +68,30 @@ begin
     
     
     --draw trigger vold
-    white <= '1' when ( column = x="21") and (row = x"trigger_volt+2") else '0';
-    white <= '1' when ( column = x="21") and (row = x"trigger_volt+1") else '0';
-    white <= '1' when ( column = x="21") and (row = x"trigger_volt") else '0';
-    white <= '1' when ( column = x="21") and (row = x"trigger_volt-1") else '0';
-    white <= '1' when ( column = x="21") and (row = x"trigger_volt-2") else '0';
+    white <= '1' when ( column = x"21") and (row = trigger_volt+2) else '0';
+    white <= '1' when ( column = x"21") and (row = trigger_volt+1) else '0';
+    white <= '1' when ( column = x"21") and (row = trigger_volt) else '0';
+    white <= '1' when ( column = x"21") and (row = trigger_volt-1) else '0';
+    white <= '1' when ( column = x"21") and (row = trigger_volt-2) else '0';
     
-    white <= '1' when ( column = x="22") and (row = x"trigger_volt-1") else '0';
-    white <= '1' when ( column = x="22") and (row = x"trigger_volt") else '0';
-    white <= '1' when ( column = x="22") and (row = x"trigger_volt+1") else '0';
+    white <= '1' when ( column = x"22") and (row = trigger_volt-1) else '0';
+    white <= '1' when ( column = x"22") and (row = trigger_volt) else '0';
+    white <= '1' when ( column = x"22") and (row = trigger_volt+1) else '0';
     
-    white <= '1' when ( column = x="23") and (row = x"trigger_volt") else '0';
+    white <= '1' when ( column = x"23") and (row = trigger_volt) else '0';
     
     --draw trigger time
-    white <= '1' when (row = x"21") and (column = x"trigger_time-2") else '0';
-    white <= '1' when (row = x"21") and (column = x"trigger_time-1") else '0';
-    white <= '1' when (row = x"21") and (column = x"trigger_time") else '0';
-    white <= '1' when (row = x"21") and (column = x"trigger_time+1") else '0';
-    white <= '1' when (row = x"21") and (column = x"trigger_time+2") else '0';
+    white <= '1' when (row = x"21") and (column = trigger_time-2) else '0';
+    white <= '1' when (row = x"21") and (column = trigger_time-1) else '0';
+    white <= '1' when (row = x"21") and (column = trigger_time) else '0';
+    white <= '1' when (row = x"21") and (column = trigger_time+1) else '0';
+    white <= '1' when (row = x"21") and (column = trigger_time+2) else '0';
     
-    white <= '1' when (row = x"22") and (column = x"trigger_time-1") else '0';
-    white <= '1' when (row = x"22") and (column = x"trigger_time") else '0';
-    white <= '1' when (row = x"22") and (column = x"trigger_time+1") else '0';
+    white <= '1' when (row = x"22") and (column = trigger_time-1) else '0';
+    white <= '1' when (row = x"22") and (column = trigger_time) else '0';
+    white <= '1' when (row = x"22") and (column = trigger_time+1) else '0';
     
-    white <= '1' when (row = x"23") and (column = x"trigger_time") else '0';
+    white <= '1' when (row = x"23") and (column = trigger_time) else '0';
     
     --verticle hatch marks
     white <= '1' when ((column = x"319") or (column = x"321") or (column = x"322") or (column = x"318")) and ((row = x"30") or (row = x"40") or (row = x"50") or (row = x"60")
