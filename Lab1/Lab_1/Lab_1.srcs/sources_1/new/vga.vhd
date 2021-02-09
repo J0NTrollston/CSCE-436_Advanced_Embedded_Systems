@@ -46,6 +46,7 @@ architecture Behavioral of vga is ----------------------------------------------
     signal glue_s:   std_logic;
     signal h_synch:  std_logic;
     signal v_synch:  std_logic;
+    signal column_s, row_S:  unsigned(9 downto 0);
     
     
     --Create an object of the counter module
@@ -61,13 +62,14 @@ architecture Behavioral of vga is ----------------------------------------------
             reset: in  std_logic;
             ctrl:  in  std_logic;
             roll:  out std_logic;
-            synch: out std_logic;
-			blank: out std_logic;
+--            synch: out std_logic;
+--			blank: out std_logic;
             Q:     out unsigned(9 downto 0));
     end component;
 
 begin ----------------------------------------------------
 glue_s <= col_roll;
+--blank <= h_blank or v_blank;
 
     --Column counter will go up to 800
     Column_Counter: Counter
@@ -82,9 +84,9 @@ glue_s <= col_roll;
         reset => reset_n,
         ctrl  => '1',
         roll  => col_roll,
-        Q     => column,
-        synch => h_synch,
-        blank => blank
+        Q     => column_S
+--        synch => h_synch
+--        blank => blank
         );
     
     --Row counter will go up to 525
@@ -99,10 +101,18 @@ glue_s <= col_roll;
          reset => reset_n,
          ctrl  => glue_s,
          --roll
-         Q     => row,
-         synch => v_synch,
-         blank => blank
+         Q     => row_s
+--         synch => v_synch--get rid of
+--         blank => blank
          );
          
---    h_sync <= '1' when (column = 20"
+    h_sync <= '0' when ((column_s >= 655) and (column_s < 751)) else '1';
+    v_sync <= '0' when ((row_s >= 489) and (row_s < 491)) else '1';
+    blank <= '1' when ( ((column_s >= 639) and (column_s < 655)) 
+            or ((row_s >=479) and (row_s < 489))
+            or ( (column_s >= 751) and (column_s < 799))
+            or ( (row_s >= 491) and (row_s < 524))) else '0';
+    row <= row_s;
+    column <= column_s;
+    
 end Behavioral;----------------------------------------------------------------------

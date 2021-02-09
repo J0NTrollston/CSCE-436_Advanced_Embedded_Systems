@@ -32,18 +32,17 @@ entity Counter is
 			reset: in  std_logic;
 			ctrl:  in  std_logic;
 			roll:  out std_logic;
-			synch: out std_logic;
-			blank: out std_logic;
+--			synch: out std_logic;
+--			blank: out std_logic;
 			Q:	   out unsigned(9 downto 0));
 end Counter;
 
 architecture Counter_module of Counter is
 
-	signal rollSynch, rollCombo: std_logic;
+	signal rollSynch, rollCombo, h_blank, v_blank: std_logic;
 	signal processQ:  unsigned(9 downto 0);
 	
 begin
-	
 -----------------------------------------------------------------------------
 --		ctrl
 --      0          hold
@@ -64,25 +63,27 @@ begin
 				rollCombo <= '0';
 			end if;
 			
+			--prepare rollover
 			if (processQ = countLimit -1) then
 			    rollCombo <= '1';
 			end if;
 			
-			if (reset = '0') then
-			    blank <= '0';
-			    synch <= '0';
-			elsif ((processQ >= synch_i) and (processQ <= synch_f)) then
-			     synch <= '1';
-			     blank <= '0';
-			elsif
-			     ((processQ >= blank_i) and (processQ <= blank_f)) then
-			     synch <= '0';
-			     blank <= '1';
-			end if;
+--			if( ((processQ >= 639) and (processQ <=655)) or ((processQ >= 751) and (processQ <= 799)) ) then
+--			    h_blank <= '1';
+--			elsif( ((processQ >=479) and (processQ <= 489)) or ((processQ >= 491) and (processQ <= 524)) ) then
+--			    v_blank <= '1';
+--			else 
+--			    v_blank <= '0';
+--			    h_blank <= '0';
+--			end if;
+			
 		end if;
 	end process;
 	
+--	h_blank <= '1' when
 	roll <= rollCombo;
 	Q 	 <= processQ;
+--	blank <= v_blank or h_blank
+	
 
 end Counter_module;

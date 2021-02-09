@@ -1,5 +1,5 @@
 # Lab 1 - VGA Synchronization
-##CSCE 436 - Advanced Embedded Systems
+## CSCE 436 - Advanced Embedded Systems
 
 ## By Brandon Ramos
 
@@ -18,13 +18,37 @@
 9. [Documentation](#documentation)
  
 ### Objectives or Purpose 
-Using the FPGA board given in class, the task is to create a fucntional VGA by putting modules given in class together.
+The Nexys Video Board used in Advanced Embedded Systems is a useful tool to test application specific circuits.
+In Lab 1 we build the main bulk of the intended O'Scope and Function Generator user interface.
 
-Remember, the purpose of the lab notebook is to communicate EVERYTHING you have done in pursuit of a particular project.  If you are sitting on the bus scribbling on the back of an envelope about your lab design, take a picture of that and include it with your work.  Without adequate documentation, your instructor won�t know what your thought process was and will not be able to grade you properly.  Once you leave the school environment, fellow engineers may need to pick up your project where you left off if you PCA, PCS, get hospitalized, or otherwise find yourself no longer working on something.  You will save your employer/co-workers/replacement a lot of time and money if you have left a detailed record for them to easily understand what you were doing, the approach you took, the tests you performed, and what you learned.
 
 ### Preliminary design
+To start off with the design. We left off with multiple lab 1 files that do most of the work for the programmer.
+The rest will be connecting the modules together. Here, we will discuss the progression through the lab and how we
+will divide and conquer.
+
+#### Prelab
+Homework 5 is a prelab to the VGA Synchronization lab. In order to get a video set up on any monitor screen, we need
+to have some background information on what the standard protocol is. 
+Back when CRT TV's were abundant, there were sync and blanking protocols so that the electron beam could have time to 
+get ready for the next scan line. We have kept this protocol ever since then
+Shown below is the sync times and the index of the pixel where we will need to prepare blanks and ready times for VGA.
+
+#### Sync Times and Pixle Index
+![sync and pixle index] (Images/sync.PNG)
+
+Using the image above to proceed with Homework 5 we can now create a rough draft of what the scope face will look like.
+Shown in the image below will be the verticle and horizontal lines, hatch marks and trigger marks. The trigger marks will
+be only 9 pixles but will be the channels to trigger volt and time.
+
+####Rough Draft of Scope Face
+![scope face] (Images/scope_draw.PNG)
+
+
+
 How will you start attacking the problem?
-This should include detailed instructions of what you are about to do.  It may include PreLab material and also information from the Lab Handout.  Use pictures and data from Lab Handout.
+This should include detailed instructions of what you are about to do.  It may include PreLab material and also 
+information from the Lab Handout.  Use pictures and data from Lab Handout.
 You may also use snippets of code in here as well:
 
 #### Gate Check 1
