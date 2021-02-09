@@ -44,76 +44,53 @@ be only 9 pixles but will be the channels to trigger volt and time.
 ####Rough Draft of Scope Face
 ![scope face] (Images/scope_draw.PNG)
 
-
-
-How will you start attacking the problem?
-This should include detailed instructions of what you are about to do.  It may include PreLab material and also 
-information from the Lab Handout.  Use pictures and data from Lab Handout.
-You may also use snippets of code in here as well:
-
 #### Gate Check 1
 ![Row and Column Rollover] (Images/column_rollover.PNG)
+The picture above shows the rollover for the column counter, this cascades into the row counter.
+![roll rollover] (Images/roll_rollover.PNG)
+Above is the row counter that is the same entity as the column counter but with more generalized 
+constants such as the count limit for the two. In the "Code" section is a code snippet of the counter
+module. 
+
+#### Gate Check 2
+
 
 #### Code:
 
-**You should only include important key code snippets in your README.  All code files should be included in code folder.**
+Starting off with a module to count the rows and columns. This is done with an entity that is used twice where we
+cascade them together to get a rollover. One is a mod 525 counter and the other is a mod 800 counter.
 
-**Well-formatted code**
- - All of your code should be written with:
-    1. headers
-    2. comments
-    3. good coding practices.
-
-
-##### Sample Code Headers
-The following are *example* headers, but your instructor may require a different template to be used.
-
-##### VHDL Header:
-	--------------------------------------------------------------------
-	-- Name:<Your Name>
-	-- Date:<The date you stated working on the file>
-	-- Course:	<The course's name>
-	-- File:<This file's name>
-	-- HW:	<HW# and name>
-	--
-	-- Purp:A brief description of what this program does and 
-	--	the general solution strategy. 
-	--
-	-- Doc:	<list the names of the people who you helped>
-	-- 	<list the names of the people who assisted you>
-	--
-	-- Academic Integrity Statement: I certify that, while others may have 
-	-- assisted me in brain storming, debugging and validating this program, 
-	-- the program itself is my own work. I understand that submitting code 
-	-- which is the work of other individuals is a violation of the honor   
-	-- code.  I also understand that if I knowingly give my original work to 
-	-- another individual is also a violation of the honor code. 
-	------------------------------------------------------------------------- 
-
-##### C Header:
-	/*--------------------------------------------------------------------
-	Name:<Your Name>
-	Date:<The date you stated working on the file>
-	Course:	<The course's name>
-	File:<This file's name>
-	HW:	<HW# and name>
-	
-	Purp:A brief description of what this program does and 
-		the general solution strategy. 
-	
-	Doc:	<list the names of the people who you helped>
-			<list the names of the people who assisted you>
-	
-	Academic Integrity Statement: I certify that, while others may have 
-	assisted me in brain storming, debugging and validating this program, 
-	the program itself is my own work. I understand that submitting code 
-	which is the work of other individuals is a violation of the honor   
-	code.  I also understand that if I knowingly give my original work to 
-	another individual is also a violation of the honor code. 
-	-------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------
+--	    ctrl
+--      0          hold
+--      1          Q+1 mod 5
+-----------------------------------------------------------------------------
+	process(clk)
+	begin
+		--generic counting module
+		if (rising_edge(clk)) then
+			if (reset = '0') then
+				processQ <= (others => '0');
+				rollSynch <= '0';
+			elsif ((processQ < countLimit) and (ctrl = '1')) then 
+				processQ <= processQ + 1;
+				rollSynch <= '0';
+			elsif ((processQ = countLimit) and (ctrl = '1')) then
+				processQ <= (others => '0');
+				rollSynch <= '1';
+				rollCombo <= '0';
+			end if;
+			
+			--prepare rollover
+			if (processQ = countLimit -1) then
+			    rollCombo <= '1';
+			end if;
+		end if;
+	end process;
 	
 ### Software flow chart or algorithms
-All coding include a pseudocode flow charts and algorithms defined your code and the algorithms used.  Visio or PowerPoint works well for this!
+All coding include a pseudocode flow charts and algorithms defined your code and the algorithms used. 
+ Visio or PowerPoint works well for this!
 
 #### Pseudocode:
 Insert pseudocode or flowchart here.
@@ -122,21 +99,27 @@ Insert pseudocode or flowchart here.
 If you are wiring things up you will need to create a schematic for your design.
 
 ### Debugging
-You should be keeping track of issues as you go along.  I didn't have any problems is not a good answer.  Describe the problems you had and what you did to fix it.  Again this is where I would say commit early and often and start your notebook when you start your code.
+You should be keeping track of issues as you go along.  I didn't have any problems is not 
+a good answer.  Describe the problems you had and what you did to fix it.  Again this is where 
+I would say commit early and often and start your notebook when you start your code.
 
 ### Testing methodology or results
-Detail the steps in getting the results you system is designed to achieve.  Have enough detail that someone can come behind and reproduce your results.
+Detail the steps in getting the results you system is designed to achieve.  Have enough detail 
+that someone can come behind and reproduce your results.
 
-Display your results and describe them in detail so that anyone can understand.  For example Figure 1 below shows a screenshot of a memory dump for RAM from 0x0200 to 0x024E.  You will also describe to the reader what they are looking at.
+Display your results and describe them in detail so that anyone can understand.  For example Figure 
+1 below shows a screenshot of a memory dump for RAM from 0x0200 to 0x024E.  You will also describe
+ to the reader what they are looking at.
 
-![Memory Dump](images/Memory.PNG)
 ##### Figure 1: Memory Dump Label (Always include figure AND table labels!)
 
 ### Answers to Lab Questions
 Here is where you would answer any lab questions given in the lab writeup.
 
 ### Observations and Conclusions
-During this whole assignment, what did you learn?  What did you notice that was noteworthy?  This should be a paragraph starting with the purpose, whether or not you achieved that purpose, what you learned, and how you can use this for future labs.
+During this whole assignment, what did you learn?  What did you notice that was noteworthy?  This
+ should be a paragraph starting with the purpose, whether or not you achieved that purpose, what 
+you learned, and how you can use this for future labs.
 
 ### Documentation
-� always include this.  Any help received on any portion of the assignment, even from an instructor or the internet should be specifically mentioned.
+Further help outside lecture time was provided by Professor Falkinburg and Jacob Fox (TA)

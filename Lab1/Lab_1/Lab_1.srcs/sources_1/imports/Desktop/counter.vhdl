@@ -67,23 +67,10 @@ begin
 			if (processQ = countLimit -1) then
 			    rollCombo <= '1';
 			end if;
-			
---			if( ((processQ >= 639) and (processQ <=655)) or ((processQ >= 751) and (processQ <= 799)) ) then
---			    h_blank <= '1';
---			elsif( ((processQ >=479) and (processQ <= 489)) or ((processQ >= 491) and (processQ <= 524)) ) then
---			    v_blank <= '1';
---			else 
---			    v_blank <= '0';
---			    h_blank <= '0';
---			end if;
-			
 		end if;
 	end process;
 	
---	h_blank <= '1' when
 	roll <= rollCombo;
 	Q 	 <= processQ;
---	blank <= v_blank or h_blank
-	
 
 end Counter_module;
