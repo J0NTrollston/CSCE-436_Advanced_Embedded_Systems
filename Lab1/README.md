@@ -63,17 +63,22 @@ on the waveform and created the scopeFace module to draw at least one line on th
 Include picture of the line on the display and associated .bit file for the scopeFace module proof. 
 
 Additionally, include screenshots of waveforms showing:
+
+Show the h_synch going high, low, and high in relation to h count.
 ![h sync] (Images/h_sync1.PNG)
 ![h sync2] (Images/h_sync2.PNG)
 
-![v sync] (Images/v_sync.PNG)
+Show the v_synch going high, low, and high in relation to v count.
+![v sync] (Images/v_sync1.PNG)
 
+Show the blank signals going high, low, and high in relation to v count and h count.
 ![blank] (Images/blank1.PNG)
 ![blank2] (Images/blank2.PNG)
 ![blank3] (Images/blank3.PNG)
 ![blank4] (Images/blank4.PNG)
 
-![one line] (Images/one_line.PNG)
+Created the scopeFace module to draw at least one line on the display
+![one line] (Images/one_line.JPG)
 
 #### Code:
 
