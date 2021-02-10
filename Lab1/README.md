@@ -45,7 +45,12 @@ be only 9 pixles but will be the channels to trigger volt and time.
 ![scope face] (Images/scope_draw.PNG)
 
 #### Gate Check 1
+By BOC Lesson 7, you must have finished setting up the VGA counters to generate the proper rows and
+columns on the waveform. This can be shown with waveform screenshots from the VGA testbench showing 
+the h count rolling over causing the v count to increment. Be sure to also show both max counts.
+
 ![Row and Column Rollover] (Images/column_rollover.PNG)
+
 The picture above shows the rollover for the column counter, this cascades into the row counter.
 ![roll rollover] (Images/roll_rollover.PNG)
 Above is the row counter that is the same entity as the column counter but with more generalized 
@@ -53,7 +58,22 @@ constants such as the count limit for the two. In the "Code" section is a code s
 module. 
 
 #### Gate Check 2
+By BOC Lesson 8, you must have setup the appropriate v_synch, v_blank, h_synch, and h_blank signals 
+on the waveform and created the scopeFace module to draw at least one line on the display. 
+Include picture of the line on the display and associated .bit file for the scopeFace module proof. 
 
+Additionally, include screenshots of waveforms showing:
+![h sync] (Images/h_sync1.PNG)
+![h sync2] (Images/h_sync2.PNG)
+
+![v sync] (Images/v_sync.PNG)
+
+![blank] (Images/blank1.PNG)
+![blank2] (Images/blank2.PNG)
+![blank3] (Images/blank3.PNG)
+![blank4] (Images/blank4.PNG)
+
+![one line] (Images/one_line.PNG)
 
 #### Code:
 

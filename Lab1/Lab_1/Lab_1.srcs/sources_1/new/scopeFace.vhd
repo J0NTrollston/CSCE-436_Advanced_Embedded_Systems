@@ -23,8 +23,8 @@ use IEEE.NUMERIC_STD.ALL;
 entity scopeFace is
     Port (row:          in  unsigned(9 downto 0);
           column:       in  unsigned(9 downto 0);
-		  trigger_volt: in unsigned (9 downto 0);
-		  trigger_time: in unsigned (9 downto 0);
+		  trigger_volt: in unsigned (9 downto 0) := to_unsigned(220,10);
+		  trigger_time: in unsigned (9 downto 0) := to_unsigned(220,10);
           r:            out  std_logic_vector(7 downto 0);
           g:            out  std_logic_vector(7 downto 0);
           b:            out  std_logic_vector(7 downto 0);
@@ -35,76 +35,86 @@ entity scopeFace is
 end scopeFace;
 
 architecture Behavioral of scopeFace is
-    signal red, green, yellow, white : std_logic;
-
+    signal red, green, yellow, white, verticle_lines, horizontal_lines, trigger_v, trigger_t, hatch_v, hatch_h,G_temp: std_logic;
 begin
-    R <= x"FF" when (red = '1') or (white = '1') or (yellow = '1') else "00";
-    G <= x"FF" when (white = '1') or (yellow = '1') else x"00";
+    R <= x"FF" when (red = '1') or (white = '1') or (yellow = '1') else x"00";
+    G <= x"FF" when (white = '1') or (yellow = '1') or (G_temp = '1') else x"00";
     B <= x"FF" when (white = '1') else x"00";
     
+    
+    --yellow diagonal line
+    yellow <= '1' when (row = column) else '0';
+    
+    --green line
+    G_temp <= '1' when (row = 440-column) else '0';
+    
+    
     --all verticle white lines
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"20") else '0';
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"80") else '0';
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"140") else '0';
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"200") else '0';
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"260") else '0';
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"320") else '0';
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"380") else '0';
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"440") else '0';
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"500") else '0';
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"560") else '0';
-    white <= '1' when (row >= x"20") and (row <= x"420") and (column = x"620") else '0';
+    verticle_lines <= '1' when ((row >= 20) and (row <= 420) and (column = 20)) 
+                            or ((row >= 20) and (row <= 420) and (column = 80))
+                            or ((row >= 20) and (row <= 420) and (column = 140)) 
+                            or ((row >= 20) and (row <= 420) and (column = 200)) 
+                            or ((row >= 20) and (row <= 420) and (column = 260)) 
+                            or ((row >= 20) and (row <= 420) and (column = 320)) 
+                            or ((row >= 20) and (row <= 420) and (column = 380)) 
+                            or ((row >= 20) and (row <= 420) and (column = 440)) 
+                            or ((row >= 20) and (row <= 420) and (column = 500)) 
+                            or ((row >= 20) and (row <= 420) and (column = 560)) 
+                            or ((row >= 20) and (row <= 420) and (column = 620)) else '0';
     
     --all horizontal white lines
-    white <= '1' when (column >= x"20") and (column <= x"620") and (row = x"20") else '0';
-    white <= '1' when (column >= x"20") and (column <= x"620") and (row = x"70") else '0';
-    white <= '1' when (column >= x"20") and (column <= x"620") and (row = x"120") else '0';
-    white <= '1' when (column >= x"20") and (column <= x"620") and (row = x"170") else '0';
-    white <= '1' when (column >= x"20") and (column <= x"620") and (row = x"220") else '0';
-    white <= '1' when (column >= x"20") and (column <= x"620") and (row = x"270") else '0';
-    white <= '1' when (column >= x"20") and (column <= x"620") and (row = x"320") else '0';
-    white <= '1' when (column >= x"20") and (column <= x"620") and (row = x"370") else '0';
-    white <= '1' when (column >= x"20") and (column <= x"620") and (row = x"420") else '0';
+   horizontal_lines <= '1' when ((column >= 20) and (column <= 620) and (row = 20)) 
+                            or ((column >= 20) and (column <= 620) and (row = 70)) 
+                            or ((column >= 20) and (column <= 620) and (row = 120)) 
+                            or ((column >= 20) and (column <= 620) and (row = 170)) 
+                            or ((column >= 20) and (column <= 620) and (row = 220)) 
+                            or ((column >= 20) and (column <= 620) and (row = 270)) 
+                            or ((column >= 20) and (column <= 620) and (row = 320))
+                            or ((column >= 20) and (column <= 620) and (row = 370))
+                            or ((column >= 20) and (column <= 620) and (row = 420)) else '0';
     
     
-    --draw trigger vold
-    white <= '1' when ( column = x"21") and (row = trigger_volt+2) else '0';
-    white <= '1' when ( column = x"21") and (row = trigger_volt+1) else '0';
-    white <= '1' when ( column = x"21") and (row = trigger_volt) else '0';
-    white <= '1' when ( column = x"21") and (row = trigger_volt-1) else '0';
-    white <= '1' when ( column = x"21") and (row = trigger_volt-2) else '0';
-    
-    white <= '1' when ( column = x"22") and (row = trigger_volt-1) else '0';
-    white <= '1' when ( column = x"22") and (row = trigger_volt) else '0';
-    white <= '1' when ( column = x"22") and (row = trigger_volt+1) else '0';
-    
-    white <= '1' when ( column = x"23") and (row = trigger_volt) else '0';
+    --draw trigger volt
+    trigger_v <= '1' when ((column = 21) and (row = trigger_volt+2)) 
+                           or((column = 21) and (row = trigger_volt+1)) 
+                           or ((column = 21) and (row = trigger_volt)) 
+                           or ((column = 21) and (row = trigger_volt-1)) 
+                           or ((column = 21) and (row = trigger_volt-2)) 
+                                
+                           or ((column = 22) and (row = trigger_volt-1)) 
+                           or ((column = 22) and (row = trigger_volt)) 
+                           or ((column = 22) and (row = trigger_volt+1)) 
+                                
+                           or ((column = 23) and (row = trigger_volt)) else '0';
     
     --draw trigger time
-    white <= '1' when (row = x"21") and (column = trigger_time-2) else '0';
-    white <= '1' when (row = x"21") and (column = trigger_time-1) else '0';
-    white <= '1' when (row = x"21") and (column = trigger_time) else '0';
-    white <= '1' when (row = x"21") and (column = trigger_time+1) else '0';
-    white <= '1' when (row = x"21") and (column = trigger_time+2) else '0';
-    
-    white <= '1' when (row = x"22") and (column = trigger_time-1) else '0';
-    white <= '1' when (row = x"22") and (column = trigger_time) else '0';
-    white <= '1' when (row = x"22") and (column = trigger_time+1) else '0';
-    
-    white <= '1' when (row = x"23") and (column = trigger_time) else '0';
+    trigger_t <= '1' when ((row = 21) and (column = trigger_time-2)) 
+                           or ((row = 21) and (column = trigger_time-1)) 
+                           or ((row = 21) and (column = trigger_time)) 
+                           or ((row = 21) and (column = trigger_time+1)) 
+                           or ((row = 21) and (column = trigger_time+2)) 
+                            
+                           or ((row = 22) and (column = trigger_time-1))
+                           or ((row = 22) and (column = trigger_time)) 
+                           or ((row = 22) and (column = trigger_time+1)) 
+                            
+                           or ((row = 23) and (column = trigger_time)) else '0';
     
     --verticle hatch marks
-    white <= '1' when ((column = x"319") or (column = x"321") or (column = x"322") or (column = x"318")) and ((row = x"30") or (row = x"40") or (row = x"50") or (row = x"60")
-    or (row = x"80") or (row = x"90") or (row = x"100") or (row = x"110") or (row = x"130") or (row = x"140") or (row = x"150")
-    or (row = x"160") or (row = x"180") or (row = x"190") or (row = x"200") or (row = x"210") or (row = x"230") or (row = x"240")
-    or (row = x"250") or (row = x"260") or (row = x"280") or (row = x"290") or (row = x"300") or (row = x"310") or (row = x"330")
-    or (row = x"340") or (row = x"350")or (row = x"360") or (row = x"380") or (row = x"390") or (row = x"400") or (row = x"410")) else '0';
+    hatch_v <= '1' when ((column = 319) or (column = 321) or (column = 322) or (column = 318)) and ((row = 30) 
+    or (row = 40)  or (row = 50)  or (row = 60)  or (row = 80)  or (row = 90)  or (row = 100) or (row = 110)
+    or (row = 130) or (row = 140) or (row = 150) or (row = 160) or (row = 180) or (row = 190) or (row = 200) 
+    or (row = 210) or (row = 230) or (row = 240) or (row = 250) or (row = 260) or (row = 280) or (row = 290) 
+    or (row = 300) or (row = 310) or (row = 330) or (row = 340) or (row = 350) or (row = 360) or (row = 380) 
+    or (row = 390) or (row = 400) or (row = 410)) else '0';
     
     --horizontal hatch marks
-    white <= '1' when ((row = x"219") or (row = x"221")or (row = x"222") or (row = x"218")) and ((column = x"35") or (column = x"50") or (column = x"65") or (column = x"95")
-    or (column = x"110") or (column = x"125") or (column = x"155") or (column = x"170") or (column = x"185") or (column = x"215")
-    or (column = x"230") or (column = x"245") or (column = x"275") or (column = x"290") or (column = x"305") or (column = x"335")
-    or (column = x"350") or (column = x"365") or (column = x"395") or (column = x"410") or (column = x"425") or (column = x"455")
-    or (column = x"470") or (column = x"485") or (column = x"515") or (column = x"530") or (column = x"545") or (column = x"575")
-    or (column = x"590") or (column = x"605")) else '0';
+    hatch_h <= '1' when ((row = 219) or (row = 221)or (row = 222) or (row = 218)) and ((column = 35) or (column = 50) or (column = 65) or (column = 95)
+    or (column = 110) or (column = 125) or (column = 155) or (column = 170) or (column = 185) or (column = 215)
+    or (column = 230) or (column = 245) or (column = 275) or (column = 290) or (column = 305) or (column = 335)
+    or (column = 350) or (column = 365) or (column = 395) or (column = 410) or (column = 425) or (column = 455)
+    or (column = 470) or (column = 485) or (column = 515) or (column = 530) or (column = 545) or (column = 575)
+    or (column = 590) or (column = 605)) else '0';
+    
+    white <= verticle_lines or horizontal_lines or trigger_v or trigger_t or hatch_v or hatch_h;
 end Behavioral;

@@ -66,10 +66,39 @@ architecture Behavioral of vga is ----------------------------------------------
 --			blank: out std_logic;
             Q:     out unsigned(9 downto 0));
     end component;
+    
+    component scopeFace is
+    Port (row:          in  unsigned(9 downto 0);
+          column:       in  unsigned(9 downto 0);
+		  trigger_volt: in unsigned (9 downto 0);
+		  trigger_time: in unsigned (9 downto 0);
+          r:            out  std_logic_vector(7 downto 0);
+          g:            out  std_logic_vector(7 downto 0);
+          b:            out  std_logic_vector(7 downto 0);
+		  ch1:          in std_logic;
+		  ch1_enb:      in std_logic;
+		  ch2:          in std_logic;
+		  ch2_enb:      in std_logic);
+end component;
 
 begin ----------------------------------------------------
 glue_s <= col_roll;
 --blank <= h_blank or v_blank;
+
+    scope: scopeFace
+    port map(
+          row => row_s,
+          column => column_s,  
+		  trigger_volt => trigger_volt,
+		  trigger_time => trigger_time,
+          r => r,
+          g => g,           
+          b => b,           
+		  ch1 => ch1,        
+		  ch1_enb => ch1_enb,     
+		  ch2 => ch2,        
+		  ch2_enb => ch2_enb);
+
 
     --Column counter will go up to 800
     Column_Counter: Counter
@@ -108,11 +137,18 @@ glue_s <= col_roll;
          
     h_sync <= '0' when ((column_s >= 655) and (column_s < 751)) else '1';
     v_sync <= '0' when ((row_s >= 489) and (row_s < 491)) else '1';
-    blank <= '1' when ( ((column_s >= 639) and (column_s < 655)) 
-            or ((row_s >=479) and (row_s < 489))
-            or ( (column_s >= 751) and (column_s < 799))
-            or ( (row_s >= 491) and (row_s < 524))) else '0';
+--    blank <= '1' when ( ((column_s > 639) and (column_s < 655)) 
+--            or ((row_s >=479) and (row_s < 489))
+--            or ( (column_s >= 751) and (column_s < 799))
+--            or ( (row_s >= 491) and (row_s < 524))) else '0';
+    blank <= '1' when (column_s > 639) or
+                (row_s > 479) else '0';
+    
     row <= row_s;
     column <= column_s;
     
+    
+--    R <= x"00";
+--    G <= x"FF";
+--    B <= x"00";
 end Behavioral;----------------------------------------------------------------------
