@@ -78,7 +78,7 @@ Show the blank signals going high, low, and high in relation to v count and h co
 ![blank4] (Images/blank4.PNG)
 
 Created the scopeFace module to draw at least one line on the display
-![one line] (Images/one_line.JPG)
+![one line] (Images/one_line.PNG)
 
 #### Code:
 
