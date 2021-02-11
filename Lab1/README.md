@@ -215,10 +215,10 @@ Behavior: The VGA component contains a pair of cascaded counters which generate 
 Inside the VGA module sits an instance of the scopeFace entity. This entity only contains combinational logic. 
 When given a row,column pair, its responsible for generating the R,G,B value of that pixel.
 
-	entity scopeFace is
-    		Port ( row : in  unsigned(9 downto 0);
+entity scopeFace is
+    Port ( row : in  unsigned(9 downto 0);
            column : in  unsigned(9 downto 0);
-			      trigger_volt: in unsigned (9 downto 0);
+			  trigger_volt: in unsigned (9 downto 0);
 			  trigger_time: in unsigned (9 downto 0);
            r : out  std_logic_vector(7 downto 0);
            g : out  std_logic_vector(7 downto 0);
@@ -227,7 +227,7 @@ When given a row,column pair, its responsible for generating the R,G,B value of 
 			  ch1_enb: in std_logic;
 			  ch2: in std_logic;
 			  ch2_enb: in std_logic);
-	end scopeFace;
+end scopeFace;
 
 Below will give an understanding on what each I/O port does in the entity.
 
