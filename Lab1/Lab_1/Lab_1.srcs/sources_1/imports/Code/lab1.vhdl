@@ -52,13 +52,57 @@ architecture structure of lab1 is
 
 begin
 
-
+    ch1_wave <= '1' when row = column else '0';
+    ch2_wave <= '1' when (row = 440-column) else '0';
 	------------------------------------------------------------------------------
 	-- the variable button_activity will contain a '1' in any position which 
 	-- has been pressed or released.  The buttons are all nominally 0
 	-- and equal to 1 when pressed.
+--	   button_activity <= (old_button xor btn) and btn;
 	------------------------------------------------------------------------------
-
+	-- The buttons are all nominally 0 and equal to 1 when pressed.
+	--      btn(3) = '1'			Right
+	--		btn(1) = '1'			Left
+	--		btn(2) = '1'			Down
+	--		btn(0) = '1'			Up
+	--		btn(4) = '1'			Center
+	------------------------------------------------------------------------------	
+	process(clk)
+	begin
+		if (rising_edge(clk)) then
+			button_activity <= (old_button xor btn) and btn;
+			--Reset trigger
+			if (button_activity(4) = '1') then
+				trigger_time <= to_unsigned(320,10);
+				trigger_volt <= to_unsigned(220,10);
+		    --Move trigger right
+			elsif (button_activity(3) = '1') then
+			     if(trigger_time+10 <= 620) then
+			         trigger_time <= trigger_time + 10;
+			     end if;
+			
+		    --Move trigger left
+			elsif (button_activity(1) = '1') then
+			     if(trigger_time - 10 >= 20) then
+				    trigger_time <= trigger_time - 10;
+				 end if;
+				
+		    --Move trigger up
+			elsif (button_activity(0) = '1') then
+			     if(trigger_volt - 10 >= 20) then
+				    trigger_volt <= trigger_volt - 10;
+				 end if;
+				 
+			--Move trigger down
+		    elsif (button_activity(2) = '1') then
+		      if(trigger_volt + 10 <= 420) then
+				trigger_volt <= trigger_volt + 10;
+		      end if;
+			end if;
+			
+			old_button <= btn;
+		end if;
+	end process;
 
 	------------------------------------------------------------------------------
 	-- If a button has been pressed then increment of decrement the trigger vars

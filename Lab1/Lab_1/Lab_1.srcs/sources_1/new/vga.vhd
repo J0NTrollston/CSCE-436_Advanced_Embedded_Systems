@@ -137,18 +137,11 @@ glue_s <= col_roll;
          
     h_sync <= '0' when ((column_s >= 655) and (column_s < 751)) else '1';
     v_sync <= '0' when ((row_s >= 489) and (row_s < 491)) else '1';
---    blank <= '1' when ( ((column_s > 639) and (column_s < 655)) 
---            or ((row_s >=479) and (row_s < 489))
---            or ( (column_s >= 751) and (column_s < 799))
---            or ( (row_s >= 491) and (row_s < 524))) else '0';
+
     blank <= '1' when (column_s > 639) or
                 (row_s > 479) else '0';
     
     row <= row_s;
     column <= column_s;
-    
-    
---    R <= x"00";
---    G <= x"FF";
---    B <= x"00";
+   
 end Behavioral;----------------------------------------------------------------------
