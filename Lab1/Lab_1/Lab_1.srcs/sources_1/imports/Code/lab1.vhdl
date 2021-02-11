@@ -75,6 +75,8 @@ begin
 			if (button_activity(4) = '1') then
 				trigger_time <= to_unsigned(320,10);
 				trigger_volt <= to_unsigned(220,10);
+				button_activity <= (others => '0');
+				old_button <= (others => '0');
 		    --Move trigger right
 			elsif (button_activity(3) = '1') then
 			     if(trigger_time+10 <= 620) then
