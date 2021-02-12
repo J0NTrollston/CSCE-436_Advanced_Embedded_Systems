@@ -291,15 +291,18 @@ one to rollover and count up the next counter. Instead what happened is that it 
 early or too late. This was due to the roll signal that was having a problem with timing. So when the counter
 was up to the limit minus one, I would set a rollcombo signal that would get ready to roll the next counter. 
 This was an easy fix and would be used from then on.
+
 The next problem was when I was setting the blanking signals. the issue was the timing as well with length of 
 blanking, and sync. This was fixed by changing the different values of when the timing was for blanks. I found
 that it would typically be off by one since I usually had to only add an "=" sign to my comparison of "<".
+
 My big problem that confused me the most was the initial values of the trigger marks. My intension was to have
 the trigger marks set up in the center line of their respective verticle and horizontal lines were, instead
 they stayed at the initial marks at zero. My first goal was to go to the top level and change the initial 
 value of the marks but that kept them at zero still. So at this point I knew they had to be reset before they
 could be printed. So when I created the buttons, I also created a reset signal that put them at their marks.
 This was a fix and no problems arised after. 
+
 My last problem was the debouncing of the buttons. To fix this I had to check if the buttons had pull-down
 or pull-up resistors and find out how to reset. In lab, we were given a button_activity variable that basically
 debounced the buttons for us. It XOR'd old_button and button_activity together to see if anything was changed.
@@ -321,11 +324,13 @@ and y axis for the triggers. To test this I would check again the simulation to 
 The purpose of this lab wa to implement a VHDL program on our FPGA to display pixels on the screen for graphing
 an O'scope. The VGA to HDMI module will automatically format the output to HDMI. I was able to create the
 scope face with trigger marks and hatch marks.
+
 During the project, what I have noticed that was critical to getting the VGA sync done was to make sure the
 timing of the signals were on time. Now as long as you were in the give or take one pixle from your blanking
 target, you didn't have any problem. Noticing the give in the signal processing, there were students having 
 trouble displaying a line on their screen and I can almost guarentee that it came down to timing of the sync,
 blank and display signals. Otherwise it could be a bigger problem such as a faulty board. 
+
 Something to take away from this lab would be that the protocol for displaying pixles may be the same, but the
 history on where sync and blanking came from is an interesting concept to learn. Given that, creating the code
 had to be exact. Using this information that I was given for this lab, I will be able to add on to this with
@@ -333,3 +338,4 @@ the soon to be lab 2.
 
 ### Documentation
 Further help outside lecture time was provided by Professor Falkinburg and Jacob Fox (TA)
+References to the Nexys Video Board Reference Manual such as if a button was pull-down or pull-up.
