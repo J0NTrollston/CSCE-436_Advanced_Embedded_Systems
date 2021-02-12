@@ -54,11 +54,12 @@ begin
 
     ch1_wave <= '1' when row = column else '0';
     ch2_wave <= '1' when (row = 440-column) else '0';
+    
 	------------------------------------------------------------------------------
 	-- the variable button_activity will contain a '1' in any position which 
 	-- has been pressed or released.  The buttons are all nominally 0
 	-- and equal to 1 when pressed.
---	   button_activity <= (old_button xor btn) and btn;
+    -- button_activity <= (old_button xor btn) and btn;
 	------------------------------------------------------------------------------
 	-- The buttons are all nominally 0 and equal to 1 when pressed.
 	--      btn(3) = '1'			Right
@@ -71,12 +72,14 @@ begin
 	begin
 		if (rising_edge(clk)) then
 			button_activity <= (old_button xor btn) and btn;
+			
 			--Reset trigger
 			if (button_activity(4) = '1') then
 				trigger_time <= to_unsigned(320,10);
 				trigger_volt <= to_unsigned(220,10);
 				button_activity <= (others => '0');
 				old_button <= (others => '0');
+				
 		    --Move trigger right
 			elsif (button_activity(3) = '1') then
 			     if(trigger_time+10 <= 620) then
@@ -106,12 +109,6 @@ begin
 		end if;
 	end process;
 
-	------------------------------------------------------------------------------
-	-- If a button has been pressed then increment of decrement the trigger vars
-	------------------------------------------------------------------------------
-	
-	------------------------------------------------------------------------------
-	------------------------------------------------------------------------------
 	video_inst: video port map( 
 		clk          => clk,
 		reset_n      => reset_n,
@@ -126,6 +123,4 @@ begin
 		ch2          => ch2_wave,
 		ch2_enb      => ch2_wave
 		                          ); 
-
-	
 end structure;

@@ -39,7 +39,7 @@ entity vga is
 			ch2_enb:      in std_logic);
 end vga;
 
-architecture Behavioral of vga is ---------------------------------------------------
+architecture Behavioral of vga is 
 
     --Signals for the glue between the counters rollover
     signal col_roll: std_logic;
@@ -51,19 +51,13 @@ architecture Behavioral of vga is ----------------------------------------------
     
     --Create an object of the counter module
     component Counter
-    generic(countLimit: integer;
-            synch_i:    integer;
-            synch_f:    integer;
-            blank_i:    integer;
-            blank_f:    integer);
+    generic(countLimit: integer);
             
         port(
             clk:   in  std_logic;
             reset: in  std_logic;
             ctrl:  in  std_logic;
             roll:  out std_logic;
---            synch: out std_logic;
---			blank: out std_logic;
             Q:     out unsigned(9 downto 0));
     end component;
     
@@ -81,9 +75,8 @@ architecture Behavioral of vga is ----------------------------------------------
 		  ch2_enb:      in std_logic);
 end component;
 
-begin ----------------------------------------------------
+begin
 glue_s <= col_roll;
---blank <= h_blank or v_blank;
 
     scope: scopeFace
     port map(
@@ -102,37 +95,23 @@ glue_s <= col_roll;
 
     --Column counter will go up to 800
     Column_Counter: Counter
-    generic map(countLimit => 799,
-                synch_i => 0,
-                synch_f => 639,
-                blank_i => 640,
-                blank_f => 800
-                )
+    generic map(countLimit => 799)
     port map(
         clk   => clk,
         reset => reset_n,
         ctrl  => '1',
         roll  => col_roll,
         Q     => column_S
---        synch => h_synch
---        blank => blank
         );
     
     --Row counter will go up to 525
     Row_Counter: Counter 
-    generic map(countLimit => 524,
-                synch_i => 0,
-                synch_f => 479,
-                blank_i => 480,
-                blank_f => 525)
+    generic map(countLimit => 524)
     port map(
          clk   => clk,
          reset => reset_n,
          ctrl  => glue_s,
-         --roll
          Q     => row_s
---         synch => v_synch--get rid of
---         blank => blank
          );
          
     h_sync <= '0' when ((column_s >= 655) and (column_s < 751)) else '1';
@@ -144,4 +123,4 @@ glue_s <= col_roll;
     row <= row_s;
     column <= column_s;
    
-end Behavioral;----------------------------------------------------------------------
+end Behavioral;

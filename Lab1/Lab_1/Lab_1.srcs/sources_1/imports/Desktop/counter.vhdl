@@ -22,18 +22,12 @@ use IEEE.NUMERIC_STD.ALL;
 
 -- This will be the counter with I/O
 entity Counter is
-    generic( countLimit:  integer;
-             blank_i:     integer;
-             blank_f:     integer;
-             synch_i:     integer;
-             synch_f:     integer);
+    generic( countLimit:  integer);
         
 	Port(	clk:   in  std_logic;
 			reset: in  std_logic;
 			ctrl:  in  std_logic;
 			roll:  out std_logic;
---			synch: out std_logic;
---			blank: out std_logic;
 			Q:	   out unsigned(9 downto 0));
 end Counter;
 

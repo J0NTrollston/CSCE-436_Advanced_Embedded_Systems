@@ -32,10 +32,15 @@ entity scopeFace is
 		  ch1_enb:      in std_logic;
 		  ch2:          in std_logic;
 		  ch2_enb:      in std_logic);
+		  
 end scopeFace;
 
 architecture Behavioral of scopeFace is
-    signal red, green, yellow, white, verticle_lines, horizontal_lines, trigger_v, trigger_t, hatch_v, hatch_h,G_temp, inside_border: std_logic;
+
+    signal red, green, yellow, white, 
+        verticle_lines, horizontal_lines,
+        trigger_v, trigger_t, hatch_v, 
+        hatch_h,G_temp, inside_border: std_logic;
 begin
     R <= x"FF" when  ((inside_border = '1') and ((red = '1') or (white = '1') or (yellow = '1'))) else x"00";
     G <= x"FF" when  ((inside_border = '1') and ((white = '1') or (yellow = '1') or (G_temp = '1'))) else x"00";
@@ -46,11 +51,9 @@ begin
     
     
     --yellow diagonal line
---    yellow <= '1' when (row = column) else '0';
     yellow <= '1' when ch1 = '1' else '0';
     
-    --green line
---    G_temp <= '1' when (row = 440-column) else '0';  
+    --green line 
     G_temp <= '1' when ch2 = '1' else '0';
     
     

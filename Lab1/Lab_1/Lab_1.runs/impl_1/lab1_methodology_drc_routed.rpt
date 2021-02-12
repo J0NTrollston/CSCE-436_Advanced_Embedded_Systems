@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Wed Feb 10 18:47:19 2021
+| Date         : Fri Feb 12 14:02:30 2021
 | Host         : QuitStealingMyPaper running 64-bit major release  (build 9200)
 | Command      : report_methodology -file lab1_methodology_drc_routed.rpt -pb lab1_methodology_drc_routed.pb -rpx lab1_methodology_drc_routed.rpx
 | Design       : lab1
@@ -182,7 +182,7 @@ Related violations: <none>
 
 CKLD-2#1 Warning
 Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads  
-Clock net clk_IBUF is directly driven by an IO rather than a Clock Buffer or may be an IO driving a mix of Clock Buffer and non-Clock loads. This connectivity should be reviewed and corrected as appropriate. Driver(s): old_button_reg[0]/C, button_activity_reg[0]/C, button_activity_reg[2]/C, old_button_reg[1]/C, old_button_reg[2]/C, button_activity_reg[1]/C, button_activity_reg[3]/C, button_activity_reg[4]/C, old_button_reg[4]/C, old_button_reg[3]/C, trigger_time_reg[2]/C, trigger_time_reg[6]/C, trigger_time_reg[5]/C, trigger_time_reg[1]/C, trigger_time_reg[4]/C (the first 15 of 30 listed)
+Clock net clk_IBUF is directly driven by an IO rather than a Clock Buffer or may be an IO driving a mix of Clock Buffer and non-Clock loads. This connectivity should be reviewed and corrected as appropriate. Driver(s): button_activity_reg[3]/C, button_activity_reg[2]/C, button_activity_reg[4]/C, button_activity_reg[1]/C, button_activity_reg[0]/C, old_button_reg[2]/C, old_button_reg[0]/C, old_button_reg[1]/C, old_button_reg[3]/C, old_button_reg[4]/C, trigger_time_reg[1]/C, trigger_time_reg[2]/C, trigger_time_reg[3]/C, trigger_time_reg[7]/C, trigger_time_reg[9]/C (the first 15 of 30 listed)
 Related violations: <none>
 
 XDCC-2#1 Warning

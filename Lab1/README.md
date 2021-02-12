@@ -105,6 +105,84 @@ and trigger/trigger lines.
 ##### Picture of grid pattern working
 ![one line] (Images/one_line.PNG)
 
+#### Required Functionality
+For Required Functionality, the code will generate the white oscilloscope grid pattern shown in the picture
+below. Also, there will be two channel traces.
+The channel 1 trace (yellow) along a diagonal where (row = column).
+The channel 2 trace (green) should be drawn along a diagonal where (row = 440-column).
+This test code should be placed in the Lab1 entity.
+The code below can be seen in the Lab1 entity on the top level, from there it goes to the scopeFace
+module and gets printed out to the screen.
+
+	ch1_wave <= '1' when row = column else '0';
+	ch2_wave <= '1' when (row = 440-column) else '0';
+
+##### Complete Grid Pattern
+![complete grid] (Images/complete.PNG)
+
+#### A-level functionality
+A-level functionality is shown in the Figure in the Lab Overview section at the top of the page. In addition 
+to drawing the display, the display must update when one of the buttons is pressed according to the list below.
+Pressing the upper directional button (BTNU) once should move the Trigger Level Marker up.
+Pressing the lower directional button (BTND) once should move the Trigger Level Marker down.
+Pressing the left directional button (BTNL) once should move the Trigger Time Marker left.
+Pressing the right directional button (BTNR) once should move the Trigger Time Marker right.
+In order to achieve this level of functionality, you will need to implement the Process blocks in the Lab1 
+entity in the schematic. The code for this is shown below. For video proof of A-level functionality, the 
+documentatin will supply a YouTube link to my channel showing the button-to-trigger movement.
+
+	------------------------------------------------------------------------------
+	-- the variable button_activity will contain a '1' in any position which 
+	-- has been pressed or released.  The buttons are all nominally 0
+	-- and equal to 1 when pressed.
+    	-- button_activity <= (old_button xor btn) and btn;
+	------------------------------------------------------------------------------
+	-- The buttons are all nominally 0 and equal to 1 when pressed.
+	--      btn(3) = '1'			Right
+	--		btn(1) = '1'			Left
+	--		btn(2) = '1'			Down
+	--		btn(0) = '1'			Up
+	--		btn(4) = '1'			Center
+	------------------------------------------------------------------------------	
+	process(clk)
+	begin
+		if (rising_edge(clk)) then
+			button_activity <= (old_button xor btn) and btn;
+			--Reset trigger
+			if (button_activity(4) = '1') then
+				trigger_time <= to_unsigned(320,10);
+				trigger_volt <= to_unsigned(220,10);
+				button_activity <= (others => '0');
+				old_button <= (others => '0');
+		    --Move trigger right
+			elsif (button_activity(3) = '1') then
+			     if(trigger_time+10 <= 620) then
+			         trigger_time <= trigger_time + 10;
+			     end if;
+			
+		    --Move trigger left
+			elsif (button_activity(1) = '1') then
+			     if(trigger_time - 10 >= 20) then
+				    trigger_time <= trigger_time - 10;
+				 end if;
+				
+		    --Move trigger up
+			elsif (button_activity(0) = '1') then
+			     if(trigger_volt - 10 >= 20) then
+				    trigger_volt <= trigger_volt - 10;
+				 end if;
+				 
+			--Move trigger down
+		    elsif (button_activity(2) = '1') then
+		      if(trigger_volt + 10 <= 420) then
+				trigger_volt <= trigger_volt + 10;
+		      end if;
+			end if;
+			
+			old_button <= btn;
+		end if;
+	end process;
+
 #### Code:
 
 Starting off with a module to count the rows and columns. This is done with an entity that is used twice where we
@@ -339,3 +417,6 @@ the soon to be lab 2.
 ### Documentation
 Further help outside lecture time was provided by Professor Falkinburg and Jacob Fox (TA)
 References to the Nexys Video Board Reference Manual such as if a button was pull-down or pull-up.
+
+YouTube link for button-to-trigger movement:
+	https://www.youtube.com/watch?v=YQk22W4hNbg
