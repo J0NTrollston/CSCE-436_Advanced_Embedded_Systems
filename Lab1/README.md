@@ -1,21 +1,17 @@
 # Lab 1 - VGA Synchronization
 ## CSCE 436 - Advanced Embedded Systems
-
 ## By Brandon Ramos
 
 ## Table of Contents (not required but makes things easy to read)
 1. [Objectives or Purpose](#objectives-or-purpose)
 2. [Preliminary Design](#preliminary-design)
  * [Code](#code)
-3. [Software flow chart or algorithms](#software-flow-chart-or-algorithms)
- * [Pseudocode](#pseudocode)
-4. [Hardware schematic](#hardware-schematic)
-5. [Well-formatted code](#well-formatted-code)
-6. [Debugging](#debugging)
-7. [Testing methodology or results](#testing-methodology-or-results)
-8. [Answers to Lab Questions](#answers-to-lab-questions)
-8. [Observations and Conclusions](#observations-and-conclusions)
-9. [Documentation](#documentation)
+3. [Hardware schematic](#hardware-schematic)
+4. [Well-formatted code](#well-formatted-code)
+5. [Debugging](#debugging)
+6. [Testing methodology or results](#testing-methodology-or-results)
+7. [Observations and Conclusions](#observations-and-conclusions)
+8. [Documentation](#documentation)
  
 ### Objectives or Purpose
 In this lab, you will write a VGA controller in VHDL and implement it on your FPGA development board. 
@@ -127,10 +123,7 @@ cascade them together to get a rollover. One is a mod 525 counter and the other 
 			end if;
 		end if;
 	end process;
-	
-### Software flow chart or algorithms
-All coding include a pseudocode flow charts and algorithms defined your code and the algorithms used. 
- Visio or PowerPoint works well for this!
+
 
 #### Pseudocode:
 Insert pseudocode or flowchart here.
@@ -216,13 +209,13 @@ Inside the VGA module sits an instance of the scopeFace entity. This entity only
 When given a row,column pair, its responsible for generating the R,G,B value of that pixel.
 
 	entity scopeFace is
-    	Port ( row : in  unsigned(9 downto 0);
-           	column : in  unsigned(9 downto 0);
+    	Port (  row : in  unsigned(9 downto 0);
+           	    column : in  unsigned(9 downto 0);
 			  	trigger_volt: in unsigned (9 downto 0);
 			  	trigger_time: in unsigned (9 downto 0);
-           	r : out  std_logic_vector(7 downto 0);
-           	g : out  std_logic_vector(7 downto 0);
-           	b : out  std_logic_vector(7 downto 0);
+           	    r : out  std_logic_vector(7 downto 0);
+           	    g : out  std_logic_vector(7 downto 0);
+           	    b : out  std_logic_vector(7 downto 0);
 			  	ch1: in std_logic;
 			  	ch1_enb: in std_logic;
 			  	ch2: in std_logic;
@@ -284,28 +277,32 @@ a good answer.  Describe the problems you had and what you did to fix it.  Again
 I would say commit early and often and start your notebook when you start your code.
 
 ### Testing methodology or results
-Detail the steps in getting the results you system is designed to achieve.  Have enough detail 
-that someone can come behind and reproduce your results.
-
+Some testing to get the scopeface to work can take some time, especially when you build a bit file. Instead,
+simulating using a testbench can take less time and show you crutial information such as bus transger and logic
+information. The first testing method that was used was in the beginning with gate check 1. To check if the
+counter was going up correctly, we simulated and checked out the waveform that was produced with a clock. On 
+the other hand when working with trying to get the line drawn on the screen. First thing I did was to make sure
+my RGB signal is being outputted properly. Thankfully the simulation is quicker and you are able to see if the
+"G" signal is being outputted as x"FF" for a green screen.
+The last testing method was with the buttons. This is where we would move the trigger marks and change the x
+and y axis for the triggers. To test this I would check again the simulation to see if the trigger values change
++- 10 units. 
 
 ##### Figure 1: Memory Dump Label (Always include figure AND table labels!)
 
-### Answers to Lab Questions
-Here is where you would answer any lab questions given in the lab writeup.
-
 ### Observations and Conclusions
+The purpose of this lab wa to implement a VHDL program on our FPGA to display pixels on the screen for graphing
+an O'scope. The VGA to HDMI module will automatically format the output to HDMI. I was able to create the
+scope face with trigger marks and hatch marks.
 During the project, what I have noticed that was critical to getting the VGA sync done was to make sure the
 timing of the signals were on time. Now as long as you were in the give or take one pixle from your blanking
 target, you didn't have any problem. Noticing the give in the signal processing, there were students having 
 trouble displaying a line on their screen and I can almost guarentee that it came down to timing of the sync,
 blank and display signals. Otherwise it could be a bigger problem such as a faulty board. 
 Something to take away from this lab would be that the protocol for displaying pixles may be the same, but the
-history on where sync and blanking came from is an interesting concept to learn. Given that, 
-
-
-During this whole assignment, what did you learn?  What did you notice that was noteworthy?  This
- should be a paragraph starting with the purpose, whether or not you achieved that purpose, what 
-you learned, and how you can use this for future labs.
+history on where sync and blanking came from is an interesting concept to learn. Given that, creating the code
+had to be exact. Using this information that I was given for this lab, I will be able to add on to this with
+the soon to be lab 2. 
 
 ### Documentation
 Further help outside lecture time was provided by Professor Falkinburg and Jacob Fox (TA)
