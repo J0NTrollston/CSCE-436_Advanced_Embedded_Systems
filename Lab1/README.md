@@ -6,12 +6,14 @@
 1. [Objectives or Purpose](#objectives-or-purpose)
 2. [Preliminary Design](#preliminary-design)
  * [Code](#code)
-3. [Hardware schematic](#hardware-schematic)
-4. [Well-formatted code](#well-formatted-code)
-5. [Debugging](#debugging)
-6. [Testing methodology or results](#testing-methodology-or-results)
-7. [Observations and Conclusions](#observations-and-conclusions)
-8. [Documentation](#documentation)
+3. [Software flow chart or algorithms](#software-flow-chart-or-algorithms)
+4. [Hardware schematic](#hardware-schematic)
+5. [Well-formatted code](#well-formatted-code)
+6. [Debugging](#debugging)
+7. [Testing methodology or results](#testing-methodology-or-results)
+8. [Answers to Lab Questions](#answers-to-lab-questions)
+9. [Observations and Conclusions](#observations-and-conclusions)
+10. [Documentation](#documentation)
  
 ### Objectives or Purpose
 In this lab, you will write a VGA controller in VHDL and implement it on your FPGA development board. 
@@ -216,6 +218,15 @@ cascade them together to get a rollover. One is a mod 525 counter and the other 
 		end if;
 	end process;
 
+### Software flow chart or algorithms
+The main idea of the first lab is to get the counter incrementing the display column and rows. This
+by default will give us the individual pixels on the screen where we can tell the diplay what pixels
+need to be white, yellow or green. Depending on the row and column index, we print out the different
+colors to the screen.
+
+##### Flow Chart of displaying pixels to screen
+![flow chart] (Images/chart1.PNG)
+
 ### Hardware schematic
 #### The VGA Module
 The main task is to build the VGA component for Lab1. This component sweeps across the display from 
@@ -397,6 +408,13 @@ my RGB signal is being outputted properly. Thankfully the simulation is quicker 
 The last testing method was with the buttons. This is where we would move the trigger marks and change the x
 and y axis for the triggers. To test this I would check again the simulation to see if the trigger values change
 +- 10 units. 
+
+### Answers to Lab Questions
+Questions such as what is the total time the screen should be filled with pixels. After the prelab or Homework 5
+this was to be concluded 15ms or 16ms where we had to cover 800x525 pixels. This included the blank and sync
+signals outside the display.
+For the hatch marks, the horizontal hatch marks were placed every 15 pixels to create nice and neat 3 hatch marks
+per cell. On the verticle cells the math was cleaner to put 4 hatch marks. This was every 10 pixels.
 
 ### Observations and Conclusions
 The purpose of this lab wa to implement a VHDL program on our FPGA to display pixels on the screen for graphing
