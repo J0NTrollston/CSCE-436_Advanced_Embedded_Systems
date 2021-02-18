@@ -22,7 +22,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity leftRight is
     Port ( clk     : in  STD_LOGIC;
-           reset   : in  STD_LOGIC;
+           ctrl    : in  STD_LOGIC_Vector(1 downto 0);
            left    : in  STD_LOGIC;
            right   : in  STD_LOGIC;
            counter : out unsigned(2 downto 0));
@@ -35,7 +35,7 @@ begin
 
     process(clk)
     begin
-        if(reset = '1') then
+        if(ctrl = "11") then
             counter_s <= (others => '0');
             
         elsif( (left = '1') and (left_s = '0') ) then

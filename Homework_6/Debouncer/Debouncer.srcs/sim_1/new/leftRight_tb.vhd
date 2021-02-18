@@ -28,7 +28,7 @@ ARCHITECTURE behavior OF leftRight_tb IS
     -- Component Declaration for the Unit Under Test (UUT)
     component leftRight is
         Port ( clk     : in  STD_LOGIC;
-           reset   : in  STD_LOGIC;
+           ctrl   : in  STD_LOGIC_VECTOR(1 downto 0);
            left    : in  STD_LOGIC;
            right   : in  STD_LOGIC;
            counter : out unsigned(2 downto 0));
@@ -38,7 +38,7 @@ ARCHITECTURE behavior OF leftRight_tb IS
 
    --Inputs
    signal clk : std_logic := '0';
-   signal reset : std_logic := '0';
+   signal ctrl : std_logic_vector(1 downto 0);
    signal left,right : std_logic := '0';
 
  	--Outputs
@@ -53,7 +53,7 @@ BEGIN
    uut: leftRight 
 	PORT MAP (
           clk => clk,
-          reset => reset,
+          ctrl => ctrl,
 		  left => left,
           right => right,
           counter => counter
@@ -74,6 +74,6 @@ BEGIN
 	left <= '0', '1' after 2us, '1' after 3us, '0' after 4us, '0' after 5us, '1' after 6us, '0' after 7us;
 	right <= '0', '0' after 2us, '0' after 3us, '1' after 4us, '1' after 5us, '0' after 6us, '1' after 7us;
 	
-	reset <= '1', '0' after 1us, '1' after 10us;
+    ctrl <= "00", "00" after 1us, "11" after 10us;
 
 END;
