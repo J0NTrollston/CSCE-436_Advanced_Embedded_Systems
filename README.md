@@ -113,3 +113,5 @@ During this whole assignment, what did you learn?  What did you notice that was 
 
 ### Documentation
 � always include this.  Any help received on any portion of the assignment, even from an instructor or the internet should be specifically mentioned.
+
+Class Link: https://cse.unl.edu/~jfalkinburg/cse_courses/2021/436/index.html

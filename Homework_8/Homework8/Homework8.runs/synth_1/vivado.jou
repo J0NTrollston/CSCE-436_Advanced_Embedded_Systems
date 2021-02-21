@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sat Feb 20 22:50:05 2021
+# Process ID: 21728
+# Current directory: D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.runs/synth_1
+# Command line: vivado.exe -log lec12_tb.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source lec12_tb.tcl
+# Log file: D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.runs/synth_1/lec12_tb.vds
+# Journal file: D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source lec12_tb.tcl -notrace

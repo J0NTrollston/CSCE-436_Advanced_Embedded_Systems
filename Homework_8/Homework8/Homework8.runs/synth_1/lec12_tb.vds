@@ -1,0 +1,42 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sat Feb 20 22:50:05 2021
+# Process ID: 21728
+# Current directory: D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.runs/synth_1
+# Command line: vivado.exe -log lec12_tb.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source lec12_tb.tcl
+# Log file: D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.runs/synth_1/lec12_tb.vds
+# Journal file: D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source lec12_tb.tcl -notrace
+Command: synth_design -top lec12_tb -part xc7a200tsbg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 20248 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 570.551 ; gain = 179.113
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'lec12_tb' [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Code/lec12_tb.vhdl:27]
+INFO: [Synth 8-3491] module 'lec12' declared at 'D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Code/lec12.vhdl:24' bound to instance 'uut' of component 'lec12' [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Code/lec12_tb.vhdl:55]
+INFO: [Synth 8-638] synthesizing module 'lec12' [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Code/lec12.vhdl:35]
+INFO: [Synth 8-3491] module 'lec12_cu' declared at 'D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Homework_8/lec12_cu.vhd:23' bound to instance 'cu' of component 'lec12_cu' [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Code/lec12.vhdl:61]
+INFO: [Synth 8-638] synthesizing module 'lec12_cu' [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Homework_8/lec12_cu.vhd:32]
+WARNING: [Synth 8-614] signal 'sw' is read in the process but is not in the sensitivity list [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Homework_8/lec12_cu.vhd:36]
+WARNING: [Synth 8-614] signal 'reset' is read in the process but is not in the sensitivity list [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Homework_8/lec12_cu.vhd:36]
+ERROR: [Synth 8-3380] loop condition does not converge after 2000 iterations [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Homework_8/lec12_cu.vhd:67]
+WARNING: [Synth 8-614] signal 'kbClk' is read in the process but is not in the sensitivity list [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Homework_8/lec12_cu.vhd:59]
+ERROR: [Synth 8-285] failed synthesizing module 'lec12_cu' [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Homework_8/lec12_cu.vhd:32]
+ERROR: [Synth 8-285] failed synthesizing module 'lec12' [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Code/lec12.vhdl:35]
+ERROR: [Synth 8-285] failed synthesizing module 'lec12_tb' [D:/UNL_Spring_2021/CSCE_436/Homework_8/Homework8/Homework8.srcs/sources_1/imports/Code/lec12_tb.vhdl:27]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2604.812 ; gain = 2213.375
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+7 Infos, 3 Warnings, 0 Critical Warnings and 5 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 20 22:50:35 2021...
