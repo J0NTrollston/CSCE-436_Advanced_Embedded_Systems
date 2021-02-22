@@ -1,13 +1,13 @@
 --------------------------------------------------------------------
--- Name:	Chris Coulston
--- Date:	Feb 3, 2015
--- File:	lec12_dp.vhdl
--- HW:		Lecture 12
+-- Name:	Brandon Ramos
+-- Date:	2/22/2021
+-- File:	lec12_dp.vhd
+-- HW:		8
 -- Crs:		CSCE 436
 --
--- Purp:	Most of the datapath for the keyboard scan circuit
+-- Purp: The dp for the keyboard scancode reader
 --
--- Documentation:	I pulled some information from chapter .
+-- Documentation:	TA Jacob Fox and Prof. Falkinburg
 --
 -- Academic Integrity Statement: I certify that, while others may have 
 -- assisted me in brain storming, debugging and validating this program, 

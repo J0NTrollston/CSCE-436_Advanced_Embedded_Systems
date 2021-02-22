@@ -1,14 +1,14 @@
 --------------------------------------------------------------------
--- Name:	Chris Coulston
--- Date:	Feb 3, 2015
--- File:	lec12.vhdl
--- HW:		Lecture 12
+-- Name:	Brandon Ramos
+-- Date:	2/22/2021
+-- File:	lec12.vhd
+-- HW:		8
 -- Crs:		CSCE 436
 --
 -- Purp: The combined DP and CU for the keyboard scancode reader
 --
--- Documentation:	No help, though I used an example from my Digital
---						Design text book.
+-- Documentation:	TA Jacob Fox and Prof. Falkinburg
+
 --
 -- Academic Integrity Statement: I certify that, while others may have 
 -- assisted me in brain storming, debugging and validating this program, 
@@ -20,7 +20,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-
 entity lec12 is
 	Port(	clk: in  STD_LOGIC;
 			reset : in  STD_LOGIC;

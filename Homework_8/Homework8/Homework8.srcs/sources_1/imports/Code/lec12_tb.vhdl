@@ -1,14 +1,13 @@
 --------------------------------------------------------------------
--- Name:	Prof Jeff Falkinburg
--- Date:	Feb 3, 2015
+-- Name:	Brandon Ramos
+-- Date:	2/22/2021
 -- File:	lec12_tb.vhdl
--- HW:		Lecture 12
+-- HW:		8
 -- Crs:		CSCE 436
 --
--- Purp: The testbench for lec12.vhdl keyboard scancode reader
+-- Purp: Test bench for homework 8
 --
--- Documentation:	No help, though I used an example from my Digital
---						Design text book.
+-- Documentation:	TA Jacob Fox and Prof. Falkinburg
 --
 -- Academic Integrity Statement: I certify that, while others may have 
 -- assisted me in brain storming, debugging and validating this program, 

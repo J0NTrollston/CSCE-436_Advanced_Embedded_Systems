@@ -1,14 +1,14 @@
 --------------------------------------------------------------------
--- Name:	Chris Coulston
--- Date:	Feb 3, 2015
--- File:	keyboard.vhdl
--- HW:		Lecture 12
+-- Name:	Brandon Ramos
+-- Date:	2/22/2021
+-- File:	keyboard.vhd
+-- HW:		8
 -- Crs:		CSCE 436
 --
--- Purp:	A FSM for the keyboard scan unit
+-- Purp: A FSM for the keyboard scan unit
+
 --
--- Documentation:	I borrowed this heavily from a piece of code I wrote
---						back in 2004.
+-- Documentation:	TA Jacob Fox and Prof. Falkinburg
 --
 -- Academic Integrity Statement: I certify that, while others may have 
 -- assisted me in brain storming, debugging and validating this program, 
@@ -23,7 +23,6 @@ use ieee.std_logic_1164.all;
 entity keyboard is
 	port (kbclk, kbdata: out std_logic);
 end entity;
-
 
 architecture behavior of keyboard is
 
@@ -55,7 +54,8 @@ type test is array (0 to N-1) of std_logic_vector(7 downto 0);
 ------------------------------------------------------------------------- 
 -- This is the set of keypresses comprising the simulation.
 ------------------------------------------------------------------------- 
-signal event: test := (	one, two, three);
+--signal event: test := (	one, two, three);
+signal event: test := (	four, five, six);
 
 procedure CodeGen(char: in std_logic_vector(7 downto 0);
 
