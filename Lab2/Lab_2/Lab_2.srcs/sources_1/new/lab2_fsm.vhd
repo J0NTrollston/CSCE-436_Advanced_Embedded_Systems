@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity lab2_fsm is
 Port (  clk     : in  STD_LOGIC;
         reset_n : in  STD_LOGIC;
-		sw      : out std_logic_vector (2 downto 0);
+		sw      : in std_logic_vector (2 downto 0);
 		cw      : out std_logic_vector (2 downto 0));
 end lab2_fsm;
 

@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Tue Feb 23 20:13:15 2021
+// Date        : Wed Feb 24 15:47:48 2021
 // Host        : QuitStealingMyPaper running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               d:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1_sim_netlist.v
+//               D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1_sim_netlist.v
 // Design      : clk_wiz_1
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,40 +16,34 @@
 module clk_wiz_1
    (clk_out1,
     clk_out2,
-    reset,
-    locked,
+    resetn,
     clk_in1);
   output clk_out1;
   output clk_out2;
-  input reset;
-  output locked;
+  input resetn;
   input clk_in1;
 
   (* IBUF_LOW_PWR *) wire clk_in1;
   wire clk_out1;
   wire clk_out2;
-  wire locked;
-  wire reset;
+  wire resetn;
 
   clk_wiz_1_clk_wiz_1_clk_wiz inst
        (.clk_in1(clk_in1),
         .clk_out1(clk_out1),
         .clk_out2(clk_out2),
-        .locked(locked),
-        .reset(reset));
+        .resetn(resetn));
 endmodule
 
 (* ORIG_REF_NAME = "clk_wiz_1_clk_wiz" *) 
 module clk_wiz_1_clk_wiz_1_clk_wiz
    (clk_out1,
     clk_out2,
-    reset,
-    locked,
+    resetn,
     clk_in1);
   output clk_out1;
   output clk_out2;
-  input reset;
-  output locked;
+  input resetn;
   input clk_in1;
 
   wire clk_in1;
@@ -60,8 +54,8 @@ module clk_wiz_1_clk_wiz_1_clk_wiz
   wire clk_out2_clk_wiz_1;
   wire clkfbout_buf_clk_wiz_1;
   wire clkfbout_clk_wiz_1;
-  wire locked;
-  wire reset;
+  wire reset_high;
+  wire resetn;
   wire NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED;
@@ -75,6 +69,7 @@ module clk_wiz_1_clk_wiz_1_clk_wiz
   wire NLW_mmcm_adv_inst_CLKOUT5_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKOUT6_UNCONNECTED;
   wire NLW_mmcm_adv_inst_DRDY_UNCONNECTED;
+  wire NLW_mmcm_adv_inst_LOCKED_UNCONNECTED;
   wire NLW_mmcm_adv_inst_PSDONE_UNCONNECTED;
   wire [15:0]NLW_mmcm_adv_inst_DO_UNCONNECTED;
 
@@ -176,13 +171,18 @@ module clk_wiz_1_clk_wiz_1_clk_wiz
         .DO(NLW_mmcm_adv_inst_DO_UNCONNECTED[15:0]),
         .DRDY(NLW_mmcm_adv_inst_DRDY_UNCONNECTED),
         .DWE(1'b0),
-        .LOCKED(locked),
+        .LOCKED(NLW_mmcm_adv_inst_LOCKED_UNCONNECTED),
         .PSCLK(1'b0),
         .PSDONE(NLW_mmcm_adv_inst_PSDONE_UNCONNECTED),
         .PSEN(1'b0),
         .PSINCDEC(1'b0),
         .PWRDWN(1'b0),
-        .RST(reset));
+        .RST(reset_high));
+  LUT1 #(
+    .INIT(2'h1)) 
+    mmcm_adv_inst_i_1
+       (.I0(resetn),
+        .O(reset_high));
 endmodule
 `ifndef GLBL
 `define GLBL

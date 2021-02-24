@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Tue Feb 23 20:13:15 2021
+-- Date        : Wed Feb 24 15:47:48 2021
 -- Host        : QuitStealingMyPaper running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               d:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1_sim_netlist.vhdl
+--               D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1_sim_netlist.vhdl
 -- Design      : clk_wiz_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -18,8 +18,7 @@ entity clk_wiz_1_clk_wiz_1_clk_wiz is
   port (
     clk_out1 : out STD_LOGIC;
     clk_out2 : out STD_LOGIC;
-    reset : in STD_LOGIC;
-    locked : out STD_LOGIC;
+    resetn : in STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -32,6 +31,7 @@ architecture STRUCTURE of clk_wiz_1_clk_wiz_1_clk_wiz is
   signal clk_out2_clk_wiz_1 : STD_LOGIC;
   signal clkfbout_buf_clk_wiz_1 : STD_LOGIC;
   signal clkfbout_clk_wiz_1 : STD_LOGIC;
+  signal reset_high : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED : STD_LOGIC;
@@ -45,6 +45,7 @@ architecture STRUCTURE of clk_wiz_1_clk_wiz_1_clk_wiz is
   signal NLW_mmcm_adv_inst_CLKOUT5_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_CLKOUT6_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_DRDY_UNCONNECTED : STD_LOGIC;
+  signal NLW_mmcm_adv_inst_LOCKED_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_PSDONE_UNCONNECTED : STD_LOGIC;
   signal NLW_mmcm_adv_inst_DO_UNCONNECTED : STD_LOGIC_VECTOR ( 15 downto 0 );
   attribute BOX_TYPE : string;
@@ -161,13 +162,21 @@ mmcm_adv_inst: unisim.vcomponents.MMCME2_ADV
       DO(15 downto 0) => NLW_mmcm_adv_inst_DO_UNCONNECTED(15 downto 0),
       DRDY => NLW_mmcm_adv_inst_DRDY_UNCONNECTED,
       DWE => '0',
-      LOCKED => locked,
+      LOCKED => NLW_mmcm_adv_inst_LOCKED_UNCONNECTED,
       PSCLK => '0',
       PSDONE => NLW_mmcm_adv_inst_PSDONE_UNCONNECTED,
       PSEN => '0',
       PSINCDEC => '0',
       PWRDWN => '0',
-      RST => reset
+      RST => reset_high
+    );
+mmcm_adv_inst_i_1: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => resetn,
+      O => reset_high
     );
 end STRUCTURE;
 library IEEE;
@@ -178,8 +187,7 @@ entity clk_wiz_1 is
   port (
     clk_out1 : out STD_LOGIC;
     clk_out2 : out STD_LOGIC;
-    reset : in STD_LOGIC;
-    locked : out STD_LOGIC;
+    resetn : in STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
@@ -193,7 +201,6 @@ inst: entity work.clk_wiz_1_clk_wiz_1_clk_wiz
       clk_in1 => clk_in1,
       clk_out1 => clk_out1,
       clk_out2 => clk_out2,
-      locked => locked,
-      reset => reset
+      resetn => resetn
     );
 end STRUCTURE;
