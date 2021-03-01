@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Wed Feb 24 16:20:29 2021
+| Date         : Mon Mar  1 16:54:48 2021
 | Host         : QuitStealingMyPaper running 64-bit major release  (build 9200)
 | Command      : report_utilization -file lab2_utilization_synth.rpt -pb lab2_utilization_synth.pb
 | Design       : lab2
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  489 |     0 |    134600 |  0.36 |
-|   LUT as Logic          |  489 |     0 |    134600 |  0.36 |
+| Slice LUTs*             |  494 |     0 |    134600 |  0.37 |
+|   LUT as Logic          |  494 |     0 |    134600 |  0.37 |
 |   LUT as Memory         |    0 |     0 |     46200 |  0.00 |
-| Slice Registers         |  380 |     0 |    269200 |  0.14 |
-|   Register as Flip Flop |  380 |     0 |    269200 |  0.14 |
+| Slice Registers         |  390 |     0 |    269200 |  0.14 |
+|   Register as Flip Flop |  390 |     0 |    269200 |  0.14 |
 |   Register as Latch     |    0 |     0 |    269200 |  0.00 |
 | F7 Muxes                |    0 |     0 |     67300 |  0.00 |
 | F8 Muxes                |    0 |     0 |     33650 |  0.00 |
@@ -57,20 +57,21 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 45    |          Yes |         Set |            - |
-| 335   |          Yes |       Reset |            - |
+| 345   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
 2. Memory
 ---------
 
-+----------------+------+-------+-----------+-------+
-|    Site Type   | Used | Fixed | Available | Util% |
-+----------------+------+-------+-----------+-------+
-| Block RAM Tile |    0 |     0 |       365 |  0.00 |
-|   RAMB36/FIFO* |    0 |     0 |       365 |  0.00 |
-|   RAMB18       |    0 |     0 |       730 |  0.00 |
-+----------------+------+-------+-----------+-------+
++-------------------+------+-------+-----------+-------+
+|     Site Type     | Used | Fixed | Available | Util% |
++-------------------+------+-------+-----------+-------+
+| Block RAM Tile    |  0.5 |     0 |       365 |  0.14 |
+|   RAMB36/FIFO*    |    0 |     0 |       365 |  0.00 |
+|   RAMB18          |    1 |     0 |       730 |  0.14 |
+|     RAMB18E1 only |    1 |       |           |       |
++-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
 
@@ -150,14 +151,14 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  335 |        Flop & Latch |
-| LUT6     |  240 |                 LUT |
-| LUT2     |  113 |                 LUT |
-| LUT4     |   82 |                 LUT |
-| LUT5     |   76 |                 LUT |
+| FDRE     |  345 |        Flop & Latch |
+| LUT6     |  232 |                 LUT |
+| LUT2     |  105 |                 LUT |
+| LUT4     |   97 |                 LUT |
+| LUT5     |   86 |                 LUT |
+| LUT1     |   46 |                 LUT |
 | FDSE     |   45 |        Flop & Latch |
-| LUT1     |   44 |                 LUT |
-| LUT3     |   40 |                 LUT |
+| LUT3     |   41 |                 LUT |
 | CARRY4   |   21 |          CarryLogic |
 | IBUF     |   10 |                  IO |
 | OBUFDS   |    8 |                  IO |
@@ -165,6 +166,7 @@ Table of Contents
 | OBUF     |    4 |                  IO |
 | INV      |    4 |                 LUT |
 | OBUFT    |    2 |                  IO |
+| RAMB18E1 |    1 |        Block Memory |
 +----------+------+---------------------+
 
 
@@ -174,6 +176,7 @@ Table of Contents
 +-----------+------+
 |  Ref Name | Used |
 +-----------+------+
+| lab2_fsm  |    1 |
 | clk_wiz_1 |    1 |
 | clk_wiz_0 |    1 |
 +-----------+------+

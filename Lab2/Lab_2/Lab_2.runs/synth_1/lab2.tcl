@@ -18,6 +18,7 @@ proc create_report { reportName command } {
   }
 }
 set_param chipscope.maxJobs 2
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a200tsbg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -36,11 +37,11 @@ set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib D:/UNL_Spring_2021/CSCE_436/Lab2/Code/audio_init.v
 read_vhdl -library xil_defaultlib {
   D:/UNL_Spring_2021/CSCE_436/Lab2/Code/Audio_Codec_Wrapper.vhd
-  D:/UNL_Spring_2021/CSCE_436/Lab2/Code/lab2_pack.vhdl
   D:/UNL_Spring_2021/CSCE_436/Lab2/Code/TWICtl.vhd
   D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/imports/Desktop/counter.vhdl
   D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/imports/Code/dvid.vhdl
   D:/UNL_Spring_2021/CSCE_436/Lab2/Code/i2s_ctl.vhd
+  D:/UNL_Spring_2021/CSCE_436/Lab2/Code/lab2_pack.vhdl
   D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.srcs/sources_1/new/lab2_datapath.vhd
   D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.srcs/sources_1/new/lab2_fsm.vhd
   D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/new/scopeFace.vhd
