@@ -109,6 +109,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/Code/lab1.vhdl">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Code/lab1.vhdl"/>
           <Attr Name="ImportTime" Val="1612555062"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -117,7 +118,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="lab1"/>
+        <Option Name="TopModule" Val="video"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
