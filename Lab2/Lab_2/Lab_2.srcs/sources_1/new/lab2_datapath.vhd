@@ -71,6 +71,15 @@ architecture Behavioral of lab2_datapath is
 	signal ch1_wave, ch2_wave, ready: std_logic;
 	signal L_bus_in_S, R_bus_in_S, L_bus_out_S, R_bus_out_S: std_logic_vector(17 downto 0);
 	
+	--Unsigned Counter
+	signal write_cntr: unsigned(9 downto 0);
+	signal L_bus_unsigned: unsigned(17 downto 0);
+	signal wrENB: std_logic;
+	
+	--Not sure
+	signal WRADDR: unsigned(9 downto 0);
+	signal Din: unsigned(17 downto 0);
+	
 	component video is
     Port (clk:          in  STD_LOGIC;
           reset_n:      in  STD_LOGIC;
@@ -106,6 +115,17 @@ end component;
 begin
     ch1_wave <= '1' when row = column else '0';
     ch2_wave <= '1' when (row = 440-column) else '0';
+    
+    WRADDR <= write_cntr when (exSel = '0') else
+            unsigned(exWrAddr) when (exSel = '1');
+            
+    L_bus_unsigned <= (unsigned(L_bus_in_S) + 131072);
+    Din <= L_bus_unsigned when ( exSel = '0') else
+            unsigned(exLBus) when (exSel = '1');
+            
+    wrENB <= cw(1) when (exSel = '0') else
+            exWen when (exSel = '1');
+    
     
 	------------------------------------------------------------------------------
 	-- the variable button_activity will contain a '1' in any position which 
@@ -191,6 +211,22 @@ begin
         R_bus_out => R_bus_out_S, -- right channel output from ADC
         scl => scl,
         sda => sda);
+    
+    --This is the unsigned counter process that will count up to 0x3FF
+    
+    --As of now, "010" will be count up for cw
+    process(clk)
+    begin
+    if(rising_edge(clk)) then
+        if((cw = "010") and (write_cntr < 1023)) then
+            write_cntr <= write_cntr + 1;
+        elsif(write_cntr = 1023) then
+            write_cntr <= (others => '0');
+--            sw =>
+        end if;
+    end if;
+    end process;
+        
         
         -- Audio Code Loopback Process:
     process (clk)
