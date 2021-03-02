@@ -39,8 +39,33 @@ Port (  clk     : in  STD_LOGIC;
 end lab2_fsm;
 
 architecture Behavioral of lab2_fsm is
-
+type state_type is (RST, WAIT_TRIGGER, STORE_SAMPLE, WAIT_SAMPLE);
+signal FSM: state_type;
 begin
+
+    -----------------------------------------------------------------------------
+	--		The address counter sends in an address
+	--		00			hold
+	--		01			count up
+	--		10			unused
+	--		11			synch reset
+	-----------------------------------------------------------------------------
+
+process(clk)
+begin
+if(RISING_EDGE(clk)) then
+    if(reset_n = '1') then
+    end if;
+end if;
+--    if(reset_n = '1') then
+--        FSM <= RST;
+        
+--        eslif
+--    end if;
+
+end process;
+
+
 
 
 end Behavioral;

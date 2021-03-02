@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Mon Mar  1 16:53:57 2021
-# Process ID: 24712
+# Start of session at: Tue Mar  2 11:04:43 2021
+# Process ID: 22560
 # Current directory: D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1
 # Command line: vivado.exe -log lab2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source lab2.tcl
 # Log file: D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/lab2.vds
@@ -16,9 +16,9 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Device 21-403] Loading part xc7a200tsbg484-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11400 
+INFO: Helper process launched with PID 18588 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 864.285 ; gain = 176.660
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 865.047 ; gain = 178.617
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'lab2' [D:/UNL_Spring_2021/CSCE_436/Lab2/Code/lab2.vhd:27]
 INFO: [Synth 8-3491] module 'lab2_datapath' declared at 'D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.srcs/sources_1/new/lab2_datapath.vhd:37' bound to instance 'datapath' of component 'lab2_datapath' [D:/UNL_Spring_2021/CSCE_436/Lab2/Code/lab2.vhd:37]
@@ -438,8 +438,8 @@ INFO: [Synth 8-113] binding component instance 'ram18_bl' to cell 'RAMB18E1' [D:
 INFO: [Synth 8-256] done synthesizing module 'unimacro_BRAM_SDP_MACRO' (1#1) [D:/Xilinx/Vivado/2019.1/data/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd:217]
 INFO: [Synth 8-3491] module 'video' declared at 'D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/imports/Code/video.vhdl:26' bound to instance 'video_inst' of component 'video' [D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.srcs/sources_1/new/lab2_datapath.vhd:231]
 INFO: [Synth 8-638] synthesizing module 'video' [D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/imports/Code/video.vhdl:42]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/.Xil/Vivado-24712-QuitStealingMyPaper/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'mmcm_adv_inst_display_clocks' of component 'clk_wiz_0' [D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/imports/Code/video.vhdl:86]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/.Xil/Vivado-24712-QuitStealingMyPaper/realtime/clk_wiz_0_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/.Xil/Vivado-22560-QuitStealingMyPaper/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'mmcm_adv_inst_display_clocks' of component 'clk_wiz_0' [D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/imports/Code/video.vhdl:86]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/.Xil/Vivado-22560-QuitStealingMyPaper/realtime/clk_wiz_0_stub.vhdl:16]
 INFO: [Synth 8-3491] module 'vga' declared at 'D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/new/vga.vhd:23' bound to instance 'Inst_vga' of component 'vga' [D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/imports/Code/video.vhdl:97]
 INFO: [Synth 8-638] synthesizing module 'vga' [D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/new/vga.vhd:42]
 INFO: [Synth 8-3491] module 'scopeFace' declared at 'D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/new/scopeFace.vhd:23' bound to instance 'scope' of component 'scopeFace' [D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/new/vga.vhd:81]
@@ -532,8 +532,8 @@ INFO: [Synth 8-155] case statement is not full and has no default [D:/UNL_Spring
 WARNING: [Synth 8-6014] Unused sequential element regData1_reg was removed.  [D:/UNL_Spring_2021/CSCE_436/Lab2/Code/audio_init.v:135]
 WARNING: [Synth 8-6014] Unused sequential element initFbWe_reg was removed.  [D:/UNL_Spring_2021/CSCE_436/Lab2/Code/audio_init.v:150]
 INFO: [Synth 8-6155] done synthesizing module 'audio_init' (9#1) [D:/UNL_Spring_2021/CSCE_436/Lab2/Code/audio_init.v:24]
-INFO: [Synth 8-3491] module 'clk_wiz_1' declared at 'D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/.Xil/Vivado-24712-QuitStealingMyPaper/realtime/clk_wiz_1_stub.vhdl:5' bound to instance 'audiocodec_master_clock' of component 'clk_wiz_1' [D:/UNL_Spring_2021/CSCE_436/Lab2/Code/Audio_Codec_Wrapper.vhd:139]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_1' [D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/.Xil/Vivado-24712-QuitStealingMyPaper/realtime/clk_wiz_1_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'clk_wiz_1' declared at 'D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/.Xil/Vivado-22560-QuitStealingMyPaper/realtime/clk_wiz_1_stub.vhdl:5' bound to instance 'audiocodec_master_clock' of component 'clk_wiz_1' [D:/UNL_Spring_2021/CSCE_436/Lab2/Code/Audio_Codec_Wrapper.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_1' [D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/.Xil/Vivado-22560-QuitStealingMyPaper/realtime/clk_wiz_1_stub.vhdl:15]
 	Parameter C_DATA_WIDTH bound to: 24 - type: integer 
 INFO: [Synth 8-3491] module 'i2s_ctl' declared at 'D:/UNL_Spring_2021/CSCE_436/Lab2/Code/i2s_ctl.vhd:36' bound to instance 'audio_inout' of component 'i2s_ctl' [D:/UNL_Spring_2021/CSCE_436/Lab2/Code/Audio_Codec_Wrapper.vhd:146]
 INFO: [Synth 8-638] synthesizing module 'i2s_ctl' [D:/UNL_Spring_2021/CSCE_436/Lab2/Code/i2s_ctl.vhd:63]
@@ -632,7 +632,7 @@ WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[2]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[1]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 931.445 ; gain = 243.820
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 931.621 ; gain = 245.191
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -645,10 +645,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 931.445 ; gain = 243.820
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 931.621 ; gain = 245.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 931.445 ; gain = 243.820
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 931.621 ; gain = 245.191
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
 WARNING: [Netlist 29-151] Pin 'C1' on instance 'datapath/video_inst/inst_dvid/ODDR2_red' of cell type 'ODDR2' does not have an equivalent function on the new cell type 'ODDR'. Net 'clk_n' that is connected to this pin will not be connected to the replacement instance.
@@ -673,22 +673,22 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/lab2_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1069.137 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1068.332 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 8 instances were transformed.
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS, OBUFDS): 4 instances
   ODDR2 => ODDR: 4 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1069.137 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1068.332 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1069.137 ; gain = 381.512
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 1068.332 ; gain = 381.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1069.137 ; gain = 381.512
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 1068.332 ; gain = 381.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -698,7 +698,7 @@ Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  d:/UNL_
 Applied set_property DONT_TOUCH = true for datapath/video_inst/mmcm_adv_inst_display_clocks. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for datapath/audio_codec/audiocodec_master_clock. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1069.137 ; gain = 381.512
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 1068.332 ; gain = 381.902
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'TWICtl'
 INFO: [Synth 8-5546] ROM "initWord" won't be mapped to RAM because it is too sparse
@@ -718,7 +718,7 @@ INFO: [Synth 8-5544] ROM "DIV_RATE" won't be mapped to Block RAM because address
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'gray' in module 'TWICtl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1069.137 ; gain = 381.512
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1068.332 ; gain = 381.902
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1060,7 +1060,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\datapath
 INFO: [Synth 8-3886] merging instance 'datapath/audio_codec/audio_inout/Data_Out_int_reg[11]' (FDE) to 'datapath/audio_codec/audio_inout/Data_Out_int_reg[12]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\datapath/audio_codec/audio_inout/Data_Out_int_reg[12] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1069.137 ; gain = 381.512
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1068.332 ; gain = 381.902
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1079,13 +1079,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'datapath/audio_codec/audi
 INFO: [Synth 8-5578] Moved timing constraint from pin 'datapath/audio_codec/audiocodec_master_clock/clk_out2' to pin 'datapath/audio_codec/audiocodec_master_clock/bbstub_clk_out2/O'
 INFO: [Synth 8-5819] Moved 5 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1069.137 ; gain = 381.512
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1068.332 ; gain = 381.902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1106.203 ; gain = 418.578
+Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:42 . Memory (MB): peak = 1101.621 ; gain = 415.191
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1097,7 +1097,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 1106.203 ; gain = 418.578
+Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 1102.652 ; gain = 416.223
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1121,7 +1121,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 1111.781 ; gain = 424.156
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1102.652 ; gain = 416.223
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1134,7 +1134,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1111.781 ; gain = 424.156
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1102.652 ; gain = 416.223
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1146,25 +1146,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1111.781 ; gain = 424.156
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1102.652 ; gain = 416.223
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1111.781 ; gain = 424.156
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1102.652 ; gain = 416.223
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1111.781 ; gain = 424.156
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1102.652 ; gain = 416.223
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1111.781 ; gain = 424.156
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1102.652 ; gain = 416.223
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1225,11 +1225,11 @@ Report Instance Areas:
 |16    |        TDMS_encoder_red   |TDMS_encoder_1          |    22|
 +------+---------------------------+------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1111.781 ; gain = 424.156
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1102.652 ; gain = 416.223
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1111.781 ; gain = 286.465
-Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 1111.781 ; gain = 424.156
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:39 . Memory (MB): peak = 1102.652 ; gain = 279.512
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1102.652 ; gain = 416.223
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 32 Unisim elements for replacement
 WARNING: [Netlist 29-151] Pin 'C1' on instance 'datapath/video_inst/inst_dvid/ODDR2_red' of cell type 'ODDR2' does not have an equivalent function on the new cell type 'ODDR'. Net 'clk_out3' that is connected to this pin will not be connected to the replacement instance.
@@ -1240,7 +1240,7 @@ INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1126.438 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1118.141 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 10 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
@@ -1250,10 +1250,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 207 Infos, 107 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1126.438 ; gain = 726.871
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1126.438 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:55 . Memory (MB): peak = 1118.141 ; gain = 721.367
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1118.141 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/lab2.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file lab2_utilization_synth.rpt -pb lab2_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Mar  1 16:54:48 2021...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar  2 11:05:57 2021...

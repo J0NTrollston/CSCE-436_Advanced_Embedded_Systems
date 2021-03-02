@@ -12,13 +12,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="4657050000fs"></ZoomStartTime>
-      <ZoomEndTime time="4756207582fs"></ZoomEndTime>
-      <Cursor1Time time="4684218000fs"></Cursor1Time>
+      <ZoomStartTime time="102175833333fs"></ZoomStartTime>
+      <ZoomEndTime time="102270833334fs"></ZoomEndTime>
+      <Cursor1Time time="102255000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="216"></NameColumnWidth>
-      <ValueColumnWidth column_width="102"></ValueColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="35" />
    <wvobject fp_name="/Lab2_datapath_tb/clk" type="logic">
@@ -147,10 +147,12 @@
    <wvobject fp_name="/Lab2_datapath_tb/uut/Din" type="array">
       <obj_property name="ElementShortName">Din[17:0]</obj_property>
       <obj_property name="ObjectShortName">Din[17:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Lab2_datapath_tb/uut/readL18" type="array">
       <obj_property name="ElementShortName">readL18[17:0]</obj_property>
       <obj_property name="ObjectShortName">readL18[17:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Lab2_datapath_tb/uut/ch1" type="logic">
       <obj_property name="ElementShortName">ch1</obj_property>

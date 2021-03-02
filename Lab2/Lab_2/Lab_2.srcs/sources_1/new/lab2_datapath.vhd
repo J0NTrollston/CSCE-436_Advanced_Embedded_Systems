@@ -29,11 +29,6 @@ use UNIMACRO.vcomponents.all;
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity lab2_datapath is
     Port(
 	clk : in  STD_LOGIC;
@@ -57,8 +52,6 @@ entity lab2_datapath is
 	flagQ: out std_logic_vector(7 downto 0);
 	flagClear: in std_logic_vector(7 downto 0));
 end lab2_datapath;
-
-
 
 architecture Behavioral of lab2_datapath is
 --        L_bus_in => L_bus_in, -- left channel input to DAC
@@ -123,13 +116,13 @@ end component;
 begin
 
     reset <= not reset_n;
---    ch1_wave <= '1' when row = column else '0';
     ch2_wave <= '1' when (row = 440-column) else '0';
     
     WRADDR <= std_logic_vector(WRADDR_S) when (exSel = '0') else
             exWrAddr when (exSel = '1');
             
     L_bus_unsigned <= (unsigned(L_bus_in_S) + 131072);
+    
     Din <= STD_LOGIC_VECTOR(L_bus_unsigned) when ( exSel = '0') else
             (exLBus & "00") when (exSel = '1');
             
@@ -138,7 +131,7 @@ begin
             
     readL <= std_logic_vector(unsigned(readL18(17 downto 8)) - 292);
             
-    ch1 <= '1' when ( (readL(9 downto 0) ) = std_logic_vector(row)) else
+    ch1 <= '1' when (readL = std_logic_vector(row)) else
         '0';
     
     
@@ -219,7 +212,7 @@ begin
 		RDADDR => STD_LOGIC_VECTOR(column),			-- Input address, width defined by port depth
 		RDCLK => clk,	 				-- 1-bit input clock
 		RST => reset,					-- active high reset
-		RDEN => cw(2),					-- read enable 
+		RDEN => '1',					-- read enable 
 		REGCE => '1',					-- 1-bit input read output register enable - ignored
 		Di => Din,				-- Input data port, width defined by WRITE_WIDTH parameter
 --		WE => cw(2 downto 1),			-- since RAM is byte read, this determines high or low byte
@@ -262,17 +255,6 @@ begin
     --This is the unsigned counter process that will count up to 0x3FF
     
 --    --As of now, "010" will be count up for cw
---    process(clk)
---    begin
---    if(rising_edge(clk)) then
---        if((cw = "010") and (write_cntr < 1023)) then
---            write_cntr <= write_cntr + 1;
---        elsif(write_cntr = 1023) then
---            write_cntr <= (others => '0');
-----            sw =>
---        end if;
---    end if;
---    end process;
         
 --    process(clk)
 --    begin
@@ -296,6 +278,13 @@ begin
 	    end if;
 	end if;
     end process;
+    -----------------------------------------------------------------------------
+	--		The sw
+	--      001    ready from audio codec
+	--		010    2 compare
+	--		100    reaches 1023
+	--		
+	-----------------------------------------------------------------------------
     
     -----------------------------------------------------------------------------
 	--		The address counter sends in an address
