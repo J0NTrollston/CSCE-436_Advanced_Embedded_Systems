@@ -96,7 +96,7 @@ ARCHITECTURE behavior OF Lab2_datapath_tb IS
    constant BIT_CLK_period : time := 40 ns;  -- Sets Bit Clock for Audio Codec to the necessary 25 MHz
 
 	-- FSM Control signals
-	type state_type is (RST, WAIT_TRIGGER, STORE_SAMPLE, WAIT_SAMPLE);
+	type state_type is (RST, WAIT_TRIGGER, STORE_SAMPLE, COUNT);
 	signal state: state_type;
 
 

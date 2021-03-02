@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="102175833333fs"></ZoomStartTime>
-      <ZoomEndTime time="102270833334fs"></ZoomEndTime>
-      <Cursor1Time time="102255000000fs"></Cursor1Time>
+      <ZoomStartTime time="142079083334fs"></ZoomStartTime>
+      <ZoomEndTime time="142174583335fs"></ZoomEndTime>
+      <Cursor1Time time="142095000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="216"></NameColumnWidth>
+      <NameColumnWidth column_width="192"></NameColumnWidth>
       <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="35" />
+   <WVObjectSize size="36" />
    <wvobject fp_name="/Lab2_datapath_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -44,6 +44,7 @@
    <wvobject fp_name="/Lab2_datapath_tb/cw" type="array">
       <obj_property name="ElementShortName">cw[2:0]</obj_property>
       <obj_property name="ObjectShortName">cw[2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Lab2_datapath_tb/btn" type="array">
       <obj_property name="ElementShortName">btn[4:0]</obj_property>
@@ -109,6 +110,7 @@
    <wvobject fp_name="/Lab2_datapath_tb/sw" type="array">
       <obj_property name="ElementShortName">sw[2:0]</obj_property>
       <obj_property name="ObjectShortName">sw[2:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/Lab2_datapath_tb/Lbus_out" type="array">
       <obj_property name="ElementShortName">Lbus_out[15:0]</obj_property>
@@ -167,5 +169,9 @@
       <obj_property name="ElementShortName">column[9:0]</obj_property>
       <obj_property name="ObjectShortName">column[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab2_datapath_tb/uut/audio_codec/ready" type="logic">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
    </wvobject>
 </wave_config>

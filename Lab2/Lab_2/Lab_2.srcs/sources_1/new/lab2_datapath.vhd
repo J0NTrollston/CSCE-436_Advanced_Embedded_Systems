@@ -133,6 +133,14 @@ begin
             
     ch1 <= '1' when (readL = std_logic_vector(row)) else
         '0';
+        
+    sw(2) <= '1' when (WRADDR = "1111111111") else '0';
+    sw(1) <= '0';
+    
+    
+--    Lbus_out <= L_bus_out_S;
+--    Rbus_out <= R_bus_out_S;
+        
     
     
 	------------------------------------------------------------------------------
@@ -244,7 +252,7 @@ begin
         ac_dac_sdata => ac_dac_sdata,
         ac_bclk => ac_bclk,
         ac_lrclk => ac_lrclk,
-        ready => ready,
+        ready => sw(0),
         L_bus_in => L_bus_in_S, -- left channel input to DAC
         R_bus_in => R_bus_in_S, -- right channel input to DAC
         L_bus_out => L_bus_out_S, -- left channel output from ADC
@@ -306,5 +314,6 @@ begin
 --			WRADDR <= WRADDR_S;
 		end if;
 	end process;
+
 
 end Behavioral;
