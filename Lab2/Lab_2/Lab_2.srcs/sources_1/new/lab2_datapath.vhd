@@ -78,6 +78,11 @@ architecture Behavioral of lab2_datapath is
 	signal WRADDR_S: STD_LOGIC_VECTOR(9 downto 0);
 	signal readL18: STD_LOGIC_VECTOR(17 downto 0);
 --	signal cw: std_logic_vector(3 downto 0) := "110";
+
+    signal L_bus_out_vector: std_logic_vector(17 downto 0);
+    signal R_bus_out_vector: std_logic_vector(17 downto 0);
+	
+--	signal ready_S : std_logic;
 	
 	component video is
     Port (clk:          in  STD_LOGIC;
@@ -116,12 +121,13 @@ end component;
 begin
 
     reset <= not reset_n;
+--    L_bus_in <= L_bus_in_S;
     ch2_wave <= '1' when (row = 440-column) else '0';
     
     WRADDR <= std_logic_vector(WRADDR_S) when (exSel = '0') else
             exWrAddr when (exSel = '1');
             
-    L_bus_unsigned <= (unsigned(L_bus_in_S) + 131072);
+    L_bus_unsigned <= (unsigned(L_bus_out_vector) + 131072);
     
     Din <= STD_LOGIC_VECTOR(L_bus_unsigned) when ( exSel = '0') else
             (exLBus & "00") when (exSel = '1');
@@ -135,7 +141,8 @@ begin
         '0';
         
     sw(2) <= '1' when (WRADDR = "1111111111") else '0';
-    sw(1) <= '0';
+    sw(1) <= '1';
+    sw(0) <= ready;
     
     
 --    Lbus_out <= L_bus_out_S;
@@ -252,7 +259,7 @@ begin
         ac_dac_sdata => ac_dac_sdata,
         ac_bclk => ac_bclk,
         ac_lrclk => ac_lrclk,
-        ready => sw(0),
+        ready => ready,
         L_bus_in => L_bus_in_S, -- left channel input to DAC
         R_bus_in => R_bus_in_S, -- right channel input to DAC
         L_bus_out => L_bus_out_S, -- left channel output from ADC
@@ -282,7 +289,9 @@ begin
 		R_bus_in_S <= (others => '0');				
 	    elsif(ready = '1') then
 		L_bus_in_S <= L_bus_out_S;
+		L_bus_out_vector <= L_bus_out_S;
 		R_bus_in_S <= R_bus_out_S;
+		R_bus_out_vector <= R_bus_out_S;
 	    end if;
 	end if;
     end process;

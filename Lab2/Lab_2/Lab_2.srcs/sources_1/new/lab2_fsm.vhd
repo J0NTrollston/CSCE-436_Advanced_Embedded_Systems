@@ -39,7 +39,7 @@ Port (  clk     : in  STD_LOGIC;
 end lab2_fsm;
 
 architecture Behavioral of lab2_fsm is
-type state_type is (RST, WAIT_TRIGGER, STORE_SAMPLE, COUNT);
+type state_type is (RST, WAIT_TRIGGER, STORE_SAMPLE, WAIT_READY);
 signal FSM: state_type;
 begin
 
@@ -50,6 +50,14 @@ begin
 	--		10			unused
 	--		11			synch reset
 	-----------------------------------------------------------------------------
+	
+	    -----------------------------------------------------------------------------
+	--		The sw
+	--      001    ready from audio codec
+	--		010    2 compare
+	--		100    reaches 1023
+	--		
+	-----------------------------------------------------------------------------
 
 process(clk)
 begin
@@ -59,16 +67,18 @@ if(RISING_EDGE(clk)) then
     else
         case FSM is
                 when WAIT_TRIGGER =>
-                    if(sw(0) = '0') then
+                    if(sw(1) = '0') then
                         FSM <= WAIT_TRIGGER;
                     else FSM <= STORE_SAMPLE;
                     end if;
                 when STORE_SAMPLE =>
-                    FSM <= COUNT;
-                when COUNT =>
-                    if(sw(0) = '0') then
-                        FSM <= WAIT_TRIGGER;
-                    else FSM <= RST;
+                    FSM <= WAIT_READY;
+                when WAIT_READY =>
+                    if(sw(2) = '1' and sw(0) = '0') then
+                        FSM <= RST;
+                    elsif (sw(1) = '1') then
+                         FSM <= STORE_SAMPLE;
+                    else FSM <= WAIT_READY;
                     end if;
                 when RST =>
                     FSM <= WAIT_TRIGGER;
@@ -81,8 +91,8 @@ end process;
 
 cw <= "011" when (FSM = RST) else
         "000" when (FSM = WAIT_TRIGGER) else
-        "100" when (FSM = STORE_SAMPLE) else
-        "001" when (FSM = COUNT);
+        "101" when (FSM = STORE_SAMPLE) else
+        "001" when (FSM = WAIT_READY);
         
 
 

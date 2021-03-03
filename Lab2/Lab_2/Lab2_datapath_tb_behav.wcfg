@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="142079083334fs"></ZoomStartTime>
-      <ZoomEndTime time="142174583335fs"></ZoomEndTime>
-      <Cursor1Time time="142095000000fs"></Cursor1Time>
+      <ZoomStartTime time="18000000000fs"></ZoomStartTime>
+      <ZoomEndTime time="24000000001fs"></ZoomEndTime>
+      <Cursor1Time time="23000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="192"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="247"></NameColumnWidth>
+      <ValueColumnWidth column_width="139"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="36" />
+   <WVObjectSize size="39" />
    <wvobject fp_name="/Lab2_datapath_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -136,11 +136,6 @@
       <obj_property name="ElementShortName">BIT_CLK_period</obj_property>
       <obj_property name="ObjectShortName">BIT_CLK_period</obj_property>
    </wvobject>
-   <wvobject fp_name="/Lab2_datapath_tb/uut/WRADDR_S" type="array">
-      <obj_property name="ElementShortName">WRADDR_S[9:0]</obj_property>
-      <obj_property name="ObjectShortName">WRADDR_S[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/Lab2_datapath_tb/uut/WRADDR" type="array">
       <obj_property name="ElementShortName">WRADDR[9:0]</obj_property>
       <obj_property name="ObjectShortName">WRADDR[9:0]</obj_property>
@@ -154,7 +149,12 @@
    <wvobject fp_name="/Lab2_datapath_tb/uut/readL18" type="array">
       <obj_property name="ElementShortName">readL18[17:0]</obj_property>
       <obj_property name="ObjectShortName">readL18[17:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab2_datapath_tb/uut/readL" type="array">
+      <obj_property name="ElementShortName">readL[9:0]</obj_property>
+      <obj_property name="ObjectShortName">readL[9:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Lab2_datapath_tb/uut/ch1" type="logic">
       <obj_property name="ElementShortName">ch1</obj_property>
@@ -173,5 +173,18 @@
    <wvobject fp_name="/Lab2_datapath_tb/uut/audio_codec/ready" type="logic">
       <obj_property name="ElementShortName">ready</obj_property>
       <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab2_datapath_tb/uut/L_bus_in_S" type="array">
+      <obj_property name="ElementShortName">L_bus_in_S[17:0]</obj_property>
+      <obj_property name="ObjectShortName">L_bus_in_S[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab2_datapath_tb/uut/L_bus_out_vector" type="array">
+      <obj_property name="ElementShortName">L_bus_out_vector[17:0]</obj_property>
+      <obj_property name="ObjectShortName">L_bus_out_vector[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab2_datapath_tb/uut/L_bus_unsigned" type="array">
+      <obj_property name="ElementShortName">L_bus_unsigned[17:0]</obj_property>
+      <obj_property name="ObjectShortName">L_bus_unsigned[17:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>
