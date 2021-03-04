@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Thu Mar  4 13:57:25 2021
+| Date         : Thu Mar  4 17:34:46 2021
 | Host         : QuitStealingMyPaper running 64-bit major release  (build 9200)
 | Command      : report_methodology -file lab2_methodology_drc_routed.rpt -pb lab2_methodology_drc_routed.pb -rpx lab2_methodology_drc_routed.rpx
 | Design       : lab2
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 203
+             Violations found: 214
 +-----------+------------------+---------------------------------------------------+------------+
 | Rule      | Severity         | Description                                       | Violations |
 +-----------+------------------+---------------------------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell                       | 200        |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell                       | 211        |
 | TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin         | 2          |
 | XDCC-2    | Warning          | Scoped Non-Timing constraint/property overwritten | 1          |
 +-----------+------------------+---------------------------------------------------+------------+
@@ -936,100 +936,155 @@ Related violations: <none>
 
 TIMING-17#181 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/sampleMemory/sdp_bl.ramb18_dp_bl.ram18_bl/CLKARDCLK is not reached by a timing clock
+The clock pin datapath/previous_L_bus_reg[10]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#182 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/sampleMemory/sdp_bl.ramb18_dp_bl.ram18_bl/CLKBWRCLK is not reached by a timing clock
+The clock pin datapath/previous_L_bus_reg[11]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#183 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_time_reg[1]/C is not reached by a timing clock
+The clock pin datapath/previous_L_bus_reg[12]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#184 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_time_reg[2]/C is not reached by a timing clock
+The clock pin datapath/previous_L_bus_reg[13]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#185 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_time_reg[3]/C is not reached by a timing clock
+The clock pin datapath/previous_L_bus_reg[14]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#186 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_time_reg[4]/C is not reached by a timing clock
+The clock pin datapath/previous_L_bus_reg[15]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#187 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_time_reg[5]/C is not reached by a timing clock
+The clock pin datapath/previous_L_bus_reg[16]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#188 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_time_reg[6]/C is not reached by a timing clock
+The clock pin datapath/previous_L_bus_reg[17]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#189 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_time_reg[7]/C is not reached by a timing clock
+The clock pin datapath/previous_L_bus_reg[8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#190 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_time_reg[8]/C is not reached by a timing clock
+The clock pin datapath/previous_L_bus_reg[9]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#191 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_time_reg[9]/C is not reached by a timing clock
+The clock pin datapath/sampleMemory/sdp_bl.ramb18_dp_bl.ram18_bl/CLKARDCLK is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#192 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_volt_reg[1]/C is not reached by a timing clock
+The clock pin datapath/sampleMemory/sdp_bl.ramb18_dp_bl.ram18_bl/CLKBWRCLK is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#193 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_volt_reg[2]/C is not reached by a timing clock
+The clock pin datapath/sw_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#194 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_volt_reg[3]/C is not reached by a timing clock
+The clock pin datapath/trigger_time_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#195 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_volt_reg[4]/C is not reached by a timing clock
+The clock pin datapath/trigger_time_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#196 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_volt_reg[5]/C is not reached by a timing clock
+The clock pin datapath/trigger_time_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#197 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_volt_reg[6]/C is not reached by a timing clock
+The clock pin datapath/trigger_time_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#198 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_volt_reg[7]/C is not reached by a timing clock
+The clock pin datapath/trigger_time_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#199 Critical Warning
 Non-clocked sequential cell  
-The clock pin datapath/trigger_volt_reg[8]/C is not reached by a timing clock
+The clock pin datapath/trigger_time_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#200 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_time_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#201 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_time_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#202 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_time_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#203 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_volt_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#204 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_volt_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#205 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_volt_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#206 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_volt_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#207 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_volt_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#208 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_volt_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#209 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_volt_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#210 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/trigger_volt_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#211 Critical Warning
 Non-clocked sequential cell  
 The clock pin datapath/trigger_volt_reg[9]/C is not reached by a timing clock
 Related violations: <none>

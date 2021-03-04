@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date             : Thu Mar  4 13:57:26 2021
+| Date             : Thu Mar  4 17:34:48 2021
 | Host             : QuitStealingMyPaper running 64-bit major release  (build 9200)
 | Command          : report_power -file lab2_power_routed.rpt -pb lab2_power_summary_routed.pb -rpx lab2_power_routed.rpx
 | Design           : lab2
@@ -33,7 +33,7 @@ Table of Contents
 | Total On-Chip Power (W)  | 0.512        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.372        |
+| Dynamic (W)              | 0.371        |
 | Device Static (W)        | 0.140        |
 | Effective TJA (C/W)      | 3.3          |
 | Max Ambient (C)          | 83.3         |
@@ -53,14 +53,13 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.006 |       10 |       --- |             --- |
-| Slice Logic    |    <0.001 |     1093 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      507 |    133800 |            0.38 |
-|   Register     |    <0.001 |      410 |    267600 |            0.15 |
-|   CARRY4       |    <0.001 |       21 |     33450 |            0.06 |
-|   F7/F8 Muxes  |    <0.001 |        1 |    133800 |           <0.01 |
+| Slice Logic    |    <0.001 |     1119 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      524 |    133800 |            0.39 |
+|   Register     |    <0.001 |      421 |    267600 |            0.16 |
+|   CARRY4       |    <0.001 |       25 |     33450 |            0.07 |
 |   Others       |     0.000 |       30 |       --- |             --- |
-| Signals        |    <0.001 |      794 |       --- |             --- |
-| Block RAM      |     0.001 |      0.5 |       365 |            0.14 |
+| Signals        |    <0.001 |      805 |       --- |             --- |
+| Block RAM      |    <0.001 |      0.5 |       365 |            0.14 |
 | MMCM           |     0.228 |        2 |        10 |           20.00 |
 | I/O            |     0.135 |       22 |       285 |            7.72 |
 | Static Power   |     0.140 |          |           |                 |
@@ -74,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.042 |       0.010 |      0.032 |
+| Vccint    |       1.000 |     0.041 |       0.010 |      0.032 |
 | Vccaux    |       1.800 |     0.157 |       0.127 |      0.031 |
 | Vcco33    |       3.300 |     0.046 |       0.041 |      0.005 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -149,8 +148,8 @@ Table of Contents
 +------------------------------------+-----------+
 | Name                               | Power (W) |
 +------------------------------------+-----------+
-| lab2                               |     0.372 |
-|   datapath                         |     0.370 |
+| lab2                               |     0.371 |
+|   datapath                         |     0.369 |
 |     audio_codec                    |     0.125 |
 |       audio_inout                  |     0.001 |
 |       audiocodec_master_clock      |     0.123 |
