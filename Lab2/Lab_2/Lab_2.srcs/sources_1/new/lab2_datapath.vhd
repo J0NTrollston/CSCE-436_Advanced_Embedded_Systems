@@ -85,6 +85,7 @@ architecture Behavioral of lab2_datapath is
 --    flag register signals	
     signal set_flag, clear_flag, Q_flag: std_logic_vector(7 downto 0);
     signal v_sync: std_logic;
+    signal max_count: std_logic;
     
 	component video is
     Port (clk:          in  STD_LOGIC;
@@ -150,6 +151,7 @@ begin
         '0';
         
     sw(2) <= '1' when (WRADDR = "1111111111") else '0';
+    max_count <= '1' when (WRADDR = "1111111111") else '0';
     sw(1) <= '1';
     sw(0) <= ready;
     
@@ -241,7 +243,7 @@ begin
 		Di => Din,				-- Input data port, width defined by WRITE_WIDTH parameter
 --		WE => cw(2 downto 1),			-- since RAM is byte read, this determines high or low byte
 		WE => "11",			-- since RAM is byte read, this determines high or low byte
-		WRADDR => WRADDR_S,			-- Input write address, width defined by write port depth
+		WRADDR => WRADDR,			-- Input write address, width defined by write port depth
 		WRCLK => clk,		 			-- 1-bit input write clock
 		WREN => cw(2));					-- 1-bit input write port enable
 
@@ -288,30 +290,8 @@ begin
     process(clk)
     begin
     if(rising_edge(clk)) then
-        if (ready = '1') then
-            set_flag(0) <= '1';
-        end if;
-        
-        if (v_sync = '1') then
-            set_flag(1) <= '1';
-        end if;
-        
-        if (WRADDR = "1111111111") then
-            set_flag(2) <= '1';
-        end if;            
-            
-            
-        if ready = '1' then
-            clear_flag(0) <= '1';
-        end if;
-        
-        if v_sync = '1' then
-            clear_flag(1) <= '1';
-        end if;
-        
-        if WRADDR = "1111111111" then
-            clear_flag(2) <= '1';
-        end if;  
+        set_flag <= "00000" & ready & v_sync & max_count;  
+        clear_flag <= "00000" & ready & v_sync & max_count;  
     end if;
     end process;
     

@@ -40,6 +40,7 @@ read_vhdl -library xil_defaultlib {
   D:/UNL_Spring_2021/CSCE_436/Lab2/Code/TWICtl.vhd
   D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/imports/Desktop/counter.vhdl
   D:/UNL_Spring_2021/CSCE_436/Lab1/Lab_1/Lab_1.srcs/sources_1/imports/Code/dvid.vhdl
+  D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.srcs/sources_1/new/flagRegister.vhd
   D:/UNL_Spring_2021/CSCE_436/Lab2/Code/i2s_ctl.vhd
   D:/UNL_Spring_2021/CSCE_436/Lab2/Code/lab2_pack.vhdl
   D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.srcs/sources_1/new/lab2_datapath.vhd

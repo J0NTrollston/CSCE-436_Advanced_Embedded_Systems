@@ -22,14 +22,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity flagRegister is
 	Generic (N: integer := 8);
@@ -51,10 +43,8 @@ process(clk)
             Q_flag <= (others => '0');
         else
 --        to set flag
---        Q_flag <= (Q_flag or set);
-        
---        Q_flag <= (Q_flag and (not clear));
-            Q_flag <= (Q_flag and (not clear)) or set;
+--        process_Q OR set AND NOT clear (all bitwise operations)
+            Q_flag <= (Q_flag OR (set AND (NOT clear)));
         end if;
        
     Q <= Q_flag;

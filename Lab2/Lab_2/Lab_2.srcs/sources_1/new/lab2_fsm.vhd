@@ -62,7 +62,7 @@ begin
 process(clk)
 begin
 if(RISING_EDGE(clk)) then
-    if(reset_n = '1') then
+    if(reset_n = '0') then
         FSM <= RST;
     else
         case FSM is
@@ -77,7 +77,7 @@ if(RISING_EDGE(clk)) then
                     FSM <= WAIT_READY;
                     
                 when WAIT_READY =>
-                    if(sw(2) = '1' and sw(0) = '0') then
+                    if((sw(2) = '1') and (sw(0) = '0')) then
                         FSM <= RST;
                     elsif (sw(0) = '1') then
                          FSM <= STORE_SAMPLE;
