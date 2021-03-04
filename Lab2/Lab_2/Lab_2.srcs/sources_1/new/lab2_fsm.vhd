@@ -66,20 +66,24 @@ if(RISING_EDGE(clk)) then
         FSM <= RST;
     else
         case FSM is
+        
                 when WAIT_TRIGGER =>
                     if(sw(1) = '0') then
                         FSM <= WAIT_TRIGGER;
                     else FSM <= STORE_SAMPLE;
                     end if;
+                    
                 when STORE_SAMPLE =>
                     FSM <= WAIT_READY;
+                    
                 when WAIT_READY =>
                     if(sw(2) = '1' and sw(0) = '0') then
                         FSM <= RST;
-                    elsif (sw(1) = '1') then
+                    elsif (sw(0) = '1') then
                          FSM <= STORE_SAMPLE;
                     else FSM <= WAIT_READY;
                     end if;
+                    
                 when RST =>
                     FSM <= WAIT_TRIGGER;
                     
@@ -92,7 +96,8 @@ end process;
 cw <= "011" when (FSM = RST) else
         "000" when (FSM = WAIT_TRIGGER) else
         "101" when (FSM = STORE_SAMPLE) else
-        "001" when (FSM = WAIT_READY);
+        "000" when (FSM = WAIT_READY);
+--cw <= "101";
         
 
 
