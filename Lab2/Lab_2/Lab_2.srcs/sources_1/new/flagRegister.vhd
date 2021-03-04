@@ -47,13 +47,14 @@ begin
 process(clk)
     begin
     if(rising_edge(clk)) then
-        if (reset_n = '0') then
+        if (reset_n = '1') then
             Q_flag <= (others => '0');
         else
 --        to set flag
-        Q_flag <= Q_flag or set;
-        Q_flag <= Q_flag and (not clear);
+--        Q_flag <= (Q_flag or set);
         
+--        Q_flag <= (Q_flag and (not clear));
+            Q_flag <= (Q_flag and (not clear)) or set;
         end if;
        
     Q <= Q_flag;
