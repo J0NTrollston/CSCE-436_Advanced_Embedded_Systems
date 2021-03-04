@@ -9,3 +9,4 @@
 # Log file: D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1/lab2.vds
 # Journal file: D:/UNL_Spring_2021/CSCE_436/Lab2/Lab_2/Lab_2.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
+source lab2.tcl -notrace

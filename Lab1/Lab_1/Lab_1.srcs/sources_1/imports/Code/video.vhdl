@@ -35,7 +35,8 @@ entity video is
            row         : out unsigned(9 downto 0);
            column      : out unsigned(9 downto 0);
            tmds        : out STD_LOGIC_VECTOR(3 downto 0);
-           tmdsb       : out STD_LOGIC_VECTOR(3 downto 0)
+           tmdsb       : out STD_LOGIC_VECTOR(3 downto 0);
+           vsync      : out STD_LOGIC
            );
 end video;
 

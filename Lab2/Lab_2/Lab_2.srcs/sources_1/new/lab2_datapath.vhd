@@ -82,8 +82,10 @@ architecture Behavioral of lab2_datapath is
     signal L_bus_out_vector: std_logic_vector(17 downto 0);
     signal R_bus_out_vector: std_logic_vector(17 downto 0);
 	
---	signal ready_S : std_logic;
-	
+--    flag register signals	
+    signal set_flag, clear_flag, Q_flag: std_logic_vector(7 downto 0);
+    signal v_sync: std_logic;
+    
 	component video is
     Port (clk:          in  STD_LOGIC;
           reset_n:      in  STD_LOGIC;
@@ -96,10 +98,17 @@ architecture Behavioral of lab2_datapath is
 		  ch1:          in std_logic;
 		  ch1_enb:      in std_logic;
 		  ch2:          in std_logic;
-		  ch2_enb:      in std_logic);
+		  ch2_enb:      in std_logic;
+		  vsync:        out std_logic);
 	end component;
 	
-	
+	component flagRegister is
+	Generic (N: integer := 8);
+	Port(	clk: in  STD_LOGIC;
+			reset_n : in  STD_LOGIC;
+			set, clear: in std_logic_vector(N-1 downto 0);
+			Q: out std_logic_vector(N-1 downto 0));
+    end component;
 	
 	component Audio_Codec_Wrapper is
     Port ( clk : in STD_LOGIC;
@@ -248,7 +257,8 @@ begin
 		ch1          => ch1,
 		ch1_enb      => ch1_wave,
 		ch2          => ch2_wave,
-		ch2_enb      => ch2_wave
+		ch2_enb      => ch2_wave,
+		vsync        => v_sync
 		                          ); 
 		                          
     audio_codec : Audio_Codec_Wrapper port map(
@@ -266,6 +276,44 @@ begin
         R_bus_out => R_bus_out_S, -- right channel output from ADC
         scl => scl,
         sda => sda);
+        
+    flag_register: flagRegister port map(
+        clk => clk,
+        reset_n => reset_n,
+        set => set_flag,
+        clear => clear_flag,
+        Q => Q_flag);
+        
+        
+    process(clk)
+    begin
+    if(rising_edge(clk)) then
+        if (ready = '1') then
+            set_flag(0) <= '1';
+        end if;
+        
+        if (v_sync = '1') then
+            set_flag(1) <= '1';
+        end if;
+        
+        if (WRADDR = "1111111111") then
+            set_flag(2) <= '1';
+        end if;            
+            
+            
+        if ready = '1' then
+            clear_flag(0) <= '1';
+        end if;
+        
+        if v_sync = '1' then
+            clear_flag(1) <= '1';
+        end if;
+        
+        if WRADDR = "1111111111" then
+            clear_flag(2) <= '1';
+        end if;  
+    end if;
+    end process;
     
     --This is the unsigned counter process that will count up to 0x3FF
     
