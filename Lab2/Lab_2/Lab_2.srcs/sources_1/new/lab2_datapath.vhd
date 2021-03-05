@@ -159,13 +159,11 @@ begin
     readR <= std_logic_vector(unsigned(readR18(17 downto 8)) - 292);
             
     ch1 <= '1' when (readL = std_logic_vector(row)) else '0';
-        
     ch2 <= '1' when (readR = std_logic_vector(row)) else '0';
     
     sw(2) <= '1' when (WRADDR = "1111111111") else '0';
     max_count <= '1' when (WRADDR = "1111111111") else '0';
---    sw(1) <= '1';
-    sw(1) <= '1' when ((L_bus_unsigned(17 downto 8) > trigger_volt) and (unsigned(previous_L_bus(17 downto 8)) < trigger_volt)) else '0';
+    sw(1) <= '1' when ((L_bus_unsigned(17 downto 8) < trigger_volt) and (unsigned(previous_L_bus(17 downto 8)) > trigger_volt)) else '0';
     sw(0) <= ready;
     
     

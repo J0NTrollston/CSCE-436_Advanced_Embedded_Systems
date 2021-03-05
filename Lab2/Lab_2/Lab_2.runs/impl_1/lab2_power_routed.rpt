@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date             : Thu Mar  4 19:07:26 2021
+| Date             : Thu Mar  4 19:25:30 2021
 | Host             : QuitStealingMyPaper running 64-bit major release  (build 9200)
 | Command          : report_power -file lab2_power_routed.rpt -pb lab2_power_summary_routed.pb -rpx lab2_power_routed.rpx
 | Design           : lab2
@@ -53,12 +53,12 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.006 |       10 |       --- |             --- |
-| Slice Logic    |    <0.001 |     1146 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      527 |    133800 |            0.39 |
+| Slice Logic    |    <0.001 |     1112 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      506 |    133800 |            0.38 |
 |   Register     |    <0.001 |      438 |    267600 |            0.16 |
-|   CARRY4       |    <0.001 |       25 |     33450 |            0.07 |
+|   CARRY4       |    <0.001 |       24 |     33450 |            0.07 |
 |   Others       |     0.000 |       32 |       --- |             --- |
-| Signals        |    <0.001 |      839 |       --- |             --- |
+| Signals        |    <0.001 |      814 |       --- |             --- |
 | Block RAM      |     0.002 |        1 |       365 |            0.27 |
 | MMCM           |     0.228 |        2 |        10 |           20.00 |
 | I/O            |     0.135 |       22 |       285 |            7.72 |
@@ -126,17 +126,17 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+-----------------------------------------------------------+--------------------------------------------------------------------------+-----------------+
-| Clock                                                     | Domain                                                                   | Constraint (ns) |
-+-----------------------------------------------------------+--------------------------------------------------------------------------+-----------------+
-| clk_out1_clk_wiz_0                                        | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1_clk_wiz_0 |            40.0 |
-| clk_out1_clk_wiz_1                                        | datapath/audio_codec/audiocodec_master_clock/inst/clk_out1_clk_wiz_1     |            81.4 |
-| clk_out2_clk_wiz_0                                        | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2_clk_wiz_0 |             8.0 |
-| clk_out2_clk_wiz_1                                        | datapath/audio_codec/audiocodec_master_clock/inst/clk_out2_clk_wiz_1     |            20.0 |
-| clkfbout_clk_wiz_0                                        | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkfbout_clk_wiz_0 |            10.0 |
-| clkfbout_clk_wiz_1                                        | datapath/audio_codec/audiocodec_master_clock/inst/clkfbout_clk_wiz_1     |            10.0 |
-| datapath/audio_codec/audiocodec_master_clock/inst/clk_in1 | clk_IBUF_BUFG                                                            |            10.0 |
-+-----------------------------------------------------------+--------------------------------------------------------------------------+-----------------+
++---------------------------------------------------------------+--------------------------------------------------------------------------+-----------------+
+| Clock                                                         | Domain                                                                   | Constraint (ns) |
++---------------------------------------------------------------+--------------------------------------------------------------------------+-----------------+
+| clk_out1_clk_wiz_0                                            | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out1_clk_wiz_0 |            40.0 |
+| clk_out1_clk_wiz_1                                            | datapath/audio_codec/audiocodec_master_clock/inst/clk_out1_clk_wiz_1     |            81.4 |
+| clk_out2_clk_wiz_0                                            | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_out2_clk_wiz_0 |             8.0 |
+| clk_out2_clk_wiz_1                                            | datapath/audio_codec/audiocodec_master_clock/inst/clk_out2_clk_wiz_1     |            20.0 |
+| clkfbout_clk_wiz_0                                            | datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkfbout_clk_wiz_0 |            10.0 |
+| clkfbout_clk_wiz_1                                            | datapath/audio_codec/audiocodec_master_clock/inst/clkfbout_clk_wiz_1     |            10.0 |
+| datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clk_in1 | clk_IBUF_BUFG                                                            |            10.0 |
++---------------------------------------------------------------+--------------------------------------------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -153,8 +153,8 @@ Table of Contents
 |     LeftBRAM                       |     0.001 |
 |     RightBRAM                      |     0.001 |
 |     audio_codec                    |     0.125 |
+|       audio_inout                  |     0.001 |
 |       audiocodec_master_clock      |     0.123 |
-|       initialize_audio             |     0.001 |
 |     video_inst                     |     0.242 |
 |       inst_dvid                    |     0.001 |
 |       mmcm_adv_inst_display_clocks |     0.107 |
