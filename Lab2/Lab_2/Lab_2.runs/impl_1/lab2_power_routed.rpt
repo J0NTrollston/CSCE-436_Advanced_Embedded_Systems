@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date             : Thu Mar  4 17:34:48 2021
+| Date             : Thu Mar  4 19:07:26 2021
 | Host             : QuitStealingMyPaper running 64-bit major release  (build 9200)
 | Command          : report_power -file lab2_power_routed.rpt -pb lab2_power_summary_routed.pb -rpx lab2_power_routed.rpx
 | Design           : lab2
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.512        |
+| Total On-Chip Power (W)  | 0.513        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.371        |
+| Dynamic (W)              | 0.373        |
 | Device Static (W)        | 0.140        |
 | Effective TJA (C/W)      | 3.3          |
 | Max Ambient (C)          | 83.3         |
@@ -53,17 +53,17 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.006 |       10 |       --- |             --- |
-| Slice Logic    |    <0.001 |     1119 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      524 |    133800 |            0.39 |
-|   Register     |    <0.001 |      421 |    267600 |            0.16 |
+| Slice Logic    |    <0.001 |     1146 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      527 |    133800 |            0.39 |
+|   Register     |    <0.001 |      438 |    267600 |            0.16 |
 |   CARRY4       |    <0.001 |       25 |     33450 |            0.07 |
-|   Others       |     0.000 |       30 |       --- |             --- |
-| Signals        |    <0.001 |      805 |       --- |             --- |
-| Block RAM      |    <0.001 |      0.5 |       365 |            0.14 |
+|   Others       |     0.000 |       32 |       --- |             --- |
+| Signals        |    <0.001 |      839 |       --- |             --- |
+| Block RAM      |     0.002 |        1 |       365 |            0.27 |
 | MMCM           |     0.228 |        2 |        10 |           20.00 |
 | I/O            |     0.135 |       22 |       285 |            7.72 |
 | Static Power   |     0.140 |          |           |                 |
-| Total          |     0.512 |          |           |                 |
+| Total          |     0.513 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.041 |       0.010 |      0.032 |
+| Vccint    |       1.000 |     0.043 |       0.011 |      0.032 |
 | Vccaux    |       1.800 |     0.157 |       0.127 |      0.031 |
 | Vcco33    |       3.300 |     0.046 |       0.041 |      0.005 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -148,12 +148,13 @@ Table of Contents
 +------------------------------------+-----------+
 | Name                               | Power (W) |
 +------------------------------------+-----------+
-| lab2                               |     0.371 |
-|   datapath                         |     0.369 |
+| lab2                               |     0.373 |
+|   datapath                         |     0.371 |
+|     LeftBRAM                       |     0.001 |
+|     RightBRAM                      |     0.001 |
 |     audio_codec                    |     0.125 |
-|       audio_inout                  |     0.001 |
 |       audiocodec_master_clock      |     0.123 |
-|     sampleMemory                   |     0.001 |
+|       initialize_audio             |     0.001 |
 |     video_inst                     |     0.242 |
 |       inst_dvid                    |     0.001 |
 |       mmcm_adv_inst_display_clocks |     0.107 |

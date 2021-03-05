@@ -67,16 +67,21 @@ architecture Behavioral of lab2_datapath is
 	--Unsigned Counter
 --	signal write_cntr: unsigned(9 downto 0);
 	signal L_bus_unsigned: unsigned(17 downto 0);
+	signal R_bus_unsigned: unsigned(17 downto 0);
 	signal wrENB: std_logic;
 	
 	--Not sure
 	signal WRADDR: STD_LOGIC_VECTOR(9 downto 0);
 	signal Din: STD_LOGIC_VECTOR(17 downto 0);
+	signal Din_R: STD_LOGIC_VECTOR(17 downto 0);
 	signal readL: STD_LOGIC_VECTOR(9 downto 0);
+	signal readR: STD_LOGIC_VECTOR(9 downto 0);
 	signal reset: STD_LOGIC;
 	signal ch1: STD_LOGIC;
+	signal ch2: STD_LOGIC;
 	signal WRADDR_S: STD_LOGIC_VECTOR(9 downto 0);
 	signal readL18: STD_LOGIC_VECTOR(17 downto 0);
+	signal readR18: STD_LOGIC_VECTOR(17 downto 0);
 --	signal cw: std_logic_vector(3 downto 0) := "110";
 
     signal L_bus_out_vector: std_logic_vector(17 downto 0);
@@ -133,27 +138,34 @@ begin
 
     reset <= not reset_n;
 --    L_bus_in <= L_bus_in_S;
-    ch2_wave <= '1' when (row = 440-column) else '0';
+--    ch2_wave <= '1' when (row = 440-column) else '0';
     
     WRADDR <= std_logic_vector(WRADDR_S) when (exSel = '0') else
             exWrAddr when (exSel = '1');
             
     L_bus_unsigned <= (unsigned(L_bus_out_vector) + 131072);
+    R_bus_unsigned <= (unsigned(R_bus_out_vector) + 131072);
     
     Din <= STD_LOGIC_VECTOR(L_bus_unsigned) when ( exSel = '0') else
             (exLBus & "00") when (exSel = '1');
+    
+    Din_R <= STD_LOGIC_VECTOR(R_bus_unsigned) when (exSel = '0') else
+            (exRBus & "00") when (exSel = '1');
             
     wrENB <= cw(2) when (exSel = '0') else
             exWen when (exSel = '1');
             
     readL <= std_logic_vector(unsigned(readL18(17 downto 8)) - 292);
+    readR <= std_logic_vector(unsigned(readR18(17 downto 8)) - 292);
             
-    ch1 <= '1' when (readL = std_logic_vector(row)) else
-        '0';
+    ch1 <= '1' when (readL = std_logic_vector(row)) else '0';
         
+    ch2 <= '1' when (readR = std_logic_vector(row)) else '0';
+    
     sw(2) <= '1' when (WRADDR = "1111111111") else '0';
     max_count <= '1' when (WRADDR = "1111111111") else '0';
 --    sw(1) <= '1';
+    sw(1) <= '1' when ((L_bus_unsigned(17 downto 8) > trigger_volt) and (unsigned(previous_L_bus(17 downto 8)) < trigger_volt)) else '0';
     sw(0) <= ready;
     
     
@@ -223,7 +235,7 @@ begin
     --              
     -- Page:	10
     -----------------------------------------------------------------------------	
-    sampleMemory: BRAM_SDP_MACRO
+    LeftBRAM: BRAM_SDP_MACRO
 	generic map (
 		BRAM_SIZE => "18Kb", 			-- Target BRAM, "18Kb" or "36Kb"
 		DEVICE => "7SERIES", 			-- Target device: "VIRTEX5", "VIRTEX6", "SPARTAN6, 7SERIES"
@@ -247,6 +259,31 @@ begin
 		WRADDR => WRADDR,			-- Input write address, width defined by write port depth
 		WRCLK => clk,		 			-- 1-bit input write clock
 		WREN => cw(2));					-- 1-bit input write port enable
+		
+		RightBRAM: BRAM_SDP_MACRO
+	generic map (
+		BRAM_SIZE => "18Kb", 			-- Target BRAM, "18Kb" or "36Kb"
+		DEVICE => "7SERIES", 			-- Target device: "VIRTEX5", "VIRTEX6", "SPARTAN6, 7SERIES"
+		DO_REG => 0, 					-- Optional output register disabled
+		INIT => X"000000000000000000",	-- Initial values on output port
+		INIT_FILE => "NONE",			-- Not sure how to initialize the RAM from a file
+		WRITE_WIDTH => 18, 				-- Valid values are 1-72 (37-72 only valid when BRAM_SIZE="36Kb")
+		READ_WIDTH => 18, 				-- Valid values are 1-72 (37-72 only valid when BRAM_SIZE="36Kb")
+		SIM_COLLISION_CHECK => "NONE", 			-- Collision check enable "ALL", "WARNING_ONLY", "GENERATE_X_ONLY" or "NONE"
+		SRVAL => X"000000000000000000")	-- Set/Reset value for port output
+	port map (
+		DO => readR18,				-- Output read data port, width defined by READ_WIDTH parameter
+		RDADDR => STD_LOGIC_VECTOR(column),			-- Input address, width defined by port depth
+		RDCLK => clk,	 				-- 1-bit input clock
+		RST => reset,					-- active high reset
+		RDEN => '1',					-- read enable 
+		REGCE => '1',					-- 1-bit input read output register enable - ignored
+		Di => Din_R,				-- Input data port, width defined by WRITE_WIDTH parameter
+--		WE => cw(2 downto 1),			-- since RAM is byte read, this determines high or low byte
+		WE => "11",			-- since RAM is byte read, this determines high or low byte
+		WRADDR => WRADDR,			-- Input write address, width defined by write port depth
+		WRCLK => clk,		 			-- 1-bit input write clock
+		WREN => cw(2));					-- 1-bit input write port enable
 
 	video_inst: video port map( 
 		clk          => clk,
@@ -259,7 +296,7 @@ begin
 		column       => column,
 		ch1          => ch1,
 		ch1_enb      => ch1_wave,
-		ch2          => ch2_wave,
+		ch2          => ch2,
 		ch2_enb      => ch2_wave,
 		vsync        => v_sync
 		                          ); 
@@ -325,10 +362,10 @@ begin
 		R_bus_in_S <= R_bus_out_S;
 		R_bus_out_vector <= R_bus_out_S;
 		
-		if((L_bus_unsigned(17 downto 8) > trigger_volt) and (unsigned(previous_L_bus(17 downto 8)) < trigger_volt)) then
-	       sw(1) <= '1';
-	    else sw(1) <= '0';
-	    end if;
+--		if((L_bus_unsigned(17 downto 8) > trigger_volt) and (unsigned(previous_L_bus(17 downto 8)) < trigger_volt)) then
+--	       sw(1) <= '1';
+--	    else sw(1) <= '0';
+--	    end if;
 	    
 	    end if;
 	    
