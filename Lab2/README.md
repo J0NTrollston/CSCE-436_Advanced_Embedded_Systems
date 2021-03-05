@@ -350,9 +350,16 @@ The other question we had to answer before making the FSM was what would our cw 
 I went with the standard shown in the datapath testbench and created the sw as it is in the flowchart shown earlier. 
 
 ### Observations and Conclusions
-During this whole assignment, what did you learn?  What did you notice that was noteworthy?  This should 
-be a paragraph starting with the purpose, whether or not you achieved that purpose, what you learned, and 
-how you can use this for future labs.
+During this lab, we learned about how data is transfered with finite state machines. Using the control unit and the 
+datapath, we are able to send out signals to the board to change states. The purpose of the lab was to use the in class
+knowledge we have with the finite state machine and create two channels that would be sent through BRAM. In our case,
+we were able to get ch1 to print out to the screen with the waveform constricted to the trigger volt and the rising 
+edge of the waveform. As seen in the functionality this was able to be sent through BRAM and printed to the scopeface 
+at a frequency of 440Hz. Ch2 was held at a frequency of 441Hz to create a frequency beat of 1Hz if not connected to the board.
+What was noteworthy in the lab was how simple the FSM was in order to get the trigger to work correctly. Only 4 with some simple
+states that reset, count, and wait. 
+Ending this lab 2, we will use this for the later labs that have to deal with external signals. Applying the flag register now and 
+setting up the external signals will be helpful for implementing a soft CPU. 
 
 ### Documentation
 Help received by Professor Falkinburg and TA Jacob Fox in the main design and a big portion of Gate Check 2
