@@ -17,11 +17,8 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
 
 entity flagRegister_tb is
 end flagRegister_tb;
@@ -29,7 +26,6 @@ end flagRegister_tb;
 architecture Behavioral of flagRegister_tb is
 signal clk, reset_n: std_logic;
 signal set_S,clear_S: std_logic_vector(7 downto 0);
-
 
 component flagRegister is
 	Generic (N: integer := 8);
@@ -48,8 +44,7 @@ flag_register: flagRegister port map(
         reset_n => reset_n,
         set => set_S,
         clear => clear_S);
-        
-         
+            
 clk_process :process
    begin
 		clk <= '0';
@@ -58,10 +53,8 @@ clk_process :process
 		wait for clk_period/2;
    end process;
    
-   
 reset_n <= '1', '0' after 1us;
 set_S <= (others => '0'), "00000101" after 5us, (others => '0') after 20us;
-clear_S <= (others => '0'), "00000110" after 25us;
+clear_S <= (others => '0'), "00000110" after 5us;
 end Behavioral;
---sw_S <= "000", "010" after 2us, "001" after 3us, "000" after 4us, "100" after 5us;
 

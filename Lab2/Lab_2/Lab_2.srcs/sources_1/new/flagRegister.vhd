@@ -35,18 +35,14 @@ architecture Behavioral of flagRegister is
 signal Q_flag: std_logic_vector(7 downto 0);
 begin
 
-
 process(clk)
     begin
     if(rising_edge(clk)) then
         if (reset_n = '1') then
             Q_flag <= (others => '0');
         else
---        to set flag
---        process_Q OR set AND NOT clear (all bitwise operations)
             Q_flag <= (Q_flag OR (set AND (NOT clear)));
         end if;
-       
     Q <= Q_flag;
     
     end if;

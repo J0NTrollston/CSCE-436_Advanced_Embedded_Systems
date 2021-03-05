@@ -63,7 +63,7 @@ clk_process :process
 		wait for clk_period/2;
    end process;
    
-reset_n <= '1', '0' after 1us;
-sw_S <= "000", "010" after 2us, "001" after 3us, "000" after 4us, "100" after 5us;
+reset_n <= '0', '1' after 1us;
+sw_S <= "000", "010" after 2us, "001" after 3us, "000" after 5us, "100" after 6us;
 
 end Behavioral;

@@ -21,12 +21,14 @@ In this lab, we will integrate the video display controller developed in Lab 1 w
 on the Nexys Video board to build a basic 2-channel oscilloscope. When complete, the lab should 
 generate an output similar to the picture below.
 
+
 ##### Overview of Lab 2
 ![Overview scope](Images/overview.PNG)
 
 This lab is built on top of the previous lab with VGA Synchronization where we build the scopeface
 and triggermarks. Later in this document, you will see the physical I/O used for the data and the
 architecture of the lab. 
+
 
 ### Preliminary design
 
@@ -37,7 +39,8 @@ created in Lab 1. It is important to note that some of the components and signal
 this diagram will not be needed for Lab 2, but have been included because you will need them in 
 Labs 3 and 4.
 
-##### Architecture of Lab 2
+
+##### Architecture
 ![Architecture](Images/architecture.PNG)
 
 Consider the data in the diagram as flowing from left to Right. There will be an input signal to 
@@ -76,6 +79,7 @@ accomplished using the VHDL code below.
 Second, the circuit will need to send the L_bus_out and R_bus_out signals in an unsigned format to be stored 
 in the block ram (BRAM). To do this, we will need to convert the 2's complement values to unsigned. Performing 
 this conversion is technically easy, so let's do some examples. Consider the table below
+
 
 ##### I/O values for audio bus
 ![I/O values](Images/2sComp.PNG)
@@ -120,11 +124,13 @@ below.
 		flagClear: in std_logic_vector(7 downto 0));
 	end lab2_datapath;
 	
+
 ##### Flag Register
 In Lab 3, we will be integrating most of the components from this lab with the MicroBlaze processor (a processor 
 we program onto our FPGA). In order to make this smooth, we will need a way to transfer information between the 
 two systems a technique similar to a 2-line handshake. To make this possible, you will need to build a component 
 called a flag register. The behavior of the flag register is shown in the table below.
+
 
 ##### Control for Flag Register
 ![Flag Register](Images/flagRegister.PNG)
@@ -145,9 +151,9 @@ Use the following entity declaration for the flag register:
 	end flagRegister
 	
 The set lines should be connected to the signals below. For the time being, you can leave the Q outputs to open.
--ready
--v_synch
--write_cnt compare output
+-ready    
+-v_synch  
+-write_cnt compare output   
 
 #### BRAM
 We need to map the ports of BRAM to include it in the lab2_datapath. The component is declared in the UNIMACRO
@@ -180,9 +186,67 @@ by applying an audio signal to the audio line in jack (blue) and listening to it
 (Green) using a standard oscilloscope. Additionally the Scopeface and Button inputs from Lab 1 should be functional 
 as well.
 
+In the documentation section, there will be a VidGrid video of the gate check. This includes the scopeface and the
+audio codec loopback process that can be heard through a 3.5mm audio jack output. 
 
-GATE CHECK 1
-https://use.vg/l7Y7fA
+#### Gate Check 2
+By BOC Lesson 16, we must have implemented and connected the left channel BRAM and BRAM Address Counter to write 
+Audio Codec data to BRAM. Once implemented, we can verify the BRAM works by using the given datapath testbench 
+and watching the BRAM write address increment and data be written/read from the BRAM.
+Once this is working, we must implement Video entity (from Lab 1) to take the left channel output from BRAM and 
+send it to the Channel 1 waveform to be displayed when the readL value equals the row value. Once implemented, 
+this functionality can be verified first with the given datapath testbench to verify the channel 1 values are being 
+updated properly when readL equals the row value. Additionally, we may try to implement this on the hardware and 
+verify that your scopeface is still present and some values are being displayed for Channel 1 (at this point the 
+waveform will be scrolling across the display or may be scaled wrong).
+
+Below can be seen the BRAM waveform that shows the unsigned 18 bit value going in and out. The second image is the 
+screenshot of the scopeface where the scrolling of ch1 across the grid. This is due to not setting the trigger and 
+Finite State Machine States. 
+
+##### BRAM Values (WRADDR and ReadL) Waveform
+![BRAM values gate check 2](Images/gate_check_2.PNG)
+
+##### Scrolling of ch1
+![scrolling](Images/scrolling.PNG)
+
+#### Required Functionality
+Get a single channel of the oscilloscope to display with reliable triggering that holds the waveform at a single 
+point on the left edge of the display. A 220Hz waveform should display something similar to what is shown in the 
+screenshot at the top of this page. Additionally, there must have the following done: 
+Use a package file to contain all component declarations.  
+Use separate datapath and control unit.  
+Datapath must use processes which are similar to our basic building block (counter, register, mux, etc.). Not one 
+massive process in the datapath. 
+Testbench for the flagRegister.  
+Testbench for the control unit.  
+Testbench for the datapath unit showing data (different value than what is given in the testbench) coming out of the 
+audio codec and being converted from signed to unsigned and then to std_logic_vector to go into your BRAM. Include 
+calculations to back up what the waveform shows.
+For Bonus Points: Testbench for the datapath unit showing that same data coming out of the BRAM. Make sure to show 
+the read address and the data values coming out. This will require to set the control words on the testbench. 
+Additionally, you will have to drive the pixel_clock on the Video Module. Once we get the datapath testbench running, 
+we will notice that DCM module doesn't put out a clock in the Video Module.
+
+# Show picture of scope holding ch1 on trigger around 220Hz!
+## Double check package file to contain all comp. declarations
+##### Testbench For Flag Register
+![flag register tb](Images/flagRegister_waveform.PNG)
+# TB for control unit
+![control unit tb](Images/control_unit.PNG)
+# TB for datapath
+
+
+#### B-Level Functionality
+
+#### A-Level Functionality
+
+
+##### BRAM Waveform
+![gate check 2 waveform](Images/gate_check_2.PNG)
+
+
+
 
 #### Code:
 
@@ -288,5 +352,9 @@ internet should be specifically mentioned.
 
 Nexys Video FPGA Board Reference Manual
 https://reference.digilentinc.com/_media/nexys-video/nexysvideo_rm.pdf
+
+
+GATE CHECK 1
+https://use.vg/l7Y7fA
 
 
