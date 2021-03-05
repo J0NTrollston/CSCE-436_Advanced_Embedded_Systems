@@ -86,7 +86,7 @@ architecture Behavioral of lab2_datapath is
 
     signal L_bus_out_vector: std_logic_vector(17 downto 0);
     signal R_bus_out_vector: std_logic_vector(17 downto 0);
-    signal previous_L_bus: std_logic_vector(17 downto 0);
+    signal previous_L_bus_unsigned: unsigned(17 downto 0);
 	
 --    flag register signals	
     signal set_flag, clear_flag, Q_flag: std_logic_vector(7 downto 0);
@@ -163,7 +163,7 @@ begin
     
     sw(2) <= '1' when (WRADDR = "1111111111") else '0';
     max_count <= '1' when (WRADDR = "1111111111") else '0';
-    sw(1) <= '1' when ((L_bus_unsigned(17 downto 8) < trigger_volt) and (unsigned(previous_L_bus(17 downto 8)) > trigger_volt)) else '0';
+    sw(1) <= '1' when (((L_bus_unsigned(17 downto 8)-292) < trigger_volt) and ((previous_L_bus_unsigned(17 downto 8) - 292) > trigger_volt)) else '0';
     sw(0) <= ready;
     
     
@@ -355,7 +355,7 @@ begin
 	    
 		L_bus_in_S <= L_bus_out_S;
 		L_bus_out_vector <= L_bus_out_S;
-		previous_L_bus <= L_bus_out_vector;
+		previous_L_bus_unsigned <= L_bus_unsigned;
 		
 		R_bus_in_S <= R_bus_out_S;
 		R_bus_out_vector <= R_bus_out_S;

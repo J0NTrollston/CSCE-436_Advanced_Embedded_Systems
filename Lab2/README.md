@@ -228,95 +228,56 @@ the read address and the data values coming out. This will require to set the co
 Additionally, you will have to drive the pixel_clock on the Video Module. Once we get the datapath testbench running, 
 we will notice that DCM module doesn't put out a clock in the Video Module.
 
-# Show picture of scope holding ch1 on trigger around 220Hz!
+The first figure below can be shown as the Lab 2 functionality where the Channel 1 wave is being triggered off of the
+trigger volt on the right side of the scope. In the documentation there will be a VidGrid video of the functionality.
+The next figure is the Flag Register Testbench where we set, clear and output the registers contents out. This is using
+a single line of code where our registers contents are assigned "(Register OR (set AND (NOT clear)))" to the flag.
+Next is the Datapath Testbench that was given at the beginning of the lab. This will show a waveform of different values
+that go through BRAM. The specific signals to look at are the counter, BRAM in and out (which will be changed to unsigned
+and subtracted by 292) and control/set words.
+
+##### Ch1 triggering off of trigger volt
+![lab 2 functionality](Images/functionality.PNG)
+
+
 ## Double check package file to contain all comp. declarations
+
 ##### Testbench For Flag Register
 ![flag register tb](Images/flagRegister_waveform.PNG)
-# TB for control unit
+
+
+##### Finite State Machine Testbench
 ![control unit tb](Images/control_unit.PNG)
-# TB for datapath
+
+
+##### Datapath Testbench
+![datapath testbench](Images/datapath_tb.PNG)
 
 
 #### B-Level Functionality
+Meet all the requirements of required functionality
+Add a second channel (in green).
+Move the cursors on the screen.
+
+Most of this is in the figures in Required Functionality where we have a green ch2 signal. In the documentation there
+is a VidGrid video of button/trigger use.
 
 #### A-Level Functionality
+Meet all the requirements of B-level functionality.
+Use the trigger voltage marker to establish the actual trigger voltage used to capture the waveform. As the trigger 
+is moved up and down, we should see the point at which the waveform intersects the left side of the screen change.
+A-Level Functionality is shown in VidGrid as Required Functionality
 
 
-##### BRAM Waveform
-![gate check 2 waveform](Images/gate_check_2.PNG)
-
-
-
-
-#### Code:
-
-**You should only include important key code snippets in your README.  All code files should be included 
-in code folder.**
-
-**Well-formatted code**
- - All of your code should be written with:
-    1. headers
-    2. comments
-    3. good coding practices.
-
-
-##### Sample Code Headers
-The following are *example* headers, but your instructor may require a different template to be used.
-
-##### VHDL Header:
-	--------------------------------------------------------------------
-	-- Name:<Your Name>
-	-- Date:<The date you stated working on the file>
-	-- Course:	<The course's name>
-	-- File:<This file's name>
-	-- HW:	<HW# and name>
-	--
-	-- Purp:A brief description of what this program does and 
-	--	the general solution strategy. 
-	--
-	-- Doc:	<list the names of the people who you helped>
-	-- 	<list the names of the people who assisted you>
-	--
-	-- Academic Integrity Statement: I certify that, while others may have 
-	-- assisted me in brain storming, debugging and validating this program, 
-	-- the program itself is my own work. I understand that submitting code 
-	-- which is the work of other individuals is a violation of the honor   
-	-- code.  I also understand that if I knowingly give my original work to 
-	-- another individual is also a violation of the honor code. 
-	------------------------------------------------------------------------- 
-
-##### C Header:
-	/*--------------------------------------------------------------------
-	Name:<Your Name>
-	Date:<The date you stated working on the file>
-	Course:	<The course's name>
-	File:<This file's name>
-	HW:	<HW# and name>
-	
-	Purp:A brief description of what this program does and 
-		the general solution strategy. 
-	
-	Doc:	<list the names of the people who you helped>
-			<list the names of the people who assisted you>
-	
-	Academic Integrity Statement: I certify that, while others may have 
-	assisted me in brain storming, debugging and validating this program, 
-	the program itself is my own work. I understand that submitting code 
-	which is the work of other individuals is a violation of the honor   
-	code.  I also understand that if I knowingly give my original work to 
-	another individual is also a violation of the honor code. 
-	-------------------------------------------------------------------------*/
-	
 ### Software flow chart or algorithms
-All coding include a pseudocode flow charts and algorithms defined your code and the algorithms used.  
-Visio or PowerPoint works well for this!
+![finite state machine flowchart](Images/flowchart.PNG)
 
 #### Pseudocode:
 Insert pseudocode or flowchart here.
 
 ### Hardware schematic
 #### Connections
-![FPGA connection]((Images/connection.PNG)
+![FPGA connection](Images/connection.PNG)
 
 # talk about connections
 
@@ -357,4 +318,7 @@ https://reference.digilentinc.com/_media/nexys-video/nexysvideo_rm.pdf
 GATE CHECK 1
 https://use.vg/l7Y7fA
 
+
+Functionality
+https://app.vidgrid.com/view/EcTE1JeRhwcV
 
