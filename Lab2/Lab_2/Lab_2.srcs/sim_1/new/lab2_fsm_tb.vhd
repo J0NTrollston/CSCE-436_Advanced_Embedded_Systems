@@ -1,21 +1,20 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 03/03/2021 06:06:43 PM
--- Design Name: 
--- Module Name: lab2_fsm_tb - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+----------------------------------------------------------------------
+-- Name:	Brandon S. Ramos
+-- Date:	Spring 2020
+-- Course: 	CSCE 436
+-- File: 	lab2_fsm_
+-- HW:		Lecture 1
+-- Pupr:	Test bench for Lecture 1 - majority circuit  
+--
+-- Documentation:	Based this off a some previous labs and consulted 
+--					page 36 of our text for some useful syntax.	
+-- 	
+-- Academic Integrity Statement: I certify that, while others may have 
+-- assisted me in brain storming, debugging and validating this program, 
+-- the program itself is my own work. I understand that submitting code 
+-- which is the work of other individuals is a violation of the honor   
+-- code.  I also understand that if I knowingly give my original work to 
+-- another individual is also a violation of the honor code. 
 ----------------------------------------------------------------------------------
 
 

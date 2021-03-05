@@ -1,5 +1,20 @@
-----------------------------------------------------------------------------------
---	Put proper documentation here
+----------------------------------------------------------------------
+-- Name:	Brandon S. Ramos
+-- Date:	3/5/2021
+-- Course: 	CSCE 436: Advanced Embedded Systems
+-- File: 	lab2.vhd
+-- Project: Lab 2: Data Acquisition, Storage and Display
+-- Pupr:	Top Level Entity for Lab 2 
+--
+-- Documentation:	Reveived help by Prof. Falkinburg
+--                                   TA Jacob Fox	
+-- 	
+-- Academic Integrity Statement: I certify that, while others may have 
+-- assisted me in brain storming, debugging and validating this program, 
+-- the program itself is my own work. I understand that submitting code 
+-- which is the work of other individuals is a violation of the honor   
+-- code.  I also understand that if I knowingly give my original work to 
+-- another individual is also a violation of the honor code. 
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
