@@ -349,6 +349,28 @@ by -292 we had the signal centered.
 The other question we had to answer before making the FSM was what would our cw and sw be? 
 I went with the standard shown in the datapath testbench and created the sw as it is in the flowchart shown earlier. 
 
+Capability 
+1. The horizontal axis represents time. There are 10 major divisions on the display; how long does each major division represent?
+Since there are in total 800x535 pixels (420,000) we know that number divided by 60 FPS gives us 7000p/s and by the division line
+being 600 pixels wide, 600p/7000p/s = 85.7ms divided by 10 divisions givs us 8.57ms/division.
+
+2. Each major time division is split into 4 minor division, how long does each minor division represent?
+Each hatch mark in those 10 divisions on the time axis represents 2.14ms/hatch mark.
+
+3. Generate a sine wave that can be fully captured on your display (like the yellow channel in the image at the top of this web 
+page). record its height in major and minor vertical divisions. Measure this same audio output using the break out audio cable 
+or connect to the tip or ring and ground to the sleeve ground. Record the peak-to-peak voltage. Compute the number of volts 
+in each major and minor vertical division.
+
+4. Starting at address 0, how long does it take to fill the entire memory with audio samples (coming in at 48kHz)?
+It would take 1024/48KHz = 21.3ms to fill up the BRAM.
+
+5. How long does it take to completely draw the display once?
+Roughly 1/60 = 16.7ms.
+
+6. The question is likely relevant to Lab 3 - how long is the vsynch signal held low?
+Since the screen is esentially 800 pixels wide, it would be 800x2 = 1,600pixels/7000pixels/s = 229ms.
+
 ### Observations and Conclusions
 During this lab, we learned about how data is transfered with finite state machines. Using the control unit and the 
 datapath, we are able to send out signals to the board to change states. The purpose of the lab was to use the in class
