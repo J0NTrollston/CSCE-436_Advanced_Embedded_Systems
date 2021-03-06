@@ -1,13 +1,13 @@
 ----------------------------------------------------------------------
 -- Name:	Brandon S. Ramos
--- Date:	Spring 2020
--- Course: 	CSCE 436
--- File: 	lab2_fsm_
--- HW:		Lecture 1
--- Pupr:	Test bench for Lecture 1 - majority circuit  
+-- Date:	3/5/2021
+-- Course: 	CSCE 436: Advanced Embedded Systems
+-- File: 	lab2_fsm_tb.vhd
+-- Project: Lab 2: Data Acquisition, Storage and Display
+-- Pupr:	Testbench for control unit
 --
--- Documentation:	Based this off a some previous labs and consulted 
---					page 36 of our text for some useful syntax.	
+-- Documentation:	Reveived help by Prof. Falkinburg
+--                                   TA Jacob Fox	
 -- 	
 -- Academic Integrity Statement: I certify that, while others may have 
 -- assisted me in brain storming, debugging and validating this program, 
@@ -17,33 +17,22 @@
 -- another individual is also a violation of the honor code. 
 ----------------------------------------------------------------------------------
 
-
+-- Standard Library for std_logic
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+-- File for Lab 2 components
+use work.lab2Parts.all;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
+-- Intentionally left blank
 entity lab2_fsm_tb is
 end lab2_fsm_tb;
 
 architecture Behavioral of lab2_fsm_tb is
-signal clk, reset_n: std_logic;
-signal cw_S, sw_S: std_logic_vector(2 downto 0);
 
-component lab2_fsm is
-Port (  clk     : in  STD_LOGIC;
-        reset_n : in  STD_LOGIC;
-		sw      : in std_logic_vector (2 downto 0);
-		cw      : out std_logic_vector (2 downto 0));
-end component;
-
+--IN signals aside from cw_S
+signal clk, reset_n: STD_LOGIC;
+signal cw_S, sw_S: STD_LOGIC_VECTOR(2 downto 0);
 constant clk_period : time := 500 ns;
 
 BEGIN
@@ -54,13 +43,13 @@ control_unit: lab2_fsm port map(
         sw => sw_S,
         cw => cw_S);
 
-clk_process :process
-   begin
+clk_process: process
+    begin
 		clk <= '0';
 		wait for clk_period/2;
 		clk <= '1';
 		wait for clk_period/2;
-   end process;
+end process;
    
 reset_n <= '0', '1' after 1us;
 sw_S <= "000", "010" after 2us, "001" after 3us, "000" after 5us, "100" after 6us;

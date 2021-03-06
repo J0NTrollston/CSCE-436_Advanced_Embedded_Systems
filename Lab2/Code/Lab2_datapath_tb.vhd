@@ -1,15 +1,16 @@
-----------------------------------------------------------------------------------
--- Name:	Prof Jeff Falkinburg
--- Date:	Spring 2017
--- Course:	ECE 383
+----------------------------------------------------------------------
+-- Name:	Brandon S. Ramos
+-- Date:	3/5/2021
+-- Course: 	CSCE 436: Advanced Embedded Systems
 -- File: 	lab2_datapath_tb.vhd
--- HW:		Lab 2 
--- Pupr:	Lab 2 Datapath Testbench drives the blue audio jack input using the to
--- 		simulate the National Semiconductor LM450 AC'97 multi-channel audio 
+-- Project: Lab 2: Data Acquisition, Storage and Display
+-- Pupr:    Lab 2 Datapath Testbench drives the blue audio jack input using the to
+-- 		    simulate the National Semiconductor LM450 AC'97 multi-channel audio 
 --			codec and translates it for storage in BRAM and eventual display on the 
--- 		oscope display.  
+--          oscope display. 
 --
--- Doc:	None
+-- Documentation:	Reveived help by Prof. Falkinburg
+--                                   TA Jacob Fox	
 -- 	
 -- Academic Integrity Statement: I certify that, while others may have 
 -- assisted me in brain storming, debugging and validating this program, 
@@ -18,21 +19,25 @@
 -- code.  I also understand that if I knowingly give my original work to 
 -- another individual is also a violation of the honor code. 
 ----------------------------------------------------------------------------------
+
+-- Standard Library for std_logic
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
+
 library UNISIM;
 use UNISIM.VComponents.all;
+
 use work.lab2Parts.all;		
- 
+
+-- TB entity is left empty
 ENTITY Lab2_datapath_tb IS
 END Lab2_datapath_tb;
  
 ARCHITECTURE behavior OF Lab2_datapath_tb IS 
  
-    -- Component Declaration for the Unit Under Test (UUT)
- 
-    COMPONENT lab2_datapath
+-- Component Declaration for the Unit Under Test (UUT)
+COMPONENT lab2_datapath
     PORT(
          clk : IN  std_logic;
          reset_n : IN  std_logic;
@@ -59,7 +64,6 @@ ARCHITECTURE behavior OF Lab2_datapath_tb IS
          flagClear : IN  std_logic_vector(7 downto 0)
         );
     END COMPONENT;
-    
 
    --Inputs
    signal clk : std_logic := '0';
@@ -82,6 +86,7 @@ ARCHITECTURE behavior OF Lab2_datapath_tb IS
    signal ac_bclk : std_logic;
    signal ac_lrclk : std_logic;
    signal scl : std_logic;
+   
 --   signal AC97_n_RESET : std_logic;
    signal tmds : std_logic_vector(3 downto 0);
    signal tmdsb : std_logic_vector(3 downto 0);
@@ -90,19 +95,18 @@ ARCHITECTURE behavior OF Lab2_datapath_tb IS
    signal Rbus_out : std_logic_vector(15 downto 0);
    signal flagQ : std_logic_vector(7 downto 0);
 
-   -- Clock period definitions
+-- Clock period definitions
    constant clk_period : time := 10 ns;  -- Sets clock to ~ 100MHz
 --   constant BIT_CLK_period : time := 80 ns;  -- Sets Bit Clock for AC'97 to the necessary 12.288 MHz
    constant BIT_CLK_period : time := 40 ns;  -- Sets Bit Clock for Audio Codec to the necessary 25 MHz
 
-	-- FSM Control signals
+-- FSM Control signals
 	type state_type is (RST, WAIT_TRIGGER, STORE_SAMPLE, COUNT);
 	signal state: state_type;
 
-
 BEGIN
  
-	-- Instantiate the Unit Under Test (UUT)
+-- Instantiate the Unit Under Test (UUT)
    uut: lab2_datapath PORT MAP (
           clk => clk,
           reset_n => reset_n,
@@ -155,7 +159,6 @@ BEGIN
          wait for BIT_CLK_period*2;
     end process;
 
- 
    -- Stimulus process
    stim_proc: process 
    begin		
@@ -163,8 +166,6 @@ BEGIN
 		reset_n <= '0', '1' after 10 ns;
 		cw <= "111", "101" after 30 ns;
 			-- insert stimulus here 
-
-		
 		wait;
    end process;
 

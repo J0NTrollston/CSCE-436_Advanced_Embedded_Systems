@@ -1,3 +1,22 @@
+----------------------------------------------------------------------
+-- Name:	Brandon S. Ramos
+-- Date:	3/5/2021
+-- Course: 	CSCE 436: Advanced Embedded Systems
+-- File: 	dvid.vhdl
+-- Project: Lab 2: Data Acquisition, Storage and Display
+-- Pupr:	Converts VGA signals into DVID bitstreams
+--
+-- Documentation:	Reveived help by Prof. Falkinburg
+--                                   TA Jacob Fox	
+-- 	
+-- Academic Integrity Statement: I certify that, while others may have 
+-- assisted me in brain storming, debugging and validating this program, 
+-- the program itself is my own work. I understand that submitting code 
+-- which is the work of other individuals is a violation of the honor   
+-- code.  I also understand that if I knowingly give my original work to 
+-- another individual is also a violation of the honor code. 
+----------------------------------------------------------------------------------
+
 --------------------------------------------------------------------------------
 -- Engineer:      Mike Field <hamster@snap.net.nz>
 -- Description:   Converts VGA signals into DVID bitstreams.
