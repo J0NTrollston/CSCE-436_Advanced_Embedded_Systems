@@ -350,6 +350,7 @@ The other question we had to answer before making the FSM was what would our cw 
 I went with the standard shown in the datapath testbench and created the sw as it is in the flowchart shown earlier. 
 
 Capability 
+
 1. The horizontal axis represents time. There are 10 major divisions on the display; how long does each major division represent?
 Since there are in total 800x535 pixels (420,000) we know that number divided by 60 FPS gives us 7000p/s and by the division line
 being 600 pixels wide, 600p/7000p/s = 85.7ms divided by 10 divisions givs us 8.57ms/division.
