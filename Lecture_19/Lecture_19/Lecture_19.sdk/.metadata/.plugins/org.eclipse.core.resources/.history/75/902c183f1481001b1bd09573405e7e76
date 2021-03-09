@@ -79,7 +79,6 @@ int main()
     		case '?':
     			printf("--------------------------\r\n");
     			printf("	count Q = %x\r\n",Xil_In16(countQReg));
-    			printf("	roll    = %x\r\n",Xil_In8(countRollReg));
     			printf("--------------------------\r\n");
     			printf("?: help menu\r\n");
     			printf("o: k\r\n");
