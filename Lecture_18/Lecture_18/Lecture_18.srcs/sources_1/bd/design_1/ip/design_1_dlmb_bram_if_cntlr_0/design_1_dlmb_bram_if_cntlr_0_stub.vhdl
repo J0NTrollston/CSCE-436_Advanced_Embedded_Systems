@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Fri Mar  5 22:02:31 2021
+-- Date        : Sat Mar  6 02:39:58 2021
 -- Host        : QuitStealingMyPaper running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               d:/UNL_Spring_2021/CSCE_436/Lecture_18/Lecture_18/Lecture_18.srcs/sources_1/bd/design_1/ip/design_1_dlmb_bram_if_cntlr_0/design_1_dlmb_bram_if_cntlr_0_stub.vhdl
+--               D:/UNL_Spring_2021/CSCE_436/Lecture_18/Lecture_18/Lecture_18.srcs/sources_1/bd/design_1/ip/design_1_dlmb_bram_if_cntlr_0/design_1_dlmb_bram_if_cntlr_0_stub.vhdl
 -- Design      : design_1_dlmb_bram_if_cntlr_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a200tsbg484-1

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1615003060">
+<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1615019940">
   <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="design_1_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="design_1_wrapper_reports.tcl"/>
@@ -49,24 +49,20 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_dlmb_v10_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_microblaze_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_ilmb_v10_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_mig_7series_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_ilmb_bram_if_cntlr_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_axi_uartlite_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_rst_clk_wiz_1_100M_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_cc_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_ilmb_bram_if_cntlr_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_rst_mig_7series_0_100M_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_lmb_bram_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_dlmb_bram_if_cntlr_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_mdm_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_gpio_0_0"/>
 </GenRun>
