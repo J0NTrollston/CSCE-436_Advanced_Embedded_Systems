@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Fri Mar  5 18:41:11 2021">
+<application name="pa" timeStamp="Tue Mar  9 17:01:26 2021">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="a5c6d1923f0046edbd9d3da6ec9f0759" type="ProjectID"/>
 <property name="ProjectIteration" value="49" type="ProjectIteration"/>
@@ -64,7 +64,8 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ConstraintsChooserPanel_ADD_FILES" value="2" type="GuiHandlerData"/>
 <property name="CoreTreeTablePanel_CORE_TREE_TABLE" value="9" type="GuiHandlerData"/>
 <property name="CreateSrcFileDialog_FILE_NAME" value="6" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="349" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="353" type="GuiHandlerData"/>
+<property name="FileSetPanel_MESSAGES" value="3" type="GuiHandlerData"/>
 <property name="FindAndReplaceAllDialog_FIND" value="1" type="GuiHandlerData"/>
 <property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="194" type="GuiHandlerData"/>
 <property name="GettingStartedView_CREATE_NEW_PROJECT" value="1" type="GuiHandlerData"/>
@@ -117,7 +118,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ProjectTab_RELOAD" value="1" type="GuiHandlerData"/>
 <property name="RDICommands_DELETE" value="3" type="GuiHandlerData"/>
 <property name="RDICommands_PASTE" value="1" type="GuiHandlerData"/>
-<property name="RDICommands_SAVE_FILE" value="111" type="GuiHandlerData"/>
+<property name="RDICommands_SAVE_FILE" value="113" type="GuiHandlerData"/>
 <property name="RDICommands_WAVEFORM_SAVE_CONFIGURATION" value="13" type="GuiHandlerData"/>
 <property name="RDIViews_WAVEFORM_VIEWER" value="263" type="GuiHandlerData"/>
 <property name="SaveProjectUtils_SAVE" value="8" type="GuiHandlerData"/>
@@ -145,9 +146,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="WaveformView_PREVIOUS_TRANSITION" value="24" type="GuiHandlerData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="56" type="GuiMode"/>
+<property name="GuiMode" value="63" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="51" type="TclMode"/>
+<property name="TclMode" value="57" type="TclMode"/>
 </item>
 </section>
 </application>

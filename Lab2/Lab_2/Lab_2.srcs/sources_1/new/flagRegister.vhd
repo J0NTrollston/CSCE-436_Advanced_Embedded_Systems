@@ -44,7 +44,7 @@ process(clk)
         if (reset_n = '1') then
             Q_flag <= (others => '0');
         else
-            Q_flag <= (Q_flag OR (set AND (NOT clear)));
+            Q_flag <= ((Q_flag OR set) AND (NOT clear));
         end if;
     Q <= Q_flag;
     
