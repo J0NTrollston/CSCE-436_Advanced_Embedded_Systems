@@ -679,7 +679,7 @@ begin
 	      when b"00001" =>
 	        reg_data_out <= slv_reg1;
 	      when b"00010" =>
-	        reg_data_out <= x"0000000" & roll_S;
+	        reg_data_out <= x"0000000" & "000" & roll_S;
 	      when b"00011" =>
 	        reg_data_out <= slv_reg3;
 	      when b"00100" =>

@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date             : Mon Mar  8 16:46:30 2021
+| Date             : Tue Mar  9 17:48:55 2021
 | Host             : QuitStealingMyPaper running 64-bit major release  (build 9200)
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.980        |
+| Total On-Chip Power (W)  | 0.981        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.817        |
+| Dynamic (W)              | 0.818        |
 | Device Static (W)        | 0.163        |
 | Effective TJA (C/W)      | 3.3          |
-| Max Ambient (C)          | 81.8         |
-| Junction Temperature (C) | 28.2         |
+| Max Ambient (C)          | 81.7         |
+| Junction Temperature (C) | 28.3         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,24 +52,24 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.049 |       26 |       --- |             --- |
-| Slice Logic              |     0.016 |    19984 |       --- |             --- |
-|   LUT as Logic           |     0.013 |     7401 |    133800 |            5.53 |
+| Clocks                   |     0.050 |       26 |       --- |             --- |
+| Slice Logic              |     0.016 |    19927 |       --- |             --- |
+|   LUT as Logic           |     0.013 |     7395 |    133800 |            5.53 |
 |   LUT as Distributed RAM |     0.001 |      588 |     46200 |            1.27 |
-|   Register               |    <0.001 |     8374 |    267600 |            3.13 |
+|   Register               |    <0.001 |     8342 |    267600 |            3.12 |
 |   CARRY4                 |    <0.001 |      205 |     33450 |            0.61 |
-|   F7/F8 Muxes            |    <0.001 |      301 |    133800 |            0.22 |
+|   F7/F8 Muxes            |    <0.001 |      277 |    133800 |            0.21 |
 |   LUT as Shift Register  |    <0.001 |      256 |     46200 |            0.55 |
 |   Others                 |    <0.001 |      769 |       --- |             --- |
-| Signals                  |     0.021 |    15067 |       --- |             --- |
+| Signals                  |     0.020 |    15077 |       --- |             --- |
 | Block RAM                |     0.001 |        8 |       365 |            2.19 |
 | MMCM                     |     0.202 |        2 |        10 |           20.00 |
 | PLL                      |     0.092 |        1 |        10 |           10.00 |
-| I/O                      |     0.298 |       60 |       285 |           21.05 |
+| I/O                      |     0.299 |       60 |       285 |           21.05 |
 | PHASER                   |     0.134 |       14 |       --- |             --- |
 | XADC                     |     0.004 |        1 |       --- |             --- |
 | Static Power             |     0.163 |          |           |                 |
-| Total                    |     0.980 |          |           |                 |
+| Total                    |     0.981 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -171,8 +171,8 @@ Table of Contents
 +--------------------------------------+-----------+
 | Name                                 | Power (W) |
 +--------------------------------------+-----------+
-| design_1_wrapper                     |     0.817 |
-|   design_1_i                         |     0.815 |
+| design_1_wrapper                     |     0.818 |
+|   design_1_i                         |     0.816 |
 |     clk_wiz_1                        |     0.107 |
 |       inst                           |     0.107 |
 |     microblaze_0                     |     0.011 |
