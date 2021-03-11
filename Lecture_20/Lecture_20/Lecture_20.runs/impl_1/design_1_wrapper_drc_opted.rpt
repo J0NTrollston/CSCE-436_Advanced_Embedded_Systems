@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Wed Mar 10 17:59:02 2021
+| Date         : Wed Mar 10 23:44:53 2021
 | Host         : QuitStealingMyPaper running 64-bit major release  (build 9200)
 | Command      : report_drc -file design_1_wrapper_drc_opted.rpt -pb design_1_wrapper_drc_opted.pb -rpx design_1_wrapper_drc_opted.rpx
 | Design       : design_1_wrapper
@@ -24,23 +24,17 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 5
-+-----------+------------------+-----------------------------------------------------+------------+
-| Rule      | Severity         | Description                                         | Violations |
-+-----------+------------------+-----------------------------------------------------+------------+
-| LUTLP-1   | Critical Warning | Combinatorial Loop Alert                            | 1          |
-| BUFC-1    | Warning          | Input Buffer Connections                            | 2          |
-| CFGBVS-1  | Warning          | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
-| REQP-1709 | Warning          | Clock output buffering                              | 1          |
-+-----------+------------------+-----------------------------------------------------+------------+
+             Violations found: 4
++-----------+----------+-----------------------------------------------------+------------+
+| Rule      | Severity | Description                                         | Violations |
++-----------+----------+-----------------------------------------------------+------------+
+| BUFC-1    | Warning  | Input Buffer Connections                            | 2          |
+| CFGBVS-1  | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
+| REQP-1709 | Warning  | Clock output buffering                              | 1          |
++-----------+----------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
-LUTLP-1#1 Critical Warning
-Combinatorial Loop Alert  
-1 LUT cells form a combinatorial loop. This can create a race condition. Timing analysis may not be accurate. The preferred resolution is to modify the design to remove combinatorial logic loops. If the loop is known and understood, this DRC can be bypassed by acknowledging the condition and setting the following XDC constraint on any one of the nets in the loop: 'set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets <myHier/myNet>]'. One net in the loop is design_1_i/my_counter_ip_0/U0/my_counter_ip_v1_0_S00_AXI_inst/counter/flagQ. Please evaluate your design. The cells in the loop are: design_1_i/my_counter_ip_0/U0/my_counter_ip_v1_0_S00_AXI_inst/counter/flagQ_INST_0.
-Related violations: <none>
-
 BUFC-1#1 Warning
 Input Buffer Connections  
 Input buffer design_1_i/mig_7series_0/u_design_1_mig_7series_0_0_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/gen_dqs_iobuf_HR.gen_dqs_iobuf[0].gen_dqs_diff.u_iobuf_dqs/IBUFDS_0 (in design_1_i/mig_7series_0/u_design_1_mig_7series_0_0_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/gen_dqs_iobuf_HR.gen_dqs_iobuf[0].gen_dqs_diff.u_iobuf_dqs macro) has no loads. It is recommended to have an input buffer drive an internal load.

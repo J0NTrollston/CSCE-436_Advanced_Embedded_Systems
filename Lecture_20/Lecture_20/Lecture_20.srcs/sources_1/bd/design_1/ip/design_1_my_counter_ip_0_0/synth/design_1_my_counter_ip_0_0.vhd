@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: unl.edu:user:my_counter_ip:1.0
--- IP Revision: 8
+-- IP Revision: 19
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -56,7 +56,7 @@ USE ieee.numeric_std.ALL;
 ENTITY design_1_my_counter_ip_0_0 IS
   PORT (
     LED : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-    flagQ : OUT STD_LOGIC;
+    roll : OUT STD_LOGIC;
     s00_axi_awaddr : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
     s00_axi_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     s00_axi_awvalid : IN STD_LOGIC;
@@ -91,7 +91,7 @@ ARCHITECTURE design_1_my_counter_ip_0_0_arch OF design_1_my_counter_ip_0_0 IS
     );
     PORT (
       LED : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-      flagQ : OUT STD_LOGIC;
+      roll : OUT STD_LOGIC;
       s00_axi_awaddr : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
       s00_axi_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       s00_axi_awvalid : IN STD_LOGIC;
@@ -154,7 +154,7 @@ BEGIN
     )
     PORT MAP (
       LED => LED,
-      flagQ => flagQ,
+      roll => roll,
       s00_axi_awaddr => s00_axi_awaddr,
       s00_axi_awprot => s00_axi_awprot,
       s00_axi_awvalid => s00_axi_awvalid,

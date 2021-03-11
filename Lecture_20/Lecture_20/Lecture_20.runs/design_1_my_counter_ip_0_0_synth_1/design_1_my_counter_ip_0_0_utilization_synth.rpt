@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Wed Mar 10 17:56:12 2021
+| Date         : Wed Mar 10 23:41:17 2021
 | Host         : QuitStealingMyPaper running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_my_counter_ip_0_0_utilization_synth.rpt -pb design_1_my_counter_ip_0_0_utilization_synth.pb
 | Design       : design_1_my_counter_ip_0_0
@@ -33,10 +33,10 @@ Table of Contents
 | Slice LUTs*             |  435 |     0 |    134600 |  0.32 |
 |   LUT as Logic          |  435 |     0 |    134600 |  0.32 |
 |   LUT as Memory         |    0 |     0 |     46200 |  0.00 |
-| Slice Registers         | 1026 |     0 |    269200 |  0.38 |
-|   Register as Flip Flop | 1026 |     0 |    269200 |  0.38 |
+| Slice Registers         | 1027 |     0 |    269200 |  0.38 |
+|   Register as Flip Flop | 1027 |     0 |    269200 |  0.38 |
 |   Register as Latch     |    0 |     0 |    269200 |  0.00 |
-| F7 Muxes                |  103 |     0 |     67300 |  0.15 |
+| F7 Muxes                |  104 |     0 |     67300 |  0.15 |
 | F8 Muxes                |    0 |     0 |     33650 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 8     |          Yes |         Set |            - |
-| 1018  |          Yes |       Reset |            - |
+| 1019  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,13 +149,13 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 1018 |        Flop & Latch |
-| LUT6     |  290 |                 LUT |
-| LUT5     |  136 |                 LUT |
-| MUXF7    |  103 |               MuxFx |
+| FDRE     | 1019 |        Flop & Latch |
+| LUT6     |  292 |                 LUT |
+| LUT5     |  134 |                 LUT |
+| MUXF7    |  104 |               MuxFx |
 | FDSE     |    8 |        Flop & Latch |
-| LUT4     |    5 |                 LUT |
-| LUT3     |    3 |                 LUT |
+| LUT4     |    4 |                 LUT |
+| LUT3     |    4 |                 LUT |
 | LUT2     |    2 |                 LUT |
 | LUT1     |    1 |                 LUT |
 +----------+------+---------------------+

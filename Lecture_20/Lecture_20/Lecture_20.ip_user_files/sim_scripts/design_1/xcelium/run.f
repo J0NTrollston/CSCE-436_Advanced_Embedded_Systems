@@ -59,9 +59,9 @@
   "../../../bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_sim_netlist.vhdl" \
   "../../../bd/design_1/ip/design_1_mig_7series_0_0/design_1_mig_7series_0_0_sim_netlist.vhdl" \
   "../../../bd/design_1/ip/design_1_rst_mig_7series_0_100M_0/sim/design_1_rst_mig_7series_0_100M_0.vhd" \
-  "../../../bd/design_1/ipshared/c4fe/src/lec19.vhdl" \
-  "../../../bd/design_1/ipshared/c4fe/hdl/my_counter_ip_v1_0_S00_AXI.vhd" \
-  "../../../bd/design_1/ipshared/c4fe/hdl/my_counter_ip_v1_0.vhd" \
+  "../../../bd/design_1/ipshared/d86a/src/lec19.vhdl" \
+  "../../../bd/design_1/ipshared/d86a/hdl/my_counter_ip_v1_0_S00_AXI.vhd" \
+  "../../../bd/design_1/ipshared/d86a/hdl/my_counter_ip_v1_0.vhd" \
   "../../../bd/design_1/ip/design_1_my_counter_ip_0_0/sim/design_1_my_counter_ip_0_0.vhd" \
   "../../../bd/design_1/ip/design_1_auto_cc_0/design_1_auto_cc_0_sim_netlist.vhdl" \
   "../../../bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_sim_netlist.vhdl" \

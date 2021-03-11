@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date             : Wed Mar 10 18:01:37 2021
+| Date             : Wed Mar 10 23:48:10 2021
 | Host             : QuitStealingMyPaper running 64-bit major release  (build 9200)
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.980        |
+| Total On-Chip Power (W)  | 0.981        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.817        |
+| Dynamic (W)              | 0.818        |
 | Device Static (W)        | 0.163        |
 | Effective TJA (C/W)      | 3.3          |
 | Max Ambient (C)          | 81.8         |
@@ -52,24 +52,24 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.050 |       26 |       --- |             --- |
-| Slice Logic              |     0.015 |    19967 |       --- |             --- |
-|   LUT as Logic           |     0.013 |     7417 |    133800 |            5.54 |
+| Clocks                   |     0.049 |       26 |       --- |             --- |
+| Slice Logic              |     0.015 |    19969 |       --- |             --- |
+|   LUT as Logic           |     0.013 |     7426 |    133800 |            5.55 |
 |   LUT as Distributed RAM |     0.001 |      588 |     46200 |            1.27 |
-|   Register               |    <0.001 |     8358 |    267600 |            3.12 |
+|   Register               |    <0.001 |     8359 |    267600 |            3.12 |
 |   CARRY4                 |    <0.001 |      205 |     33450 |            0.61 |
-|   F7/F8 Muxes            |    <0.001 |      276 |    133800 |            0.21 |
+|   F7/F8 Muxes            |    <0.001 |      277 |    133800 |            0.21 |
 |   LUT as Shift Register  |    <0.001 |      256 |     46200 |            0.55 |
 |   Others                 |    <0.001 |      774 |       --- |             --- |
-| Signals                  |     0.020 |    15081 |       --- |             --- |
+| Signals                  |     0.020 |    15094 |       --- |             --- |
 | Block RAM                |     0.001 |        8 |       365 |            2.19 |
 | MMCM                     |     0.202 |        2 |        10 |           20.00 |
 | PLL                      |     0.092 |        1 |        10 |           10.00 |
-| I/O                      |     0.298 |       60 |       285 |           21.05 |
+| I/O                      |     0.299 |       60 |       285 |           21.05 |
 | PHASER                   |     0.134 |       14 |       --- |             --- |
 | XADC                     |     0.004 |        1 |       --- |             --- |
 | Static Power             |     0.163 |          |           |                 |
-| Total                    |     0.980 |          |           |                 |
+| Total                    |     0.981 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -171,7 +171,7 @@ Table of Contents
 +--------------------------------------+-----------+
 | Name                                 | Power (W) |
 +--------------------------------------+-----------+
-| design_1_wrapper                     |     0.817 |
+| design_1_wrapper                     |     0.818 |
 |   design_1_i                         |     0.815 |
 |     clk_wiz_1                        |     0.107 |
 |       inst                           |     0.107 |
@@ -182,8 +182,8 @@ Table of Contents
 |       xbar                           |     0.001 |
 |     microblaze_0_local_memory        |     0.001 |
 |       lmb_bram                       |     0.001 |
-|     mig_7series_0                    |     0.687 |
-|       u_design_1_mig_7series_0_0_mig |     0.687 |
+|     mig_7series_0                    |     0.685 |
+|       u_design_1_mig_7series_0_0_mig |     0.685 |
 |     my_counter_ip_0                  |     0.004 |
 |       U0                             |     0.004 |
 +--------------------------------------+-----------+

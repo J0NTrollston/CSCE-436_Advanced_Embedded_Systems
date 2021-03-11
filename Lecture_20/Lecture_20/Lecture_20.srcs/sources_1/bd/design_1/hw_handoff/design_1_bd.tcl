@@ -342,7 +342,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net mig_7series_0_ui_clk [get_bd_pins microblaze_0_axi_periph/M01_ACLK] [get_bd_pins mig_7series_0/ui_clk] [get_bd_pins rst_mig_7series_0_100M/slowest_sync_clk]
   connect_bd_net -net mig_7series_0_ui_clk_sync_rst [get_bd_pins mig_7series_0/ui_clk_sync_rst] [get_bd_pins rst_mig_7series_0_100M/ext_reset_in]
   connect_bd_net -net my_counter_ip_0_LED [get_bd_ports LED] [get_bd_pins my_counter_ip_0/LED]
-  connect_bd_net -net my_counter_ip_0_roll [get_bd_pins microblaze_0/Interrupt] [get_bd_pins my_counter_ip_0/flagQ]
+  connect_bd_net -net my_counter_ip_0_roll [get_bd_pins microblaze_0/Interrupt] [get_bd_pins my_counter_ip_0/roll]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins clk_wiz_1/resetn] [get_bd_pins mig_7series_0/sys_rst] [get_bd_pins rst_clk_wiz_1_100M/ext_reset_in]
   connect_bd_net -net rst_clk_wiz_1_100M_bus_struct_reset [get_bd_pins microblaze_0_local_memory/SYS_Rst] [get_bd_pins rst_clk_wiz_1_100M/bus_struct_reset]
   connect_bd_net -net rst_clk_wiz_1_100M_mb_reset [get_bd_pins microblaze_0/Reset] [get_bd_pins rst_clk_wiz_1_100M/mb_reset]

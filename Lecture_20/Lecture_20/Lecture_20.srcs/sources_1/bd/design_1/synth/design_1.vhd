@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
---Date        : Wed Mar 10 17:56:21 2021
+--Date        : Wed Mar 10 23:41:38 2021
 --Host        : QuitStealingMyPaper running 64-bit major release  (build 9200)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -2227,7 +2227,7 @@ architecture STRUCTURE of design_1 is
   component design_1_my_counter_ip_0_0 is
   port (
     LED : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    flagQ : out STD_LOGIC;
+    roll : out STD_LOGIC;
     s00_axi_awaddr : in STD_LOGIC_VECTOR ( 6 downto 0 );
     s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s00_axi_awvalid : in STD_LOGIC;
@@ -2743,7 +2743,7 @@ mig_7series_0: component design_1_mig_7series_0_0
 my_counter_ip_0: component design_1_my_counter_ip_0_0
      port map (
       LED(7 downto 0) => my_counter_ip_0_LED(7 downto 0),
-      flagQ => my_counter_ip_0_roll,
+      roll => my_counter_ip_0_roll,
       s00_axi_aclk => microblaze_0_Clk,
       s00_axi_araddr(6 downto 0) => microblaze_0_axi_periph_M02_AXI_ARADDR(6 downto 0),
       s00_axi_aresetn => rst_clk_wiz_1_100M_peripheral_aresetn(0),
