@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Mar  9 17:42:47 2021
-# Process ID: 26312
+# Start of session at: Wed Mar 10 14:39:57 2021
+# Process ID: 23780
 # Current directory: D:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.runs/design_1_my_counter_ip_0_0_synth_1
 # Command line: vivado.exe -log design_1_my_counter_ip_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_my_counter_ip_0_0.tcl
 # Log file: D:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.runs/design_1_my_counter_ip_0_0_synth_1/design_1_my_counter_ip_0_0.vds
@@ -19,38 +19,38 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Device 21-403] Loading part xc7a200tsbg484-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 28400 
+INFO: Helper process launched with PID 36972 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 883.398 ; gain = 178.344
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 883.227 ; gain = 177.512
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'design_1_my_counter_ip_0_0' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ip/design_1_my_counter_ip_0_0/synth/design_1_my_counter_ip_0_0.vhd:83]
+INFO: [Synth 8-638] synthesizing module 'design_1_my_counter_ip_0_0' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ip/design_1_my_counter_ip_0_0/synth/design_1_my_counter_ip_0_0.vhd:84]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'my_counter_ip_v1_0' declared at 'd:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0.vhd:5' bound to instance 'U0' of component 'my_counter_ip_v1_0' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ip/design_1_my_counter_ip_0_0/synth/design_1_my_counter_ip_0_0.vhd:148]
-INFO: [Synth 8-638] synthesizing module 'my_counter_ip_v1_0' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0.vhd:51]
+INFO: [Synth 8-3491] module 'my_counter_ip_v1_0' declared at 'd:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0.vhd:5' bound to instance 'U0' of component 'my_counter_ip_v1_0' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ip/design_1_my_counter_ip_0_0/synth/design_1_my_counter_ip_0_0.vhd:150]
+INFO: [Synth 8-638] synthesizing module 'my_counter_ip_v1_0' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0.vhd:51]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 7 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'my_counter_ip_v1_0_S00_AXI' declared at 'd:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:5' bound to instance 'my_counter_ip_v1_0_S00_AXI_inst' of component 'my_counter_ip_v1_0_S00_AXI' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0.vhd:89]
-INFO: [Synth 8-638] synthesizing module 'my_counter_ip_v1_0_S00_AXI' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:87]
+INFO: [Synth 8-3491] module 'my_counter_ip_v1_0_S00_AXI' declared at 'd:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:5' bound to instance 'my_counter_ip_v1_0_S00_AXI_inst' of component 'my_counter_ip_v1_0_S00_AXI' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0.vhd:89]
+INFO: [Synth 8-638] synthesizing module 'my_counter_ip_v1_0_S00_AXI' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:87]
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 7 - type: integer 
-INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:294]
-INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:676]
-WARNING: [Synth 8-614] signal 'Q' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:671]
-WARNING: [Synth 8-614] signal 'roll_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:671]
+INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:294]
+INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:676]
+WARNING: [Synth 8-614] signal 'Q' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:671]
+WARNING: [Synth 8-614] signal 'roll_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:671]
 	Parameter N bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'lec11' declared at 'd:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/src/lec19.vhdl:25' bound to instance 'counter' of component 'lec11' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:766]
-INFO: [Synth 8-638] synthesizing module 'lec11' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/src/lec19.vhdl:36]
+INFO: [Synth 8-3491] module 'lec11' declared at 'd:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/src/lec19.vhdl:25' bound to instance 'counter' of component 'lec11' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:766]
+INFO: [Synth 8-638] synthesizing module 'lec11' [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/src/lec19.vhdl:36]
 	Parameter N bound to: 8 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'lec11' (1#1) [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/src/lec19.vhdl:36]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg2_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:261]
-WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:292]
-WARNING: [Synth 8-3848] Net roll in module/entity my_counter_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:20]
-INFO: [Synth 8-256] done synthesizing module 'my_counter_ip_v1_0_S00_AXI' (2#1) [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0_S00_AXI.vhd:87]
-INFO: [Synth 8-256] done synthesizing module 'my_counter_ip_v1_0' (3#1) [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/65bf/hdl/my_counter_ip_v1_0.vhd:51]
-INFO: [Synth 8-256] done synthesizing module 'design_1_my_counter_ip_0_0' (4#1) [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ip/design_1_my_counter_ip_0_0/synth/design_1_my_counter_ip_0_0.vhd:83]
+INFO: [Synth 8-256] done synthesizing module 'lec11' (1#1) [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/src/lec19.vhdl:36]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg2_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:261]
+WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:292]
+WARNING: [Synth 8-3848] Net roll in module/entity my_counter_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'my_counter_ip_v1_0_S00_AXI' (2#1) [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0_S00_AXI.vhd:87]
+INFO: [Synth 8-256] done synthesizing module 'my_counter_ip_v1_0' (3#1) [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ipshared/1df5/hdl/my_counter_ip_v1_0.vhd:51]
+INFO: [Synth 8-256] done synthesizing module 'design_1_my_counter_ip_0_0' (4#1) [d:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ip/design_1_my_counter_ip_0_0/synth/design_1_my_counter_ip_0_0.vhd:84]
 WARNING: [Synth 8-3331] design my_counter_ip_v1_0_S00_AXI has unconnected port roll
 WARNING: [Synth 8-3331] design my_counter_ip_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[2]
 WARNING: [Synth 8-3331] design my_counter_ip_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[1]
@@ -59,7 +59,7 @@ WARNING: [Synth 8-3331] design my_counter_ip_v1_0_S00_AXI has unconnected port S
 WARNING: [Synth 8-3331] design my_counter_ip_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[1]
 WARNING: [Synth 8-3331] design my_counter_ip_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 949.180 ; gain = 244.125
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 949.297 ; gain = 243.582
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -72,10 +72,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 949.180 ; gain = 244.125
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 949.297 ; gain = 243.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 949.180 ; gain = 244.125
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 949.297 ; gain = 243.582
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -83,31 +83,31 @@ Processing XDC Constraints
 Initializing timing engine
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1083.926 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1076.594 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.177 . Memory (MB): peak = 1084.184 ; gain = 0.258
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.308 . Memory (MB): peak = 1078.785 ; gain = 2.191
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -189,7 +189,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U0/my_co
 INFO: [Synth 8-3886] merging instance 'U0/my_counter_ip_v1_0_S00_AXI_inst/axi_bresp_reg[0]' (FDRE) to 'U0/my_counter_ip_v1_0_S00_AXI_inst/axi_bresp_reg[1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U0/my_counter_ip_v1_0_S00_AXI_inst /\axi_bresp_reg[1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -201,13 +201,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:56 ; elapsed = 00:01:01 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Timing Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:01:02 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -219,7 +219,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Technology Mapping : Time (s): cpu = 00:00:57 ; elapsed = 00:01:03 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -243,7 +243,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished IO Insertion : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -256,7 +256,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -268,25 +268,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -323,35 +323,35 @@ Report Instance Areas:
 |4     |      counter                       |lec11                      |    22|
 +------+------------------------------------+---------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1078.785 ; gain = 373.070
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 7 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:27 . Memory (MB): peak = 1084.184 ; gain = 244.125
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1084.184 ; gain = 379.129
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:48 ; elapsed = 00:01:00 . Memory (MB): peak = 1078.785 ; gain = 243.582
+Synthesis Optimization Complete : Time (s): cpu = 00:01:03 ; elapsed = 00:01:09 . Memory (MB): peak = 1078.785 ; gain = 373.070
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 104 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 WARNING: [Netlist 29-101] Netlist 'design_1_my_counter_ip_0_0' is not ideal for floorplanning, since the cellview 'my_counter_ip_v1_0_S00_AXI' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1096.461 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1095.875 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 31 Infos, 21 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1096.461 ; gain = 679.418
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1096.461 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:14 ; elapsed = 00:01:23 . Memory (MB): peak = 1095.875 ; gain = 679.449
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1095.875 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.runs/design_1_my_counter_ip_0_0_synth_1/design_1_my_counter_ip_0_0.dcp' has been generated.
 WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_my_counter_ip_0_0, cache-ID = 03e40fd8d20b3c9b
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_my_counter_ip_0_0, cache-ID = 6d1245f7ed0f1fc8
 INFO: [Coretcl 2-1174] Renamed 3 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1096.461 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1095.875 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.runs/design_1_my_counter_ip_0_0_synth_1/design_1_my_counter_ip_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_my_counter_ip_0_0_utilization_synth.rpt -pb design_1_my_counter_ip_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Mar  9 17:43:37 2021...
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 10 14:41:31 2021...

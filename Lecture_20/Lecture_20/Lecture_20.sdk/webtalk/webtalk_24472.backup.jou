@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# 
+# Start of session at: Mon Mar  8 18:15:42 2021
+# Process ID: 24472
+# Current directory: D:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: D:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.sdk/webtalk/webtalk.log
+# Journal file: D:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

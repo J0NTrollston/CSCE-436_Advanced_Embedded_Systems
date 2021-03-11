@@ -18,6 +18,7 @@ entity my_counter_ip_v1_0_S00_AXI is
 		-- Users to add ports here
         LED: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
         roll: OUT STD_LOGIC;
+        flagQ: OUT STD_LOGIC;
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -120,6 +121,9 @@ architecture arch_imp of my_counter_ip_v1_0_S00_AXI is
 
     signal Q : unsigned (7 downto 0);
     signal roll_S: STD_LOGIC;
+    signal rollFlag: STD_LOGIC;
+    signal setFlag: STD_LOGIC;
+    signal clearFlag: STD_LOGIC;
 	
 	---- Number of Slave Registers 32
 	signal slv_reg0	:std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
@@ -771,7 +775,26 @@ counter: lec11
                  roll =>    roll_S,
                  D => unsigned(slv_reg0(7 downto 0)), 
                  Q => Q);
+                 
 LED <= std_logic_vector(Q);
+roll <= roll_S; --Reassign signal?
+clearFlag <= slv_reg3(0);
+setFlag <= roll_S;
+
+
+process(S_AXI_ACLK)
+begin
+
+if (S_AXI_ARESETN = '1') then
+            rollFlag <= '0';
+        else
+            rollFlag <= ((rollFlag OR setFlag) AND (NOT clearFlag));
+        end if;
+    flagQ <= rollFlag;
+    
+
+
+end process;
 	-- User logic ends
 
 end arch_imp;

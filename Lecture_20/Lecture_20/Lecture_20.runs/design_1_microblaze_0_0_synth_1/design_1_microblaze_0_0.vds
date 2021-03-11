@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Mar 10 15:58:23 2021
+# Process ID: 59496
+# Current directory: D:/UNL_Spring_2021/CSCE_436/Lecture_20/Lecture_20/Lecture_20.runs/design_1_microblaze_0_0_synth_1
+# Command line: vivado.exe -log design_1_microblaze_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_microblaze_0_0.tcl
+# Log file: D:/UNL_Spring_2021/CSCE_436/Lecture_20/Lecture_20/Lecture_20.runs/design_1_microblaze_0_0_synth_1/design_1_microblaze_0_0.vds
+# Journal file: D:/UNL_Spring_2021/CSCE_436/Lecture_20/Lecture_20/Lecture_20.runs/design_1_microblaze_0_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source design_1_microblaze_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.1/data/ip'.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_microblaze_0_0, cache-ID = aa022f8d97879b46.
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 10 15:58:34 2021...

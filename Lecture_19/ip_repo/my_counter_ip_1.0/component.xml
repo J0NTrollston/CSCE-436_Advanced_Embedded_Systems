@@ -266,7 +266,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3ceee8bb</spirit:value>
+            <spirit:value>5af9d5b8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -282,7 +282,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3ceee8bb</spirit:value>
+            <spirit:value>5af9d5b8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -341,6 +341,19 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>flagQ</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
               <spirit:viewNameRef>xilinx_vhdlsynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_vhdlbehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -702,7 +715,7 @@
       <spirit:file>
         <spirit:name>hdl/my_counter_ip_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_18f62f94</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_c48ba9c3</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -835,11 +848,11 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>my_counter_ip_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreRevision>8</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:my_counter_ip:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-03-09T23:41:31Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-03-10T23:54:33Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@74be7dfb_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@5ecb751d_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
@@ -921,14 +934,56 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@660e8d80_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@5d11dd39_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@14bfa4ac_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40ec52c8_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3f22e845_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3aa2c8a7_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5bcc7f90_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@413cee36_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b0c6fe7_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1fc262d9_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ab16a64_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5659c506_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5dd4631a_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b4ade8a_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d1b99c1_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@430c1ff9_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34348ae3_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4f182884_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5aff560f_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@752c543a_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4137b5c3_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7aa6f83_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@709df407_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@244700a2_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@254496ce_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4ae172cf_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7dfaf05e_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53e985f9_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3429fcc9_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54096e5b_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f7c2ecb_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26e131cc_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@743badb1_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21538155_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6251b733_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@341bd3b8_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b0aa6a6_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d346656_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75f42e60_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3189b6d_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ec8c993_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72182735_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49856a8f_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@10e23f4_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19e221e5_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lecture_19/ip_repo/my_counter_ip_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="0312d308"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="709cc9c6"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="420aaa3d"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a1bdae0f"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="0510d96e"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="a0a6f17f"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="57af9644"/>
     </xilinx:packagingInfo>

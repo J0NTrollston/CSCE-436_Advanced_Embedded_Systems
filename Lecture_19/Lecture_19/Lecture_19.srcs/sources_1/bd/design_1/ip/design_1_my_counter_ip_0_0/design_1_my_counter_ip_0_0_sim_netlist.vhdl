@@ -1,7 +1,7 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Tue Mar  9 17:43:36 2021
+-- Date        : Wed Mar 10 14:41:30 2021
 -- Host        : QuitStealingMyPaper running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/UNL_Spring_2021/CSCE_436/Lecture_19/Lecture_19/Lecture_19.srcs/sources_1/bd/design_1/ip/design_1_my_counter_ip_0_0/design_1_my_counter_ip_0_0_sim_netlist.vhdl
@@ -15137,6 +15137,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity design_1_my_counter_ip_0_0 is
   port (
     LED : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    roll : out STD_LOGIC;
     s00_axi_awaddr : in STD_LOGIC_VECTOR ( 6 downto 0 );
     s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s00_axi_awvalid : in STD_LOGIC;
@@ -15202,6 +15203,7 @@ begin
   s00_axi_bresp(0) <= \<const0>\;
   s00_axi_rresp(1) <= \<const0>\;
   s00_axi_rresp(0) <= \<const0>\;
+  roll <= 'Z';
 GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\
