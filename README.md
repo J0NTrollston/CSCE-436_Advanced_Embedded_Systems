@@ -1,3 +1,6 @@
+
+# Need to construct new README for main branch
+
 # Lab 1 - VGA Synchronization
 ##CSCE 436 - Advanced Embedded Systems
 
