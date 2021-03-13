@@ -16,7 +16,18 @@ entity my_oscope_ip_v1_0 is
 	);
 	port (
 		-- Users to add ports here
-
+        clk:          IN    STD_LOGIC;
+        reset_n:      IN    STD_LOGIC;
+        ac_mclk:      OUT   STD_LOGIC;
+        ac_adc_sdata: IN    STD_LOGIC;
+        ac_dac_sdata: OUT   STD_LOGIC;
+        ac_bclk:      OUT   STD_LOGIC;
+        ac_lrclk:     OUT   STD_LOGIC;
+        sda:          INOUT STD_LOGIC;
+        scl:          INOUT STD_LOGIC;
+        tmds:         OUT   STD_LOGIC_VECTOR(3 DOWNTO 0);
+        tmdsb:        OUT   STD_LOGIC_VECTOR(3 DOWNTO 0);
+        btn:          IN    STD_LOGIC_VECTOR(4 DOWNTO 0);
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -55,6 +66,20 @@ architecture arch_imp of my_oscope_ip_v1_0 is
 		C_S_AXI_ADDR_WIDTH	: integer	:= 7
 		);
 		port (
+		
+		clk:          IN    STD_LOGIC;
+        reset_n:      IN    STD_LOGIC;
+        ac_mclk:      OUT   STD_LOGIC;
+        ac_adc_sdata: IN    STD_LOGIC;
+        ac_dac_sdata: OUT   STD_LOGIC;
+        ac_bclk:      OUT   STD_LOGIC;
+        ac_lrclk:     OUT   STD_LOGIC;
+        sda:          INOUT STD_LOGIC;
+        scl:          INOUT STD_LOGIC;
+        tmds:         OUT   STD_LOGIC_VECTOR(3 DOWNTO 0);
+        tmdsb:        OUT   STD_LOGIC_VECTOR(3 DOWNTO 0);
+        btn:          IN    STD_LOGIC_VECTOR(4 DOWNTO 0);
+        
 		S_AXI_ACLK	: in std_logic;
 		S_AXI_ARESETN	: in std_logic;
 		S_AXI_AWADDR	: in std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
@@ -88,6 +113,19 @@ my_oscope_ip_v1_0_S00_AXI_inst : my_oscope_ip_v1_0_S00_AXI
 		C_S_AXI_ADDR_WIDTH	=> C_S00_AXI_ADDR_WIDTH
 	)
 	port map (
+	    clk          => clk,
+        reset_n      => reset_n,
+        ac_mclk      => ac_mclk,
+        ac_adc_sdata => ac_adc_sdata,
+        ac_dac_sdata => ac_dac_sdata,
+        ac_bclk      => ac_bclk,
+        ac_lrclk     => ac_lrclk,
+        sda          => sda,
+        scl          => scl,
+        tmds         => tmds,
+        tmdsb        => tmdsb,
+        btn          => btn,
+        
 		S_AXI_ACLK	=> s00_axi_aclk,
 		S_AXI_ARESETN	=> s00_axi_aresetn,
 		S_AXI_AWADDR	=> s00_axi_awaddr,

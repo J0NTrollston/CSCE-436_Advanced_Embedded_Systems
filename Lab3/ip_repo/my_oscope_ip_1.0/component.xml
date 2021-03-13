@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <spirit:vendor>xilinx.com</spirit:vendor>
+  <spirit:vendor>unl.edu</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>my_oscope_ip</spirit:name>
   <spirit:version>1.0</spirit:version>
@@ -169,7 +169,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>WIZ_DATA_WIDTH</spirit:name>
-          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S00_AXI.WIZ_DATA_WIDTH" spirit:choiceRef="choice_list_ea018de4">32</spirit:value>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.S00_AXI.WIZ_DATA_WIDTH" spirit:choiceRef="choice_list_6fc15197">32</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>WIZ_NUM_REG</spirit:name>
@@ -263,6 +263,12 @@
         <spirit:fileSetRef>
           <spirit:localName>xilinx_vhdlsynthesis_view_fileset</spirit:localName>
         </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>4ba14b55</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
       </spirit:view>
       <spirit:view>
         <spirit:name>xilinx_vhdlbehavioralsimulation</spirit:name>
@@ -273,6 +279,12 @@
         <spirit:fileSetRef>
           <spirit:localName>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>4ba14b55</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
       </spirit:view>
       <spirit:view>
         <spirit:name>xilinx_softwaredriver</spirit:name>
@@ -281,6 +293,12 @@
         <spirit:fileSetRef>
           <spirit:localName>xilinx_softwaredriver_view_fileset</spirit:localName>
         </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>d72d5c0f</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
       </spirit:view>
       <spirit:view>
         <spirit:name>xilinx_xpgui</spirit:name>
@@ -289,6 +307,12 @@
         <spirit:fileSetRef>
           <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
         </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>dda4df14</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
       </spirit:view>
       <spirit:view>
         <spirit:name>bd_tcl</spirit:name>
@@ -297,6 +321,12 @@
         <spirit:fileSetRef>
           <spirit:localName>bd_tcl_view_fileset</spirit:localName>
         </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>16328387</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
       </spirit:view>
     </spirit:views>
     <spirit:ports>
@@ -627,7 +657,7 @@
   </spirit:model>
   <spirit:choices>
     <spirit:choice>
-      <spirit:name>choice_list_ea018de4</spirit:name>
+      <spirit:name>choice_list_6fc15197</spirit:name>
       <spirit:enumeration>32</spirit:enumeration>
     </spirit:choice>
     <spirit:choice>
@@ -646,7 +676,7 @@
       <spirit:file>
         <spirit:name>hdl/my_oscope_ip_v1_0.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_aeb97c39</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_9bf850aa</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -715,7 +745,7 @@
       <spirit:name>C_S00_AXI_DATA_WIDTH</spirit:name>
       <spirit:displayName>C S00 AXI DATA WIDTH</spirit:displayName>
       <spirit:description>Width of S_AXI data bus</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXI_DATA_WIDTH" spirit:choiceRef="choice_list_ea018de4" spirit:order="3">32</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXI_DATA_WIDTH" spirit:choiceRef="choice_list_6fc15197" spirit:order="3">32</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -776,10 +806,74 @@
       </xilinx:taxonomies>
       <xilinx:displayName>my_oscope_ip_v1.0</xilinx:displayName>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-03-12T22:54:12Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-03-13T02:25:03Z</xilinx:coreCreationDateTime>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68e06da5_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65a67972_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@114d7db4_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4da3a436_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@bec3438_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3f0852af_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6750df41_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6de3c999_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e53f76f_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21deb7a8_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49f21762_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@117e2887_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f876409_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f0d5b59_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7214ce1a_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7233093_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e5e862f_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a89d4bb_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c8443b4_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78e6466f_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19f4d73f_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31aa06ab_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@373a4313_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48094be5_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a7fe7af_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b288697_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3db4eac6_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@768ce42d_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3bf93d8f_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b256d46_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c28498c_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1cbd727b_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ec704b0_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2970dbb_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a3d0f59_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@67646c29_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24639e6b_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d5335cf_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fcadee8_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ca68ed_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@110cf639_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ed2891e_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@258ce02f_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4822a6b7_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65e3f7f6_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6049cd6c_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b4fd16c_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27946475_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65afa7db_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13fc33d7_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2de94c96_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f602de3_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78c2b6e7_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4fa6420_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6eb98fd1_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11468623_ARCHIVE_LOCATION">d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0</xilinx:tag>
+      </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2019.1</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="df70cddf"/>
+      <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a06ae683"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="1b4053fb"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="a0a6f17f"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="7221eead"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

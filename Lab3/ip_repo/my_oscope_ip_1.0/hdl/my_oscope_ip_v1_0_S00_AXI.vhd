@@ -2,6 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+-- File for Lab 2 components
+use work.lab2Parts.all;
+
 entity my_oscope_ip_v1_0_S00_AXI is
 	generic (
 		-- Users to add parameters here
@@ -16,7 +19,20 @@ entity my_oscope_ip_v1_0_S00_AXI is
 	);
 	port (
 		-- Users to add ports here
-
+		
+--		Signals Going Outside Artix 7
+        clk:          IN    STD_LOGIC;
+        reset_n:      IN    STD_LOGIC;
+        ac_mclk:      OUT   STD_LOGIC;
+        ac_adc_sdata: IN    STD_LOGIC;
+        ac_dac_sdata: OUT   STD_LOGIC;
+        ac_bclk:      OUT   STD_LOGIC;
+        ac_lrclk:     OUT   STD_LOGIC;
+        sda:          INOUT STD_LOGIC;
+        scl:          INOUT STD_LOGIC;
+        tmds:         OUT   STD_LOGIC_VECTOR(3 DOWNTO 0);
+        tmdsb:        OUT   STD_LOGIC_VECTOR(3 DOWNTO 0);
+        btn:          IN    STD_LOGIC_VECTOR(4 DOWNTO 0);
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -107,6 +123,7 @@ architecture arch_imp of my_oscope_ip_v1_0_S00_AXI is
 	------------------------------------------------
 	---- Signals for user logic register space example
 	--------------------------------------------------
+	
 	---- Number of Slave Registers 32
 	signal slv_reg0	:std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
 	signal slv_reg1	:std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
@@ -145,6 +162,22 @@ architecture arch_imp of my_oscope_ip_v1_0_S00_AXI is
 	signal reg_data_out	:std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
 	signal byte_index	: integer;
 	signal aw_en	: std_logic;
+	
+	 -- These signals will be in and out of the datapath and control unit for the FSM
+	signal sw: std_logic_vector(2 downto 0);
+	signal cw: std_logic_vector(2 downto 0);
+	
+--	Signals To/From MicroBlaze
+	signal exWrAddr_S: STD_LOGIC_VECTOR(9 downto 0);
+	signal exWen_S: STD_LOGIC;
+	signal exSel_S: STD_LOGIC;
+	signal L_bus_out_S, R_bus_out_S: STD_LOGIC_VECTOR(15 DOWNTO 0);
+	signal exLbus_S, exRbus_S: STD_LOGIC_VECTOR(15 DOWNTO 0);
+	signal flagQ_S: STD_LOGIC_VECTOR(7 DOWNTO 0);
+	signal flagClear_S: STD_LOGIC_VECTOR(7 DOWNTO 0);
+	signal triggerTime_S: STD_LOGIC_VECTOR(9 DOWNTO 0);
+	signal triggerVolt_S: STD_LOGIC_VECTOR(9 DOWNTO 0);
+	signal ready_S: STD_LOGIC;
 
 begin
 	-- I/O Connections assignments
@@ -749,7 +782,38 @@ begin
 
 
 	-- Add user logic here
-
+-- Here we instanciate the datapath port map
+	datapath: lab2_datapath port map(
+		clk          => clk,
+		reset_n      => reset_n,
+		ac_mclk      => ac_mclk,
+		ac_adc_sdata => ac_adc_sdata,
+		ac_dac_sdata => ac_dac_sdata,
+		ac_bclk      => ac_bclk,
+		ac_lrclk     => ac_lrclk,
+        scl          => scl,
+        sda          => sda,
+		tmds         => tmds,
+		tmdsb        => tmdsb,
+		sw           => sw,
+		cw           => cw,
+		btn          => btn, 
+		exWrAddr     => "0000000000",
+		exWen        => '0',
+		exSel        => '0',
+		Lbus_out     => OPEN,
+		Rbus_out     => OPEN,
+		exLbus       => "0000000000000000",
+		exRbus       => "0000000000000000",		
+		flagQ        => OPEN,
+		flagClear    => "00000000");
+		
+		-- Here we instanciate the control unit			  
+	control: lab2_fsm port map( 
+		clk     => clk,
+		reset_n => reset_n,
+		sw      => sw,
+		cw      => cw);
 	-- User logic ends
 
 end arch_imp;
