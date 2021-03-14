@@ -3,9 +3,9 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Fri Mar 12 20:26:51 2021">
+<application name="pa" timeStamp="Sun Mar 14 05:09:00 2021">
 <section name="Project Information" visible="false">
-<property name="ProjectID" value="f0cdac123d014974b3cf10b748373d1a" type="ProjectID"/>
+<property name="ProjectID" value="3b487406fdcc4b28b73e4610f19df257" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
@@ -17,31 +17,22 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="CloseProject" value="2" type="JavaHandler"/>
-<property name="EditInIPPackagerHandler" value="1" type="JavaHandler"/>
+<property name="CloseProject" value="1" type="JavaHandler"/>
+<property name="EditInIPPackagerHandler" value="2" type="JavaHandler"/>
 <property name="IPPackagerHandler" value="1" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
-<property name="BaseDialog_CANCEL" value="1" type="GuiHandlerData"/>
-<property name="BaseDialog_OK" value="2" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="13" type="GuiHandlerData"/>
-<property name="HCodeEditor_SEARCH_TEXT_COMBO_BOX" value="3" type="GuiHandlerData"/>
-<property name="MainMenuMgr_EXPORT" value="1" type="GuiHandlerData"/>
-<property name="MainMenuMgr_FILE" value="2" type="GuiHandlerData"/>
-<property name="MainMenuMgr_IP" value="1" type="GuiHandlerData"/>
-<property name="MainMenuMgr_PROJECT" value="1" type="GuiHandlerData"/>
-<property name="MainMenuMgr_TEXT_EDITOR" value="1" type="GuiHandlerData"/>
-<property name="PACommandNames_AUTO_UPDATE_HIER" value="3" type="GuiHandlerData"/>
-<property name="PACommandNames_EDIT_IN_IP_PACKAGER" value="1" type="GuiHandlerData"/>
-<property name="PAViews_CODE" value="2" type="GuiHandlerData"/>
-<property name="PAViews_PROJECT_SUMMARY" value="1" type="GuiHandlerData"/>
-<property name="SelectMenu_HIGHLIGHT" value="2" type="GuiHandlerData"/>
-<property name="SrcMenu_IP_HIERARCHY" value="2" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="3" type="GuiHandlerData"/>
+<property name="BaseReportTab_RERUN" value="2" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="4" type="GuiHandlerData"/>
+<property name="PACommandNames_EDIT_IN_IP_PACKAGER" value="2" type="GuiHandlerData"/>
+<property name="SystemBuilderView_ORIENTATION" value="2" type="GuiHandlerData"/>
+<property name="SystemBuilderView_PINNING" value="1" type="GuiHandlerData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="69" type="GuiMode"/>
+<property name="GuiMode" value="72" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="62" type="TclMode"/>
+<property name="TclMode" value="64" type="TclMode"/>
 </item>
 </section>
 </application>

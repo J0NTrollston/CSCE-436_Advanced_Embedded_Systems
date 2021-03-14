@@ -1,2 +1,0 @@
-clk_wiz_0_sim_netlist.vhdl,vhdl,xil_defaultlib,../../../../my_oscope_ip_1.0/src/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl,incdir="../../../../my_oscope_ip_1.0/src/clk_wiz_0"
-glbl.v,Verilog,xil_defaultlib,glbl.v

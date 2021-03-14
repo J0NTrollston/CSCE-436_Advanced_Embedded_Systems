@@ -1,7 +1,7 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Fri Mar 12 17:44:36 2021
+-- Date        : Sun Mar 14 04:09:40 2021
 -- Host        : QuitStealingMyPaper running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               d:/UNL_Spring_2021/CSCE_436/Lab3/ip_repo/my_oscope_ip_1.0/src/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
