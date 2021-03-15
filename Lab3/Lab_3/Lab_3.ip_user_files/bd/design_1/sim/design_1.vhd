@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
---Date        : Sun Mar 14 05:05:06 2021
+--Date        : Mon Mar 15 10:59:05 2021
 --Host        : QuitStealingMyPaper running 64-bit major release  (build 9200)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -1825,10 +1825,10 @@ architecture STRUCTURE of design_1 is
   component design_1_clk_wiz_1_0 is
   port (
     resetn : in STD_LOGIC;
-    clk_out1 : out STD_LOGIC;
-    locked : out STD_LOGIC;
     clk_in1 : in STD_LOGIC;
-    clk_out2 : out STD_LOGIC
+    clk_out1 : out STD_LOGIC;
+    clk_out2 : out STD_LOGIC;
+    locked : out STD_LOGIC
   );
   end component design_1_clk_wiz_1_0;
   component design_1_rst_clk_wiz_1_100M_0 is
@@ -1936,6 +1936,7 @@ architecture STRUCTURE of design_1 is
   component design_1_axi_smc_0 is
   port (
     aclk : in STD_LOGIC;
+    aclk1 : in STD_LOGIC;
     aresetn : in STD_LOGIC;
     S00_AXI_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
     S00_AXI_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -1970,6 +1971,21 @@ architecture STRUCTURE of design_1 is
     S00_AXI_rlast : out STD_LOGIC;
     S00_AXI_rvalid : out STD_LOGIC;
     S00_AXI_rready : in STD_LOGIC;
+    S01_AXI_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    S01_AXI_arlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
+    S01_AXI_arsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    S01_AXI_arburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    S01_AXI_arlock : in STD_LOGIC_VECTOR ( 0 to 0 );
+    S01_AXI_arcache : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    S01_AXI_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    S01_AXI_arqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    S01_AXI_arvalid : in STD_LOGIC;
+    S01_AXI_arready : out STD_LOGIC;
+    S01_AXI_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    S01_AXI_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    S01_AXI_rlast : out STD_LOGIC;
+    S01_AXI_rvalid : out STD_LOGIC;
+    S01_AXI_rready : in STD_LOGIC;
     M00_AXI_awaddr : out STD_LOGIC_VECTOR ( 28 downto 0 );
     M00_AXI_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     M00_AXI_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -2002,23 +2018,7 @@ architecture STRUCTURE of design_1 is
     M00_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     M00_AXI_rlast : in STD_LOGIC;
     M00_AXI_rvalid : in STD_LOGIC;
-    M00_AXI_rready : out STD_LOGIC;
-    aclk1 : in STD_LOGIC;
-    S01_AXI_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    S01_AXI_arlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    S01_AXI_arsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    S01_AXI_arburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    S01_AXI_arlock : in STD_LOGIC_VECTOR ( 0 to 0 );
-    S01_AXI_arcache : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    S01_AXI_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    S01_AXI_arqos : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    S01_AXI_arvalid : in STD_LOGIC;
-    S01_AXI_arready : out STD_LOGIC;
-    S01_AXI_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    S01_AXI_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    S01_AXI_rlast : out STD_LOGIC;
-    S01_AXI_rvalid : out STD_LOGIC;
-    S01_AXI_rready : in STD_LOGIC
+    M00_AXI_rready : out STD_LOGIC
   );
   end component design_1_axi_smc_0;
   component design_1_rst_mig_7series_0_100M_0 is
@@ -2049,6 +2049,7 @@ architecture STRUCTURE of design_1 is
     tmds : out STD_LOGIC_VECTOR ( 3 downto 0 );
     tmdsb : out STD_LOGIC_VECTOR ( 3 downto 0 );
     btn : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    ready : out STD_LOGIC;
     s00_axi_awaddr : in STD_LOGIC_VECTOR ( 6 downto 0 );
     s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s00_axi_awvalid : in STD_LOGIC;
@@ -2318,6 +2319,7 @@ architecture STRUCTURE of design_1 is
   signal NLW_mig_7series_0_init_calib_complete_UNCONNECTED : STD_LOGIC;
   signal NLW_mig_7series_0_s_axi_bid_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_mig_7series_0_s_axi_rid_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal NLW_my_oscope_ip_0_ready_UNCONNECTED : STD_LOGIC;
   signal NLW_rst_clk_wiz_1_100M_interconnect_aresetn_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_rst_clk_wiz_1_100M_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_rst_mig_7series_0_100M_mb_reset_UNCONNECTED : STD_LOGIC;
@@ -2882,6 +2884,7 @@ my_oscope_ip_0: component design_1_my_oscope_ip_0_0
       ac_mclk => my_oscope_ip_0_ac_mclk,
       btn(4 downto 0) => btn_0_1(4 downto 0),
       clk => microblaze_0_Clk,
+      ready => NLW_my_oscope_ip_0_ready_UNCONNECTED,
       reset_n => reset_1,
       s00_axi_aclk => microblaze_0_Clk,
       s00_axi_araddr(6 downto 0) => microblaze_0_axi_periph_M02_AXI_ARADDR(6 downto 0),

@@ -1,7 +1,7 @@
 --Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
---Date        : Sun Mar 14 05:05:06 2021
+--Date        : Mon Mar 15 11:02:10 2021
 --Host        : QuitStealingMyPaper running 64-bit major release  (build 9200)
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
@@ -49,6 +49,16 @@ architecture STRUCTURE of design_1_wrapper is
   port (
     reset : in STD_LOGIC;
     sys_clock : in STD_LOGIC;
+    ac_mclk : out STD_LOGIC;
+    ac_dac_sdata : out STD_LOGIC;
+    ac_adc_sdata : in STD_LOGIC;
+    ac_bclk : out STD_LOGIC;
+    ac_lrclk : out STD_LOGIC;
+    sda : inout STD_LOGIC;
+    scl : inout STD_LOGIC;
+    tmds : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    tmdsb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    btn : in STD_LOGIC_VECTOR ( 4 downto 0 );
     usb_uart_rxd : in STD_LOGIC;
     usb_uart_txd : out STD_LOGIC;
     DDR3_0_dq : inout STD_LOGIC_VECTOR ( 15 downto 0 );
@@ -64,17 +74,7 @@ architecture STRUCTURE of design_1_wrapper is
     DDR3_0_ck_n : out STD_LOGIC_VECTOR ( 0 to 0 );
     DDR3_0_cke : out STD_LOGIC_VECTOR ( 0 to 0 );
     DDR3_0_dm : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    DDR3_0_odt : out STD_LOGIC_VECTOR ( 0 to 0 );
-    ac_mclk : out STD_LOGIC;
-    ac_dac_sdata : out STD_LOGIC;
-    ac_adc_sdata : in STD_LOGIC;
-    ac_bclk : out STD_LOGIC;
-    ac_lrclk : out STD_LOGIC;
-    sda : inout STD_LOGIC;
-    scl : inout STD_LOGIC;
-    tmds : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    tmdsb : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    btn : in STD_LOGIC_VECTOR ( 4 downto 0 )
+    DDR3_0_odt : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_1;
 begin

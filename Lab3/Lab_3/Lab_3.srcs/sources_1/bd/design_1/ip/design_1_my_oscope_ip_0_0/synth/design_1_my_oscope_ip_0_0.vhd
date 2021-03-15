@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: unl.edu:user:my_oscope_ip:1.0
--- IP Revision: 3
+-- IP Revision: 6
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -67,6 +67,7 @@ ENTITY design_1_my_oscope_ip_0_0 IS
     tmds : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     tmdsb : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     btn : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+    ready : OUT STD_LOGIC;
     s00_axi_awaddr : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
     s00_axi_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     s00_axi_awvalid : IN STD_LOGIC;
@@ -112,6 +113,7 @@ ARCHITECTURE design_1_my_oscope_ip_0_0_arch OF design_1_my_oscope_ip_0_0 IS
       tmds : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       tmdsb : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       btn : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+      ready : OUT STD_LOGIC;
       s00_axi_awaddr : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
       s00_axi_awprot : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       s00_axi_awvalid : IN STD_LOGIC;
@@ -189,6 +191,7 @@ BEGIN
       tmds => tmds,
       tmdsb => tmdsb,
       btn => btn,
+      ready => ready,
       s00_axi_awaddr => s00_axi_awaddr,
       s00_axi_awprot => s00_axi_awprot,
       s00_axi_awvalid => s00_axi_awvalid,
