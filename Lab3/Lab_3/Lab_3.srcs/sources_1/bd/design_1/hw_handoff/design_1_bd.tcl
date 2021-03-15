@@ -383,6 +383,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net my_oscope_ip_0_ac_dac_sdata [get_bd_ports ac_dac_sdata] [get_bd_pins my_oscope_ip_0/ac_dac_sdata]
   connect_bd_net -net my_oscope_ip_0_ac_lrclk [get_bd_ports ac_lrclk] [get_bd_pins my_oscope_ip_0/ac_lrclk]
   connect_bd_net -net my_oscope_ip_0_ac_mclk [get_bd_ports ac_mclk] [get_bd_pins my_oscope_ip_0/ac_mclk]
+  connect_bd_net -net my_oscope_ip_0_ready [get_bd_pins microblaze_0/Interrupt] [get_bd_pins my_oscope_ip_0/ready]
   connect_bd_net -net my_oscope_ip_0_tmds [get_bd_ports tmds] [get_bd_pins my_oscope_ip_0/tmds]
   connect_bd_net -net my_oscope_ip_0_tmdsb [get_bd_ports tmdsb] [get_bd_pins my_oscope_ip_0/tmdsb]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins clk_wiz_1/resetn] [get_bd_pins mig_7series_0/sys_rst] [get_bd_pins my_oscope_ip_0/reset_n] [get_bd_pins rst_clk_wiz_1_100M/ext_reset_in]

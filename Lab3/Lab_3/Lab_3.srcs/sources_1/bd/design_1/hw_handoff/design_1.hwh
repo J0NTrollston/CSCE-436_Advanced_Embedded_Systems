@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 15 10:59:17 2021" VIVADOVERSION="2019.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 15 12:22:35 2021" VIVADOVERSION="2019.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys_video:part0:1.1" DEVICE="7a200t" NAME="design_1" PACKAGE="sbg484" SPEEDGRADE="-1"/>
 
@@ -2149,9 +2149,10 @@
             <CONNECTION INSTANCE="rst_clk_wiz_1_100M" PORT="mb_reset"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="Interrupt" SIGIS="INTERRUPT" SIGNAME="microblaze_0_Interrupt">
+        <PORT DIR="I" NAME="Interrupt" SIGIS="INTERRUPT" SIGNAME="my_oscope_ip_0_ready">
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_0_axi_intc" PORT="irq"/>
+            <CONNECTION INSTANCE="my_oscope_ip_0" PORT="ready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="0" NAME="Interrupt_Address" RIGHT="31" SIGIS="undef" SIGNAME="microblaze_0_Interrupt_Address">
@@ -8051,7 +8052,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="6" FULLNAME="/my_oscope_ip_0" HWVERSION="1.0" INSTANCE="my_oscope_ip_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="my_oscope_ip" VLNV="unl.edu:user:my_oscope_ip:1.0">
+    <MODULE COREREVISION="9" FULLNAME="/my_oscope_ip_0" HWVERSION="1.0" INSTANCE="my_oscope_ip_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="my_oscope_ip" VLNV="unl.edu:user:my_oscope_ip:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
@@ -8125,7 +8126,11 @@
             <CONNECTION INSTANCE="External_Ports" PORT="btn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="ready" SIGIS="undef"/>
+        <PORT DIR="O" NAME="ready" SIGIS="undef" SIGNAME="my_oscope_ip_0_ready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="microblaze_0" PORT="Interrupt"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="6" NAME="s00_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="microblaze_0_axi_periph_M02_AXI_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M02_AXI_awaddr"/>
