@@ -33,17 +33,17 @@
 /*
  * The following constants define the slave registers used for our Counter PCORE
  */
-#define countBase		0x44a00000
-//#define countQReg		countBase			// 8 LSBs of slv_reg0 read=Q, write=D
-//#define	countCtrlReg	countBase+0x4			// 2 LSBs of slv_reg1 are control
-//#define	countRollReg	countBase+0x8			// 1 LSBs of slv_reg2 for roll flag
-#define	countClearReg	countBase+0xc		// 1 LSBs of slv_reg3 (0) roll clear flag
-#define	reg4			countBase+0x10
-#define	flagReg			countBase+0x14		//3 LSBs os slv_reg5 are ready, v_sync and max_count
-#define	exSel			countBase+0x18		//1 LSBs of slv_reg6 is for exSel
-#define	TriggerTime 	countBase+0x1c		//10 LSBs of slv_reg7 is triggerTime
-#define	TriggerVolt 	countBase+0x20      //10 LSBs of slv_reg8 is triggerVolt
-#define	reg9	countBase+0x24
+#define addrBase		0x44a00000
+//#define countQReg		addrBase			// 8 LSBs of slv_reg0 read=Q, write=D
+//#define	countCtrlReg	addrBase+0x4			// 2 LSBs of slv_reg1 are control
+//#define	countRollReg	addrBase+0x8			// 1 LSBs of slv_reg2 for roll flag
+#define	countClearReg	addrBase+0xc		// 1 LSBs of slv_reg3 (0) roll clear flag
+#define	reg4			addrBase+0x10
+#define	flagReg			addrBase+0x14		//3 LSBs os slv_reg5 are ready, v_sync and max_count
+#define	exSel			addrBase+0x18		//1 LSBs of slv_reg6 is for exSel
+#define	triggerTimeReg	addrBase+0x1c		//10 LSBs of slv_reg7 is triggerTime
+#define	triggerVoltReg 	addrBase+0x20      //10 LSBs of slv_reg8 is triggerVolt
+#define	reg9	addrBase+0x24
 
 
 /*
@@ -60,7 +60,7 @@
 //#define Lab2InternalEnableDisable 0;
 
 /************************** Function Prototypes ****************************/
-void myISR(void);
+//void myISR(void);
 
 /************************** Variable Definitions **************************/
 /*
@@ -68,8 +68,8 @@ void myISR(void);
  * easily accessible from a debugger
  */
 
-u16 isrCount = 0;
-char Lab2InternalEnableDisable = 0;
+//u16 isrCount = 0;
+//char Lab2InternalEnableDisable = 0;
 u16 triggerVolt = 220;
 u16 triggerTime = 320;
 
@@ -81,11 +81,11 @@ int main(void) {
 
 	print("Welcome to Lab 3!\n\r");
 
-    microblaze_register_handler((XInterruptHandler) myISR, (void *) 0);
-    microblaze_enable_interrupts();
-
-    Xil_Out8(countClearReg, 0x01);					// Clear the flag and then you MUST
-	Xil_Out8(countClearReg, 0x00);					// allow the flag to be reset later
+//    microblaze_register_handler((XInterruptHandler) myISR, (void *) 0);
+//    microblaze_enable_interrupts();
+//
+//    Xil_Out8(countClearReg, 0x01);					// Clear the flag and then you MUST
+//	Xil_Out8(countClearReg, 0x00);					// allow the flag to be reset later
 
     while(1) {
 
@@ -100,7 +100,7 @@ int main(void) {
     		case '?':
     			printf("--------------------------\r\n");
     			printf(" TriggerVolt = %x   TriggerTime = %x\r\n",triggerVolt,triggerTime);
-    			printf("	Lab2Internal Functionality = %x\r\n",Xil_In16(Lab2InternalEnableDisable));
+//    			printf("	Lab2Internal Functionality = %x\r\n",Xil_In16(Lab2InternalEnableDisable));
 //    			printf("	isr count = %x\r\n",isrCount);
 //    			printf("	Roll = %x\r\n",Xil_In16(countRollReg));
 //    			printf("	Roll = %x\r\n",Xil_In16(countRollReg));
@@ -116,7 +116,7 @@ int main(void) {
     			printf("a:   Move Trigger Time Left\r\n");
     			printf("d:   Move Trigger Time Right\r\n");
     			printf("r:   Reset trigger marks\r\n");
-    			printf("i:   Lab 2 Internal Control Enable/Disable");
+//    			printf("i:   Lab 2 Internal Control Enable/Disable");
     			printf("c:   clear terminal\r\n"); //keep
     			printf("--------------------------\r\n");
 
@@ -130,20 +130,20 @@ int main(void) {
     			printf("k \r\n");
     			break;
 
-			/*-------------------------------------------------
-			 * Enable and disable lab 2 internal controls
-			 *-------------------------------------------------
-			 */
-			case 'i':
-				if(Lab2InternalEnableDisable == 0){
-					Xil_Out8(exSel,1);
-					Lab2InternalEnableDisable = 1;
-
-				}else{
-					Xil_Out8(exSel,0);
-					Lab2InternalEnableDisable = 0;
-				}
-				break;
+//			/*-------------------------------------------------
+//			 * Enable and disable lab 2 internal controls
+//			 *-------------------------------------------------
+//			 */
+//			case 'i':
+//				if(Lab2InternalEnableDisable == 0){
+//					Xil_Out8(exSel,1);
+//					Lab2InternalEnableDisable = 1;
+//
+//				}else{
+//					Xil_Out8(exSel,0);
+//					Lab2InternalEnableDisable = 0;
+//				}
+//				break;
 
 			/*-------------------------------------------------
 			 * Move triggerVolt mark up
@@ -152,7 +152,7 @@ int main(void) {
 			case 'w':
 				if(triggerVolt - 10 >= 20){
 					triggerVolt -= 10;
-					Xil_Out8(TriggerVolt,triggerVolt);
+					Xil_Out16(triggerVoltReg,triggerVolt);
 				}
 				break;
 
@@ -163,7 +163,7 @@ int main(void) {
 			case 's':
 				if(triggerVolt + 10 <= 420){
 					triggerVolt += 10;
-					Xil_Out8(TriggerVolt,triggerVolt);
+					Xil_Out16(triggerVoltReg,triggerVolt);
 
 				}
 				break;
@@ -175,7 +175,7 @@ int main(void) {
 			case 'a':
 				if(triggerTime - 10 >= 20){
 					triggerTime -= 10;
-					Xil_Out8(TriggerTime,triggerTime);
+					Xil_Out16(triggerTimeReg,triggerTime);
 
 				}
 				break;
@@ -187,7 +187,7 @@ int main(void) {
 			case 'd':
 				if(triggerVolt + 10 <= 620){
 					triggerTime += 10;
-					Xil_Out8(TriggerTime,triggerTime);
+					Xil_Out16(triggerTimeReg,triggerTime);
 				}
 				break;
 
@@ -196,10 +196,10 @@ int main(void) {
 			 *-------------------------------------------------
 			 */
     		case 'r':
-    			triggerTime = 0;
-    			triggerVolt = 0;
-    			Xil_Out8(TriggerVolt,triggerVolt);
-    			Xil_Out8(TriggerTime,triggerTime);
+    			triggerTime = 320;
+    			triggerVolt = 220;
+    			Xil_Out16(triggerVoltReg,triggerVolt);
+    			Xil_Out16(triggerTimeReg,triggerTime);
     			break;
 
 			/*-------------------------------------------------
@@ -271,8 +271,8 @@ int main(void) {
 } // end main
 
 
-void myISR(void) {
-//	isrCount = isrCount + 1;
-	Xil_Out8(countClearReg, 0x01);					// Clear the flag and then you MUST
-	Xil_Out8(countClearReg, 0x00);					// allow the flag to be reset later
-}
+//void myISR(void) {
+////	isrCount = isrCount + 1;
+//	Xil_Out8(countClearReg, 0x01);					// Clear the flag and then you MUST
+//	Xil_Out8(countClearReg, 0x00);					// allow the flag to be reset later
+//}

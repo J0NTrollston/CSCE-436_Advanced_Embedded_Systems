@@ -1,3 +1,2 @@
 
-2018.1’Bus skew results˜¥³ð
-A
+2018.1’Bus skew results˜¥ÓMA

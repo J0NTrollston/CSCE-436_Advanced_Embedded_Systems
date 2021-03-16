@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Mon Mar 15 23:34:27 2021
-# Process ID: 26440
+# Start of session at: Tue Mar 16 16:14:15 2021
+# Process ID: 11832
 # Current directory: D:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.runs/design_1_my_oscope_ip_0_0_synth_1
 # Command line: vivado.exe -log design_1_my_oscope_ip_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_my_oscope_ip_0_0.tcl
 # Log file: D:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.runs/design_1_my_oscope_ip_0_0_synth_1/design_1_my_oscope_ip_0_0.vds
@@ -19,40 +19,38 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Device 21-403] Loading part xc7a200tsbg484-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 20056 
+INFO: Helper process launched with PID 21140 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 885.867 ; gain = 177.656
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 885.566 ; gain = 177.477
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'design_1_my_oscope_ip_0_0' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/synth/design_1_my_oscope_ip_0_0.vhd:95]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'my_oscope_ip_v1_0' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0.vhd:23' bound to instance 'U0' of component 'my_oscope_ip_v1_0' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/synth/design_1_my_oscope_ip_0_0.vhd:176]
-INFO: [Synth 8-638] synthesizing module 'my_oscope_ip_v1_0' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0.vhd:81]
+INFO: [Synth 8-3491] module 'my_oscope_ip_v1_0' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0.vhd:23' bound to instance 'U0' of component 'my_oscope_ip_v1_0' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/synth/design_1_my_oscope_ip_0_0.vhd:176]
+INFO: [Synth 8-638] synthesizing module 'my_oscope_ip_v1_0' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0.vhd:81]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S00_AXI_ADDR_WIDTH bound to: 7 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'my_oscope_ip_v1_0_S00_AXI' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:8' bound to instance 'my_oscope_ip_v1_0_S00_AXI_inst' of component 'my_oscope_ip_v1_0_S00_AXI' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0.vhd:132]
-INFO: [Synth 8-638] synthesizing module 'my_oscope_ip_v1_0_S00_AXI' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:103]
+INFO: [Synth 8-3491] module 'my_oscope_ip_v1_0_S00_AXI' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:8' bound to instance 'my_oscope_ip_v1_0_S00_AXI_inst' of component 'my_oscope_ip_v1_0_S00_AXI' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0.vhd:132]
+INFO: [Synth 8-638] synthesizing module 'my_oscope_ip_v1_0_S00_AXI' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:103]
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 7 - type: integer 
-INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:314]
-INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:696]
-WARNING: [Synth 8-614] signal 'exWrAddr_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
-WARNING: [Synth 8-614] signal 'exWen_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
-WARNING: [Synth 8-614] signal 'exSel_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
-WARNING: [Synth 8-614] signal 'L_bus_out_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
-WARNING: [Synth 8-614] signal 'R_bus_out_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
-WARNING: [Synth 8-614] signal 'exLbus_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
-WARNING: [Synth 8-614] signal 'exRbus_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
-WARNING: [Synth 8-614] signal 'flagQ_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
-WARNING: [Synth 8-5640] Port 'extriggertime' is missing in component declaration [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_pack.vhdl:80]
-WARNING: [Synth 8-5640] Port 'extriggervolt' is missing in component declaration [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_pack.vhdl:80]
-INFO: [Synth 8-3491] module 'lab2_datapath' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:33' bound to instance 'datapath' of component 'lab2_datapath' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:788]
-INFO: [Synth 8-638] synthesizing module 'lab2_datapath' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:61]
-INFO: [Synth 8-3491] module 'video' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/video.vhd:26' bound to instance 'video_inst' of component 'video' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:148]
-INFO: [Synth 8-638] synthesizing module 'video' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/video.vhd:43]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_0_1/clk_wiz_0.v:72' bound to instance 'mmcm_adv_inst_display_clocks' of component 'clk_wiz_0' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/video.vhd:87]
+INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:314]
+INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:696]
+WARNING: [Synth 8-614] signal 'exWrAddr_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
+WARNING: [Synth 8-614] signal 'exWen_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
+WARNING: [Synth 8-614] signal 'exSel_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
+WARNING: [Synth 8-614] signal 'L_bus_out_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
+WARNING: [Synth 8-614] signal 'R_bus_out_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
+WARNING: [Synth 8-614] signal 'exLbus_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
+WARNING: [Synth 8-614] signal 'exRbus_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
+WARNING: [Synth 8-614] signal 'flagQ_S' is read in the process but is not in the sensitivity list [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:691]
+INFO: [Synth 8-3491] module 'lab2_datapath' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:33' bound to instance 'datapath' of component 'lab2_datapath' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:788]
+INFO: [Synth 8-638] synthesizing module 'lab2_datapath' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:59]
+INFO: [Synth 8-3491] module 'video' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/video.vhd:26' bound to instance 'video_inst' of component 'video' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:148]
+INFO: [Synth 8-638] synthesizing module 'video' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/video.vhd:43]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_0_1/clk_wiz_0.v:72' bound to instance 'mmcm_adv_inst_display_clocks' of component 'clk_wiz_0' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/video.vhd:87]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_0_1/clk_wiz_0.v:72]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0_clk_wiz' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_0_1/clk_wiz_0_clk_wiz.v:70]
 INFO: [Synth 8-6157] synthesizing module 'IBUF' [D:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:32856]
@@ -116,66 +114,66 @@ INFO: [Synth 8-6157] synthesizing module 'BUFG' [D:/Xilinx/Vivado/2019.1/scripts
 INFO: [Synth 8-6155] done synthesizing module 'BUFG' (3#1) [D:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:1075]
 INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0_clk_wiz' (4#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_0_1/clk_wiz_0_clk_wiz.v:70]
 INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (5#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_0_1/clk_wiz_0.v:72]
-INFO: [Synth 8-3491] module 'vga' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/vga.vhd:23' bound to instance 'Inst_vga' of component 'vga' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/video.vhd:98]
-INFO: [Synth 8-638] synthesizing module 'vga' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/vga.vhd:42]
-INFO: [Synth 8-3491] module 'scopeFace' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/scopeFace.vhd:23' bound to instance 'scope' of component 'scopeFace' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/vga.vhd:81]
-INFO: [Synth 8-638] synthesizing module 'scopeFace' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/scopeFace.vhd:38]
-WARNING: [Synth 8-3848] Net red in module/entity scopeFace does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/scopeFace.vhd:40]
-INFO: [Synth 8-256] done synthesizing module 'scopeFace' (6#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/scopeFace.vhd:38]
+INFO: [Synth 8-3491] module 'vga' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/vga.vhd:23' bound to instance 'Inst_vga' of component 'vga' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/video.vhd:98]
+INFO: [Synth 8-638] synthesizing module 'vga' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/vga.vhd:42]
+INFO: [Synth 8-3491] module 'scopeFace' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/scopeFace.vhd:23' bound to instance 'scope' of component 'scopeFace' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/vga.vhd:81]
+INFO: [Synth 8-638] synthesizing module 'scopeFace' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/scopeFace.vhd:38]
+WARNING: [Synth 8-3848] Net red in module/entity scopeFace does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/scopeFace.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'scopeFace' (6#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/scopeFace.vhd:38]
 	Parameter countLimit bound to: 799 - type: integer 
-INFO: [Synth 8-3491] module 'Counter' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/counter.vhd:27' bound to instance 'Column_Counter' of component 'Counter' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/vga.vhd:97]
-INFO: [Synth 8-638] synthesizing module 'Counter' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/counter.vhd:36]
+INFO: [Synth 8-3491] module 'Counter' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/counter.vhd:27' bound to instance 'Column_Counter' of component 'Counter' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/vga.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'Counter' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/counter.vhd:36]
 	Parameter countLimit bound to: 799 - type: integer 
-WARNING: [Synth 8-6014] Unused sequential element rollSynch_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/counter.vhd:57]
-INFO: [Synth 8-256] done synthesizing module 'Counter' (7#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/counter.vhd:36]
+WARNING: [Synth 8-6014] Unused sequential element rollSynch_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/counter.vhd:57]
+INFO: [Synth 8-256] done synthesizing module 'Counter' (7#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/counter.vhd:36]
 	Parameter countLimit bound to: 524 - type: integer 
-INFO: [Synth 8-3491] module 'Counter' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/counter.vhd:27' bound to instance 'Row_Counter' of component 'Counter' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/vga.vhd:108]
-INFO: [Synth 8-638] synthesizing module 'Counter__parameterized1' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/counter.vhd:36]
+INFO: [Synth 8-3491] module 'Counter' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/counter.vhd:27' bound to instance 'Row_Counter' of component 'Counter' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/vga.vhd:108]
+INFO: [Synth 8-638] synthesizing module 'Counter__parameterized1' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/counter.vhd:36]
 	Parameter countLimit bound to: 524 - type: integer 
-WARNING: [Synth 8-6014] Unused sequential element rollSynch_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/counter.vhd:57]
-INFO: [Synth 8-256] done synthesizing module 'Counter__parameterized1' (7#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/counter.vhd:36]
-INFO: [Synth 8-256] done synthesizing module 'vga' (8#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/vga.vhd:42]
-INFO: [Synth 8-638] synthesizing module 'dvid' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/dvid.vhd:50]
-INFO: [Synth 8-3491] module 'TDMS_encoder' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/tdms.vhd:33' bound to instance 'TDMS_encoder_red' of component 'TDMS_encoder' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/dvid.vhd:75]
-INFO: [Synth 8-638] synthesizing module 'TDMS_encoder' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/tdms.vhd:41]
-INFO: [Synth 8-256] done synthesizing module 'TDMS_encoder' (9#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/tdms.vhd:41]
-INFO: [Synth 8-3491] module 'TDMS_encoder' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/tdms.vhd:33' bound to instance 'TDMS_encoder_green' of component 'TDMS_encoder' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/dvid.vhd:76]
-INFO: [Synth 8-3491] module 'TDMS_encoder' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/tdms.vhd:33' bound to instance 'TDMS_encoder_blue' of component 'TDMS_encoder' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/dvid.vhd:77]
+WARNING: [Synth 8-6014] Unused sequential element rollSynch_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/counter.vhd:57]
+INFO: [Synth 8-256] done synthesizing module 'Counter__parameterized1' (7#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/counter.vhd:36]
+INFO: [Synth 8-256] done synthesizing module 'vga' (8#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/vga.vhd:42]
+INFO: [Synth 8-638] synthesizing module 'dvid' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/dvid.vhd:50]
+INFO: [Synth 8-3491] module 'TDMS_encoder' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/tdms.vhd:33' bound to instance 'TDMS_encoder_red' of component 'TDMS_encoder' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/dvid.vhd:75]
+INFO: [Synth 8-638] synthesizing module 'TDMS_encoder' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/tdms.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'TDMS_encoder' (9#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/tdms.vhd:41]
+INFO: [Synth 8-3491] module 'TDMS_encoder' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/tdms.vhd:33' bound to instance 'TDMS_encoder_green' of component 'TDMS_encoder' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/dvid.vhd:76]
+INFO: [Synth 8-3491] module 'TDMS_encoder' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/tdms.vhd:33' bound to instance 'TDMS_encoder_blue' of component 'TDMS_encoder' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/dvid.vhd:77]
 	Parameter DDR_ALIGNMENT bound to: C0 - type: string 
 	Parameter INIT bound to: 1'b0 
 	Parameter SRTYPE bound to: ASYNC - type: string 
-INFO: [Synth 8-113] binding component instance 'ODDR2_red' to cell 'ODDR2' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/dvid.vhd:79]
+INFO: [Synth 8-113] binding component instance 'ODDR2_red' to cell 'ODDR2' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/dvid.vhd:79]
 	Parameter DDR_ALIGNMENT bound to: C0 - type: string 
 	Parameter INIT bound to: 1'b0 
 	Parameter SRTYPE bound to: ASYNC - type: string 
-INFO: [Synth 8-113] binding component instance 'ODDR2_green' to cell 'ODDR2' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/dvid.vhd:82]
+INFO: [Synth 8-113] binding component instance 'ODDR2_green' to cell 'ODDR2' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/dvid.vhd:82]
 	Parameter DDR_ALIGNMENT bound to: C0 - type: string 
 	Parameter INIT bound to: 1'b0 
 	Parameter SRTYPE bound to: ASYNC - type: string 
-INFO: [Synth 8-113] binding component instance 'ODDR2_blue' to cell 'ODDR2' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/dvid.vhd:85]
+INFO: [Synth 8-113] binding component instance 'ODDR2_blue' to cell 'ODDR2' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/dvid.vhd:85]
 	Parameter DDR_ALIGNMENT bound to: C0 - type: string 
 	Parameter INIT bound to: 1'b0 
 	Parameter SRTYPE bound to: ASYNC - type: string 
-INFO: [Synth 8-113] binding component instance 'ODDR2_clock' to cell 'ODDR2' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/dvid.vhd:88]
-INFO: [Synth 8-256] done synthesizing module 'dvid' (10#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/dvid.vhd:50]
+INFO: [Synth 8-113] binding component instance 'ODDR2_clock' to cell 'ODDR2' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/dvid.vhd:88]
+INFO: [Synth 8-256] done synthesizing module 'dvid' (10#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/dvid.vhd:50]
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 	Parameter SLEW bound to: SLOW - type: string 
-INFO: [Synth 8-113] binding component instance 'OBUFDS_blue' to cell 'OBUFDS' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/video.vhd:139]
+INFO: [Synth 8-113] binding component instance 'OBUFDS_blue' to cell 'OBUFDS' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/video.vhd:139]
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 	Parameter SLEW bound to: SLOW - type: string 
-INFO: [Synth 8-113] binding component instance 'OBUFDS_red' to cell 'OBUFDS' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/video.vhd:141]
+INFO: [Synth 8-113] binding component instance 'OBUFDS_red' to cell 'OBUFDS' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/video.vhd:141]
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 	Parameter SLEW bound to: SLOW - type: string 
-INFO: [Synth 8-113] binding component instance 'OBUFDS_green' to cell 'OBUFDS' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/video.vhd:143]
+INFO: [Synth 8-113] binding component instance 'OBUFDS_green' to cell 'OBUFDS' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/video.vhd:143]
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter IOSTANDARD bound to: DEFAULT - type: string 
 	Parameter SLEW bound to: SLOW - type: string 
-INFO: [Synth 8-113] binding component instance 'OBUFDS_clock' to cell 'OBUFDS' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/video.vhd:145]
-WARNING: [Synth 8-3848] Net vsync in module/entity video does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/video.vhd:39]
-INFO: [Synth 8-256] done synthesizing module 'video' (11#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/video.vhd:43]
+INFO: [Synth 8-113] binding component instance 'OBUFDS_clock' to cell 'OBUFDS' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/video.vhd:145]
+WARNING: [Synth 8-3848] Net vsync in module/entity video does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/video.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'video' (11#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/video.vhd:43]
 	Parameter BRAM_SIZE bound to: 18Kb - type: string 
 	Parameter DEVICE bound to: 7SERIES - type: string 
 	Parameter DO_REG bound to: 0 - type: integer 
@@ -331,7 +329,7 @@ INFO: [Synth 8-256] done synthesizing module 'video' (11#1) [d:/UNL_Spring_2021/
 	Parameter SRVAL bound to: 72'b000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter WRITE_MODE bound to: WRITE_FIRST - type: string 
 	Parameter WRITE_WIDTH bound to: 18 - type: integer 
-INFO: [Synth 8-3491] module 'BRAM_SDP_MACRO' declared at 'D:/Xilinx/Vivado/2019.1/data/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd:38' bound to instance 'LeftBRAM' of component 'BRAM_SDP_MACRO' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:227]
+INFO: [Synth 8-3491] module 'BRAM_SDP_MACRO' declared at 'D:/Xilinx/Vivado/2019.1/data/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd:38' bound to instance 'LeftBRAM' of component 'BRAM_SDP_MACRO' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:229]
 INFO: [Synth 8-638] synthesizing module 'unimacro_BRAM_SDP_MACRO' [D:/Xilinx/Vivado/2019.1/data/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd:217]
 	Parameter BRAM_SIZE bound to: 18Kb - type: string 
 	Parameter DEVICE bound to: 7SERIES - type: string 
@@ -744,11 +742,11 @@ INFO: [Synth 8-256] done synthesizing module 'unimacro_BRAM_SDP_MACRO' (12#1) [D
 	Parameter SRVAL bound to: 72'b000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter WRITE_MODE bound to: WRITE_FIRST - type: string 
 	Parameter WRITE_WIDTH bound to: 18 - type: integer 
-INFO: [Synth 8-3491] module 'BRAM_SDP_MACRO' declared at 'D:/Xilinx/Vivado/2019.1/data/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd:38' bound to instance 'RightBRAM' of component 'BRAM_SDP_MACRO' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:251]
-INFO: [Synth 8-3491] module 'Audio_Codec_Wrapper' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/Audio_Codec_Wrapper.vhd:24' bound to instance 'audio_codec' of component 'Audio_Codec_Wrapper' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:302]
-INFO: [Synth 8-638] synthesizing module 'Audio_Codec_Wrapper' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/Audio_Codec_Wrapper.vhd:41]
-INFO: [Synth 8-3491] module 'audio_init' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/audio_init.v:24' bound to instance 'initialize_audio' of component 'audio_init' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/Audio_Codec_Wrapper.vhd:125]
-INFO: [Synth 8-6157] synthesizing module 'audio_init' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/audio_init.v:24]
+INFO: [Synth 8-3491] module 'BRAM_SDP_MACRO' declared at 'D:/Xilinx/Vivado/2019.1/data/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd:38' bound to instance 'RightBRAM' of component 'BRAM_SDP_MACRO' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:253]
+INFO: [Synth 8-3491] module 'Audio_Codec_Wrapper' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/Audio_Codec_Wrapper.vhd:24' bound to instance 'audio_codec' of component 'Audio_Codec_Wrapper' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:304]
+INFO: [Synth 8-638] synthesizing module 'Audio_Codec_Wrapper' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/Audio_Codec_Wrapper.vhd:41]
+INFO: [Synth 8-3491] module 'audio_init' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/audio_init.v:24' bound to instance 'initialize_audio' of component 'audio_init' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/Audio_Codec_Wrapper.vhd:125]
+INFO: [Synth 8-6157] synthesizing module 'audio_init' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/audio_init.v:24]
 	Parameter stRegAddr1 bound to: 4'b0000 
 	Parameter stRegAddr2 bound to: 4'b0001 
 	Parameter stData1 bound to: 4'b0010 
@@ -762,23 +760,23 @@ INFO: [Synth 8-6157] synthesizing module 'audio_init' [d:/UNL_Spring_2021/CSCE_4
 	Parameter IRD bound to: 1'b1 
 	Parameter IWR bound to: 1'b0 
 	Parameter delay bound to: 24000 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/audio_init.v:51]
-INFO: [Synth 8-638] synthesizing module 'TWICtl' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/TWICtl.vhd:138]
+INFO: [Synth 8-155] case statement is not full and has no default [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/audio_init.v:51]
+INFO: [Synth 8-638] synthesizing module 'TWICtl' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/TWICtl.vhd:138]
 	Parameter CLOCKFREQ bound to: 50 - type: integer 
-INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "gray" *) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/TWICtl.vhd:152]
-INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/TWICtl.vhd:349]
-INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/TWICtl.vhd:382]
-INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/TWICtl.vhd:400]
-INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/TWICtl.vhd:418]
-INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/TWICtl.vhd:436]
-WARNING: [Synth 8-6014] Unused sequential element timeOutCnt_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/TWICtl.vhd:255]
-WARNING: [Synth 8-6014] Unused sequential element errTypeR_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/TWICtl.vhd:332]
-INFO: [Synth 8-256] done synthesizing module 'TWICtl' (13#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/TWICtl.vhd:138]
-INFO: [Synth 8-155] case statement is not full and has no default [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/audio_init.v:151]
-WARNING: [Synth 8-6014] Unused sequential element regData1_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/audio_init.v:135]
-WARNING: [Synth 8-6014] Unused sequential element initFbWe_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/audio_init.v:150]
-INFO: [Synth 8-6155] done synthesizing module 'audio_init' (14#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/audio_init.v:24]
-INFO: [Synth 8-3491] module 'clk_wiz_1' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_1_1/clk_wiz_1.v:71' bound to instance 'audiocodec_master_clock' of component 'clk_wiz_1' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/Audio_Codec_Wrapper.vhd:132]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "gray" *) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/TWICtl.vhd:152]
+INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/TWICtl.vhd:349]
+INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/TWICtl.vhd:382]
+INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/TWICtl.vhd:400]
+INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/TWICtl.vhd:418]
+INFO: [Synth 8-226] default block is never used [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/TWICtl.vhd:436]
+WARNING: [Synth 8-6014] Unused sequential element timeOutCnt_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/TWICtl.vhd:255]
+WARNING: [Synth 8-6014] Unused sequential element errTypeR_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/TWICtl.vhd:332]
+INFO: [Synth 8-256] done synthesizing module 'TWICtl' (13#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/TWICtl.vhd:138]
+INFO: [Synth 8-155] case statement is not full and has no default [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/audio_init.v:151]
+WARNING: [Synth 8-6014] Unused sequential element regData1_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/audio_init.v:135]
+WARNING: [Synth 8-6014] Unused sequential element initFbWe_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/audio_init.v:150]
+INFO: [Synth 8-6155] done synthesizing module 'audio_init' (14#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/audio_init.v:24]
+INFO: [Synth 8-3491] module 'clk_wiz_1' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_1_1/clk_wiz_1.v:71' bound to instance 'audiocodec_master_clock' of component 'clk_wiz_1' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/Audio_Codec_Wrapper.vhd:132]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_1' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_1_1/clk_wiz_1.v:71]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_1_clk_wiz' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_1_1/clk_wiz_1_clk_wiz.v:69]
 INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV__parameterized0' [D:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:39813]
@@ -834,42 +832,42 @@ INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV__parameterized0' (14#1
 INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_1_clk_wiz' (15#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_1_1/clk_wiz_1_clk_wiz.v:69]
 INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_1' (16#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/src/clk_wiz_1_1/clk_wiz_1.v:71]
 	Parameter C_DATA_WIDTH bound to: 24 - type: integer 
-INFO: [Synth 8-3491] module 'i2s_ctl' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/i2s_ctl.vhd:55' bound to instance 'audio_inout' of component 'i2s_ctl' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/Audio_Codec_Wrapper.vhd:139]
-INFO: [Synth 8-638] synthesizing module 'i2s_ctl' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/i2s_ctl.vhd:82]
+INFO: [Synth 8-3491] module 'i2s_ctl' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/i2s_ctl.vhd:55' bound to instance 'audio_inout' of component 'i2s_ctl' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/Audio_Codec_Wrapper.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'i2s_ctl' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/i2s_ctl.vhd:82]
 	Parameter C_DATA_WIDTH bound to: 24 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'i2s_ctl' (17#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/i2s_ctl.vhd:82]
-INFO: [Synth 8-256] done synthesizing module 'Audio_Codec_Wrapper' (18#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/Audio_Codec_Wrapper.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'i2s_ctl' (17#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/i2s_ctl.vhd:82]
+INFO: [Synth 8-256] done synthesizing module 'Audio_Codec_Wrapper' (18#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/Audio_Codec_Wrapper.vhd:41]
 	Parameter N bound to: 8 - type: integer 
-INFO: [Synth 8-3491] module 'flagRegister' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/flagRegister.vhd:25' bound to instance 'flag_register' of component 'flagRegister' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:338]
-INFO: [Synth 8-638] synthesizing module 'flagRegister' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/flagRegister.vhd:33]
+INFO: [Synth 8-3491] module 'flagRegister' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/flagRegister.vhd:25' bound to instance 'flag_register' of component 'flagRegister' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:340]
+INFO: [Synth 8-638] synthesizing module 'flagRegister' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/flagRegister.vhd:33]
 	Parameter N bound to: 8 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'flagRegister' (19#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/flagRegister.vhd:33]
-INFO: [Synth 8-4471] merging register 'clear_flag_reg[7:0]' into 'set_flag_reg[7:0]' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:342]
-WARNING: [Synth 8-6014] Unused sequential element clear_flag_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:342]
-WARNING: [Synth 8-3848] Net Lbus_out in module/entity lab2_datapath does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:51]
-WARNING: [Synth 8-3848] Net Rbus_out in module/entity lab2_datapath does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:51]
-WARNING: [Synth 8-3848] Net ch1_wave in module/entity lab2_datapath does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:65]
-WARNING: [Synth 8-3848] Net ch2_wave in module/entity lab2_datapath does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:65]
-INFO: [Synth 8-256] done synthesizing module 'lab2_datapath' (20#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_datapath.vhd:61]
-INFO: [Synth 8-3491] module 'lab2_fsm' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_fsm.vhd:25' bound to instance 'control' of component 'lab2_fsm' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:816]
-INFO: [Synth 8-638] synthesizing module 'lab2_fsm' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_fsm.vhd:32]
-INFO: [Synth 8-256] done synthesizing module 'lab2_fsm' (21#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_fsm.vhd:32]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg0_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:279]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg1_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:280]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg2_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:281]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg3_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:282]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg4_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:283]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg5_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:284]
-WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:312]
-WARNING: [Synth 8-3848] Net exWrAddr_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:171]
-WARNING: [Synth 8-3848] Net exWen_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:172]
-WARNING: [Synth 8-3848] Net exSel_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:173]
-WARNING: [Synth 8-3848] Net R_bus_out_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:174]
-WARNING: [Synth 8-3848] Net L_bus_out_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:174]
-WARNING: [Synth 8-3848] Net exRbus_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:175]
-WARNING: [Synth 8-3848] Net exLbus_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:175]
-INFO: [Synth 8-256] done synthesizing module 'my_oscope_ip_v1_0_S00_AXI' (22#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:103]
-INFO: [Synth 8-256] done synthesizing module 'my_oscope_ip_v1_0' (23#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/hdl/my_oscope_ip_v1_0.vhd:81]
+INFO: [Synth 8-256] done synthesizing module 'flagRegister' (19#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/flagRegister.vhd:33]
+INFO: [Synth 8-4471] merging register 'clear_flag_reg[7:0]' into 'set_flag_reg[7:0]' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:344]
+WARNING: [Synth 8-6014] Unused sequential element clear_flag_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:344]
+WARNING: [Synth 8-3848] Net Lbus_out in module/entity lab2_datapath does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:51]
+WARNING: [Synth 8-3848] Net Rbus_out in module/entity lab2_datapath does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:51]
+WARNING: [Synth 8-3848] Net ch1_wave in module/entity lab2_datapath does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:65]
+WARNING: [Synth 8-3848] Net ch2_wave in module/entity lab2_datapath does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:65]
+INFO: [Synth 8-256] done synthesizing module 'lab2_datapath' (20#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_datapath.vhd:59]
+INFO: [Synth 8-3491] module 'lab2_fsm' declared at 'd:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_fsm.vhd:25' bound to instance 'control' of component 'lab2_fsm' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:818]
+INFO: [Synth 8-638] synthesizing module 'lab2_fsm' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_fsm.vhd:32]
+INFO: [Synth 8-256] done synthesizing module 'lab2_fsm' (21#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_fsm.vhd:32]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg0_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:279]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg1_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:280]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg2_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:281]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg3_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:282]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg4_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:283]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg5_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:284]
+WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:312]
+WARNING: [Synth 8-3848] Net exWrAddr_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:171]
+WARNING: [Synth 8-3848] Net exWen_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:172]
+WARNING: [Synth 8-3848] Net exSel_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:173]
+WARNING: [Synth 8-3848] Net R_bus_out_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:174]
+WARNING: [Synth 8-3848] Net L_bus_out_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:174]
+WARNING: [Synth 8-3848] Net exRbus_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:175]
+WARNING: [Synth 8-3848] Net exLbus_S in module/entity my_oscope_ip_v1_0_S00_AXI does not have driver. [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:175]
+INFO: [Synth 8-256] done synthesizing module 'my_oscope_ip_v1_0_S00_AXI' (22#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0_S00_AXI.vhd:103]
+INFO: [Synth 8-256] done synthesizing module 'my_oscope_ip_v1_0' (23#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/hdl/my_oscope_ip_v1_0.vhd:81]
 INFO: [Synth 8-256] done synthesizing module 'design_1_my_oscope_ip_0_0' (24#1) [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ip/design_1_my_oscope_ip_0_0/synth/design_1_my_oscope_ip_0_0.vhd:95]
 WARNING: [Synth 8-3331] design i2s_ctl has unconnected port MM_I
 WARNING: [Synth 8-3331] design scopeFace has unconnected port ch1_enb
@@ -907,6 +905,11 @@ WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[3]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[2]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[1]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[0]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port btn[4]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port btn[3]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port btn[2]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port btn[1]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port btn[0]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port exWen
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[7]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[6]
@@ -916,26 +919,6 @@ WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[3]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[2]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[1]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[0]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerTime[9]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerTime[8]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerTime[7]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerTime[6]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerTime[5]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerTime[4]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerTime[3]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerTime[2]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerTime[1]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerTime[0]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerVolt[9]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerVolt[8]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerVolt[7]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerVolt[6]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerVolt[5]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerVolt[4]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerVolt[3]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerVolt[2]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerVolt[1]
-WARNING: [Synth 8-3331] design lab2_datapath has unconnected port triggerVolt[0]
 WARNING: [Synth 8-3331] design my_oscope_ip_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[2]
 WARNING: [Synth 8-3331] design my_oscope_ip_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[1]
 WARNING: [Synth 8-3331] design my_oscope_ip_v1_0_S00_AXI has unconnected port S_AXI_AWPROT[0]
@@ -943,7 +926,7 @@ WARNING: [Synth 8-3331] design my_oscope_ip_v1_0_S00_AXI has unconnected port S_
 WARNING: [Synth 8-3331] design my_oscope_ip_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[1]
 WARNING: [Synth 8-3331] design my_oscope_ip_v1_0_S00_AXI has unconnected port S_AXI_ARPROT[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 958.457 ; gain = 250.246
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 958.348 ; gain = 250.258
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -956,10 +939,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 958.457 ; gain = 250.246
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 958.348 ; gain = 250.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 958.457 ; gain = 250.246
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 958.348 ; gain = 250.258
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
 WARNING: [Netlist 29-151] Pin 'C1' on instance 'U0/my_oscope_ip_v1_0_S00_AXI_inst/datapath/video_inst/inst_dvid/ODDR2_red' of cell type 'ODDR2' does not have an equivalent function on the new cell type 'ODDR'. Net 'clk_n' that is connected to this pin will not be connected to the replacement instance.
@@ -987,22 +970,22 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_my_oscope_ip_0_0_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1100.656 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1099.551 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 8 instances were transformed.
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS, OBUFDS): 4 instances
   ODDR2 => ODDR: 4 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 1100.660 ; gain = 0.004
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 1099.574 ; gain = 0.023
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1100.660 ; gain = 392.449
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1099.574 ; gain = 391.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1100.660 ; gain = 392.449
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1099.574 ; gain = 391.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -1012,7 +995,7 @@ Applied set_property DONT_TOUCH = true for U0/my_oscope_ip_v1_0_S00_AXI_inst/dat
 Applied set_property DONT_TOUCH = true for U0/my_oscope_ip_v1_0_S00_AXI_inst/datapath/audio_codec/audiocodec_master_clock. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U0/my_oscope_ip_v1_0_S00_AXI_inst/datapath/video_inst/mmcm_adv_inst_display_clocks. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1100.660 ; gain = 392.449
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1099.574 ; gain = 391.484
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'TWICtl'
 INFO: [Synth 8-5546] ROM "initWord" won't be mapped to RAM because it is too sparse
@@ -1032,7 +1015,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'FSM_reg' in module 'lab2_fs
                   ststop |                             1111 |                             0101
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'gray' in module 'TWICtl'
-WARNING: [Synth 8-327] inferring latch for variable 'cw_reg' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/c9eb/src/lab2_fsm.vhd:87]
+WARNING: [Synth 8-327] inferring latch for variable 'cw_reg' [d:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.srcs/sources_1/bd/design_1/ipshared/a3aa/src/lab2_fsm.vhd:87]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -1043,7 +1026,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'cw_reg' [d:/UNL_Spring_2021
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'FSM_reg' using encoding 'sequential' in module 'lab2_fsm'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1100.660 ; gain = 392.449
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1099.574 ; gain = 391.484
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1059,7 +1042,7 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit       Adders := 1     
 	   2 Input     31 Bit       Adders := 1     
 	   2 Input     18 Bit       Adders := 2     
-	   2 Input     10 Bit       Adders := 19    
+	   2 Input     10 Bit       Adders := 15    
 	   2 Input      7 Bit       Adders := 3     
 	   2 Input      5 Bit       Adders := 2     
 	   8 Input      4 Bit       Adders := 3     
@@ -1071,7 +1054,6 @@ Detailed RTL Component Info :
 	   2 Input      3 Bit       Adders := 2     
 	   2 Input      2 Bit       Adders := 1     
 +---XORs : 
-	   2 Input      5 Bit         XORs := 1     
 	   2 Input      1 Bit         XORs := 42    
 +---Registers : 
 	               33 Bit    Registers := 1     
@@ -1082,7 +1064,7 @@ Detailed RTL Component Info :
 	               10 Bit    Registers := 15    
 	                8 Bit    Registers := 6     
 	                7 Bit    Registers := 5     
-	                5 Bit    Registers := 4     
+	                5 Bit    Registers := 2     
 	                4 Bit    Registers := 4     
 	                3 Bit    Registers := 2     
 	                2 Bit    Registers := 4     
@@ -1093,11 +1075,11 @@ Detailed RTL Component Info :
 	   2 Input     18 Bit        Muxes := 2     
 	   5 Input     10 Bit        Muxes := 6     
 	   4 Input     10 Bit        Muxes := 4     
-	   2 Input     10 Bit        Muxes := 16    
+	   2 Input     10 Bit        Muxes := 10    
 	   2 Input      9 Bit        Muxes := 6     
 	   2 Input      8 Bit        Muxes := 2     
 	   2 Input      7 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 4     
+	   2 Input      5 Bit        Muxes := 2     
 	   8 Input      5 Bit        Muxes := 1     
 	   3 Input      5 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 17    
@@ -1107,7 +1089,7 @@ Detailed RTL Component Info :
 	   3 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 50    
+	   2 Input      1 Bit        Muxes := 44    
 	   4 Input      1 Bit        Muxes := 22    
 	   3 Input      1 Bit        Muxes := 5     
 	   9 Input      1 Bit        Muxes := 1     
@@ -1243,21 +1225,17 @@ Module lab2_datapath
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     18 Bit       Adders := 2     
-	   2 Input     10 Bit       Adders := 9     
-+---XORs : 
-	   2 Input      5 Bit         XORs := 1     
+	   2 Input     10 Bit       Adders := 5     
 +---Registers : 
 	               18 Bit    Registers := 5     
 	               10 Bit    Registers := 3     
 	                8 Bit    Registers := 1     
-	                5 Bit    Registers := 2     
 +---Muxes : 
 	   2 Input     18 Bit        Muxes := 2     
-	   2 Input     10 Bit        Muxes := 7     
 	   4 Input     10 Bit        Muxes := 1     
-	   2 Input      5 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 1     
 	   3 Input      5 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 1     
 Module lab2_fsm 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -1320,6 +1298,21 @@ WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[9]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[8]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[7]
 WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[6]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[5]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[4]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[3]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[2]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[1]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port Rbus_out[0]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port btn[4]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port btn[3]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port btn[2]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port btn[1]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port btn[0]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port exWen
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[7]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[6]
+WARNING: [Synth 8-3331] design lab2_datapath has unconnected port flagClear[5]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U0/my_oscope_ip_v1_0_S00_AXI_inst /datapath/\audio_codec/audio_inout/Data_Out_int_reg[0] )
 INFO: [Synth 8-3886] merging instance 'U0/my_oscope_ip_v1_0_S00_AXI_inst/datapath/audio_codec/initialize_audio/initWord_reg[25]' (FDE) to 'U0/my_oscope_ip_v1_0_S00_AXI_inst/datapath/audio_codec/initialize_audio/initWord_reg[32]'
@@ -1448,7 +1441,7 @@ WARNING: [Synth 8-3332] Sequential element (control/cw_reg[2]) is unused and wil
 WARNING: [Synth 8-3332] Sequential element (control/cw_reg[1]) is unused and will be removed from module my_oscope_ip_v1_0_S00_AXI.
 WARNING: [Synth 8-3332] Sequential element (control/cw_reg[0]) is unused and will be removed from module my_oscope_ip_v1_0_S00_AXI.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 1100.660 ; gain = 392.449
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 1099.574 ; gain = 391.484
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1461,13 +1454,13 @@ Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-565] redefining clock 'clk'
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 1100.660 ; gain = 392.449
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 1099.574 ; gain = 391.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:00 ; elapsed = 00:01:02 . Memory (MB): peak = 1137.738 ; gain = 429.527
+Finished Timing Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 1130.574 ; gain = 422.484
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1479,7 +1472,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:01 ; elapsed = 00:01:03 . Memory (MB): peak = 1138.777 ; gain = 430.566
+Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 1131.637 ; gain = 423.547
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1502,10 +1495,10 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-5799] Converted tricell instance 'datapathi_2' to logic
 CRITICAL WARNING: [Synth 8-5799] Converted tricell instance 'datapathi_3' to logic
+CRITICAL WARNING: [Synth 8-5799] Converted tricell instance 'datapathi_4' to logic
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 1140.574 ; gain = 432.363
+Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1132.410 ; gain = 424.320
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1518,7 +1511,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 1140.574 ; gain = 432.363
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1132.410 ; gain = 424.320
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1530,25 +1523,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:05 ; elapsed = 00:01:07 . Memory (MB): peak = 1140.574 ; gain = 432.363
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1132.410 ; gain = 424.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:05 ; elapsed = 00:01:07 . Memory (MB): peak = 1140.574 ; gain = 432.363
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1132.410 ; gain = 424.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:05 ; elapsed = 00:01:07 . Memory (MB): peak = 1140.574 ; gain = 432.363
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1132.410 ; gain = 424.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:05 ; elapsed = 00:01:07 . Memory (MB): peak = 1140.574 ; gain = 432.363
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1132.410 ; gain = 424.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1567,17 +1560,17 @@ Report Cell Usage:
 |1     |BUFG       |     7|
 |2     |CARRY4     |    25|
 |3     |LUT1       |    49|
-|4     |LUT2       |   169|
-|5     |LUT3       |    51|
-|6     |LUT4       |   118|
-|7     |LUT5       |   111|
-|8     |LUT6       |   607|
+|4     |LUT2       |   158|
+|5     |LUT3       |    44|
+|6     |LUT4       |    95|
+|7     |LUT5       |   108|
+|8     |LUT6       |   598|
 |9     |MMCME2_ADV |     2|
 |10    |MUXF7      |    96|
 |11    |ODDR2      |     4|
 |12    |RAMB18E1   |     2|
-|13    |FDRE       |  1276|
-|14    |FDSE       |    46|
+|13    |FDRE       |  1259|
+|14    |FDSE       |    53|
 |15    |IBUF       |     2|
 |16    |OBUFDS     |     4|
 +------+-----------+------+
@@ -1586,25 +1579,25 @@ Report Instance Areas:
 +------+---------------------------------------+--------------------------+------+
 |      |Instance                               |Module                    |Cells |
 +------+---------------------------------------+--------------------------+------+
-|1     |top                                    |                          |  2569|
-|2     |  U0                                   |my_oscope_ip_v1_0         |  2569|
-|3     |    my_oscope_ip_v1_0_S00_AXI_inst     |my_oscope_ip_v1_0_S00_AXI |  2565|
+|1     |top                                    |                          |  2506|
+|2     |  U0                                   |my_oscope_ip_v1_0         |  2506|
+|3     |    my_oscope_ip_v1_0_S00_AXI_inst     |my_oscope_ip_v1_0_S00_AXI |  2502|
 |4     |      control                          |lab2_fsm                  |     6|
-|5     |      datapath                         |lab2_datapath             |  1215|
+|5     |      datapath                         |lab2_datapath             |  1152|
 |6     |        LeftBRAM                       |unimacro_BRAM_SDP_MACRO   |    28|
-|7     |        RightBRAM                      |unimacro_BRAM_SDP_MACRO_0 |    38|
-|8     |        audio_codec                    |Audio_Codec_Wrapper       |   469|
+|7     |        RightBRAM                      |unimacro_BRAM_SDP_MACRO_0 |    39|
+|8     |        audio_codec                    |Audio_Codec_Wrapper       |   468|
 |9     |          audiocodec_master_clock      |clk_wiz_1                 |     6|
 |10    |            inst                       |clk_wiz_1_clk_wiz         |     6|
 |11    |          audio_inout                  |i2s_ctl                   |   147|
-|12    |          initialize_audio             |audio_init                |   306|
-|13    |            twi_controller             |TWICtl                    |   132|
-|14    |        video_inst                     |video                     |   459|
+|12    |          initialize_audio             |audio_init                |   305|
+|13    |            twi_controller             |TWICtl                    |   133|
+|14    |        video_inst                     |video                     |   463|
 |15    |          mmcm_adv_inst_display_clocks |clk_wiz_0                 |     7|
 |16    |            inst                       |clk_wiz_0_clk_wiz         |     7|
-|17    |          Inst_vga                     |vga                       |   303|
-|18    |            Column_Counter             |Counter                   |   155|
-|19    |            Row_Counter                |Counter__parameterized1   |   138|
+|17    |          Inst_vga                     |vga                       |   307|
+|18    |            Column_Counter             |Counter                   |   153|
+|19    |            Row_Counter                |Counter__parameterized1   |   144|
 |20    |            scope                      |scopeFace                 |    10|
 |21    |          inst_dvid                    |dvid                      |   145|
 |22    |            TDMS_encoder_blue          |TDMS_encoder              |    29|
@@ -1612,11 +1605,11 @@ Report Instance Areas:
 |24    |            TDMS_encoder_red           |TDMS_encoder_2            |    15|
 +------+---------------------------------------+--------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:05 ; elapsed = 00:01:07 . Memory (MB): peak = 1140.574 ; gain = 432.363
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:00:50 . Memory (MB): peak = 1132.410 ; gain = 424.320
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 2 critical warnings and 75 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:53 ; elapsed = 00:01:02 . Memory (MB): peak = 1140.574 ; gain = 290.160
-Synthesis Optimization Complete : Time (s): cpu = 00:01:05 ; elapsed = 00:01:07 . Memory (MB): peak = 1140.574 ; gain = 432.363
+Synthesis finished with 0 errors, 2 critical warnings and 60 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:00:46 . Memory (MB): peak = 1132.410 ; gain = 283.094
+Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:00:50 . Memory (MB): peak = 1132.410 ; gain = 424.320
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 133 Unisim elements for replacement
 WARNING: [Netlist 29-151] Pin 'C1' on instance 'U0/my_oscope_ip_v1_0_S00_AXI_inst/datapath/video_inst/inst_dvid/ODDR2_red' of cell type 'ODDR2' does not have an equivalent function on the new cell type 'ODDR'. Net 'clk_out3' that is connected to this pin will not be connected to the replacement instance.
@@ -1627,26 +1620,26 @@ INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 CRITICAL WARNING: [Shape Builder 18-119] Failed to create I/OLOGIC Route Through shape for instance U0/my_oscope_ip_v1_0_S00_AXI_inst/datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkin1_ibufg. Found overlapping instances within the shape: U0/my_oscope_ip_v1_0_S00_AXI_inst/datapath/audio_codec/audiocodec_master_clock/inst/clkin1_ibufg and U0/my_oscope_ip_v1_0_S00_AXI_inst/datapath/video_inst/mmcm_adv_inst_display_clocks/inst/clkin1_ibufg.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1155.285 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1147.133 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 8 instances were transformed.
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS, OBUFDS): 4 instances
   ODDR2 => ODDR: 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-242 Infos, 151 Warnings, 3 Critical Warnings and 0 Errors encountered.
+242 Infos, 149 Warnings, 3 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:14 ; elapsed = 00:01:17 . Memory (MB): peak = 1155.285 ; gain = 738.684
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1155.285 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:57 ; elapsed = 00:00:59 . Memory (MB): peak = 1147.133 ; gain = 730.164
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1147.133 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.runs/design_1_my_oscope_ip_0_0_synth_1/design_1_my_oscope_ip_0_0.dcp' has been generated.
 WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_my_oscope_ip_0_0, cache-ID = 5d74021045da6cf6
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_my_oscope_ip_0_0, cache-ID = 83e2f8b57c62d42e
 INFO: [Coretcl 2-1174] Renamed 23 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1155.285 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1147.133 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/UNL_Spring_2021/CSCE_436/Lab3/Lab_3/Lab_3.runs/design_1_my_oscope_ip_0_0_synth_1/design_1_my_oscope_ip_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_my_oscope_ip_0_0_utilization_synth.rpt -pb design_1_my_oscope_ip_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Mar 15 23:35:54 2021...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 16 16:15:24 2021...
