@@ -80,6 +80,8 @@ int main(void) {
 	init_platform();
 
 	print("Welcome to Lab 3!\n\r");
+	Xil_Out16(triggerVoltReg,triggerVolt);
+	Xil_Out16(triggerTimeReg,triggerTime);
 
 //    microblaze_register_handler((XInterruptHandler) myISR, (void *) 0);
 //    microblaze_enable_interrupts();
