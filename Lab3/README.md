@@ -54,7 +54,7 @@ useful. Note that "uartRegAddr" is a constant, the address of the uart.
 #### Gate Check 1
 By the beginning of lesson 22, we need to have all of the Lab 2 functionality implemented with the 
 Microblaze. That is, we need to export Lab 2 design into the SDK and be able to achieve the same 
-functionality as we did in Lab 2.
+functionality as we did in Lab 2. Video of functionality is shown in Documentation for Gate Check 1[^1]
 
 #### Gate Check 2
 By the beginning of lesson 23, we need to be able to send USART commands using Tera Term (or another 
@@ -139,9 +139,6 @@ Detail the steps in getting the results you system is designed to achieve.  Have
 
 Display your results and describe them in detail so that anyone can understand.  For example Figure 1 below shows a screenshot of a memory dump for RAM from 0x0200 to 0x024E.  You will also describe to the reader what they are looking at.
 
-![Memory Dump](images/Memory.PNG)
-##### Figure 1: Memory Dump Label (Always include figure AND table labels!)
-
 ### Answers to Lab Questions
 Here is where you would answer any lab questions given in the lab writeup.
 
@@ -149,7 +146,6 @@ Here is where you would answer any lab questions given in the lab writeup.
 During this whole assignment, what did you learn?  What did you notice that was noteworthy?  This should be a paragraph starting with the purpose, whether or not you achieved that purpose, what you learned, and how you can use this for future labs.
 
 ### Documentation
-� always include this.  Any help received on any portion of the assignment, even from an instructor or the internet should be specifically mentioned.
 
-Gate Check 1:
+Gate Check 1[^1]:
 https://youtu.be/BJFPydwz0VA
