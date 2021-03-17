@@ -54,12 +54,17 @@ useful. Note that "uartRegAddr" is a constant, the address of the uart.
 #### Gate Check 1
 By the beginning of lesson 22, we need to have all of the Lab 2 functionality implemented with the 
 Microblaze. That is, we need to export Lab 2 design into the SDK and be able to achieve the same 
-functionality as we did in Lab 2. Video of functionality is shown in Documentation for Gate Check 1 [^1]
+functionality as we did in Lab 2. Video of functionality is shown in Documentation for Gate Check 1. [^1]
+The image below is the O'Scope window after integration with Lab 3.
+
+##### Lab 2 Integrated in Lab 3 O'Scope
+![Picture of scopeface grid and trigger marks](Images/lab2_functionality.PNG)
 
 #### Gate Check 2
 By the beginning of lesson 23, we need to be able to send USART commands using Tera Term (or another 
 terminal emulator) to the FPGA to adjust the trigger on the screen. The trigger on the screen should 
-properly react to moving the trigger either up or down.
+properly react to moving the trigger either up or down. Video of functionality of button can be seen
+in the Documentation for Gate Check 2. [^2]
 
 #### Required Functionality
 In order to achieve required functionality, we will need to properly trigger the oscilloscope on channel 
@@ -149,3 +154,6 @@ During this whole assignment, what did you learn?  What did you notice that was 
 
 [^1]: Gate Check 1
 https://youtu.be/BJFPydwz0VA
+
+[^2]: Gate Check 2
+https://youtu.be/Ce3uMPXEPSA
