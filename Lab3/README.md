@@ -50,69 +50,53 @@ useful. Note that "uartRegAddr" is a constant, the address of the uart.
 
 
 ### Preliminary design
-How will you start attacking the problem?
-This should include detailed instructions of what you are about to do.  It may include PreLab material and also information from the Lab Handout.  Use pictures and data from Lab Handout.
-You may also use snippets of code in here as well:
 
-#### Code:
+#### Gate Check 1
+By the beginning of lesson 22, we need to have all of the Lab 2 functionality implemented with the 
+Microblaze. That is, we need to export Lab 2 design into the SDK and be able to achieve the same 
+functionality as we did in Lab 2.
 
-**You should only include important key code snippets in your README.  All code files should be included in code folder.**
+#### Gate Check 2
+By the beginning of lesson 23, we need to be able to send USART commands using Tera Term (or another 
+terminal emulator) to the FPGA to adjust the trigger on the screen. The trigger on the screen should 
+properly react to moving the trigger either up or down.
 
-**Well-formatted code**
- - All of your code should be written with:
-    1. headers
-    2. comments
-    3. good coding practices.
+#### Required Functionality
+In order to achieve required functionality, we will need to properly trigger the oscilloscope on channel 
+1 using a positive edge trigger. Control of this process is to be performed using the MicroBlaze. The 
+main tasks of the MicroBlaze will include:
+- Move audio samples into a pair of circular buffers. These circular buffers will be maintained in the 
+address space of the MicroBlaze. That is, we should have two big arrays defined in your program. Use 
+polling of the ready bit of the flag register.
+- Examine the samples, looking for a trigger event.
+- Fill the remaining sample slots in memory.
+- Move the appropriate buffer values into the display memory of the oscilloscope (lab2) component.
+- Provide a user menu (through the terminal) allowing the user to adjust the trigger voltage and trigger 
+time.
 
+#### B-level Functionality
+- Achieve required functionality.
+- Use the ready bit of the flag register to trigger an interrupt. The ISR should store the samples (left 
+and right), look for a triggering event, and signal when the stored samples should be transfered to the 
+BRAM in the oscilloscope component.
 
-##### Sample Code Headers
-The following are *example* headers, but your instructor may require a different template to be used.
+#### A-level Functionality
+- Achieve B-level functionality.
+- Ability to enable and disable channels to display
+- Ability to trigger off channel 2
+- Ability to change the slope direction of the trigger.
 
-##### VHDL Header:
-	--------------------------------------------------------------------
-	-- Name:<Your Name>
-	-- Date:<The date you stated working on the file>
-	-- Course:	<The course's name>
-	-- File:<This file's name>
-	-- HW:	<HW# and name>
-	--
-	-- Purp:A brief description of what this program does and 
-	--	the general solution strategy. 
-	--
-	-- Doc:	<list the names of the people who you helped>
-	-- 	<list the names of the people who assisted you>
-	--
-	-- Academic Integrity Statement: I certify that, while others may have 
-	-- assisted me in brain storming, debugging and validating this program, 
-	-- the program itself is my own work. I understand that submitting code 
-	-- which is the work of other individuals is a violation of the honor   
-	-- code.  I also understand that if I knowingly give my original work to 
-	-- another individual is also a violation of the honor code. 
-	------------------------------------------------------------------------- 
-
-##### C Header:
-	/*--------------------------------------------------------------------
-	Name:<Your Name>
-	Date:<The date you stated working on the file>
-	Course:	<The course's name>
-	File:<This file's name>
-	HW:	<HW# and name>
-	
-	Purp:A brief description of what this program does and 
-		the general solution strategy. 
-	
-	Doc:	<list the names of the people who you helped>
-			<list the names of the people who assisted you>
-	
-	Academic Integrity Statement: I certify that, while others may have 
-	assisted me in brain storming, debugging and validating this program, 
-	the program itself is my own work. I understand that submitting code 
-	which is the work of other individuals is a violation of the honor   
-	code.  I also understand that if I knowingly give my original work to 
-	another individual is also a violation of the honor code. 
-	-------------------------------------------------------------------------*/
+#### Using one bit from a vector to trigger an interrupt
+In order to achieve A functionality, this assignment requires the programmer to use a single bit of Q 
+(the std_logic_vector output from the flag register) as the interrupt signal. This may require the 
+programmer to extract the one bit Q as a separate signal to connect to the MicroBlaze in the block design.
 	
 ### Software flow chart or algorithms
+- All the memory mapped hardware registers will have their names setup as #define's with a name ending 
+in "Reg".
+- Any register with bit fields will have the bit index setup as #define's with a name ending in "Bit".
+- The flagQ and flagClear registers need to be at the same address.
+
 All coding include a pseudocode flow charts and algorithms defined your code and the algorithms used.  Visio or PowerPoint works well for this!
 
 #### Pseudocode:
@@ -123,26 +107,34 @@ With the exception of the following Engineering Change Orders (ECO) in the table
 developed in lab2 will be unchanged. For the following ECO, please refer to the high-level architecture 
 in Lab 2.
 
-| Name: | Trigger Voltage, Trigger Time |
-| ----------- | ----------- |
-| Scope: | lab2_dp and lab2 |
-| ----------- | ----------- |
-| Type: | Change to the entity descriptions. |
-| ----------- | ----------- |
-| Details: | - Inside the lab2_dp component, remove the logic driving the triggerVolt and triggerTime 
-signals into the video component.
-- Remove the buttons signal from the lab2 and lab2_dp entities.
-- Remove the buttons signal from the xdc file.
-- Add the triggerVolt and triggerTime signals to the lab2 and lab2_dp entity descriptions.
-- Drive the triggerTime and triggerVolt inputs on the video component with the corresponding signals on 
-the lab2_dp entity. |
+##### Engineering Change Orders (ECO) Table
+![Engineering Change Order Table](Images/hardware_table_1.PNG)
 
-If you are wiring things up you will need to create a schematic for your design.
+The first step will be to create a component for the lab2 component in a Vivado repository. This 
+will require the programmer to think about what signals are routed to the MicroBlaze and what signals 
+are going outside the Artix 7 chip. The following table should help.
+
+##### Lab 2 signals to port out to sofware and outside design
+![signals to/from MicroBlaze and going out of the Artix 7](Images/hardware_table_2.PNG) 
 
 ### Debugging
-You should be keeping track of issues as you go along.  I didn't have any problems is not a good answer.  Describe the problems you had and what you did to fix it.  Again this is where I would say commit early and often and start your notebook when you start your code.
+Gate Check 1 came with its own set of problems. Gate Check 1 used slave registers to push and pull data 
+from the MicroBlaze to the datapath of lab 2. The issue that I had was deciding what needed to go on the 
+read side of the slave register. Changing the slave registers was the heap of the debugging process, 
+eventually using the lower 32 registers.
+
+Gate Check 2 required the functionality of the slave registers to read data from the hardware. The problem 
+that I was having with this gate check was the use of initial values to the read side of the registers. 
+The debugging process included deleting the wrapper files in Vivado that were in the SDK and then 
+rebuilding them and exporting it back to the SDK. Once I rebuilt the software and compiled, rumnning the 
+software allowed for trigger manipulation with the "wasd" keys
 
 ### Testing methodology or results
+The nice thing about building the bitstream and exporting it to the SDK, long waits for compilation is not 
+an issue anymore. Just compile and run to change the triggerVolt and triggerTIme. Using the Lbus and Rbus 
+we can fill in a buffer for the functionality checkpoint to bring in new data for a waveform to trigger with 
+both trigger marks.
+
 Detail the steps in getting the results you system is designed to achieve.  Have enough detail that someone can come behind and reproduce your results.
 
 Display your results and describe them in detail so that anyone can understand.  For example Figure 1 below shows a screenshot of a memory dump for RAM from 0x0200 to 0x024E.  You will also describe to the reader what they are looking at.
