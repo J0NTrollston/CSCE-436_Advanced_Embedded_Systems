@@ -33,17 +33,25 @@
 /*
  * The following constants define the slave registers used for our Counter PCORE
  */
-#define addrBase		0x44a00000
-//#define countQReg		addrBase			// 8 LSBs of slv_reg0 read=Q, write=D
-//#define	countCtrlReg	addrBase+0x4			// 2 LSBs of slv_reg1 are control
-//#define	countRollReg	addrBase+0x8			// 1 LSBs of slv_reg2 for roll flag
-#define	countClearReg	addrBase+0xc		// 1 LSBs of slv_reg3 (0) roll clear flag
-#define	reg4			addrBase+0x10
-#define	flagReg			addrBase+0x14		//3 LSBs os slv_reg5 are ready, v_sync and max_count
-#define	exSel			addrBase+0x18		//1 LSBs of slv_reg6 is for exSel
-#define	triggerTimeReg	addrBase+0x1c		//10 LSBs of slv_reg7 is triggerTime
-#define	triggerVoltReg 	addrBase+0x20      //10 LSBs of slv_reg8 is triggerVolt
-#define	reg9	addrBase+0x24
+#define oScopeBase		0x44a00000
+#define LbusReg			oScopeBase			//16 LSBs of slv_reg0 are Left Bus
+#define	RbusReg			oScopeBase+0x4		//16 LSBs of slv_reg1 are Right Bus
+#define	exSelReg		oScopeBase+0x8		//1 LSBs of slv_reg2 is for exSel
+#define	exWrAddrReg		oScopeBase+0xc		//10 LSBs of slv_reg3 are for exWrAddr
+#define	exWenReg		oScopeBase+0x10		//1 LSBs of slv_reg4 are for exWren
+#define	flagReg			oScopeBase+0x14		//3 LSBs of slv_reg5 are ready, v_sync and max_count
+	#define readyBit		0x4
+	#define v_syncBit		0x2
+	#define max_countBit	0x1
+#define	reg6			oScopeBase+0x18
+#define	triggerTimeReg	oScopeBase+0x1c		//10 LSBs of slv_reg7 is triggerTime
+#define	triggerVoltReg 	oScopeBase+0x20      //10 LSBs of slv_reg8 is triggerVolt
+#define	exLBusOutReg	oScopeBase+0x24		//16 LSB of slv_reg9 is exLBus to the hardware
+#define	exRBusOutReg	oScopeBase+0x28		//16 LSB of slv_reg10 is exrBus to the hardware
+#define	ch1Reg			oScopeBase+0x2c		//1 LSB of slv_reg11 is for ch1 enable
+#define	ch2Reg			oScopeBase+0x30		//1 LSB of slv_reg12 is for ch2 enable
+#define	reg13	oScopeBase+0x34
+#define	reg14	oScopeBase+0x38
 
 
 /*
@@ -60,7 +68,7 @@
 //#define Lab2InternalEnableDisable 0;
 
 /************************** Function Prototypes ****************************/
-//void myISR(void);
+void myISR(void);
 
 /************************** Variable Definitions **************************/
 /*
@@ -69,9 +77,17 @@
  */
 
 //u16 isrCount = 0;
-//char Lab2InternalEnableDisable = 0;
+u8 ch1En = 1;
+u8 ch2En = 1;
 u16 triggerVolt = 220;
 u16 triggerTime = 320;
+u16 Lbus;
+u16 Rbus;
+u16 LeftBusArray[1023];
+u16 RightBusArray[1023];
+
+u16 globalAddressInc = 0;
+u8 globalBoolean = 0;
 
 int main(void) {
 
@@ -79,17 +95,19 @@ int main(void) {
 
 	init_platform();
 
-	print("Welcome to Lab 3!\n\r");
+	print("Welcome to Lab 3 O-Scope\n\r");
 	Xil_Out16(triggerVoltReg,triggerVolt);
 	Xil_Out16(triggerTimeReg,triggerTime);
+	Xil_Out8(exSelReg,1);
 
-//    microblaze_register_handler((XInterruptHandler) myISR, (void *) 0);
-//    microblaze_enable_interrupts();
-//
-//    Xil_Out8(countClearReg, 0x01);					// Clear the flag and then you MUST
-//	Xil_Out8(countClearReg, 0x00);					// allow the flag to be reset later
+    microblaze_register_handler((XInterruptHandler) myISR, (void *) 0);
+    microblaze_enable_interrupts();
+
 
     while(1) {
+    	if(globalBoolean == 1){
+    		microblaze_disable_interrupts();
+    	}
 
     	c=XUartLite_RecvByte(uartRegAddr);
 
@@ -101,51 +119,143 @@ int main(void) {
 			 */
     		case '?':
     			printf("--------------------------\r\n");
-    			printf(" TriggerVolt = %x   TriggerTime = %x\r\n",triggerVolt,triggerTime);
+    			printf(" TriggerTime = %d\r\n",triggerTime);
+    			printf(" TriggerVolt = %d\r\n",triggerVolt);
+//    			printf(" Flag Register = %x\r\n",);
+    			printf(" Left Bus = %x\r\n",Lbus);
+
+    			printf(" Ch1 Enable = %d\r\n",ch1En);
+    			printf(" Ch2 Enable = %d\r\n",ch2En);
+
 //    			printf("	Lab2Internal Functionality = %x\r\n",Xil_In16(Lab2InternalEnableDisable));
 //    			printf("	isr count = %x\r\n",isrCount);
 //    			printf("	Roll = %x\r\n",Xil_In16(countRollReg));
 //    			printf("	Roll = %x\r\n",Xil_In16(countRollReg));
 
     			printf("--------------------------\r\n");
-    			printf("?: help menu\r\n"); //keep
-    			printf("o: k\r\n"); //keep
-//    			printf("l:   COUNTER	load counter\r\n");
-//    			printf("r:   COUNTER	reset counter\r\n");
-//    			printf("n:   Clear ISR counter\r\n");
-    			printf("w:   Move Trigger Volt Up\r\n");
-    			printf("s:   Move Trigger Volt Down\r\n");
-    			printf("a:   Move Trigger Time Left\r\n");
-    			printf("d:   Move Trigger Time Right\r\n");
-    			printf("r:   Reset trigger marks\r\n");
+    			printf("?: Help Menu\r\n");
+    			printf("c: Clear Terminal Window\r\n");
+//    			printf("p: Write Sample Wave\r\n");
+    			printf("g: Grab Data to Fill Buffer\r\n");
+    			printf("l: Read Lbus\r\n");
+    			printf("r: Read Rbus\r\n");
+//    			printf("e/E: Falling/Rising Edge Trigger\r\n");
+//    			printf("1/2: Channel 1/2 Trigger\r\n");
+//    			printf("f/F: Read/Clear Flag Register\r\n");
+    			printf("d: Increase Trigger Time\r\n");
+    			printf("a: Decrease Trigger Time\r\n");
+    			printf("w: Increase Trigger Volt\r\n");
+    			printf("s: Decrease Trigger Volt\r\n");
+    			printf("j: Channel 1 Enable/Disable\r\n");
+    			printf("k: Channel 2 Enable/Disable\r\n");
+    			printf("t: Reset trigger marks\r\n");
 //    			printf("i:   Lab 2 Internal Control Enable/Disable");
-    			printf("c:   clear terminal\r\n"); //keep
     			printf("--------------------------\r\n");
 
     			break;
 
 			/*-------------------------------------------------
-			 * Basic I/O loopback
+			 * Read Left Bus
 			 *-------------------------------------------------
 			 */
-    		case 'o':
-    			printf("k \r\n");
+    		case 'g':
+    		{printf("g\r\n");
+
+//    		    microblaze_enable_interrupts();
+//    		    while(globalBoolean != 1){
+//
+//    		    }
+//    		    globalBoolean = 0;
+    			int risingEdge = 0;
+
+    			//find trigger intersection
+    			for(int i = triggerTime; i < 1023; i++){
+    				if((triggerVolt >= LeftBusArray[i-1]) & (triggerVolt < LeftBusArray[i])){ //Look for rising edge
+    					risingEdge = i-triggerTime;
+    					break; //leave for loop
+    				}
+    			}
+
+
+
+    			for(int i = 20; i < 650; i++){ //map triggerTime to appropriate index
+    				Xil_Out16(exWrAddrReg,i);
+    				Xil_Out16(exWenReg,1);
+
+    				Xil_Out16(exLBusOutReg,LeftBusArray[risingEdge+i]);
+    				Xil_Out16(exWenReg,0);
+    			}
+    		}
+
+    			microblaze_enable_interrupts();
+    			globalBoolean = 0;
     			break;
 
+			/*-------------------------------------------------
+			 * print L bus
+			 *-------------------------------------------------
+			 */
+			case 'l':
+				for(int i = 0; i < 1024; i++)
+					printf("Index %d = %d\r\n",i,LeftBusArray[i]);
+				break;
+
+			/*-------------------------------------------------
+			 * print R bus
+			 *-------------------------------------------------
+			 */
+			case 'r':
+				for(int i = 0; i < 1024; i++)
+					printf("Index %d = %d\r\n",i,RightBusArray[i]);
+				break;
+
 //			/*-------------------------------------------------
-//			 * Enable and disable lab 2 internal controls
+//			 * Throw out L bus onto scope
 //			 *-------------------------------------------------
 //			 */
-//			case 'i':
-//				if(Lab2InternalEnableDisable == 0){
-//					Xil_Out8(exSel,1);
-//					Lab2InternalEnableDisable = 1;
-//
-//				}else{
-//					Xil_Out8(exSel,0);
-//					Lab2InternalEnableDisable = 0;
+//			case 'x':
+//				for(int i = 20; i < 620; i++){
+//					u32 ready = ( (Xil_In32(flagReg) & readyBit) >> (readyBit-1) );
+//					while(!ready){}
+//					Xil_Out16(exLBusOutReg,LeftBusArray[i]);
 //				}
+//
 //				break;
+
+
+//			report_ip_status -name ip_status
+
+			/*-------------------------------------------------
+			 * Ch1 Enable/Disable
+			 *-------------------------------------------------
+			 */
+			case 'j':
+				if((ch1En = 0)){
+					ch1En = 1;
+					Xil_Out8(ch1Reg,ch1En);
+				}
+				if((ch1En = 1)){
+					ch1En = 0;
+					Xil_Out8(ch1Reg,ch1En);
+				}
+
+				break;
+
+			/*-------------------------------------------------
+			 * Ch2 Enable/Disable
+			 *-------------------------------------------------
+			 */
+			case 'k':
+				if((ch2En = 0)){
+					ch2En = 1;
+					Xil_Out8(ch1Reg,ch2En);
+				}
+				if((ch2En = 1)){
+					ch2En = 0;
+					Xil_Out8(ch1Reg,ch2En);
+				}
+
+				break;
 
 			/*-------------------------------------------------
 			 * Move triggerVolt mark up
@@ -197,7 +307,7 @@ int main(void) {
 			 * Reset trigger marks
 			 *-------------------------------------------------
 			 */
-    		case 'r':
+    		case 't':
     			triggerTime = 320;
     			triggerVolt = 220;
     			Xil_Out16(triggerVoltReg,triggerVolt);
@@ -273,8 +383,22 @@ int main(void) {
 } // end main
 
 
-//void myISR(void) {
-////	isrCount = isrCount + 1;
-//	Xil_Out8(countClearReg, 0x01);					// Clear the flag and then you MUST
-//	Xil_Out8(countClearReg, 0x00);					// allow the flag to be reset later
-//}
+void myISR(void) {
+	printf("INSIDE ISR");
+
+	if(globalAddressInc == 1023){
+		globalAddressInc = 0;
+		globalBoolean = 1;
+//		microblaze_disable_interrupts();
+	}else{
+		globalAddressInc++;
+
+		LeftBusArray[globalAddressInc] = (Xil_In16(LbusReg));
+		RightBusArray[globalAddressInc] = (Xil_In16(RbusReg));
+
+	}
+
+	Xil_Out16(flagReg, 0x04);// Clear the flag and then you MUST
+	Xil_Out16(flagReg, 0x00);// allow the flag to be reset later
+
+}

@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: unl.edu:user:my_oscope_ip:1.0
--- IP Revision: 21
+-- IP Revision: 36
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
