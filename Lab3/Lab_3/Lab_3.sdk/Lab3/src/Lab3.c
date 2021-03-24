@@ -50,7 +50,7 @@
 #define	exRBusOutReg	oScopeBase+0x28		//16 LSB of slv_reg10 is exrBus to the hardware
 #define	ch1Reg			oScopeBase+0x2c		//1 LSB of slv_reg11 is for ch1 enable
 #define	ch2Reg			oScopeBase+0x30		//1 LSB of slv_reg12 is for ch2 enable
-#define	reg13	oScopeBase+0x34
+#define	riseFallReg  	oScopeBase+0x34     //1 LSB of slv_reg13 is for rising/falling edge
 #define	reg14	oScopeBase+0x38
 
 
@@ -79,10 +79,11 @@ void myISR(void);
 //u16 isrCount = 0;
 u8 ch1En = 1;
 u8 ch2En = 1;
+u8 exSel = 1;
+u8 triggerCh1Ch2 = 1;
 u16 triggerVolt = 220;
 u16 triggerTime = 320;
-u16 Lbus;
-u16 Rbus;
+
 u16 LeftBusArray[1023];
 u16 RightBusArray[1023];
 
@@ -98,7 +99,8 @@ int main(void) {
 	print("Welcome to Lab 3 O-Scope\n\r");
 	Xil_Out16(triggerVoltReg,triggerVolt);
 	Xil_Out16(triggerTimeReg,triggerTime);
-	Xil_Out8(exSelReg,1);
+	Xil_Out8(exSelReg,exSel);
+	Xil_Out16(exWenReg,0);
 
     microblaze_register_handler((XInterruptHandler) myISR, (void *) 0);
     microblaze_enable_interrupts();
@@ -107,12 +109,11 @@ int main(void) {
     while(1) {
     	if(globalBoolean == 1){
     		microblaze_disable_interrupts();
+    		globalBoolean = 0;
     	}
 
     	c=XUartLite_RecvByte(uartRegAddr);
-
 		switch(c) {
-
     		/*-------------------------------------------------
     		 * Reply with the help menu
     		 *-------------------------------------------------
@@ -121,27 +122,19 @@ int main(void) {
     			printf("--------------------------\r\n");
     			printf(" TriggerTime = %d\r\n",triggerTime);
     			printf(" TriggerVolt = %d\r\n",triggerVolt);
-//    			printf(" Flag Register = %x\r\n",);
-    			printf(" Left Bus = %x\r\n",Lbus);
-
+    			printf(" Flag Register = %x\r\n",Xil_In8(flagReg));
+    			printf(" Left Bus = %d\r\n",((Xil_In16(LbusReg))>>6)-292);
+    			printf(" Right Bus = %d\r\n",((Xil_In16(RbusReg))>>6)-292);
     			printf(" Ch1 Enable = %d\r\n",ch1En);
     			printf(" Ch2 Enable = %d\r\n",ch2En);
-
-//    			printf("	Lab2Internal Functionality = %x\r\n",Xil_In16(Lab2InternalEnableDisable));
-//    			printf("	isr count = %x\r\n",isrCount);
-//    			printf("	Roll = %x\r\n",Xil_In16(countRollReg));
-//    			printf("	Roll = %x\r\n",Xil_In16(countRollReg));
-
     			printf("--------------------------\r\n");
     			printf("?: Help Menu\r\n");
     			printf("c: Clear Terminal Window\r\n");
-//    			printf("p: Write Sample Wave\r\n");
-    			printf("g: Grab Data to Fill Buffer\r\n");
+    			printf("g: Grab Data to Fill Buffer (now print wave)\r\n");
     			printf("l: Read Lbus\r\n");
     			printf("r: Read Rbus\r\n");
 //    			printf("e/E: Falling/Rising Edge Trigger\r\n");
-//    			printf("1/2: Channel 1/2 Trigger\r\n");
-//    			printf("f/F: Read/Clear Flag Register\r\n");
+    			printf("1/2: Channel 1/2 Trigger\r\n");
     			printf("d: Increase Trigger Time\r\n");
     			printf("a: Decrease Trigger Time\r\n");
     			printf("w: Increase Trigger Volt\r\n");
@@ -149,47 +142,31 @@ int main(void) {
     			printf("j: Channel 1 Enable/Disable\r\n");
     			printf("k: Channel 2 Enable/Disable\r\n");
     			printf("t: Reset trigger marks\r\n");
-//    			printf("i:   Lab 2 Internal Control Enable/Disable");
+    			printf("i: Lab 2 Internal Control Enable/Disable\r\n");
     			printf("--------------------------\r\n");
 
     			break;
+
+
+			/*-------------------------------------------------
+			 * Clear the terminal window
+			 *-------------------------------------------------
+			 */
+			case 'c':
+				for (c=0; c<40; c++) printf("\r\n");
+				break;
+
 
 			/*-------------------------------------------------
 			 * Read Left Bus
 			 *-------------------------------------------------
 			 */
     		case 'g':
-    		{printf("g\r\n");
+    		printf("g\r\n");
 
-//    		    microblaze_enable_interrupts();
-//    		    while(globalBoolean != 1){
-//
-//    		    }
-//    		    globalBoolean = 0;
-    			int risingEdge = 0;
-
-    			//find trigger intersection
-    			for(int i = triggerTime; i < 1023; i++){
-    				if((triggerVolt >= LeftBusArray[i-1]) & (triggerVolt < LeftBusArray[i])){ //Look for rising edge
-    					risingEdge = i-triggerTime;
-    					break; //leave for loop
-    				}
-    			}
-
-
-
-    			for(int i = 20; i < 650; i++){ //map triggerTime to appropriate index
-    				Xil_Out16(exWrAddrReg,i);
-    				Xil_Out16(exWenReg,1);
-
-    				Xil_Out16(exLBusOutReg,LeftBusArray[risingEdge+i]);
-    				Xil_Out16(exWenReg,0);
-    			}
-    		}
-
-    			microblaze_enable_interrupts();
-    			globalBoolean = 0;
+    			printWaveform();
     			break;
+
 
 			/*-------------------------------------------------
 			 * print L bus
@@ -197,7 +174,7 @@ int main(void) {
 			 */
 			case 'l':
 				for(int i = 0; i < 1024; i++)
-					printf("Index %d = %d\r\n",i,LeftBusArray[i]);
+					printf("%d\r\n",LeftBusArray[i]);
 				break;
 
 			/*-------------------------------------------------
@@ -209,52 +186,48 @@ int main(void) {
 					printf("Index %d = %d\r\n",i,RightBusArray[i]);
 				break;
 
-//			/*-------------------------------------------------
-//			 * Throw out L bus onto scope
-//			 *-------------------------------------------------
-//			 */
-//			case 'x':
-//				for(int i = 20; i < 620; i++){
-//					u32 ready = ( (Xil_In32(flagReg) & readyBit) >> (readyBit-1) );
-//					while(!ready){}
-//					Xil_Out16(exLBusOutReg,LeftBusArray[i]);
-//				}
-//
-//				break;
-
-
-//			report_ip_status -name ip_status
-
 			/*-------------------------------------------------
-			 * Ch1 Enable/Disable
+			 * Trigger off channel 1
 			 *-------------------------------------------------
 			 */
-			case 'j':
-				if((ch1En = 0)){
-					ch1En = 1;
-					Xil_Out8(ch1Reg,ch1En);
-				}
-				if((ch1En = 1)){
-					ch1En = 0;
-					Xil_Out8(ch1Reg,ch1En);
-				}
-
+			case '1':
+			printf("1\r\n");
+			    triggerCh1Ch2 = 1;
 				break;
 
 			/*-------------------------------------------------
-			 * Ch2 Enable/Disable
+			 * Trigger off channel 2
 			 *-------------------------------------------------
 			 */
-			case 'k':
-				if((ch2En = 0)){
-					ch2En = 1;
-					Xil_Out8(ch1Reg,ch2En);
-				}
-				if((ch2En = 1)){
-					ch2En = 0;
-					Xil_Out8(ch1Reg,ch2En);
-				}
+			case '2':
+			printf("2\r\n");
+				triggerCh1Ch2 = 2;
+				break;
 
+
+			/*-------------------------------------------------
+			 * Move triggerTime mark right
+			 *-------------------------------------------------
+			 */
+			case 'd':
+				if(triggerVolt + 10 <= 620){
+					triggerTime += 10;
+					Xil_Out16(triggerTimeReg,triggerTime);
+				}
+				break;
+
+			/*-------------------------------------------------
+			 * Move triggerTime mark left
+			 *-------------------------------------------------
+			 */
+			case 'a':
+				if(triggerTime - 10 >= 20){
+					triggerTime -= 10;
+					Xil_Out16(triggerTimeReg,triggerTime);
+
+					printWaveform();
+
+				}
 				break;
 
 			/*-------------------------------------------------
@@ -265,6 +238,8 @@ int main(void) {
 				if(triggerVolt - 10 >= 20){
 					triggerVolt -= 10;
 					Xil_Out16(triggerVoltReg,triggerVolt);
+
+					printWaveform();
 				}
 				break;
 
@@ -281,27 +256,39 @@ int main(void) {
 				break;
 
 			/*-------------------------------------------------
-			 * Move triggerTime mark left
+			 * Ch1 Enable/Disable
 			 *-------------------------------------------------
 			 */
-			case 'a':
-				if(triggerTime - 10 >= 20){
-					triggerTime -= 10;
-					Xil_Out16(triggerTimeReg,triggerTime);
+			case 'j':
+				printf("j\r\n");
 
+				if((ch1En == 0)){
+					ch1En = 1;
+					Xil_Out8(ch1Reg,ch1En);
+				}else{
+					ch1En = 0;
+					Xil_Out8(ch1Reg,ch1En);
 				}
+
 				break;
 
 			/*-------------------------------------------------
-			 * Move triggerTime mark right
+			 * Ch2 Enable/Disable
 			 *-------------------------------------------------
 			 */
-			case 'd':
-				if(triggerVolt + 10 <= 620){
-					triggerTime += 10;
-					Xil_Out16(triggerTimeReg,triggerTime);
+			case 'k':
+				printf("k\r\n");
+
+				if((ch2En == 0)){
+					ch2En = 1;
+					Xil_Out8(ch2Reg,ch2En);
+				}else{
+					ch2En = 0;
+					Xil_Out8(ch2Reg,ch2En);
 				}
+
 				break;
+
 
 			/*-------------------------------------------------
 			 * Reset trigger marks
@@ -314,57 +301,18 @@ int main(void) {
     			Xil_Out16(triggerTimeReg,triggerTime);
     			break;
 
-			/*-------------------------------------------------
-			 * Start the counter to count up
-			 *-------------------------------------------------
-			 */
-//        	case 'm':
-//        		Xil_Out8(countCtrlReg,count_COUNT);
-//        		break;
+			case 'i':
+				printf("i\r\n");
+				if(exSel == 0){
+					exSel = 1;
+					Xil_Out8(exSelReg,exSel);
 
-			/*-------------------------------------------------
-			 * Stop the counter from counting
-			 *-------------------------------------------------
-			 */
-//        	case 'S':
-//        		Xil_Out8(countCtrlReg,count_HOLD);
-//        		break;
+				}else{
+					exSel = 0;
+					Xil_Out8(exSelReg,exSel);
 
-			/*-------------------------------------------------
-			 * Tell the counter to load a value
-			 *-------------------------------------------------
-			 */
-//        	case 'l':
-//        		printf("Enter a 0-9 value to store in the counter: ");
-//            	c=XUartLite_RecvByte(uartRegAddr) - 0x30;
-//        		Xil_Out8(countQReg,c);						// put value into slv_reg1
-//        		Xil_Out8(countCtrlReg,count_LOAD);			// load command
-//    			printf("%c\r\n",c+0x30);
-//        		break;
-
-			/*-------------------------------------------------
-			 * Reset the counter
-			 *-------------------------------------------------
-			 */
-//            case 'r':
-//            	Xil_Out8(countCtrlReg,count_RESET);				// reset command
-//            	break;
-
-			/*-------------------------------------------------
-			 * Clear the ISR counter
-			 *-------------------------------------------------
-//			 */
-//			case 'n':
-//				isrCount = 0;				// clear ISR Count
-//				break;
-
-			/*-------------------------------------------------
-			 * Clear the terminal window
-			 *-------------------------------------------------
-			 */
-            case 'c':
-            	for (c=0; c<40; c++) printf("\r\n");
-               	break;
+				}
+				break;
 
 			/*-------------------------------------------------
 			 * Unknown character was
@@ -383,19 +331,57 @@ int main(void) {
 } // end main
 
 
+void printWaveform(void){
+	int risingEdge = 0;
+
+	if(triggerCh1Ch2==1){//trigger off channel 1
+
+		//find trigger intersection
+		for(int i = triggerTime; i < 1023; i++){
+			if((triggerVolt >= LeftBusArray[i-1]) & (triggerVolt < LeftBusArray[i])){ //Look for rising edge
+				risingEdge = i-triggerTime;
+				break; //leave for loop
+			}
+		}
+
+		for(int i = 20; i < 650; i++){ //map triggerTime to appropriate index
+			Xil_Out16(exWrAddrReg,i);
+
+			Xil_Out16(exLBusOutReg,LeftBusArray[risingEdge+i]);
+			Xil_Out16(exWenReg,1);
+			Xil_Out16(exWenReg,0);
+		}
+	}else{//else trigger off of channel 2
+
+		//find trigger intersection
+		for(int i = triggerTime; i < 1023; i++){
+			if((triggerVolt >= RightBusArray[i-1]) & (triggerVolt < RightBusArray[i])){ //Look for rising edge
+				risingEdge = i-triggerTime;
+				break; //leave for loop
+			}
+		}
+
+		for(int i = 20; i < 650; i++){ //map triggerTime to appropriate index
+			Xil_Out16(exWrAddrReg,i);
+
+			Xil_Out16(exRBusOutReg,RightBusArray[risingEdge+i]);
+			Xil_Out16(exWenReg,1);
+			Xil_Out16(exWenReg,0);
+		}
+	}
+	microblaze_enable_interrupts();
+}
+
+
 void myISR(void) {
-	printf("INSIDE ISR");
 
 	if(globalAddressInc == 1023){
 		globalAddressInc = 0;
 		globalBoolean = 1;
-//		microblaze_disable_interrupts();
 	}else{
 		globalAddressInc++;
-
 		LeftBusArray[globalAddressInc] = (Xil_In16(LbusReg));
 		RightBusArray[globalAddressInc] = (Xil_In16(RbusReg));
-
 	}
 
 	Xil_Out16(flagReg, 0x04);// Clear the flag and then you MUST
