@@ -50,8 +50,7 @@
 #define	exRBusOutReg	oScopeBase+0x28		//16 LSB of slv_reg10 is exrBus to the hardware
 #define	ch1Reg			oScopeBase+0x2c		//1 LSB of slv_reg11 is for ch1 enable
 #define	ch2Reg			oScopeBase+0x30		//1 LSB of slv_reg12 is for ch2 enable
-#define	riseFallReg  	oScopeBase+0x34     //1 LSB of slv_reg13 is for rising/falling edge
-#define	reg14	oScopeBase+0x38
+//#define	riseFallReg  	oScopeBase+0x34     //1 LSB of slv_reg13 is for rising/falling edge
 
 
 /*
@@ -85,8 +84,8 @@ u16 triggerVolt = 220;
 u16 triggerTime = 320;
 char risingFallingEdge = 'E';
 
-u16 LeftBusArray[1024];
-u16 RightBusArray[1024];
+volatile u16 LeftBusArray[1024];
+volatile u16 RightBusArray[1024];
 
 u16 globalAddressInc = 0;
 u8 globalBuffer = 0;
@@ -195,6 +194,7 @@ int main(void) {
 			case 'e':
 				printf("e\r\n");
 					risingFallingEdge = 'e';
+					printWaveform();
 				break;
 
 			/*-------------------------------------------------
@@ -204,6 +204,7 @@ int main(void) {
 			case 'E':
 				printf("E\r\n");
 					risingFallingEdge = 'E';
+					printWaveform();
 				break;
 
 			/*-------------------------------------------------
@@ -355,18 +356,20 @@ int main(void) {
 
 
 void printWaveform(void){
-	for(int x = 0; x < 10; x++){
+
+	exSel = 1;
 	globalAddressInc = 0;
+	 microblaze_enable_interrupts();
 	globalBuffer = 0;
 	while(globalBuffer == 0){}
-
-
+	microblaze_disable_interrupts();
 	int risingEdge = 0;
 	u16 adjustedTriggerVolt = ( (triggerVolt +292) << 6);
 
+
 	if(triggerCh1Ch2==1){//trigger off channel 1
 
-		if(risingFallingEdge == 'e'){
+		if(risingFallingEdge == 'e'){//find falling edge for channel 1
 		//find trigger intersection
 		for(int i = triggerTime; i < 1023; i++){
 			if((adjustedTriggerVolt >= LeftBusArray[i-1]) & (adjustedTriggerVolt < LeftBusArray[i])){ //Look for falling edge
@@ -374,7 +377,7 @@ void printWaveform(void){
 				break; //leave for loop
 			}
 		}
-		}else{
+		}else{//find rising
 			//find trigger intersection
 			for(int i = triggerTime; i < 1023; i++){
 				if((adjustedTriggerVolt <= LeftBusArray[i-1]) & (adjustedTriggerVolt > LeftBusArray[i])){ //Look for rising edge
@@ -384,14 +387,17 @@ void printWaveform(void){
 			}
 		}
 
-		for(int i = 20; i < 650; i++){ //map triggerTime to appropriate index
-			Xil_Out16(exWrAddrReg,i);
+		for(int i = 20; i < 620; i++){ //map triggerTime to appropriate index
+			for(int x = 0; x < 10; x++){
 
-			Xil_Out16(exLBusOutReg,LeftBusArray[risingEdge+i]);
-			Xil_Out16(exRBusOutReg,RightBusArray[risingEdge+i]);
+				Xil_Out16(exWrAddrReg,i);
 
-			Xil_Out16(exWenReg,1);
-			Xil_Out16(exWenReg,0);
+				Xil_Out16(exLBusOutReg,LeftBusArray[risingEdge+i]);
+				Xil_Out16(exRBusOutReg,RightBusArray[risingEdge+i]);
+
+				Xil_Out8(exWenReg,1);
+				Xil_Out8(exWenReg,0);
+			}
 		}
 	}else{//else trigger off of channel 2
 
@@ -421,30 +427,36 @@ void printWaveform(void){
 			}
 		}
 
-		for(int i = 20; i < 650; i++){ //map triggerTime to appropriate index
-			Xil_Out16(exWrAddrReg,i);
+		for(int i = 20; i < 620; i++){ //map triggerTime to appropriate index
+			for(int x = 0; x < 10; x++){
 
-			Xil_Out16(exRBusOutReg,RightBusArray[risingEdge+i]);
-			Xil_Out16(exLBusOutReg,LeftBusArray[risingEdge+i]);
+				Xil_Out16(exWrAddrReg,i);
+				Xil_Out16(exRBusOutReg,RightBusArray[risingEdge+i]);
+				Xil_Out16(exLBusOutReg,LeftBusArray[risingEdge+i]);
 
-			Xil_Out16(exWenReg,1);
-			Xil_Out16(exWenReg,0);
+				Xil_Out8(exWenReg,1);
+				Xil_Out8(exWenReg,0);
+			}
 		}
 	}
-	}
+//	 microblaze_enable_interrupts();
 }
 
 
 void myISR(void) {
 
 	if(globalBuffer == 0){
-		if(globalAddressInc == 1023){
+
+		if(globalAddressInc == 1024){
 			globalAddressInc = 0;
 			globalBuffer = 1;
+
 		}else{
-			globalAddressInc++;
+
 			LeftBusArray[globalAddressInc] = (Xil_In16(LbusReg));
 			RightBusArray[globalAddressInc] = (Xil_In16(RbusReg));
+			globalAddressInc++;
+
 		}
 	}
 

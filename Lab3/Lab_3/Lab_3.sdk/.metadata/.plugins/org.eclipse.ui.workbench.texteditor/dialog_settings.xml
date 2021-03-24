@@ -2,32 +2,32 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="globalBuffer" key="selection"/>
+		<item value="RightBusArray" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="RightBusArray"/>
+			<item value="LeftBusArray"/>
 			<item value="globalBuffer"/>
 			<item value="globalBoolean"/>
 			<item value="exWenReg"/>
 			<item value="Lbus"/>
 			<item value="microblaze_"/>
 			<item value="microblaze_enable_interrupts"/>
-			<item value="addrBase"/>
-			<item value="countBase"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
 			<item value="oScopeBase"/>
 			<item value="addrBase"/>
-			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="385" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="523" key="DIALOG_HEIGHT"/>
-		<item value="1503" key="DIALOG_X_ORIGIN"/>
-		<item value="341" key="DIALOG_Y_ORIGIN"/>
+		<item value="2117" key="DIALOG_X_ORIGIN"/>
+		<item value="542" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

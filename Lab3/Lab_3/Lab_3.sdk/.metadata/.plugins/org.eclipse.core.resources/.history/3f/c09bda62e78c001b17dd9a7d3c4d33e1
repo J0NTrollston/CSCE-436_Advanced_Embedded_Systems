@@ -1,0 +1,453 @@
+/*--------------------------------------------------------------------
+-- Name:	Brandon S. Ramos
+-- Date:	3/15/2021
+-- Course: 	CSCE 436: Advanced Embedded Systems
+-- File: 	Lab3.c
+-- Project: Lab 3: Software control of a datapath
+-- Pupr:	MicroBlaze c code for Lab 3
+--
+-- Documentation:	Reveived help by Prof. Falkinburg
+--                                   TA Jacob Fox
+--
+-- Academic Integrity Statement: I certify that, while others may have
+-- assisted me in brain storming, debugging and validating this program,
+-- the program itself is my own work. I understand that submitting code
+-- which is the work of other individuals is a violation of the honor
+-- code.  I also understand that if I knowingly give my original work to
+-- another individual is also a violation of the honor code.
+-------------------------------------------------------------------------*/
+/***************************** Include Files ********************************/
+
+#include "xparameters.h"
+#include "stdio.h"
+#include "xstatus.h"
+
+#include "platform.h"
+#include "xil_printf.h"						// Contains xil_printf
+#include <xuartlite_l.h>					// Contains XUartLite_RecvByte
+#include <xil_io.h>							// Contains Xil_Out8 and its variations
+#include <xil_exception.h>
+
+/************************** Constant Definitions ****************************/
+
+/*
+ * The following constants define the slave registers used for our Counter PCORE
+ */
+#define oScopeBase		0x44a00000
+#define LbusReg			oScopeBase			//16 LSBs of slv_reg0 are Left Bus
+#define	RbusReg			oScopeBase+0x4		//16 LSBs of slv_reg1 are Right Bus
+#define	exSelReg		oScopeBase+0x8		//1 LSBs of slv_reg2 is for exSel
+#define	exWrAddrReg		oScopeBase+0xc		//10 LSBs of slv_reg3 are for exWrAddr
+#define	exWenReg		oScopeBase+0x10		//1 LSBs of slv_reg4 are for exWren
+#define	flagReg			oScopeBase+0x14		//3 LSBs of slv_reg5 are ready, v_sync and max_count
+	#define readyBit		0x4
+	#define v_syncBit		0x2
+	#define max_countBit	0x1
+#define	reg6			oScopeBase+0x18
+#define	triggerTimeReg	oScopeBase+0x1c		//10 LSBs of slv_reg7 is triggerTime
+#define	triggerVoltReg 	oScopeBase+0x20      //10 LSBs of slv_reg8 is triggerVolt
+#define	exLBusOutReg	oScopeBase+0x24		//16 LSB of slv_reg9 is exLBus to the hardware
+#define	exRBusOutReg	oScopeBase+0x28		//16 LSB of slv_reg10 is exrBus to the hardware
+#define	ch1Reg			oScopeBase+0x2c		//1 LSB of slv_reg11 is for ch1 enable
+#define	ch2Reg			oScopeBase+0x30		//1 LSB of slv_reg12 is for ch2 enable
+#define	riseFallReg  	oScopeBase+0x34     //1 LSB of slv_reg13 is for rising/falling edge
+#define	reg14	oScopeBase+0x38
+
+
+/*
+ * The following constants define the Counter commands
+ */
+//#define count_HOLD		0x00		// The control bits are defined in the VHDL
+//#define	count_COUNT		0x01		// code contained in lec18.vhdl.  They are
+//#define	count_LOAD		0x02		// added here to centralize the bit values in
+//#define count_RESET		0x03		// a single place.
+
+#define printf xil_printf			/* A smaller footprint printf */
+
+#define	uartRegAddr			0x40600000		// read <= RX, write => TX
+//#define Lab2InternalEnableDisable 0;
+
+/************************** Function Prototypes ****************************/
+void myISR(void);
+
+/************************** Variable Definitions **************************/
+/*
+ * The following are declared globally so they are zeroed and so they are
+ * easily accessible from a debugger
+ */
+
+//u16 isrCount = 0;
+u8 ch1En = 1;
+u8 ch2En = 1;
+u8 exSel = 1;
+u8 triggerCh1Ch2 = 1;
+u16 triggerVolt = 220;
+u16 triggerTime = 320;
+char risingFallingEdge = 'E';
+
+u16 LeftBusArray[1024];
+u16 RightBusArray[1024];
+
+u16 globalAddressInc = 0;
+u8 globalBuffer = 0;
+
+int main(void) {
+
+	unsigned char c;
+
+	init_platform();
+
+	print("Welcome to Lab 3 O-Scope\n\r");
+	Xil_Out16(triggerVoltReg,triggerVolt);
+	Xil_Out16(triggerTimeReg,triggerTime);
+	Xil_Out8(exSelReg,exSel);
+	Xil_Out16(exWenReg,0);
+	Xil_Out8(ch1Reg,ch1En);
+	Xil_Out8(ch2Reg,ch2En);
+
+    microblaze_register_handler((XInterruptHandler) myISR, (void *) 0);
+    microblaze_enable_interrupts();
+
+
+    while(1) {
+
+
+    	c=XUartLite_RecvByte(uartRegAddr);
+		switch(c) {
+    		/*-------------------------------------------------
+    		 * Reply with the help menu
+    		 *-------------------------------------------------
+			 */
+    		case '?':
+    			printf("--------------------------\r\n");
+    			printf(" TriggerTime = %d\r\n",triggerTime);
+    			printf(" TriggerVolt = %d\r\n",triggerVolt);
+    			printf(" Flag Register = %x\r\n",Xil_In8(flagReg));
+    			printf(" Left Bus = %d\r\n",((Xil_In16(LbusReg))>>6)-292);
+    			printf(" Right Bus = %d\r\n",((Xil_In16(RbusReg))>>6)-292);
+    			printf(" Ch1 Enable = %d\r\n",ch1En);
+    			printf(" Ch2 Enable = %d\r\n",ch2En);
+    			printf("--------------------------\r\n");
+    			printf("?: Help Menu\r\n");
+    			printf("c: Clear Terminal Window\r\n");
+    			printf("g: Grab Data to Fill Buffer (now print wave)\r\n");
+    			printf("l: Read Lbus\r\n");
+    			printf("r: Read Rbus\r\n");
+    			printf("e/E: Falling/Rising Edge Trigger\r\n");
+    			printf("1/2: Channel 1/2 Trigger\r\n");
+    			printf("d: Increase Trigger Time\r\n");
+    			printf("a: Decrease Trigger Time\r\n");
+    			printf("w: Increase Trigger Volt\r\n");
+    			printf("s: Decrease Trigger Volt\r\n");
+    			printf("j: Channel 1 Enable/Disable\r\n");
+    			printf("k: Channel 2 Enable/Disable\r\n");
+    			printf("t: Reset trigger marks\r\n");
+    			printf("i: Lab 2 Internal Control Enable/Disable\r\n");
+    			printf("--------------------------\r\n");
+
+    			break;
+
+
+			/*-------------------------------------------------
+			 * Clear the terminal window
+			 *-------------------------------------------------
+			 */
+			case 'c':
+				for (c=0; c<40; c++) printf("\r\n");
+				break;
+
+
+			/*-------------------------------------------------
+			 * Read Left Bus
+			 *-------------------------------------------------
+			 */
+    		case 'g':
+    		printf("g\r\n");
+
+    			printWaveform();
+    			break;
+
+
+			/*-------------------------------------------------
+			 * print L bus
+			 *-------------------------------------------------
+			 */
+			case 'l':
+				for(int i = 0; i < 1024; i++){
+				printf("Index %d = %d\r\n",i,LeftBusArray[i]);
+				}
+				break;
+
+			/*-------------------------------------------------
+			 * print R bus
+			 *-------------------------------------------------
+			 */
+			case 'r':
+				for(int i = 0; i < 1024; i++){
+					printf("Index %d = %d\r\n",i,RightBusArray[i]);
+				}
+				break;
+
+			/*-------------------------------------------------
+			 * Falling Edge
+			 *-------------------------------------------------
+			 */
+			case 'e':
+				printf("e\r\n");
+					risingFallingEdge = 'e';
+				break;
+
+			/*-------------------------------------------------
+			 * Rising Edge
+			 *-------------------------------------------------
+			 */
+			case 'E':
+				printf("E\r\n");
+					risingFallingEdge = 'E';
+				break;
+
+			/*-------------------------------------------------
+			 * Trigger off channel 1
+			 *-------------------------------------------------
+			 */
+			case '1':
+			printf("1\r\n");
+			    triggerCh1Ch2 = 1;
+				break;
+
+			/*-------------------------------------------------
+			 * Trigger off channel 2
+			 *-------------------------------------------------
+			 */
+			case '2':
+			printf("2\r\n");
+				triggerCh1Ch2 = 2;
+				break;
+
+
+			/*-------------------------------------------------
+			 * Move triggerTime mark right
+			 *-------------------------------------------------
+			 */
+			case 'd':
+				if(triggerVolt + 10 <= 620){
+					triggerTime += 10;
+					Xil_Out16(triggerTimeReg,triggerTime);
+					printWaveform();
+				}
+				break;
+
+			/*-------------------------------------------------
+			 * Move triggerTime mark left
+			 *-------------------------------------------------
+			 */
+			case 'a':
+				if(triggerTime - 10 >= 20){
+					triggerTime -= 10;
+					Xil_Out16(triggerTimeReg,triggerTime);
+
+					printWaveform();
+
+				}
+				break;
+
+			/*-------------------------------------------------
+			 * Move triggerVolt mark up
+			 *-------------------------------------------------
+			 */
+			case 'w':
+				if(triggerVolt - 10 >= 20){
+					triggerVolt -= 10;
+					Xil_Out16(triggerVoltReg,triggerVolt);
+
+					printWaveform();
+				}
+				break;
+
+			/*-------------------------------------------------
+			 * Move triggerVolt mark down
+			 *-------------------------------------------------
+			 */
+			case 's':
+				if(triggerVolt + 10 <= 420){
+					triggerVolt += 10;
+					Xil_Out16(triggerVoltReg,triggerVolt);
+					printWaveform();
+
+				}
+				break;
+
+			/*-------------------------------------------------
+			 * Ch1 Enable/Disable
+			 *-------------------------------------------------
+			 */
+			case 'j':
+				printf("j\r\n");
+
+				if((ch1En == 0)){
+					ch1En = 1;
+					Xil_Out8(ch1Reg,ch1En);
+				}else{
+					ch1En = 0;
+					Xil_Out8(ch1Reg,ch1En);
+				}
+
+				break;
+
+			/*-------------------------------------------------
+			 * Ch2 Enable/Disable
+			 *-------------------------------------------------
+			 */
+			case 'k':
+				printf("k\r\n");
+
+				if((ch2En == 0)){
+					ch2En = 1;
+					Xil_Out8(ch2Reg,ch2En);
+				}else{
+					ch2En = 0;
+					Xil_Out8(ch2Reg,ch2En);
+				}
+
+				break;
+
+
+			/*-------------------------------------------------
+			 * Reset trigger marks
+			 *-------------------------------------------------
+			 */
+    		case 't':
+				printf("t\r\n");
+    			triggerTime = 320;
+    			triggerVolt = 220;
+    			Xil_Out16(triggerVoltReg,triggerVolt);
+    			Xil_Out16(triggerTimeReg,triggerTime);
+    			break;
+
+			case 'i':
+				printf("i\r\n");
+				if(exSel == 0){
+					exSel = 1;
+					Xil_Out8(exSelReg,exSel);
+
+				}else{
+					exSel = 0;
+					Xil_Out8(exSelReg,exSel);
+
+				}
+				break;
+
+			/*-------------------------------------------------
+			 * Unknown character was
+			 *-------------------------------------------------
+			 */
+    		default:
+    			printf("unrecognized character: %c\r\n",c);
+    			break;
+    	} // end case
+
+    } // end while 1
+
+    cleanup_platform();
+
+    return 0;
+} // end main
+
+
+void printWaveform(void){
+	globalAddressInc = 0;
+	globalBuffer = 0;
+	while(globalBuffer == 0){}
+
+	int risingEdge = 0;
+	u16 adjustedTriggerVolt = ( (triggerVolt +292) << 6);
+
+
+	if(triggerCh1Ch2==1){//trigger off channel 1
+
+		if(risingFallingEdge == 'e'){//find falling edge for channel 1
+		//find trigger intersection
+		for(int i = triggerTime; i < 1023; i++){
+			if((adjustedTriggerVolt >= LeftBusArray[i-1]) & (adjustedTriggerVolt < LeftBusArray[i])){ //Look for falling edge
+				risingEdge = i-triggerTime;
+				break; //leave for loop
+			}
+		}
+		}else{//find rising
+			//find trigger intersection
+			for(int i = triggerTime; i < 1023; i++){
+				if((adjustedTriggerVolt <= LeftBusArray[i-1]) & (adjustedTriggerVolt > LeftBusArray[i])){ //Look for rising edge
+					risingEdge = i-triggerTime;
+					break; //leave for loop
+				}
+			}
+		}
+
+		for(int i = 20; i < 650; i++){ //map triggerTime to appropriate index
+			Xil_Out16(exWrAddrReg,i);
+
+			Xil_Out16(exLBusOutReg,LeftBusArray[risingEdge+i]);
+			Xil_Out16(exRBusOutReg,RightBusArray[risingEdge+i]);
+
+			Xil_Out16(exWenReg,1);
+			Xil_Out16(exWenReg,0);
+		}
+	}else{//else trigger off of channel 2
+
+		if(risingFallingEdge == 'e'){
+				//find trigger intersection
+				for(int i = triggerTime; i < 1023; i++){
+					if((adjustedTriggerVolt >= RightBusArray[i-1]) & (adjustedTriggerVolt < RightBusArray[i])){ //Look for falling edge
+						risingEdge = i-triggerTime;
+						break; //leave for loop
+					}
+				}
+				}else{
+					//find trigger intersection
+					for(int i = triggerTime; i < 1023; i++){
+						if((adjustedTriggerVolt <= RightBusArray[i-1]) & (adjustedTriggerVolt > RightBusArray[i])){ //Look for rising edge
+							risingEdge = i-triggerTime;
+							break; //leave for loop
+						}
+					}
+				}
+
+		//find trigger intersection
+		for(int i = triggerTime; i < 1023; i++){
+			if((adjustedTriggerVolt >= RightBusArray[i-1]) & (adjustedTriggerVolt < RightBusArray[i])){ //Look for rising edge
+				risingEdge = i-triggerTime;
+				break; //leave for loop
+			}
+		}
+
+		for(int i = 20; i < 650; i++){ //map triggerTime to appropriate index
+			Xil_Out16(exWrAddrReg,i);
+
+			Xil_Out16(exRBusOutReg,RightBusArray[risingEdge+i]);
+			Xil_Out16(exLBusOutReg,LeftBusArray[risingEdge+i]);
+
+			Xil_Out16(exWenReg,1);
+			Xil_Out16(exWenReg,0);
+		}
+	}
+}
+
+
+void myISR(void) {
+
+	if(globalBuffer == 1){
+			LeftBusArray[globalAddressInc] = (Xil_In16(LbusReg));
+			RightBusArray[globalAddressInc] = (Xil_In16(RbusReg));
+			globalAddressInc++;
+
+		}else{
+			if(globalAddressInc == 1024){
+			globalAddressInc = 0;
+			globalBuffer = 1;
+		}
+	}
+
+	Xil_Out16(flagReg, 0x04);// Clear the flag and then you MUST
+	Xil_Out16(flagReg, 0x00);// allow the flag to be reset later
+
+}
