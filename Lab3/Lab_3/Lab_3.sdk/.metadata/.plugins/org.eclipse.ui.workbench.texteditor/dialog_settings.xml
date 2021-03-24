@@ -2,19 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="exWenReg" key="selection"/>
+		<item value="globalBuffer" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="globalBuffer"/>
+			<item value="globalBoolean"/>
 			<item value="exWenReg"/>
 			<item value="Lbus"/>
 			<item value="microblaze_"/>
 			<item value="microblaze_enable_interrupts"/>
 			<item value="addrBase"/>
 			<item value="countBase"/>
-			<item value="countCtrlReg"/>
 		</list>
 		<list key="replacehistory">
 			<item value="oScopeBase"/>

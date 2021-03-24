@@ -83,12 +83,13 @@ u8 exSel = 1;
 u8 triggerCh1Ch2 = 1;
 u16 triggerVolt = 220;
 u16 triggerTime = 320;
+char risingFallingEdge = 'E';
 
 u16 LeftBusArray[1023];
 u16 RightBusArray[1023];
 
 u16 globalAddressInc = 0;
-u8 globalBoolean = 0;
+u8 globalBuffer = 0;
 
 int main(void) {
 
@@ -107,10 +108,7 @@ int main(void) {
 
 
     while(1) {
-    	if(globalBoolean == 1){
-    		microblaze_disable_interrupts();
-    		globalBoolean = 0;
-    	}
+
 
     	c=XUartLite_RecvByte(uartRegAddr);
 		switch(c) {
@@ -133,7 +131,7 @@ int main(void) {
     			printf("g: Grab Data to Fill Buffer (now print wave)\r\n");
     			printf("l: Read Lbus\r\n");
     			printf("r: Read Rbus\r\n");
-//    			printf("e/E: Falling/Rising Edge Trigger\r\n");
+    			printf("e/E: Falling/Rising Edge Trigger\r\n");
     			printf("1/2: Channel 1/2 Trigger\r\n");
     			printf("d: Increase Trigger Time\r\n");
     			printf("a: Decrease Trigger Time\r\n");
@@ -187,6 +185,22 @@ int main(void) {
 				break;
 
 			/*-------------------------------------------------
+			 * Falling Edge
+			 *-------------------------------------------------
+			 */
+			case 'e':
+					risingFallingEdge = 'e';
+				break;
+
+			/*-------------------------------------------------
+			 * Rising Edge
+			 *-------------------------------------------------
+			 */
+			case 'E':
+					risingFallingEdge = 'E';
+				break;
+
+			/*-------------------------------------------------
 			 * Trigger off channel 1
 			 *-------------------------------------------------
 			 */
@@ -213,6 +227,7 @@ int main(void) {
 				if(triggerVolt + 10 <= 620){
 					triggerTime += 10;
 					Xil_Out16(triggerTimeReg,triggerTime);
+					printWaveform();
 				}
 				break;
 
@@ -251,6 +266,7 @@ int main(void) {
 				if(triggerVolt + 10 <= 420){
 					triggerVolt += 10;
 					Xil_Out16(triggerVoltReg,triggerVolt);
+					printWaveform();
 
 				}
 				break;
@@ -332,15 +348,31 @@ int main(void) {
 
 
 void printWaveform(void){
+	for(int x = 0; x < 10; x++){
+	globalBuffer = 0;
+	while(globalBuffer == 0){}
+
+
 	int risingEdge = 0;
+	u16 adjustedTriggerVolt = ( (triggerVolt +292) << 6);
 
 	if(triggerCh1Ch2==1){//trigger off channel 1
 
+		if(risingFallingEdge == 'e'){
 		//find trigger intersection
 		for(int i = triggerTime; i < 1023; i++){
-			if((triggerVolt >= LeftBusArray[i-1]) & (triggerVolt < LeftBusArray[i])){ //Look for rising edge
+			if((adjustedTriggerVolt >= LeftBusArray[i-1]) & (adjustedTriggerVolt < LeftBusArray[i])){ //Look for falling edge
 				risingEdge = i-triggerTime;
 				break; //leave for loop
+			}
+		}
+		}else{
+			//find trigger intersection
+			for(int i = triggerTime; i < 1023; i++){
+				if((adjustedTriggerVolt <= LeftBusArray[i-1]) & (adjustedTriggerVolt > LeftBusArray[i])){ //Look for rising edge
+					risingEdge = i-triggerTime;
+					break; //leave for loop
+				}
 			}
 		}
 
@@ -355,7 +387,7 @@ void printWaveform(void){
 
 		//find trigger intersection
 		for(int i = triggerTime; i < 1023; i++){
-			if((triggerVolt >= RightBusArray[i-1]) & (triggerVolt < RightBusArray[i])){ //Look for rising edge
+			if((adjustedTriggerVolt >= RightBusArray[i-1]) & (adjustedTriggerVolt < RightBusArray[i])){ //Look for rising edge
 				risingEdge = i-triggerTime;
 				break; //leave for loop
 			}
@@ -369,19 +401,21 @@ void printWaveform(void){
 			Xil_Out16(exWenReg,0);
 		}
 	}
-	microblaze_enable_interrupts();
+	}
 }
 
 
 void myISR(void) {
 
-	if(globalAddressInc == 1023){
-		globalAddressInc = 0;
-		globalBoolean = 1;
-	}else{
-		globalAddressInc++;
-		LeftBusArray[globalAddressInc] = (Xil_In16(LbusReg));
-		RightBusArray[globalAddressInc] = (Xil_In16(RbusReg));
+	if(globalBuffer == 0){
+		if(globalAddressInc == 1023){
+			globalAddressInc = 0;
+			globalBuffer = 1;
+		}else{
+			globalAddressInc++;
+			LeftBusArray[globalAddressInc] = (Xil_In16(LbusReg));
+			RightBusArray[globalAddressInc] = (Xil_In16(RbusReg));
+		}
 	}
 
 	Xil_Out16(flagReg, 0x04);// Clear the flag and then you MUST
