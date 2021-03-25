@@ -189,7 +189,10 @@ both were looking in the hardware to see if there was a possibility that the val
 to the external L/R bus. Following the wires it seemed that the connections were in the right place, but when 
 in the datapath there was one little mistake. VHDL is not a case sensitive language, there was one letter that 
 was lowercased that I changed to make sure it couldn't cause any problems. While in the file for the datapath. 
-I saw this line of code: 'Rbus_out <= STD_LOGIC_VECTOR(L_bus_unsigned(17 downto 2));'
+I saw this line of code: 
+
+	'Rbus_out <= STD_LOGIC_VECTOR(L_bus_unsigned(17 downto 2));'
+	
 This was the Rbus_out that sent the data from the Audio Codec to the external bus. The code was checking the Left 
 unsigned bus and putting it into the Right channel, essentially duplicating the waveform. A simple L to R change 
 allowed the right to properly be displayed.
@@ -198,6 +201,8 @@ and onto the slave register.
 
 A noteworthy comment is that while you may trigger off channel 1 or 2, you must print the other channel on the screen.
 Otherwise in the figure below you will get a line for channel 2 accross the screen while printing channel 1
+
+##### Printing Channel 1 but not Channel 2
 ![channel 2 printed as a line](Images/organizedScatter.PNG)
 
 ### Testing methodology or results
@@ -254,8 +259,8 @@ Assistance with lab took place with:
 	TA Jacob Fox
 
 Conversed with:
-	Student Tate Anderson
-	Student Josh Bearden
+	Student Tate Anderson 
+	Student Josh Bearden 
 
 [^1]: Gate Check 1
 https://youtu.be/BJFPydwz0VA
@@ -266,5 +271,5 @@ https://youtu.be/Ce3uMPXEPSA
 [^3]: Vivado by Xilinx
 https://www.xilinx.com/products/design-tools/vivado.html
 
-[^4]
+[^4]:
 https://www.youtube.com/watch?v=Yx8FIaSY-FY
