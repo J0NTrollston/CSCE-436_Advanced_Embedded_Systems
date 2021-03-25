@@ -96,6 +96,8 @@ BRAM in the oscilloscope component.
 In order to achieve A functionality, this assignment requires the programmer to use a single bit of Q 
 (the std_logic_vector output from the flag register) as the interrupt signal. This may require the 
 programmer to extract the one bit Q as a separate signal to connect to the MicroBlaze in the block design.
+
+The video can be seen in the documentation as Functionality. [^4]
 	
 ### Software flow chart or algorithms
 - All the memory mapped hardware registers will have their names setup as #define's with a name ending 
@@ -137,6 +139,7 @@ record or take screenshots.
 ![FPGA connection](Images/connection.PNG)
 
 
+
 ##### Engineering Change Orders (ECO) Table
 ![Engineering Change Order Table](Images/hardware_table_1.PNG)
 
@@ -167,15 +170,46 @@ expected. At one point the ISR was not loading and this caused the Left and Righ
 Following the wire it was shown that there was an active low reset that was causing the flag register to be 
 zero all the time. As soon as this was reversed, the ISR was working as expected.
 
+Towards the end of the lab looking at the waveform. It was apparent that the software was not printing through 
+all of the values in the bus array. On the Scopeface there was scattering pixels of a sine wave. This can 
+be seen in the figure below. The image shows that the scopeface was printing out to the screen.
+
+##### Pixels being printed to screen with spaces
+![scattering of the sine wave](Images/scattered.PNG) 
+
+Though this O'Scope is not bulletproof, it was interesting to see that even with a perfect array of values 
+of the sine wave, it was not printing every index. In the software, I used a for loop to make sure everytime 
+the index 'i' was being sent to the slave register. This included both the address and value to BRAM. After 
+building this I was able to get my waveform to look as it did in previous labs.
+
+The last problem I encountered occured during the process of getting A-level functionality. It seemed as if 
+the Right bus was being printed out exactly as the Left bus was. Using Ctrl+F to find the instances where I 
+used the Right ram. For the longest time looking at all the code in the software. Professor Falkinburg and I
+both were looking in the hardware to see if there was a possibility that the values were not correctly connected 
+to the external L/R bus. Following the wires it seemed that the connections were in the right place, but when 
+in the datapath there was one little mistake. VHDL is not a case sensitive language, there was one letter that 
+was lowercased that I changed to make sure it couldn't cause any problems. While in the file for the datapath. 
+I saw this line of code: 'Rbus_out <= STD_LOGIC_VECTOR(L_bus_unsigned(17 downto 2));'
+This was the Rbus_out that sent the data from the Audio Codec to the external bus. The code was checking the Left 
+unsigned bus and putting it into the Right channel, essentially duplicating the waveform. A simple L to R change 
+allowed the right to properly be displayed.
+A good part of debugging in this lab was using printf. The printf is what showed what was being put into registers 
+and onto the slave register. 
+
+A noteworthy comment is that while you may trigger off channel 1 or 2, you must print the other channel on the screen.
+Otherwise in the figure below you will get a line for channel 2 accross the screen while printing channel 1
+![channel 2 printed as a line](Images/organizedScatter.PNG)
+
 ### Testing methodology or results
 The nice thing about building the bitstream and exporting it to the SDK, long waits for compilation is not 
 an issue anymore. Just compile and run to change the triggerVolt and triggerTIme. Using the Lbus and Rbus 
 we can fill in a buffer for the functionality checkpoint to bring in new data for a waveform to trigger with 
 both trigger marks.
-
-Detail the steps in getting the results you system is designed to achieve.  Have enough detail that someone can come behind and reproduce your results.
-
-Display your results and describe them in detail so that anyone can understand.  For example Figure 1 below shows a screenshot of a memory dump for RAM from 0x0200 to 0x024E.  You will also describe to the reader what they are looking at.
+Print statements helped out with checking values going inside and out of the bus. If a value was being 
+incorrectly displayed, you could follow the value to see where it is being manipulated in the wrong way.
+Same with commenting out the code and checking if the bare bones work. This meant reading in the data and
+putting it right back into the slave register to get a wave output. From there I would uncomment code to find 
+the broken code.
 
 ### Answers to Lab Questions
 As there were no formal question to this Lab 3, other questions had to be ansered. 
@@ -193,23 +227,35 @@ meant that the L/R bus values would not be the most recent values contained with
 the software was not time sensitive for its application so to speak. 
 
 ### Observations and Conclusions
-During this whole assignment, what did you learn?  What did you notice that was noteworthy? 
-This should be a paragraph starting with the purpose, whether or not you achieved that purpose, 
-what you learned, and how you can use this for future labs.
-
 In this lab, we will integrate the video display controller developed in Lab 2 with the MicroBlaze 
-processor built using the fabric of the Artix-7 FPGA. In the preceding lectures, we learned about the 
-Vivado and SDK tool chains, now it's time to put that knowledge to the test by building a software 
-controlled datapath. Lab 2 revealed some shortcomings of our oscilloscope that this lab intends on 
-correcting. Specifically, we will add: - A horizontal trigger point - The ability to enable and disable 
-which channels are being displayed - The ability to trigger off of channel 2 - The ability to change the 
-slope direction of the trigger The following figure shows required functionality - your program should 
-allow the user to change the position of the triggerVolt and triggerTime indicators with the result that 
-the waveform should be drawn so that the periodic waveform is increasing through that voltage at that 
-time. The image below is what the scopeface should look like when triggering off of both triggerTime and 
-triggerVolt
+processor built using the fabric of the Artix-7 FPGA. In this assignment, I was able to build my knowledge
+on how hardware can be controlled by software. During the lectures leading up to the lab, it was interesting 
+to see software change the hardware to turn on LEDs. The lab taught me how slave registers could move data 
+from the software such as changing extenal select and changing logic in hardware to implement the change. 
+What I also found noteworthy was that VHDL is not case sensitive, however when writing bulk code it is in 
+my best interest to not write similar variable names. This is where I found myself with my final bug in the 
+code which is discussed in the Debugging section. Fortunately we were able to add:
+
+- A horizontal trigger point 
+- The ability to enable and disable which channels are being displayed 
+- The ability to trigger off of channel 2 
+- The ability to change the slope direction of the trigger The following figure shows required functionality 
+
+In the last lab which is to implement a LUT (Look Up Table) to create a function generator, I believe that
+this gives me the attention to detail I will need to make the most out of Lab 4. Using software with hardware 
+will most certainly go hand-in-hand with the final project whatever that may be.
+
+
 
 ### Documentation
+
+Assistance with lab took place with:
+	Professor Jeffery Falkinburg
+	TA Jacob Fox
+
+Conversed with:
+	Student Tate Anderson
+	Student Josh Bearden
 
 [^1]: Gate Check 1
 https://youtu.be/BJFPydwz0VA
@@ -219,3 +265,6 @@ https://youtu.be/Ce3uMPXEPSA
 
 [^3]: Vivado by Xilinx
 https://www.xilinx.com/products/design-tools/vivado.html
+
+[^4]
+https://www.youtube.com/watch?v=Yx8FIaSY-FY

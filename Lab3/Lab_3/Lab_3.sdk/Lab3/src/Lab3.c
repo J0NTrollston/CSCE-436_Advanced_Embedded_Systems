@@ -107,6 +107,8 @@ int main(void) {
     microblaze_register_handler((XInterruptHandler) myISR, (void *) 0);
     microblaze_enable_interrupts();
 
+    printWaveform();
+
 
     while(1) {
 
@@ -214,6 +216,7 @@ int main(void) {
 			case '1':
 			printf("1\r\n");
 			    triggerCh1Ch2 = 1;
+			    printWaveform();
 				break;
 
 			/*-------------------------------------------------
@@ -223,6 +226,7 @@ int main(void) {
 			case '2':
 			printf("2\r\n");
 				triggerCh1Ch2 = 2;
+				printWaveform();
 				break;
 
 
@@ -323,6 +327,7 @@ int main(void) {
     			triggerVolt = 220;
     			Xil_Out16(triggerVoltReg,triggerVolt);
     			Xil_Out16(triggerTimeReg,triggerTime);
+    			printWaveform();
     			break;
 
 			case 'i':
@@ -419,13 +424,13 @@ void printWaveform(void){
 					}
 				}
 
-		//find trigger intersection
-		for(int i = triggerTime; i < 1023; i++){
-			if((adjustedTriggerVolt >= RightBusArray[i-1]) & (adjustedTriggerVolt < RightBusArray[i])){ //Look for rising edge
-				risingEdge = i-triggerTime;
-				break; //leave for loop
-			}
-		}
+//		//find trigger intersection
+//		for(int i = triggerTime; i < 1023; i++){
+//			if((adjustedTriggerVolt >= RightBusArray[i-1]) & (adjustedTriggerVolt < RightBusArray[i])){ //Look for rising edge
+//				risingEdge = i-triggerTime;
+//				break; //leave for loop
+//			}
+//		}
 
 		for(int i = 20; i < 620; i++){ //map triggerTime to appropriate index
 			for(int x = 0; x < 10; x++){
