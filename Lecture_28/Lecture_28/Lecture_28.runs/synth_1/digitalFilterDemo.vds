@@ -1,0 +1,857 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Mar 30 13:23:32 2021
+# Process ID: 9524
+# Current directory: D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.runs/synth_1
+# Command line: vivado.exe -log digitalFilterDemo.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source digitalFilterDemo.tcl
+# Log file: D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.runs/synth_1/digitalFilterDemo.vds
+# Journal file: D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source digitalFilterDemo.tcl -notrace
+Command: synth_design -top digitalFilterDemo -part xc7a200tsbg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Device 21-403] Loading part xc7a200tsbg484-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 2756 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 883.793 ; gain = 177.578
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'digitalFilterDemo' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/digitalFilterDemo.vhd:37]
+INFO: [Synth 8-3491] module 'Audio_Codec_Wrapper' declared at 'D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/Audio_Codec_Wrapper.vhd:24' bound to instance 'Audio_Codec' of component 'Audio_Codec_Wrapper' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/digitalFilterDemo.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'Audio_Codec_Wrapper' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/Audio_Codec_Wrapper.vhd:41]
+INFO: [Synth 8-3491] module 'audio_init' declared at 'D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/audio_init.v:24' bound to instance 'initialize_audio' of component 'audio_init' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/Audio_Codec_Wrapper.vhd:125]
+INFO: [Synth 8-6157] synthesizing module 'audio_init' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/audio_init.v:24]
+	Parameter stRegAddr1 bound to: 4'b0000 
+	Parameter stRegAddr2 bound to: 4'b0001 
+	Parameter stData1 bound to: 4'b0010 
+	Parameter stData2 bound to: 4'b0011 
+	Parameter stError bound to: 4'b0100 
+	Parameter stDone bound to: 4'b0101 
+	Parameter stIdle bound to: 4'b0110 
+	Parameter stDelay bound to: 4'b0111 
+	Parameter stPLLsecond bound to: 4'b1111 
+	Parameter INIT_VECTORS bound to: 35 - type: integer 
+	Parameter IRD bound to: 1'b1 
+	Parameter IWR bound to: 1'b0 
+	Parameter delay bound to: 24000 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/audio_init.v:51]
+INFO: [Synth 8-638] synthesizing module 'TWICtl' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/TWICtl.vhd:138]
+	Parameter CLOCKFREQ bound to: 50 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "gray" *) [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/TWICtl.vhd:152]
+INFO: [Synth 8-226] default block is never used [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/TWICtl.vhd:349]
+INFO: [Synth 8-226] default block is never used [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/TWICtl.vhd:382]
+INFO: [Synth 8-226] default block is never used [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/TWICtl.vhd:400]
+INFO: [Synth 8-226] default block is never used [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/TWICtl.vhd:418]
+INFO: [Synth 8-226] default block is never used [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/TWICtl.vhd:436]
+WARNING: [Synth 8-6014] Unused sequential element timeOutCnt_reg was removed.  [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/TWICtl.vhd:255]
+WARNING: [Synth 8-6014] Unused sequential element errTypeR_reg was removed.  [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/TWICtl.vhd:332]
+INFO: [Synth 8-256] done synthesizing module 'TWICtl' (1#1) [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/TWICtl.vhd:138]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/audio_init.v:151]
+WARNING: [Synth 8-6014] Unused sequential element regData1_reg was removed.  [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/audio_init.v:135]
+WARNING: [Synth 8-6014] Unused sequential element initFbWe_reg was removed.  [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/audio_init.v:150]
+INFO: [Synth 8-6155] done synthesizing module 'audio_init' (2#1) [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/audio_init.v:24]
+INFO: [Synth 8-3491] module 'clk_wiz_1' declared at 'D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.runs/synth_1/.Xil/Vivado-9524-QuitStealingMyPaper/realtime/clk_wiz_1_stub.vhdl:5' bound to instance 'audiocodec_master_clock' of component 'clk_wiz_1' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/Audio_Codec_Wrapper.vhd:132]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_1' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.runs/synth_1/.Xil/Vivado-9524-QuitStealingMyPaper/realtime/clk_wiz_1_stub.vhdl:15]
+	Parameter C_DATA_WIDTH bound to: 24 - type: integer 
+INFO: [Synth 8-3491] module 'i2s_ctl' declared at 'D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/i2s_ctl.vhd:55' bound to instance 'audio_inout' of component 'i2s_ctl' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/Audio_Codec_Wrapper.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'i2s_ctl' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/i2s_ctl.vhd:82]
+	Parameter C_DATA_WIDTH bound to: 24 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'i2s_ctl' (3#1) [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/i2s_ctl.vhd:82]
+INFO: [Synth 8-256] done synthesizing module 'Audio_Codec_Wrapper' (4#1) [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/src/Audio_Codec_Wrapper.vhd:41]
+INFO: [Synth 8-638] synthesizing module 'IIR_Biquad' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:48]
+	Parameter Coef_b0 bound to: 32'b00000000010000000010100101101101 
+	Parameter Coef_b1 bound to: 32'b00000000100000000101001011011010 
+	Parameter Coef_b2 bound to: 32'b00000000010000000010100101101101 
+	Parameter Coef_a1 bound to: 32'b10001011110100010111001110100010 
+	Parameter Coef_a2 bound to: 32'b00110101001011110011001000010001 
+INFO: [Synth 8-256] done synthesizing module 'IIR_Biquad' (5#1) [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:48]
+INFO: [Synth 8-638] synthesizing module 'IIR_Biquad__parameterized0' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:48]
+	Parameter Coef_b0 bound to: 32'b00000000000001100010010100101000 
+	Parameter Coef_b1 bound to: 32'b00000000000011000100101001010000 
+	Parameter Coef_b2 bound to: 32'b00000000000001100010010100101000 
+	Parameter Coef_a1 bound to: 32'b10000011100011011010110110010100 
+	Parameter Coef_a2 bound to: 32'b00111100100010101110011100001001 
+INFO: [Synth 8-256] done synthesizing module 'IIR_Biquad__parameterized0' (5#1) [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'digitalFilterDemo' (6#1) [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/digitalFilterDemo.vhd:37]
+WARNING: [Synth 8-3331] design IIR_Biquad__parameterized0 has unconnected port X_in[0]
+WARNING: [Synth 8-3331] design IIR_Biquad has unconnected port X_in[0]
+WARNING: [Synth 8-3331] design i2s_ctl has unconnected port MM_I
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 949.172 ; gain = 242.957
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 949.172 ; gain = 242.957
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 949.172 ; gain = 242.957
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc] for cell 'Audio_Codec/audiocodec_master_clock'
+Finished Parsing XDC File [d:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc] for cell 'Audio_Codec/audiocodec_master_clock'
+Parsing XDC File [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/constrs_1/imports/Code/digitalFilterDemo.xdc]
+Finished Parsing XDC File [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/constrs_1/imports/Code/digitalFilterDemo.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/constrs_1/imports/Code/digitalFilterDemo.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/digitalFilterDemo_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/digitalFilterDemo_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1089.980 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1089.980 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1089.980 ; gain = 383.766
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a200tsbg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1089.980 ; gain = 383.766
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  d:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  d:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc, line 5).
+Applied set_property DONT_TOUCH = true for Audio_Codec/audiocodec_master_clock. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1089.980 ; gain = 383.766
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'TWICtl'
+INFO: [Synth 8-5546] ROM "initWord" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "DIV_RATE" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-3936] Found unconnected internal register 'pgZFF_Y1_quad_reg' and it is trimmed from '50' to '48' bits. [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:175]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pgZFF_Y2_quad_reg' and it is trimmed from '50' to '48' bits. [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:176]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pgZFF_X0_quad_reg' and it is trimmed from '50' to '48' bits. [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:170]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pgZFF_X1_quad_reg' and it is trimmed from '50' to '48' bits. [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:171]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pgZFF_X2_quad_reg' and it is trimmed from '50' to '48' bits. [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:172]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pgZFF_Y1_quad_reg' and it is trimmed from '50' to '48' bits. [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:175]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pgZFF_Y2_quad_reg' and it is trimmed from '50' to '48' bits. [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:176]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pgZFF_X0_quad_reg' and it is trimmed from '50' to '48' bits. [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:170]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pgZFF_X1_quad_reg' and it is trimmed from '50' to '48' bits. [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:171]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pgZFF_X2_quad_reg' and it is trimmed from '50' to '48' bits. [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:172]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  stidle |                             0001 |                             0000
+                 ststart |                             0101 |                             0001
+                 stwrite |                             0000 |                             0011
+                  stsack |                             0011 |                             0110
+                  stread |                             0010 |                             0010
+            stmnackstart |                             0111 |                             1001
+                  stmack |                             0110 |                             0111
+             stmnackstop |                             0100 |                             1000
+                  ststop |                             1111 |                             0101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'gray' in module 'TWICtl'
+WARNING: [Synth 8-327] inferring latch for variable 'pgZFF_X1_quad_reg' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:171]
+WARNING: [Synth 8-327] inferring latch for variable 'pgZFF_X2_quad_reg' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:172]
+WARNING: [Synth 8-327] inferring latch for variable 'pgZFF_Y1_quad_reg' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:175]
+WARNING: [Synth 8-327] inferring latch for variable 'pgZFF_Y2_quad_reg' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:176]
+WARNING: [Synth 8-327] inferring latch for variable 'pgZFF_X0_quad_reg' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:170]
+WARNING: [Synth 8-327] inferring latch for variable 'pgZFF_X1_quad_reg' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:171]
+WARNING: [Synth 8-327] inferring latch for variable 'pgZFF_X2_quad_reg' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:172]
+WARNING: [Synth 8-327] inferring latch for variable 'pgZFF_Y1_quad_reg' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:175]
+WARNING: [Synth 8-327] inferring latch for variable 'pgZFF_Y2_quad_reg' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:176]
+WARNING: [Synth 8-327] inferring latch for variable 'pgZFF_X0_quad_reg' [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:170]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1089.980 ; gain = 383.766
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     31 Bit       Adders := 1     
+	   6 Input     18 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 3     
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 4     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               33 Bit    Registers := 1     
+	               32 Bit    Registers := 3     
+	               31 Bit    Registers := 1     
+	               24 Bit    Registers := 2     
+	               18 Bit    Registers := 26    
+	                8 Bit    Registers := 3     
+	                7 Bit    Registers := 3     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 4     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 23    
++---Multipliers : 
+	                18x32  Multipliers := 2     
+	                18x31  Multipliers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   4 Input     18 Bit        Muxes := 1     
+	   3 Input     18 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      7 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	   8 Input      5 Bit        Muxes := 1     
+	   9 Input      4 Bit        Muxes := 1     
+	  21 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 8     
+	   2 Input      3 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 54    
+	   4 Input      1 Bit        Muxes := 22    
+	   3 Input      1 Bit        Muxes := 5     
+	   9 Input      1 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 4     
+	  11 Input      1 Bit        Muxes := 2     
+	  36 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module digitalFilterDemo 
+Detailed RTL Component Info : 
++---Registers : 
+	               18 Bit    Registers := 2     
++---Muxes : 
+	   4 Input     18 Bit        Muxes := 1     
+	   3 Input     18 Bit        Muxes := 1     
+Module TWICtl 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 2     
+	                7 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+	   9 Input      4 Bit        Muxes := 1     
+	  21 Input      4 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 22    
+	   4 Input      1 Bit        Muxes := 21    
+	   3 Input      1 Bit        Muxes := 4     
+	   9 Input      1 Bit        Muxes := 1     
+Module audio_init 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	               33 Bit    Registers := 1     
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 8     
+	   2 Input      1 Bit        Muxes := 7     
+	  10 Input      1 Bit        Muxes := 4     
+	  11 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+	  36 Input      1 Bit        Muxes := 1     
+Module i2s_ctl 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     31 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               31 Bit    Registers := 1     
+	               24 Bit    Registers := 2     
+	                5 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input      5 Bit        Muxes := 2     
+	   8 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+Module Audio_Codec_Wrapper 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module IIR_Biquad 
+Detailed RTL Component Info : 
++---Adders : 
+	   6 Input     18 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               18 Bit    Registers := 12    
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Multipliers : 
+	                18x32  Multipliers := 1     
+	                18x31  Multipliers := 1     
++---Muxes : 
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 9     
+	   5 Input      1 Bit        Muxes := 1     
+Module IIR_Biquad__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   6 Input     18 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               18 Bit    Registers := 12    
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Multipliers : 
+	                18x32  Multipliers := 1     
+	                18x31  Multipliers := 1     
++---Muxes : 
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 9     
+	   5 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 740 (col length:100)
+BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:175]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:176]
+DSP Report: Generating DSP pgZFF_X1_quad0, operation Mode is: (A:0x8052da)*B.
+DSP Report: operator pgZFF_X1_quad0 is absorbed into DSP pgZFF_X1_quad0.
+DSP Report: Generating DSP pgZFF_X2_quad0, operation Mode is: (A:0x40296d)*B.
+DSP Report: operator pgZFF_X2_quad0 is absorbed into DSP pgZFF_X2_quad0.
+DSP Report: Generating DSP pgZFF_Y1_quad0, operation Mode is: (A:0x173a2)*B.
+DSP Report: operator pgZFF_Y1_quad0 is absorbed into DSP pgZFF_Y1_quad0.
+DSP Report: operator pgZFF_Y1_quad0 is absorbed into DSP pgZFF_Y1_quad0.
+DSP Report: Generating DSP pgZFF_Y1_quad0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator pgZFF_Y1_quad0 is absorbed into DSP pgZFF_Y1_quad0.
+DSP Report: operator pgZFF_Y1_quad0 is absorbed into DSP pgZFF_Y1_quad0.
+DSP Report: Generating DSP pgZFF_Y2_quad0, operation Mode is: (A:0x13211)*B.
+DSP Report: operator pgZFF_Y2_quad0 is absorbed into DSP pgZFF_Y2_quad0.
+DSP Report: operator pgZFF_Y2_quad0 is absorbed into DSP pgZFF_Y2_quad0.
+DSP Report: Generating DSP pgZFF_Y2_quad0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator pgZFF_Y2_quad0 is absorbed into DSP pgZFF_Y2_quad0.
+DSP Report: operator pgZFF_Y2_quad0 is absorbed into DSP pgZFF_Y2_quad0.
+DSP Report: Generating DSP pgZFF_X0_quad0, operation Mode is: (A:0x40296d)*B.
+DSP Report: operator pgZFF_X0_quad0 is absorbed into DSP pgZFF_X0_quad0.
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:175]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:176]
+DSP Report: Generating DSP pgZFF_X1_quad0, operation Mode is: (A:0xc4a50)*B.
+DSP Report: operator pgZFF_X1_quad0 is absorbed into DSP pgZFF_X1_quad0.
+DSP Report: Generating DSP pgZFF_X2_quad0, operation Mode is: (A:0x62528)*B.
+DSP Report: operator pgZFF_X2_quad0 is absorbed into DSP pgZFF_X2_quad0.
+DSP Report: Generating DSP pgZFF_Y1_quad0, operation Mode is: (A:0x1ad94)*B.
+DSP Report: operator pgZFF_Y1_quad0 is absorbed into DSP pgZFF_Y1_quad0.
+DSP Report: operator pgZFF_Y1_quad0 is absorbed into DSP pgZFF_Y1_quad0.
+DSP Report: Generating DSP pgZFF_Y1_quad0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator pgZFF_Y1_quad0 is absorbed into DSP pgZFF_Y1_quad0.
+DSP Report: operator pgZFF_Y1_quad0 is absorbed into DSP pgZFF_Y1_quad0.
+DSP Report: Generating DSP pgZFF_Y2_quad0, operation Mode is: A*(B:0xe709).
+DSP Report: operator pgZFF_Y2_quad0 is absorbed into DSP pgZFF_Y2_quad0.
+DSP Report: operator pgZFF_Y2_quad0 is absorbed into DSP pgZFF_Y2_quad0.
+DSP Report: Generating DSP pgZFF_Y2_quad0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator pgZFF_Y2_quad0 is absorbed into DSP pgZFF_Y2_quad0.
+DSP Report: operator pgZFF_Y2_quad0 is absorbed into DSP pgZFF_Y2_quad0.
+DSP Report: Generating DSP pgZFF_X0_quad0, operation Mode is: (A:0x62528)*B.
+DSP Report: operator pgZFF_X0_quad0 is absorbed into DSP pgZFF_X0_quad0.
+WARNING: [Synth 8-3331] design IIR_Biquad__parameterized0 has unconnected port X_in[0]
+WARNING: [Synth 8-3331] design IIR_Biquad has unconnected port X_in[0]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[0] )
+INFO: [Synth 8-3886] merging instance 'Audio_Codec/initialize_audio/initWord_reg[25]' (FDE) to 'Audio_Codec/initialize_audio/initWord_reg[32]'
+INFO: [Synth 8-3886] merging instance 'Audio_Codec/initialize_audio/initWord_reg[26]' (FDE) to 'Audio_Codec/initialize_audio/initWord_reg[32]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/ZFF_X0_reg[16]' (FDCE) to 'right_filter_lpf300/ZFF_X0_reg[17]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/ZFF_X0_reg[16]' (FDCE) to 'left_filter_lpf1000/ZFF_X0_reg[17]'
+INFO: [Synth 8-3886] merging instance 'Audio_Codec/initialize_audio/initWord_reg[27]' (FDE) to 'Audio_Codec/initialize_audio/initWord_reg[32]'
+INFO: [Synth 8-3886] merging instance 'Audio_Codec/initialize_audio/initWord_reg[28]' (FDE) to 'Audio_Codec/initialize_audio/initWord_reg[32]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_quad_reg[37]' (LD) to 'right_filter_lpf300/pgZFF_X2_quad_reg[38]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_quad_reg[38]' (LD) to 'right_filter_lpf300/pgZFF_X2_quad_reg[39]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_quad_reg[38]' (LD) to 'right_filter_lpf300/pgZFF_X1_quad_reg[39]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_quad_reg[39]' (LD) to 'right_filter_lpf300/pgZFF_X2_quad_reg[40]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_quad_reg[39]' (LD) to 'right_filter_lpf300/pgZFF_X1_quad_reg[40]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_quad_reg[40]' (LD) to 'right_filter_lpf300/pgZFF_X2_quad_reg[41]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_quad_reg[40]' (LD) to 'right_filter_lpf300/pgZFF_X1_quad_reg[41]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_quad_reg[41]' (LD) to 'right_filter_lpf300/pgZFF_X2_quad_reg[42]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_quad_reg[41]' (LD) to 'right_filter_lpf300/pgZFF_X1_quad_reg[42]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_quad_reg[42]' (LD) to 'right_filter_lpf300/pgZFF_X2_quad_reg[43]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_quad_reg[42]' (LD) to 'right_filter_lpf300/pgZFF_X1_quad_reg[43]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_quad_reg[43]' (LD) to 'right_filter_lpf300/pgZFF_X2_quad_reg[44]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_quad_reg[43]' (LD) to 'right_filter_lpf300/pgZFF_X1_quad_reg[44]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_quad_reg[44]' (LD) to 'right_filter_lpf300/pgZFF_X2_quad_reg[45]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_quad_reg[44]' (LD) to 'right_filter_lpf300/pgZFF_X1_quad_reg[45]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_quad_reg[45]' (LD) to 'right_filter_lpf300/pgZFF_X2_quad_reg[46]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_quad_reg[45]' (LD) to 'right_filter_lpf300/pgZFF_X1_quad_reg[46]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_quad_reg[46]' (LD) to 'right_filter_lpf300/pgZFF_X2_quad_reg[47]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_quad_reg[46]' (LD) to 'right_filter_lpf300/pgZFF_X1_quad_reg[47]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_quad_reg[37]' (LD) to 'right_filter_lpf300/pgZFF_X0_quad_reg[38]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_quad_reg[38]' (LD) to 'right_filter_lpf300/pgZFF_X0_quad_reg[39]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_quad_reg[39]' (LD) to 'right_filter_lpf300/pgZFF_X0_quad_reg[40]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_quad_reg[40]' (LD) to 'right_filter_lpf300/pgZFF_X0_quad_reg[41]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_quad_reg[41]' (LD) to 'right_filter_lpf300/pgZFF_X0_quad_reg[42]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_quad_reg[42]' (LD) to 'right_filter_lpf300/pgZFF_X0_quad_reg[43]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_quad_reg[43]' (LD) to 'right_filter_lpf300/pgZFF_X0_quad_reg[44]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_quad_reg[44]' (LD) to 'right_filter_lpf300/pgZFF_X0_quad_reg[45]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_quad_reg[45]' (LD) to 'right_filter_lpf300/pgZFF_X0_quad_reg[46]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_quad_reg[46]' (LD) to 'right_filter_lpf300/pgZFF_X0_quad_reg[47]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_quad_reg[41]' (LD) to 'left_filter_lpf1000/pgZFF_X2_quad_reg[42]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_quad_reg[42]' (LD) to 'left_filter_lpf1000/pgZFF_X2_quad_reg[43]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X1_quad_reg[42]' (LD) to 'left_filter_lpf1000/pgZFF_X1_quad_reg[43]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_quad_reg[43]' (LD) to 'left_filter_lpf1000/pgZFF_X2_quad_reg[44]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X1_quad_reg[43]' (LD) to 'left_filter_lpf1000/pgZFF_X1_quad_reg[44]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_quad_reg[44]' (LD) to 'left_filter_lpf1000/pgZFF_X2_quad_reg[45]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X1_quad_reg[44]' (LD) to 'left_filter_lpf1000/pgZFF_X1_quad_reg[45]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_quad_reg[45]' (LD) to 'left_filter_lpf1000/pgZFF_X2_quad_reg[46]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X1_quad_reg[45]' (LD) to 'left_filter_lpf1000/pgZFF_X1_quad_reg[46]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_quad_reg[46]' (LD) to 'left_filter_lpf1000/pgZFF_X2_quad_reg[47]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X1_quad_reg[46]' (LD) to 'left_filter_lpf1000/pgZFF_X1_quad_reg[47]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_quad_reg[41]' (LD) to 'left_filter_lpf1000/pgZFF_X0_quad_reg[42]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_quad_reg[42]' (LD) to 'left_filter_lpf1000/pgZFF_X0_quad_reg[43]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_quad_reg[43]' (LD) to 'left_filter_lpf1000/pgZFF_X0_quad_reg[44]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_quad_reg[44]' (LD) to 'left_filter_lpf1000/pgZFF_X0_quad_reg[45]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_quad_reg[45]' (LD) to 'left_filter_lpf1000/pgZFF_X0_quad_reg[46]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_quad_reg[46]' (LD) to 'left_filter_lpf1000/pgZFF_X0_quad_reg[47]'
+INFO: [Synth 8-3886] merging instance 'Audio_Codec/initialize_audio/initWord_reg[29]' (FDE) to 'Audio_Codec/initialize_audio/initWord_reg[32]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_reg[7]' (FDE) to 'right_filter_lpf300/pgZFF_X2_reg[8]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_reg[8]' (FDE) to 'right_filter_lpf300/pgZFF_X2_reg[9]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_reg[8]' (FDE) to 'right_filter_lpf300/pgZFF_X1_reg[9]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_reg[9]' (FDE) to 'right_filter_lpf300/pgZFF_X2_reg[10]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_reg[9]' (FDE) to 'right_filter_lpf300/pgZFF_X1_reg[10]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_reg[10]' (FDE) to 'right_filter_lpf300/pgZFF_X2_reg[11]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_reg[10]' (FDE) to 'right_filter_lpf300/pgZFF_X1_reg[11]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_reg[11]' (FDE) to 'right_filter_lpf300/pgZFF_X2_reg[12]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_reg[11]' (FDE) to 'right_filter_lpf300/pgZFF_X1_reg[12]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_reg[12]' (FDE) to 'right_filter_lpf300/pgZFF_X2_reg[13]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_reg[12]' (FDE) to 'right_filter_lpf300/pgZFF_X1_reg[13]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_reg[13]' (FDE) to 'right_filter_lpf300/pgZFF_X2_reg[14]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_reg[13]' (FDE) to 'right_filter_lpf300/pgZFF_X1_reg[14]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_reg[14]' (FDE) to 'right_filter_lpf300/pgZFF_X2_reg[15]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_reg[14]' (FDE) to 'right_filter_lpf300/pgZFF_X1_reg[15]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_reg[15]' (FDE) to 'right_filter_lpf300/pgZFF_X2_reg[16]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_reg[15]' (FDE) to 'right_filter_lpf300/pgZFF_X1_reg[16]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X2_reg[16]' (FDE) to 'right_filter_lpf300/pgZFF_X2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X1_reg[16]' (FDE) to 'right_filter_lpf300/pgZFF_X1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_reg[7]' (FDE) to 'right_filter_lpf300/pgZFF_X0_reg[8]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_reg[8]' (FDE) to 'right_filter_lpf300/pgZFF_X0_reg[9]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_reg[9]' (FDE) to 'right_filter_lpf300/pgZFF_X0_reg[10]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_reg[10]' (FDE) to 'right_filter_lpf300/pgZFF_X0_reg[11]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_reg[11]' (FDE) to 'right_filter_lpf300/pgZFF_X0_reg[12]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_reg[12]' (FDE) to 'right_filter_lpf300/pgZFF_X0_reg[13]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_reg[13]' (FDE) to 'right_filter_lpf300/pgZFF_X0_reg[14]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_reg[14]' (FDE) to 'right_filter_lpf300/pgZFF_X0_reg[15]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_reg[15]' (FDE) to 'right_filter_lpf300/pgZFF_X0_reg[16]'
+INFO: [Synth 8-3886] merging instance 'right_filter_lpf300/pgZFF_X0_reg[16]' (FDE) to 'right_filter_lpf300/pgZFF_X0_reg[17]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_reg[11]' (FDE) to 'left_filter_lpf1000/pgZFF_X2_reg[12]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_reg[12]' (FDE) to 'left_filter_lpf1000/pgZFF_X2_reg[13]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X1_reg[12]' (FDE) to 'left_filter_lpf1000/pgZFF_X1_reg[13]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_reg[13]' (FDE) to 'left_filter_lpf1000/pgZFF_X2_reg[14]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X1_reg[13]' (FDE) to 'left_filter_lpf1000/pgZFF_X1_reg[14]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_reg[14]' (FDE) to 'left_filter_lpf1000/pgZFF_X2_reg[15]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X1_reg[14]' (FDE) to 'left_filter_lpf1000/pgZFF_X1_reg[15]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_reg[15]' (FDE) to 'left_filter_lpf1000/pgZFF_X2_reg[16]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X1_reg[15]' (FDE) to 'left_filter_lpf1000/pgZFF_X1_reg[16]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X2_reg[16]' (FDE) to 'left_filter_lpf1000/pgZFF_X2_reg[17]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X1_reg[16]' (FDE) to 'left_filter_lpf1000/pgZFF_X1_reg[17]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_reg[11]' (FDE) to 'left_filter_lpf1000/pgZFF_X0_reg[12]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_reg[12]' (FDE) to 'left_filter_lpf1000/pgZFF_X0_reg[13]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_reg[13]' (FDE) to 'left_filter_lpf1000/pgZFF_X0_reg[14]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_reg[14]' (FDE) to 'left_filter_lpf1000/pgZFF_X0_reg[15]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_reg[15]' (FDE) to 'left_filter_lpf1000/pgZFF_X0_reg[16]'
+INFO: [Synth 8-3886] merging instance 'left_filter_lpf1000/pgZFF_X0_reg[16]' (FDE) to 'left_filter_lpf1000/pgZFF_X0_reg[17]'
+INFO: [Synth 8-3886] merging instance 'Audio_Codec/initialize_audio/initWord_reg[24]' (FDE) to 'Audio_Codec/initialize_audio/initWord_reg[32]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/initialize_audio/initWord_reg[32] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/initialize_audio/twi_controller/currAddr_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\Audio_Codec/initialize_audio/twi_controller/currAddr_reg[6] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\Audio_Codec/audio_inout/DIV_RATE_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/DIV_RATE_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Audio_Codec/audio_inout/Data_Out_int_reg[12] )
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[29]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[28]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[27]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[26]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[25]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[24]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[23]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[22]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[21]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[20]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[19]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[18]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[17]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[16]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[15]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[14]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[13]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[12]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[11]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[10]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[9]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[8]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[7]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[6]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[5]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[4]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[3]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[2]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[1]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X1_quad_reg[0]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[29]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[28]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[27]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[26]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[25]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[24]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[23]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[22]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[21]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[20]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[19]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[18]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[17]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[16]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[15]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[14]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[13]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[12]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[11]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[10]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[9]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[8]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[7]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[6]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[5]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[4]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[3]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[2]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[1]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_X2_quad_reg[0]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[29]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[28]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[27]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[26]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[25]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[24]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[23]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[22]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[21]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[20]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[19]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[18]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[17]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[16]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[15]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[14]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[13]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[12]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[11]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[10]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[9]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[8]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[7]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[6]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[5]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[4]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[3]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[2]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[1]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y1_quad_reg[0]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y2_quad_reg[29]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y2_quad_reg[28]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y2_quad_reg[27]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y2_quad_reg[26]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y2_quad_reg[25]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y2_quad_reg[24]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y2_quad_reg[23]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y2_quad_reg[22]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y2_quad_reg[21]) is unused and will be removed from module digitalFilterDemo.
+WARNING: [Synth 8-3332] Sequential element (left_filter_lpf1000/pgZFF_Y2_quad_reg[20]) is unused and will be removed from module digitalFilterDemo.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1089.980 ; gain = 383.766
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|IIR_Biquad  | (A:0x8052da)*B | 25     | 18     | -      | -      | 43     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (A:0x40296d)*B | 24     | 18     | -      | -      | 42     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (A:0x173a2)*B  | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (A:0x13211)*B  | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (PCIN>>17)+A*B | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (A:0x40296d)*B | 24     | 18     | -      | -      | 42     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (A:0xc4a50)*B  | 21     | 18     | -      | -      | 39     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (A:0x62528)*B  | 20     | 18     | -      | -      | 38     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (A:0x1ad94)*B  | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | A*(B:0xe709)   | 18     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (PCIN>>17)+A*B | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|IIR_Biquad  | (A:0x62528)*B  | 20     | 18     | -      | -      | 38     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:79]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:80]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:81]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:81]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:82]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:82]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:78]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:79]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:80]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:81]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:81]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:82]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:82]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:78]
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'Audio_Codec/audiocodec_master_clock/clk_out1' to pin 'Audio_Codec/audiocodec_master_clock/bbstub_clk_out1/O'
+INFO: [Synth 8-5578] Moved timing constraint from pin 'Audio_Codec/audiocodec_master_clock/clk_out2' to pin 'Audio_Codec/audiocodec_master_clock/bbstub_clk_out2/O'
+INFO: [Synth 8-5819] Moved 2 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1100.004 ; gain = 393.789
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1113.695 ; gain = 407.480
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:79]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:80]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:81]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:81]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:82]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:82]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:78]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:79]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:80]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:81]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:81]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:82]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:82]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.srcs/sources_1/imports/Code/filterBlock.vhd:78]
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1130.898 ; gain = 424.684
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1136.574 ; gain = 430.359
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1136.574 ; gain = 430.359
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1136.574 ; gain = 430.359
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1136.574 ; gain = 430.359
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1136.574 ; gain = 430.359
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1136.574 ; gain = 430.359
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_1     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+-----------------+------+
+|      |Cell             |Count |
++------+-----------------+------+
+|1     |clk_wiz_1_bbox_0 |     1|
+|2     |BUFG             |     2|
+|3     |CARRY4           |    29|
+|4     |DSP48E1          |    14|
+|5     |LUT1             |    39|
+|6     |LUT2             |    33|
+|7     |LUT3             |   123|
+|8     |LUT4             |   111|
+|9     |LUT5             |    28|
+|10    |LUT6             |    96|
+|11    |FDCE             |   182|
+|12    |FDRE             |   441|
+|13    |FDSE             |    20|
+|14    |LD               |   134|
+|15    |IBUF             |     4|
+|16    |IOBUF            |     2|
+|17    |OBUF             |     4|
++------+-----------------+------+
+
+Report Instance Areas: 
++------+----------------------+---------------------------+------+
+|      |Instance              |Module                     |Cells |
++------+----------------------+---------------------------+------+
+|1     |top                   |                           |  1264|
+|2     |  Audio_Codec         |Audio_Codec_Wrapper        |   471|
+|3     |    audio_inout       |i2s_ctl                    |   154|
+|4     |    initialize_audio  |audio_init                 |   309|
+|5     |      twi_controller  |TWICtl                     |   134|
+|6     |  left_filter_lpf1000 |IIR_Biquad                 |   384|
+|7     |  right_filter_lpf300 |IIR_Biquad__parameterized0 |   361|
++------+----------------------+---------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1136.574 ; gain = 430.359
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 322 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 1136.574 ; gain = 289.551
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 1136.574 ; gain = 430.359
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 179 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1152.637 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 136 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 2 instances
+  LD => LDCE: 134 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+199 Infos, 129 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1152.637 ; gain = 734.391
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1152.637 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'D:/UNL_Spring_2021/CSCE_436/Lecture_28/Lecture_28/Lecture_28.runs/synth_1/digitalFilterDemo.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file digitalFilterDemo_utilization_synth.rpt -pb digitalFilterDemo_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 30 13:24:23 2021...

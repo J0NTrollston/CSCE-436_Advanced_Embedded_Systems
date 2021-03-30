@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1617128606">
+  <File Type="PA-TCL" Name="digitalFilterDemo.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="digitalFilterDemo_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="digitalFilterDemo_reports.tcl"/>
+  <File Type="RDS-RDS" Name="digitalFilterDemo.vds"/>
+  <File Type="RDS-UTIL" Name="digitalFilterDemo_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="digitalFilterDemo_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="digitalFilterDemo.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="digitalFilterDemo_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="digitalFilterDemo_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/src/audio_init.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../Lab3/ip_repo/my_oscope_ip_1.0/src/audio_init.v"/>
+        <Attr Name="ImportTime" Val="1614125331"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/src/Audio_Codec_Wrapper.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../Lab3/ip_repo/my_oscope_ip_1.0/src/Audio_Codec_Wrapper.vhd"/>
+        <Attr Name="ImportTime" Val="1614988325"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/src/TWICtl.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../Lab3/ip_repo/my_oscope_ip_1.0/src/TWICtl.vhd"/>
+        <Attr Name="ImportTime" Val="1614988397"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Code/digitalFilter_pack.vhdl">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../Code/digitalFilter_pack.vhdl"/>
+        <Attr Name="ImportTime" Val="1617119749"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Code/filterBlock.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../Code/filterBlock.vhd"/>
+        <Attr Name="ImportTime" Val="1617119714"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/src/i2s_ctl.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../Lab3/ip_repo/my_oscope_ip_1.0/src/i2s_ctl.vhd"/>
+        <Attr Name="ImportTime" Val="1614989074"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Code/digitalFilterDemo.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../Code/digitalFilterDemo.vhd"/>
+        <Attr Name="ImportTime" Val="1617119724"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="digitalFilterDemo"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/Code/digitalFilterDemo.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../Code/digitalFilterDemo.xdc"/>
+        <Attr Name="ImportTime" Val="1617119740"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_1"/>
+</GenRun>
