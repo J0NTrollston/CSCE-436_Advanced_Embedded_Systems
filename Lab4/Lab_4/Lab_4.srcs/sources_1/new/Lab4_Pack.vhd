@@ -38,7 +38,9 @@ component Lab4
            sda:          inout STD_LOGIC;
 		   tmds:         out STD_LOGIC_VECTOR(3 downto 0);
            tmdsb:        out STD_LOGIC_VECTOR(3 downto 0);
-		   btn:          in	 STD_LOGIC_VECTOR(4 downto 0));
+		   btn:          in	 STD_LOGIC_VECTOR(4 downto 0);
+		   switches:     in   STD_LOGIC_VECTOR(7 downto 0));
+--		   ready: in std_logic);
 end component;
 
 
@@ -64,7 +66,7 @@ end component;
 component lab4_fsm
     Port ( clk:     in  STD_LOGIC;
            reset_n: in  STD_LOGIC;
-           btn:     in  STD_LOGIC_VECTOR(4 downto 0);
+--           btn:     in  STD_LOGIC_VECTOR(4 downto 0);
 		   sw:      in  STD_LOGIC_VECTOR(2 downto 0);
 		   cw:      out STD_LOGIC_VECTOR(2 downto 0));
 end component;
@@ -80,12 +82,15 @@ component lab4_datapath
 	       ac_lrclk:           out STD_LOGIC;
 	       scl:                inout STD_LOGIC;
 	       sda:                inout STD_LOGIC;	
-	       tmds:               out STD_LOGIC_VECTOR(3 downto 0);
-	       tmdsb:              out STD_LOGIC_VECTOR(3 downto 0);
+--	       tmds:               out STD_LOGIC_VECTOR(3 downto 0);
+--	       tmdsb:              out STD_LOGIC_VECTOR(3 downto 0);
 	       sw:                 out STD_LOGIC_VECTOR(2 downto 0);
 	       cw:                 in  STD_LOGIC_VECTOR(2 downto 0);
 	       btn:                in  STD_LOGIC_VECTOR(4 downto 0);
-	       Lbus_out, Rbus_out: out STD_LOGIC_VECTOR(15 downto 0));
+	       Lbus_out: out STD_LOGIC_VECTOR(17 downto 0);
+	       switches: in  STD_LOGIC_VECTOR(7 downto 0) := (others => '0'));
+--	       ready: in std_logic );
+
 end component;
 	
 end Lab4Parts;

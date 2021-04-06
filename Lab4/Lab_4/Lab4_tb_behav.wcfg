@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Lab4_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Lab4_tb" />
+            <top_module name="glbl" />
+            <top_module name="lab4parts" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="2500000000fs"></ZoomStartTime>
+      <ZoomEndTime time="17500000001fs"></ZoomEndTime>
+      <Cursor1Time time="15000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="164"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="23" />
+   <wvobject fp_name="/Lab4_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/reset_n" type="logic">
+      <obj_property name="ElementShortName">reset_n</obj_property>
+      <obj_property name="ObjectShortName">reset_n</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/ready" type="logic">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/control/FSM" type="other">
+      <obj_property name="ElementShortName">FSM</obj_property>
+      <obj_property name="ObjectShortName">FSM</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/btn" type="array">
+      <obj_property name="ElementShortName">btn[4:0]</obj_property>
+      <obj_property name="ObjectShortName">btn[4:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/switches" type="array">
+      <obj_property name="ElementShortName">switches[7:0]</obj_property>
+      <obj_property name="ObjectShortName">switches[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/amplitude" type="array">
+      <obj_property name="ElementShortName">amplitude[7:0]</obj_property>
+      <obj_property name="ObjectShortName">amplitude[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/raw_out" type="array">
+      <obj_property name="ElementShortName">raw_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">raw_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/DeltaXOffset" type="array">
+      <obj_property name="ElementShortName">DeltaXOffset[21:0]</obj_property>
+      <obj_property name="ObjectShortName">DeltaXOffset[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/Final_Out" type="array">
+      <obj_property name="ElementShortName">Final_Out[17:0]</obj_property>
+      <obj_property name="ObjectShortName">Final_Out[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/addrCnt" type="array">
+      <obj_property name="ElementShortName">addrCnt[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addrCnt[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/phase_inc" type="array">
+      <obj_property name="ElementShortName">phase_inc[15:0]</obj_property>
+      <obj_property name="ObjectShortName">phase_inc[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/sda" type="logic">
+      <obj_property name="ElementShortName">sda</obj_property>
+      <obj_property name="ObjectShortName">sda</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/sw" type="array">
+      <obj_property name="ElementShortName">sw[2:0]</obj_property>
+      <obj_property name="ObjectShortName">sw[2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/cw" type="array">
+      <obj_property name="ElementShortName">cw[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cw[2:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/cnt" type="array">
+      <obj_property name="ElementShortName">cnt[15:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/DO" type="array">
+      <obj_property name="ElementShortName">DO[15:0]</obj_property>
+      <obj_property name="ObjectShortName">DO[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/Base" type="array">
+      <obj_property name="ElementShortName">Base[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Base[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/Base_P_1" type="array">
+      <obj_property name="ElementShortName">Base_P_1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Base_P_1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/Delta" type="array">
+      <obj_property name="ElementShortName">Delta[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Delta[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/T_delta_times_offset" type="array">
+      <obj_property name="ElementShortName">T_delta_times_offset[15:0]</obj_property>
+      <obj_property name="ObjectShortName">T_delta_times_offset[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/signed_out" type="array">
+      <obj_property name="ElementShortName">signed_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">signed_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Lab4_tb/u0/datapath/m_raw_out" type="array">
+      <obj_property name="ElementShortName">m_raw_out[23:0]</obj_property>
+      <obj_property name="ObjectShortName">m_raw_out[23:0]</obj_property>
+   </wvobject>
+</wave_config>

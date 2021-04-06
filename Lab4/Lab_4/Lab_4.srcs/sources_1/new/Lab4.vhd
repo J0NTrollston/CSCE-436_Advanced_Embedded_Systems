@@ -34,10 +34,11 @@ entity Lab4 is
 		   ac_lrclk:     out   STD_LOGIC;
            scl:          inout STD_LOGIC;
            sda:          inout STD_LOGIC;
-		   tmds:         out   STD_LOGIC_VECTOR(3 downto 0);
-           tmdsb:        out   STD_LOGIC_VECTOR(3 downto 0);
+--		   tmds:         out   STD_LOGIC_VECTOR(3 downto 0);
+--           tmdsb:        out   STD_LOGIC_VECTOR(3 downto 0);
 		   btn:          in	   STD_LOGIC_VECTOR(4 downto 0);
 		   switches:     in   STD_LOGIC_VECTOR(7 downto 0));
+--		   ready:  in std_logic);
 end Lab4;
 
 architecture behavior of Lab4 is
@@ -45,7 +46,7 @@ architecture behavior of Lab4 is
  -- These signals will be in and out of the datapath and control unit for the FSM
 	signal sw: std_logic_vector(2 downto 0);
 	signal cw: std_logic_vector(2 downto 0);
-	signal btn_S: std_logic_vector(4 downto 0);
+--	signal btn_S: std_logic_vector(4 downto 0);
  
 begin
     
@@ -60,19 +61,18 @@ begin
 		ac_lrclk     => ac_lrclk,
         scl          => scl,
         sda          => sda,
-		tmds         => tmds,
-		tmdsb        => tmdsb,
+--		tmds         => tmds,
+--		tmdsb        => tmdsb,
 		sw           => sw,
 		cw           => cw,
-		btn          => btn_S, 
-		Lbus_out     => OPEN,
-		Rbus_out     => OPEN);
+		btn          => btn);
+--		ready => ready);
 		
 -- Here we instanciate the control unit			  
 	control: lab4_fsm port map( 
 		clk     => clk,
 		reset_n => reset_n,
-		btn     => btn_S,
+--		btn     => btn_S,
 		sw      => sw,
 		cw      => cw);
 end behavior;

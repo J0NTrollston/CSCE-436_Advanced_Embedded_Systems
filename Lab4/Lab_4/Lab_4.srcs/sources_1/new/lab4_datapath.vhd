@@ -41,118 +41,144 @@ entity lab4_datapath is
 	       ac_lrclk:           out   STD_LOGIC;
 	       scl:                inout STD_LOGIC;
 	       sda:                inout STD_LOGIC;	
-	       tmds:               out   STD_LOGIC_VECTOR(3 downto 0);
-	       tmdsb:              out   STD_LOGIC_VECTOR(3 downto 0);
-	       sw:                 out   STD_LOGIC_VECTOR(2 downto 0);
-	       cw:                 in    STD_LOGIC_VECTOR(2 downto 0);
+--	       tmds:               out   STD_LOGIC_VECTOR(3 downto 0);
+--	       tmdsb:              out   STD_LOGIC_VECTOR(3 downto 0);
+	       sw:                 out   STD_LOGIC_VECTOR(2 downto 0):= (others => '0');
+	       cw:                 in    STD_LOGIC_VECTOR(2 downto 0):= (others => '0');
 	       btn:                in    STD_LOGIC_VECTOR(4 downto 0);
-	       Lbus_out:           out   STD_LOGIC_VECTOR(15 downto 0);
-	       switches:           in    STD_LOGIC_VECTOR(7 downto 0));
+	       Lbus_out:           out   STD_LOGIC_VECTOR(17 downto 0);
+	       switches:           in    STD_LOGIC_VECTOR(7 downto 0) := (others => '0'));
+--	       ready :in std_logic);
 end lab4_datapath;
 
 architecture Behavioral of lab4_datapath is
 
+
+-- BRAM SIGNALS
+SIGNAL addrCnt: STD_LOGIC_VECTOR(9 DOWNTO 0);
+signal DO: std_logic_vector(15 downto 0):= (others => '0');
+SIGNAL DI: STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0'); -- Unused
+
+-- Mux
+SIGNAL Lut_Read_Addr: STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL L_R_Addr_P_1: STD_LOGIC_VECTOR(9 DOWNTO 0);
+
+SIGNAL offset: STD_LOGIC_VECTOR(5 DOWNTO 0);
+
+SIGNAL Base, Base_P_1, Delta: STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+SIGNAL DeltaXOffset: STD_LOGIC_VECTOR(21 DOWNTO 0):= (others => '0');
+
+SIGNAL T_delta_times_offset: STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+SIGNAL raw_out: STD_LOGIC_VECTOR(15 DOWNTO 0):= (others => '0');
+
+SIGNAL signed_out: STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+SIGNAL Final_Out: STD_LOGIC_VECTOR(17 DOWNTO 0):= (others => '0');
+
+SIGNAL phase_inc: STD_LOGIC_VECTOR(15 DOWNTO 0):= X"0259";
+SIGNAL amplitude: STD_LOGIC_VECTOR(7 DOWNTO 0):= X"40";
+SIGNAL chSwitch: STD_LOGIC:= '0'; -- 0 for ch1, 1 for ch2
+SIGNAL  m_raw_out: STD_LOGIC_VECTOR(23 DOWNTO 0):= (others => '0');
+
 signal reset: std_logic;
 signal ready_S: std_logic;
-signal addressCount: std_logic_vector(15 downto 0);
-signal DO: std_logic_vector(9 downto 0);
-signal DOtoLbus: std_logic_vector(17 downto 0);
+signal cnt: std_logic_vector(15 downto 0):= (OTHERS => '0');
+
 --    signal trigger_time, trigger_volt, row, column: UNSIGNED(9 downto 0);
---	signal old_button, button_activity: STD_LOGIC_VECTOR(4 downto 0);
+	signal old_button, button_activity: STD_LOGIC_VECTOR(4 downto 0);
 --	signal ch1_wave, ch2_wave, ready: STD_LOGIC;
 	signal L_bus_in_S, R_bus_in_S, L_bus_out_S, R_bus_out_S: STD_LOGIC_VECTOR(17 downto 0);
 --	signal L_bus_out_vector: STD_LOGIC_VECTOR(17 downto 0);
 --    signal R_bus_out_vector: STD_LOGIC_VECTOR(17 downto 0);
 --    signal previous_L_bus_unsigned: UNSIGNED(17 downto 0);
-    
-
-	
-    
-
+   
 	
 begin
+-- CSA
+    addrCnt <= Lut_Read_Addr when (cw(2) = '0') else L_R_Addr_P_1; 
+    
+    Lut_Read_Addr <= cnt(15 downto 6);
+    L_R_Addr_P_1 <= std_logic_vector(unsigned( Lut_Read_Addr) + 1 );
+    
+    offset <= cnt(5 downto 0);
+    
+    Base <= Base when (cw(2) = '1') else DO;
+    Base_P_1 <= Base_P_1 when(cw(2) = '0') else DO;
+    
+    Delta <= std_logic_vector(signed(Base) - signed(Base_P_1));
+    
+    DeltaXOffset <= std_logic_vector(signed(Delta)*signed(offset));
 
+    T_delta_times_offset <= DeltaXOffset(21 DOWNTO 6);
+    
+    raw_out <= STD_LOGIC_VECTOR(signed(T_delta_times_offset) + signed(Base));
+    
+    m_raw_out <= std_logic_vector(unsigned(raw_out) * unsigned(amplitude));
+
+    signed_out <= std_logic_vector(signed(m_raw_out(23 downto 8)) - x"8000" );    
+    
+    Final_Out <= signed_out & "00";
+    
     reset <= not reset_n;
     sw(0) <= ready_S;
+--    sw(0) <= ready_S;
 
-            
---    L_bus_unsigned <= (UNSIGNED(L_bus_out_vector) + 131072);
---    R_bus_unsigned <= (UNSIGNED(R_bus_out_vector) + 131072);
-
-            
-           
-    
---    sw(2) <= '1' when (WRADDR = "1111111111") else '0';
---    max_count <= '1' when (WRADDR = "1111111111") else '0';
---    sw(1) <= '1' when (((L_bus_unsigned(17 downto 8)-292) < trigger_volt) and ((previous_L_bus_unsigned(17 downto 8) - 292) > trigger_volt)) else '0';
---    sw(0) <= ready;
+-----------------------------------------------------------------------------
+--		ctrl table cw(3 downto 0)
+--      00          hold
+--      01          Inc
+--      10          unused
+--      11          reset
+-----------------------------------------------------------------------------
     
 -- Unsigned Counter 16 bits wide. Top 10 bits are for ReadAddress of BRAM and bottom 6 are for LUT
 process(clk)
 begin
-    if (rising_edge(ready_S)) then
-        if (reset = '0') then
-            addressCount <= (others => '0');
-        elsif ( (addressCount < x"FFFF") and (cw(0) = '1') ) then 
-            addressCount <= std_logic_vector(unsigned(addressCount) + 1);
-        elsif ((addressCount = x"FFFF" ) and (cw(0) = '1') ) then
-            addressCount <= (others => '0');
+    if (rising_edge(clk)) then
+--    if (rising_edge(ready_S)) then
+        if (cw(1 downto 0) = "11") then
+            cnt <= (others => '0');
+        elsif ( (cnt < x"FFFF") and (cw(1 downto 0) = "01") ) then 
+            cnt <= std_logic_vector(unsigned(cnt) + unsigned(phase_inc));
+        elsif ((cnt = x"FFFF" ) and (cw(1 downto 0) = "01") ) then
+            cnt <= (others => '0');
         end if;
     end if;
 end process;
 
--- This will be the DOUT signal coming from BRAM, we take this to the Audio Codec Wrapper on the ready signal
+	
 process(clk)
-begin
-    if(rising_edge(clk)) then
-        if(ready_S = '1') then
-            DOtoLbus <= DO;
-        end if;
-    end if;
-end process;
-	
-	
-	
---process(clk)
---	begin
---		if (rising_edge(clk)) then
---			button_activity <= (old_button xor btn) and btn;
+	begin
+		if (rising_edge(clk)) then
+			button_activity <= (old_button xor btn) and btn;
 			
---			--Reset trigger
---			if (button_activity(4) = '1') then
---				trigger_time <= to_unsigned(320,10);
---				trigger_volt <= to_unsigned(220,10);
---				button_activity <= (others => '0');
---				old_button <= (others => '0');
+			--Channel Switch
+			if (button_activity(4) = '1') then
+				button_activity <= (others => '0');
+				old_button <= (others => '0');
+			    chSwitch <= '1';
 				
---		    --Move trigger right
---			elsif (button_activity(3) = '1') then
---			     if(trigger_time+10 <= 620) then
---			         trigger_time <= trigger_time + 10;
---			     end if;
-			
---		    --Move trigger left
---			elsif (button_activity(1) = '1') then
---			     if(trigger_time - 10 >= 20) then
---				    trigger_time <= trigger_time - 10;
---				 end if;
-				
---		    --Move trigger up
---			elsif (button_activity(0) = '1') then
---			     if(trigger_volt - 10 >= 20) then
---				    trigger_volt <= trigger_volt - 10;
---				 end if;
+		    --Inc phase
+			elsif (button_activity(3) = '1') then
+                phase_inc <= std_logic_vector( signed(phase_inc) + signed(switches) );		
+                	
+		    --Dec phase
+			elsif (button_activity(1) = '1') then
+                phase_inc <= std_logic_vector( signed(phase_inc) - signed(switches) );			
+		    --Increase Amplitude
+			elsif (button_activity(0) = '1') then
+                amplitude <= std_logic_vector( unsigned(amplitude)+unsigned(switches) );
 				 
---			--Move trigger down
---		    elsif (button_activity(2) = '1') then
---		      if(trigger_volt + 10 <= 420) then
---				trigger_volt <= trigger_volt + 10;
---		      end if;
---			end if;
+			--Decrease Amplitude
+		    elsif (button_activity(2) = '1') then
+                amplitude <= std_logic_vector( unsigned(amplitude)-unsigned(switches) );		      
+			end if;
 			
---			old_button <= btn;
---		end if;
---end process;
+			old_button <= btn;
+		end if;
+end process;
 	
 	
 	----------------------------------------------------------------------------	
@@ -168,8 +194,8 @@ LeftBRAM: BRAM_SDP_MACRO
 		DO_REG => 0, 					-- Optional output register disabled
 		INIT => X"000000000000000000",	-- Initial values on output port
 		INIT_FILE => "NONE",			-- Not sure how to initialize the RAM from a file
-		WRITE_WIDTH => 18, 				-- Valid values are 1-72 (37-72 only valid when BRAM_SIZE="36Kb")
-		READ_WIDTH => 18, 				-- Valid values are 1-72 (37-72 only valid when BRAM_SIZE="36Kb")
+		WRITE_WIDTH => 16, 				-- Valid values are 1-72 (37-72 only valid when BRAM_SIZE="36Kb")
+		READ_WIDTH => 16, 				-- Valid values are 1-72 (37-72 only valid when BRAM_SIZE="36Kb")
 		SIM_COLLISION_CHECK => "NONE", 	-- Collision check enable "ALL", "WARNING_ONLY", "GENERATE_X_ONLY" or "NONE"
 		SRVAL => X"000000000000000000", -- Set/Reset value for port output
 		INIT_00 => x"8BC28AF98A31896988A087D8870F8646857E84B583EC8323825A819180C88000", -- Sine wave
@@ -238,12 +264,12 @@ LeftBRAM: BRAM_SDP_MACRO
         INIT_3F => x"7ECE7E057D3C7C737BAB7AE27A197950788877BF76F7762E7566749E73D6730E")	
 	port map (
 		DO => DO,				-- Output read data port, width defined by READ_WIDTH parameter
-		RDADDR => addressCount(15 downto 6),			-- Input address, width defined by port depth
+		RDADDR => addrCnt(9 downto 0),			-- Input address, width defined by port depth
 		RDCLK => clk,	 				-- 1-bit input clock
 		RST => reset,					-- active high reset
 		RDEN => '1',					-- read enable 
 		REGCE => '1',					-- 1-bit input read output register enable - ignored
-		Di => "0000000000",				-- Input data port, width defined by WRITE_WIDTH parameter
+		Di => DI,				-- Input data port, width defined by WRITE_WIDTH parameter
 		WE => "00",			-- since RAM is byte read, this determines high or low byte
 		WRADDR => "0000000000",			-- Input write address, width defined by write port depth
 		WRCLK => clk,		 			-- 1-bit input write clock
@@ -261,7 +287,8 @@ audio_codec : Audio_Codec_Wrapper port map(
         ac_bclk => ac_bclk,
         ac_lrclk => ac_lrclk,
         ready => ready_S,
-        L_bus_in => DOtoLbus, -- left channel input to DAC
+--        ready => ready_S,
+        L_bus_in => Final_Out, -- left channel input to DAC
         R_bus_in => (others => '0'), -- right channel input to DAC
         L_bus_out => Lbus_out, -- left channel output from ADC
         R_bus_out => OPEN, -- right channel output from ADC

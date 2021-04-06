@@ -8,7 +8,7 @@ public class main {
         int count = 0;
 
         try{
-            File file = new File("BadSquareWave.txt");
+            File file = new File("SquareWave.txt");
             Scanner fileScan = new Scanner(file);
 
             for(int every16 = 0; every16 < 64; every16++) {
@@ -17,7 +17,7 @@ public class main {
                     array[15 - index] = fileScan.nextLine();
                 }
 
-                System.out.print(String.format("INIT_%02X => \"",count));
+                System.out.print(String.format("INIT_%02X => x\"",count));
 
 
                 count ++;

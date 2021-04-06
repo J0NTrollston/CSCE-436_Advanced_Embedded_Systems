@@ -25,14 +25,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity lab4_fsm is
     Port ( clk     : in  STD_LOGIC;
            reset_n : in  STD_LOGIC;
-           btn:     in  STD_LOGIC_VECTOR(4 downto 0);
+--           btn:     in  STD_LOGIC_VECTOR(4 downto 0);
 		   sw      : in std_logic_vector (2 downto 0);
 		   cw      : out std_logic_vector (2 downto 0));
 end lab4_fsm;
 
 architecture Behavioral of lab4_fsm is
 -- Enumerate all possible states
-type state_type is (RST, WAIT_READY, INC, DEC, UP, DOWN);
+type state_type is (RST, WAIT_READY, BASE, BASE_P_1);
 signal FSM: state_type;
 
 begin
@@ -60,24 +60,13 @@ process(clk)
         else
             case FSM is
                     when WAIT_READY =>
-                        if((sw(0) = '1') and (btn(0) = '1')) then
-                            FSM <= UP;
-                        elsif((sw(0) = '1') and (btn(1) = '1')) then
-                            FSM <= DEC;
-                        elsif((sw(0) = '1') and (btn(2) = '1')) then
-                            FSM <= DOWN;
-                        elsif((sw(0) = '1') and (btn(3) = '1')) then
-                            FSM <= INC;
+                        if(sw(0) = '1') then
+                            FSM <= BASE;
                         end if;
-                        
-                    when UP =>
-                        FSM <= WAIT_READY;
-                    when DOWN =>
-                        FSM <= WAIT_READY;
-                    when INC =>
-                        FSM <= WAIT_READY;
-                    when DEC =>
-                        FSM <= WAIT_READY;                         
+                    when BASE =>
+                        FSM <= BASE_P_1;
+                    when BASE_P_1 =>
+                        FSM <= WAIT_READY;     
                     when RST =>
                         FSM <= WAIT_READY;   
             end case;
@@ -85,11 +74,9 @@ process(clk)
     end if;
 end process;
 
-cw <=   "000" when (FSM = RST) else
-        "010" when (FSM = DEC) else
-        "001" when (FSM = INC) else
-        "101" when (FSM = UP) else
-        "110" when (FSM = DOWN) else
-        "000" when (FSM = WAIT_READY);
+cw <=   "011" when (FSM = RST) else
+        "100" when (FSM = WAIT_READY) else
+        "001" when (FSM = BASE) else
+        "100" when (FSM = BASE_P_1);
        
 end Behavioral;

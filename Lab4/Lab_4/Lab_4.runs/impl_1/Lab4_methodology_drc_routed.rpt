@@ -1,0 +1,586 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Tue Apr  6 13:21:28 2021
+| Host         : QuitStealingMyPaper running 64-bit major release  (build 9200)
+| Command      : report_methodology -file Lab4_methodology_drc_routed.rpt -pb Lab4_methodology_drc_routed.pb -rpx Lab4_methodology_drc_routed.rpx
+| Design       : Lab4
+| Device       : xc7a200tsbg484-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 109
++-----------+------------------+---------------------------------------------------+------------+
+| Rule      | Severity         | Description                                       | Violations |
++-----------+------------------+---------------------------------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell                       | 74         |
+| TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin         | 1          |
+| SYNTH-14  | Warning          | DSP cannot absorb non-zero init register          | 1          |
+| TIMING-20 | Warning          | Non-clocked latch                                 | 32         |
+| XDCC-2    | Warning          | Scoped Non-Timing constraint/property overwritten | 1          |
++-----------+------------------+---------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-17#1 Critical Warning
+Non-clocked sequential cell  
+The clock pin control/FSM_onehot_FSM_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#2 Critical Warning
+Non-clocked sequential cell  
+The clock pin control/FSM_onehot_FSM_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#3 Critical Warning
+Non-clocked sequential cell  
+The clock pin control/FSM_onehot_FSM_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#4 Critical Warning
+Non-clocked sequential cell  
+The clock pin control/FSM_onehot_FSM_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#5 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/DeltaXOffset/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#6 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/LeftBRAM/sdp_bl.ramb18_dp_bl.ram18_bl/CLKARDCLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#7 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/LeftBRAM/sdp_bl.ramb18_dp_bl.ram18_bl/CLKBWRCLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#8 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/amplitude_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#9 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/amplitude_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#10 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/amplitude_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#11 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/amplitude_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#12 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/amplitude_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#13 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/amplitude_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#14 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/amplitude_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#15 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/ac_lrclk_count_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#16 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/ac_lrclk_count_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#17 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/ac_lrclk_count_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#18 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/ac_lrclk_sig_prev_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#19 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/BCLK_int_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#20 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Cnt_Bclk_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#21 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Cnt_Bclk_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#22 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Cnt_Bclk_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#23 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Cnt_Bclk_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#24 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Cnt_Bclk_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#25 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Cnt_Lrclk_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#26 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Cnt_Lrclk_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#27 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Cnt_Lrclk_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#28 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Cnt_Lrclk_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#29 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Cnt_Lrclk_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#30 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#31 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[16]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#32 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[17]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#33 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[18]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#34 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[19]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#35 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[20]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#36 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[21]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#37 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[22]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#38 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[23]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#39 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[24]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#40 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[25]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#41 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[26]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#42 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[27]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#43 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[28]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#44 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[29]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#45 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[30]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#46 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/Data_Out_int_reg[31]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#47 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/audio_inout/LRCLK_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#48 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/audio_codec/ready_sig_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#49 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/button_activity_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#50 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/button_activity_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#51 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/button_activity_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#52 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/button_activity_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#53 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/button_activity_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#54 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#55 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[10]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#56 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[11]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#57 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[12]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#58 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[13]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#59 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[14]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#60 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#61 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#62 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#63 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#64 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#65 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#66 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#67 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#68 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#69 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/cnt_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#70 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/old_button_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#71 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/old_button_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#72 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/old_button_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#73 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/old_button_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#74 Critical Warning
+Non-clocked sequential cell  
+The clock pin datapath/old_button_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-27#1 Critical Warning
+Invalid primary clock on hierarchical pin  
+A primary clock datapath/audio_codec/audiocodec_master_clock/inst/clk_in1 is created on an inappropriate internal pin datapath/audio_codec/audiocodec_master_clock/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
+Related violations: <none>
+
+SYNTH-14#1 Warning
+DSP cannot absorb non-zero init register  
+Register datapath/amplitude_reg[6] cannot be absorbed into DSP block due to its non-zero INIT value.
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[0] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[10] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[10]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[11] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[11]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[12] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[12]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[13] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[13]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[14] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[14]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[15] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[15]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[1] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[2] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[3] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[4] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[5] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[6] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[7] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[8] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[8]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#16 Warning
+Non-clocked latch  
+The latch datapath/Base_P_1_reg[9] cannot be properly analyzed as its control pin datapath/Base_P_1_reg[9]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#17 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[0] cannot be properly analyzed as its control pin datapath/Base_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#18 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[10] cannot be properly analyzed as its control pin datapath/Base_reg[10]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#19 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[11] cannot be properly analyzed as its control pin datapath/Base_reg[11]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#20 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[12] cannot be properly analyzed as its control pin datapath/Base_reg[12]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#21 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[13] cannot be properly analyzed as its control pin datapath/Base_reg[13]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#22 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[14] cannot be properly analyzed as its control pin datapath/Base_reg[14]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#23 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[15] cannot be properly analyzed as its control pin datapath/Base_reg[15]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#24 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[1] cannot be properly analyzed as its control pin datapath/Base_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#25 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[2] cannot be properly analyzed as its control pin datapath/Base_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#26 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[3] cannot be properly analyzed as its control pin datapath/Base_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#27 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[4] cannot be properly analyzed as its control pin datapath/Base_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#28 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[5] cannot be properly analyzed as its control pin datapath/Base_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#29 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[6] cannot be properly analyzed as its control pin datapath/Base_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#30 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[7] cannot be properly analyzed as its control pin datapath/Base_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#31 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[8] cannot be properly analyzed as its control pin datapath/Base_reg[8]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#32 Warning
+Non-clocked latch  
+The latch datapath/Base_reg[9] cannot be properly analyzed as its control pin datapath/Base_reg[9]/G is not reached by a timing clock
+Related violations: <none>
+
+XDCC-2#1 Warning
+Scoped Non-Timing constraint/property overwritten  
+A new XDC property IOSTANDARD on reset_n overrides a previous scoped property. It is not recommended to override a scoped (typically an IP) property and could result in unexpected behaviours.
+New Source: D:/UNL_Spring_2021/CSCE_436/Lab4/Lab_4/Lab_4.srcs/constrs_1/new/Lab4.xdc (Line: 38)
+Previous Source: d:/UNL_Spring_2021/CSCE_436/Lab4/Lab_4/Lab_4.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1_board.xdc (Line: 3)
+Related violations: <none>
+
+
