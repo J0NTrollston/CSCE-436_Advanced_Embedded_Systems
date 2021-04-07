@@ -28,12 +28,84 @@ using a program like Python, using a spreadsheet, or digitizing the samples usin
 the data, hardwired it into BRAM using "init" statements. Consulting the handout associated with lesson 
 26 for more details on how to accomplish this.
 
-Remember, the purpose of the lab notebook is to communicate EVERYTHING you have done in pursuit of a particular project.  If you are sitting on the bus scribbling on the back of an envelope about your lab design, take a picture of that and include it with your work.  Without adequate documentation, your instructor won�t know what your thought process was and will not be able to grade you properly.  Once you leave the school environment, fellow engineers may need to pick up your project where you left off if you PCA, PCS, get hospitalized, or otherwise find yourself no longer working on something.  You will save your employer/co-workers/replacement a lot of time and money if you have left a detailed record for them to easily understand what you were doing, the approach you took, the tests you performed, and what you learned.
-
 ### Preliminary design
-How will you start attacking the problem?
-This should include detailed instructions of what you are about to do.  It may include PreLab material and also information from the Lab Handout.  Use pictures and data from Lab Handout.
-You may also use snippets of code in here as well:
+While we have the flexibility to design the waveform generator as we see fit, your system must meet 
+the following requirements:
+ 1. Use an update rate of 48kHz
+ 2. At 440Hz, the LUT should be incremented by about 1 index.
+ 3. Be able to make between a 1Hz and 0.25Hz change in frequency.
+ 4. Be able to generate a full amplitude waveform.
+
+#### Hardware
+We will have to generate the block diagram for this assignment and present it at the beginning of the 
+second lab session for review by the professor. The design must be segregated into a datapath and 
+control unit. Your design must show the blocks in the datapath, the states in the FSM, the control 
+word, and the status word joining the datapath and control unit.
+
+#### Gate Check 1
+At the end of the first lab session, we should have a completed hardware diagram drawn in paint or 
+another image editing software that is readable and can be printed onto an 8.5x11 sheet of paper. 
+Provide a digital copy of your schematic via Canvas at the end of class. This diagram must contain 
+the following:
+ - A border defining the top-level entity. Borders for each of the components instantiated within the 
+top-level entity.
+ - All components must be named in the upper left corner.
+ - All signals entering and exiting components must have their port name defined just inside the border.
+ - All signals outside the components must have their width defined as well as be labeled with their 
+names.
+
+#### Gate Check 2
+At the end of the second lab period, we should have a working testbench. When simulating the design, 
+have the testbench supply a mock ready signal in place of the ready signal generated the 
+Audio_Codec_Wrapper (when put in a testbench, the Audio_Codec_Wrapper is not able to generate a 
+ready signal without a lot of extra work).
+
+When complete, expect the timing diagram to look like the image below and contain at least:
+ - clk
+ - reset
+ - ready (simulated using CSA statements in testbench)
+ - FSM state
+ - BRAM address
+ - Phase increment
+ - BRAM data out
+ - Amplitude coefficient (if aiming for B or A functionality)
+ - Multiplied data out (if aiming for B or A functionality)
+ - Slide switches
+ - Button values
+The simulation needs to simulate a button press (and release) to change the phase increment. After 
+that is done, we need to show that the BRAM address is being incremented by your new phase increment 
+value.
+
+##### Here is Lab4 waveform
+![Gate Check 2 waveform with FSM and other functionality requirements](Images/gatecheck2.PNG)
+
+#### Required Functionality
+Use the slide switches and push buttons to manipulate the phase angle and the amplitude of the 
+waveform as follows:
+ - Pressing the left button should decrease the frequency of the waveform by the amount set on the 
+slide switches.
+ - Pressing the right button should increase the frequency of the waveform by the amount set on the 
+slide switches.
+The waveform should be played back through the Audio Codec interface. Remember to wait for the ready 
+signal.
+
+#### B-level Functionality
+ - Pressing the up button should increase the amplitude of the waveform by the amount set on the slide 
+switches.
+ - Pressing the down button should decrease the amplitude of the waveform by the amount set on the 
+slide switches.
+ - Pressing the center button should toggle between 2-different waveforms.
+
+#### A-level Functionality
+Use the microBlaze to capture a keyboard input to manipulate the amplitude and frequency. The user 
+will enter in an integer frequency and you are to produce a waveform with that frequency.
+
+#### Bonus Functionality
+Since Required functionality doesn't specifically require interpolation based on the two values in the 
+LUT. If we modify your state machine to interpolate the values using the following equation developed 
+DDS Lecture 26.
+
+    -- Linearly_Interpolated_Value = Base + Offset*Delta;
 
 #### Code:
 
@@ -110,8 +182,6 @@ Detail the steps in getting the results you system is designed to achieve.  Have
 
 Display your results and describe them in detail so that anyone can understand.  For example Figure 1 below shows a screenshot of a memory dump for RAM from 0x0200 to 0x024E.  You will also describe to the reader what they are looking at.
 
-![Memory Dump](images/Memory.PNG)
-##### Figure 1: Memory Dump Label (Always include figure AND table labels!)
 
 ### Answers to Lab Questions
 Here is where you would answer any lab questions given in the lab writeup.
