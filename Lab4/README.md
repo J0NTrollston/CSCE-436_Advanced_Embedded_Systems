@@ -54,6 +54,9 @@ top-level entity.
  - All signals outside the components must have their width defined as well as be labeled with their 
 names.
 
+##### Diagram of Lab4
+![Diagram of lab 4 for gate check 1](Images/gatecheck1.PNG)
+
 #### Gate Check 2
 At the end of the second lab period, we should have a working testbench. When simulating the design, 
 have the testbench supply a mock ready signal in place of the ready signal generated the 
@@ -149,7 +152,7 @@ The following are *example* headers, but your instructor may require a different
 	Date:<The date you stated working on the file>
 	Course:	<The course's name>
 	File:<This file's name>
-	HW:	<HW# and name>
+	HW:	<HW# anSd name>
 	
 	Purp:A brief description of what this program does and 
 		the general solution strategy. 
@@ -166,7 +169,7 @@ The following are *example* headers, but your instructor may require a different
 	-------------------------------------------------------------------------*/
 	
 ### Software flow chart or algorithms
-All coding include a pseudocode flow charts and algorithms defined your code and the algorithms used.  Visio or PowerPoint works well for this!
+![finite state machine states](Images/fsm_states.PNG)
 
 #### Pseudocode:
 Insert pseudocode or flowchart here.
