@@ -110,74 +110,37 @@ DDS Lecture 26.
 
     -- Linearly_Interpolated_Value = Base + Offset*Delta;
 
-#### Code:
-
-**You should only include important key code snippets in your README.  All code files should be included in code folder.**
-
-**Well-formatted code**
- - All of your code should be written with:
-    1. headers
-    2. comments
-    3. good coding practices.
-
-
-##### Sample Code Headers
-The following are *example* headers, but your instructor may require a different template to be used.
-
-##### VHDL Header:
-	--------------------------------------------------------------------
-	-- Name:<Your Name>
-	-- Date:<The date you stated working on the file>
-	-- Course:	<The course's name>
-	-- File:<This file's name>
-	-- HW:	<HW# and name>
-	--
-	-- Purp:A brief description of what this program does and 
-	--	the general solution strategy. 
-	--
-	-- Doc:	<list the names of the people who you helped>
-	-- 	<list the names of the people who assisted you>
-	--
-	-- Academic Integrity Statement: I certify that, while others may have 
-	-- assisted me in brain storming, debugging and validating this program, 
-	-- the program itself is my own work. I understand that submitting code 
-	-- which is the work of other individuals is a violation of the honor   
-	-- code.  I also understand that if I knowingly give my original work to 
-	-- another individual is also a violation of the honor code. 
-	------------------------------------------------------------------------- 
-
-##### C Header:
-	/*--------------------------------------------------------------------
-	Name:<Your Name>
-	Date:<The date you stated working on the file>
-	Course:	<The course's name>
-	File:<This file's name>
-	HW:	<HW# anSd name>
-	
-	Purp:A brief description of what this program does and 
-		the general solution strategy. 
-	
-	Doc:	<list the names of the people who you helped>
-			<list the names of the people who assisted you>
-	
-	Academic Integrity Statement: I certify that, while others may have 
-	assisted me in brain storming, debugging and validating this program, 
-	the program itself is my own work. I understand that submitting code 
-	which is the work of other individuals is a violation of the honor   
-	code.  I also understand that if I knowingly give my original work to 
-	another individual is also a violation of the honor code. 
-	-------------------------------------------------------------------------*/
 	
 ### Software flow chart or algorithms
+In the control unit, there is only one finite state machine (FSM) that controls the datapath. In this 
+FSM there are four main states, three which we will look at.
+In Wait_Ready we are waiting for the ready signal coming from the audio codec. From there we go to our 
+first address by increaseing the address using the phase increment. Once we store the base in a regiser 
+we choose the base + 1 to look for the next LUT value. Below can be shown the states.
+
+##### Finite State Machine States
 ![finite state machine states](Images/fsm_states.PNG)
 
 #### Pseudocode:
-Insert pseudocode or flowchart here.
+In another diagram shown, we have a flowchart of the states. This is where we can change the counter 
+so that we can have different frequencies.
+
+##### Counter Inc/Dec from FSM
+![flowchart of fsm](Images/flowchart.PNG)
 
 ### Hardware schematic
-If you are wiring things up you will need to create a schematic for your design.
+For the connections from the Artix-7 Board, we will be using some from previous labs but others will 
+not be used. Connecting the board to power and programming it via USB are the two main connections. We 
+will now be using the switches to change the phase and amplitude as a Q2.6 value. The buttons will do 
+this phase shift increase/decrease (left and right buttons) and amplitude increase/decrease (up and 
+down buttons) for the waveform. From the figure below, we will not be using the audio in or the 
+HDMI out to be displayed. The only source coming out from the audio codec is the left bus out to 
+an audio source.
+
+![Connections for the Nexys board](Images/connections.PNG)
 
 ### Debugging
+
 You should be keeping track of issues as you go along.  I didn't have any problems is not a good answer.  Describe the problems you had and what you did to fix it.  Again this is where I would say commit early and often and start your notebook when you start your code.
 
 ### Testing methodology or results

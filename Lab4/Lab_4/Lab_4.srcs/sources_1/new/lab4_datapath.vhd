@@ -41,8 +41,6 @@ entity lab4_datapath is
 	       ac_lrclk:           out   STD_LOGIC;
 	       scl:                inout STD_LOGIC;
 	       sda:                inout STD_LOGIC;	
---	       tmds:               out   STD_LOGIC_VECTOR(3 downto 0);
---	       tmdsb:              out   STD_LOGIC_VECTOR(3 downto 0);
 	       sw:                 out   STD_LOGIC_VECTOR(2 downto 0):= (others => '0');
 	       cw:                 in    STD_LOGIC_VECTOR(2 downto 0):= (others => '0');
 	       btn:                in    STD_LOGIC_VECTOR(4 downto 0);
@@ -70,9 +68,9 @@ SIGNAL decodeMux: STD_LOGIC_VECTOR(15 DOWNTO 0);
 
 SIGNAL Base, Base_P_1, Delta: STD_LOGIC_VECTOR(15 DOWNTO 0);
 
-SIGNAL DeltaXOffset: STD_LOGIC_VECTOR(21 DOWNTO 0):= (others => '0');
+SIGNAL DeltaXOffset: STD_LOGIC_VECTOR(31 DOWNTO 0):= (others => '0');
 
-SIGNAL T_delta_times_offset: STD_LOGIC_VECTOR(15 DOWNTO 0);
+SIGNAL T_delta_times_offset: STD_LOGIC_VECTOR(21 DOWNTO 6);
 
 SIGNAL raw_out: STD_LOGIC_VECTOR(15 DOWNTO 0):= (others => '0');
 
@@ -114,7 +112,7 @@ begin
     
     Delta <= std_logic_vector(signed(Base) - signed(Base_P_1));
     
-    DeltaXOffset <= std_logic_vector(signed(Delta)*signed(offset));
+    DeltaXOffset <= std_logic_vector(signed(Delta)*signed(x"00" & "00" & offset));
 
     T_delta_times_offset <= DeltaXOffset(21 DOWNTO 6);
     
@@ -172,11 +170,11 @@ process(clk)
 				
 		    --Inc phase
 			elsif (button_activity(3) = '1') then
-                phase_inc <= std_logic_vector( signed(phase_inc) + signed(x"00" & switches) );		
+                phase_inc <= std_logic_vector( unsigned(phase_inc) + unsigned(x"00" & switches) );		
                 	
 		    --Dec phase
 			elsif (button_activity(1) = '1') then
-                phase_inc <= std_logic_vector( signed(phase_inc) - signed(x"00" & switches) );			
+                phase_inc <= std_logic_vector( unsigned(phase_inc) - unsigned(x"00" & switches) );			
 		    --Increase Amplitude
 			elsif (button_activity(0) = '1') then
                 amplitude <= std_logic_vector( unsigned(amplitude)+unsigned(switches) );

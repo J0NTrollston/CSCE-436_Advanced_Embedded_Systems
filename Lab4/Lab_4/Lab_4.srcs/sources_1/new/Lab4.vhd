@@ -65,7 +65,8 @@ begin
 --		tmdsb        => tmdsb,
 		sw           => sw,
 		cw           => cw,
-		btn          => btn);
+		btn          => btn,
+		switches     => switches);
 --		ready => ready);
 		
 -- Here we instanciate the control unit			  
