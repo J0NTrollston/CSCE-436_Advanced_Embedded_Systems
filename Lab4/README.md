@@ -136,24 +136,66 @@ this phase shift increase/decrease (left and right buttons) and amplitude increa
 down buttons) for the waveform. From the figure below, we will not be using the audio in or the 
 HDMI out to be displayed. The only source coming out from the audio codec is the left bus out to 
 an audio source.
-
+##### Connections to and from the Nexys Board
 ![Connections for the Nexys board](Images/connections.PNG)
 
 ### Debugging
+Getting behind the concepts of lab 4 was the difficult part in a sense. Gate check 2 can be seen to 
+have some troublesome getting it up and running. The main difficulty came from determining what Gate 
+Check 1 had inside doing the math. To solve the issues shown in Gate Check 2 were to go through the 
+math on paper (or a calculator) to make sure the values displayed were correct. This is how I got most 
+of the signals to be displayed in the waveform. Coming to the bottom signals shown in the waveform in 
+Gate Check 2 were the product, offsets and deltas used for interpolation. This is where I had my math 
+and signals peered reviewd by Jacob Fox. 
 
-You should be keeping track of issues as you go along.  I didn't have any problems is not a good answer.  Describe the problems you had and what you did to fix it.  Again this is where I would say commit early and often and start your notebook when you start your code.
+As Projessor Falkinburg says, follow the wires. This again helped when I was having problems at the 
+end of the lab. I noticed that as soon as I tried to change the phase inc and amplitude of the signal, 
+nothing audible could be heard to dictate a change. Of couse making sure the Q2.6 value was set to 
+anything other than zero for the phase and 1 for the aplitude. I also recently added the other BRAM so 
+that the audio codec could switch from using one waveform to another by a select signal to a mux. 
+Testing this there was an audible difference in the two signals, this could only mean that the switches 
+were not connected but the buttons were. Eventually following the wires to the top level Lab4.vhd file 
+there seems to have a signal for the switches coming in but not digging deeper into the datapath file 
+where it is neede the most. After connection of the switches, I was able to change phase and amplitude 
+as designed.
 
 ### Testing methodology or results
-Detail the steps in getting the results you system is designed to achieve.  Have enough detail that someone can come behind and reproduce your results.
-
-Display your results and describe them in detail so that anyone can understand.  For example Figure 1 below shows a screenshot of a memory dump for RAM from 0x0200 to 0x024E.  You will also describe to the reader what they are looking at.
-
+Using the testbench at the beginning of the lab helped out to check signal processing. The testbench was 
+also a required for the gate checks so this made students use the waveform instead of bulding the bitstream 
+and wasting valuable time. Using this waveform, I double checked the values going into BRAM and the data 
+coming out. I knew for an initial counter value of zero. I should get 0x8000 for the first LUT of the 
+sine wave. From there I followed the signals throughout the math and made sure to use unsigned and signed 
+values where needed. During the mulitplication of signals, there has to be a wider bus to transfer 22 
+wide signal if the inputs are a Q0.6 and a Q16.0. 
 
 ### Answers to Lab Questions
-Here is where you would answer any lab questions given in the lab writeup.
+There were not formal question to the lab, instead there is one that could be asked of us during the prelab.
+How to use interpolation to get a better sine wave. As shown in Gate Check 1 where we draw out the diagram 
+for the lab, we noticed that there is a 16-bit counter where the upper 10 bits are for addressing BRAM. 
+The lower 6-bits of the counter are for the interpolated value later. Once we get the LUT value coming 
+out of BRAM into the D0 signal into a decoder, we can find the current LUT value and the next LUT value. 
+This becomes our delta signal and will be multiplied by the offset which was that lower 6-bits from the 
+counter. This is how the interpolated value goes through the hardware and evevntually goes through to the 
+left bus out from the audio codec.
 
 ### Observations and Conclusions
-During this whole assignment, what did you learn?  What did you notice that was noteworthy?  This should be a paragraph starting with the purpose, whether or not you achieved that purpose, what you learned, and how you can use this for future labs.
+During this assignemnt, I was able to build my knowledge on creating a function generator from a LUT of 
+a 1024 addressing sine wave. By using interpolation, I was also able to create a smoother sine wave that 
+would use a base and base + 1 value for a delta and offset. I noticed that after the lab it was easier 
+than initially thought to be. This mostly came from the fact that my Finite State Machine was only 4 
+different states including a reset state. This only did the incrementatio of the base and base+1. The 
+button handling and switches were controlled inside of the datapath. A process was created to add or 
+subtract a certain value from the ampitude or phase increment. 
+The purpose of the assignment was to be able to update at 48kHz with a ready signal. This was used 
+for the finite state machine using a set word. The next thing we wanted to do was to have a 440Hz 
+sine wave when the LUT was being incremented by 1 index. This was done by setting the phase inc to 
+have an initial value that was not zero and do make sure the fsm was working properly. We also needed 
+be able to make a 1Hz change in frequency and able to generate a full amplitude in the waveform. All 
+of these requrements were met in the this assignment.
+Sice this is the final lab of the course, this may be used in the final project where a project parter 
+and I create pong. If time permits, we will add sound to the game by using lab 4 components.
+
 
 ### Documentation
-� always include this.  Any help received on any portion of the assignment, even from an instructor or the internet should be specifically mentioned.
+Received help by Professor Falkinburg and TA Jacob Fox
+Conversed with Josh Bearden
