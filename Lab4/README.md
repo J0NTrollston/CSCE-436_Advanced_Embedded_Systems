@@ -110,6 +110,42 @@ DDS Lecture 26.
 
     -- Linearly_Interpolated_Value = Base + Offset*Delta;
 
+When it came to the portion where we had to create the 1024 values in the sine wave and upload them to 
+the BRAM, this was a time consuming process. Instead of doing it by typing or using excel, I decided to 
+write a snippet of Java code to speed up the process. Below is a code snippet of what does the concatenation 
+for the user. 
+
+
+	public class main {
+		public static void main(String[] args) {
+			String[] array = new String[16];
+			int count = 0;
+			try{
+				File file = new File("squareWave.txt");
+				Scanner fileScan = new Scanner(file);
+				for(int every16 = 0; every16 < 64; every16++) {
+					for (int index = 0; index < 16; index++) {
+						array[15 - index] = fileScan.nextLine();
+					}
+					System.out.print(String.format("INIT_%02X => x\"",count));
+					count ++;
+
+					for (int i = 0; i < 16; i++) {
+						System.out.print(array[i]);
+					}
+					if(every16 < 63){
+						System.out.println("\",");
+					}else{
+						System.out.println("\"");
+					}
+				}
+			}catch(Exception e){
+				System.out.println("File not found\n");
+			}
+		}
+	}
+
+
 	
 ### Software flow chart or algorithms
 In the control unit, there is only one finite state machine (FSM) that controls the datapath. In this 
@@ -159,6 +195,29 @@ there seems to have a signal for the switches coming in but not digging deeper i
 where it is neede the most. After connection of the switches, I was able to change phase and amplitude 
 as designed.
 
+After Lab 4 was complete, there was still one last problem I faced. My sine wave was spiking at the peak 
+amplitudes of the waveform, this happened both for my sine and square wave. 
+
+##### Spike at crest and trough of waveform
+![spiking of sine wave](Images/badSine.PNG)
+
+I had to go double check my signals to make sure it wasn't happening in the math portion of the datapath 
+and when I was working with the signals it hit me. When working with the DDS spread sheet given in a 
+previous lecture, I remember when I was trying to create my own square wave for the lab that there was 
+something to look out for. If you were adding a bunch of sine functions together you had to make sure the 
+value could fit inside a 4 digit hex value, otherwise you'd get an overflow. So I decided to divide all 
+of my real sine values to get then all undre the value of 1. From there I uploaded to the board and as 
+shown below is my results.
+
+##### Sine wave without spikes
+![better sine wave without spikes](Images/goodSineWave.PNG)
+
+Also, this was happening to my square wave which I had to be especially careful with the values. They would 
+sometimes still spike even with values below 1. So making sure the values of the Real Sine were in range 
+less than ".98" I uploaded them to the board and got the image below.
+##### Square wave without spikes
+![better square wave without spikes](Images/goodSquareWave.PNG)
+
 ### Testing methodology or results
 Using the testbench at the beginning of the lab helped out to check signal processing. The testbench was 
 also a required for the gate checks so this made students use the waveform instead of bulding the bitstream 
@@ -199,3 +258,6 @@ and I create pong. If time permits, we will add sound to the game by using lab 4
 ### Documentation
 Received help by Professor Falkinburg and TA Jacob Fox
 Conversed with Josh Bearden
+
+Lab 4 Functionality Video:
+https://youtu.be/Gz4lHeH2UmM
