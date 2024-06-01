@@ -17,18 +17,12 @@
 10. [Documentation](#documentation)
  
 ### Objectives or Purpose 
-In this lab, we will integrate the video display controller developed in Lab 1 with the audio codec 
-on the Nexys Video board to build a basic 2-channel oscilloscope. When complete, the lab should 
-generate an output similar to the picture below.
-
+In this lab, we will integrate the video display controller developed in Lab 1 with the audio codec on the [Nexys Video]() board to build a basic 2-channel oscilloscope. When complete, Lab 2 should generate an output similar to the picture below.
 
 ##### Overview of Lab 2
 ![Overview scope](Images/overview.PNG)
 
-This lab is built on top of the previous lab with VGA Synchronization where we build the scopeface
-and triggermarks. Later in this document, you will see the physical I/O used for the data and the
-architecture of the lab. 
-
+Lab 2 is built on top of the work completed in [Lab 1]() with VGA Synchronization where we build the scopeface and triggermarks. Later in this document, you will see the physical I/O used for the data and the architecture of the lab. 
 
 ### Preliminary design
 

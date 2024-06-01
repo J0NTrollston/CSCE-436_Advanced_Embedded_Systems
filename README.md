@@ -12,8 +12,8 @@
 * [Homework 6]
 * [Homework 7]
 * [Homework 8]
-* [Lab 1] README review-ready
-* [Lab 2]
+* [Lab 1 - VGA Synchronization] README review-ready
+* [Lab 2 - Data Acquasition, Storage and Display]
 * [Lab 3]
 * [Lab 4]
 * [Exam 1]
