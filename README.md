@@ -14,8 +14,8 @@
 * [Homework 8]
 * [Lab 1 - VGA Synchronization] README review-ready
 * [Lab 2 - Data Acquasition, Storage and Display] review-ready
-* [Lab 3 - Software Control of Datapath]
-* [Lab 4]
+* [Lab 3 - Software Control of Datapath] review-ready
+* [Lab 4 - Function Generation] review-ready
 * [Exam 1]
 * [Exam 2]
 
