@@ -33,24 +33,12 @@ created in Lab 1. It is important to note that some of the components and signal
 this diagram will not be needed for Lab 2, but have been included because you will need them in 
 Labs 3 and 4.
 
-
 ##### Architecture
 ![Architecture](Images/architecture.PNG)
 
-Consider the data in the diagram as flowing from left to Right. There will be an input signal to 
-the Nexys board via a 3.5mm cable connected to the blue line-in jack (shown in hardware). This signal 
-then passes through an Analog Devices ADAU1761 SigmaDSP Audio Codec. The ADAU1761 samples the audio 
-input at 48kHz into separate 18-bit 2's complement left and right channels. The ADAU1761 then 
-transfers this data to our Artix 7 chip over a serial bus through the 7 signals on the left side of 
-the Lab2 component. More information about the audio codec on page 27 of the Nexys Video manual,
-there will be a link to the Manual in the Documentation.
+Consider the data in the diagram as flowing from left to Right. There will be an input signal to the Nexys board via a 3.5mm cable connected to the blue line-in jack (shown in hardware). This signal then passes through an Analog Devices ADAU1761 SigmaDSP Audio Codec. The ADAU1761 samples the audio input at 48kHz into separate 18-bit 2's complement left and right channels. The ADAU1761 then transfers this data to our Artix 7 chip over a serial bus through the 7 signals on the left side of the Lab2 component. More information about the audio codec on page 27 of the Nexys Video manual, there will be a link to the Manual in the Documentation.
 
-The serial protocol coming from the audio codec is quite complex, so given will be the Audio Codec 
-Wrapper component as an interface to extract the incoming signal (Audio Codec Wrapper in the Figure above). 
-Whenever new converted data is ready from the Audio Codec, the ready signal will go high for a single clock 
-cycle. The circuit will then do two things with the incoming L_bus_out and R_bus_out signals: First, 
-it will loop both of these signals back into the Audio Codec so that we can verify (by listening on 
-the green line-out jack) that the Audio Codec hardware and firmware are operating correctly. This is 
+The serial protocol coming from the audio codec is quite complex, so given will be the Audio Codec Wrapper component as an interface to extract the incoming signal (Audio Codec Wrapper in the Figure above). Whenever new converted data is ready from the Audio Codec, the ready signal will go high for a single clock cycle. The circuit will then do two things with the incoming L_bus_out and R_bus_out signals: First, it will loop both of these signals back into the Audio Codec so that we can verify (by listening on the green line-out jack) that the Audio Codec hardware and firmware are operating correctly. This is 
 accomplished using the VHDL code below.
 
 ##### VHDL code for audio loopback
@@ -70,25 +58,15 @@ accomplished using the VHDL code below.
    	 end process;
 
 
-Second, the circuit will need to send the L_bus_out and R_bus_out signals in an unsigned format to be stored 
-in the block ram (BRAM). To do this, we will need to convert the 2's complement values to unsigned. Performing 
-this conversion is technically easy, so let's do some examples. Consider the table below
+Second, the circuit will need to send the L_bus_out and R_bus_out signals in an unsigned format to be stored in the block ram (BRAM). To do this, we will need to convert the 2's complement values to unsigned. Performing this conversion is technically easy, so let's do some examples. Consider the table below
 
 
 ##### I/O values for audio bus
 ![I/O values](Images/2sComp.PNG)
 
-The values in the left 2 columns represent the 2's complement number coming out of the Audio Codec, in this case 
-L_bus_out, while the right 2 columns represent the output of the box labeled "sign2unsign" in the block diagram. 
-What we are essentially doing is shifting the unsigned values up by 131072 (the value which will make all 18-bit 
-numbers positive) so that they all fall into a positive range.
+The values in the left 2 columns represent the 2's complement number coming out of the Audio Codec, in this case L_bus_out, while the right 2 columns represent the output of the box labeled "sign2unsign" in the block diagram. What we are essentially doing is shifting the unsigned values up by 131072 (the value which will make all 18-bit numbers positive) so that they all fall into a positive range.
 
-Here are a couple more pieces of info to help understand the block diagram above. Consider the mux with its 
-input going to the WRADDR input of the "BRAM_SDP" block in the block diagram. This mux circuitry attached to the 
-write address of the BRAM will be used in Lab3, allowing the microBlaze processor to take over write duties for 
-the RAM (as opposed to an external signal from the Audio Codec). Independent of the write circuitry, the read 
-circuit pulls data from the RAM, and draws the waveform. Unlike for the write circuitry, the read circuitry 
-requires no FSM control.
+Here are a couple more pieces of info to help understand the block diagram above. Consider the mux with its input going to the WRADDR input of the "BRAM_SDP" block in the block diagram. This mux circuitry attached to the write address of the BRAM will be used in Lab3, allowing the microBlaze processor to take over write duties for the RAM (as opposed to an external signal from the Audio Codec). Independent of the write circuitry, the read circuit pulls data from the RAM, and draws the waveform. Unlike for the write circuitry, the read circuitry requires no FSM control.
 
 ##### Datapath
 Since its a very complex piece of circuitry, the entity for the datapath (LAB2_DP in the block diagram) is given 
@@ -117,7 +95,6 @@ below.
 		flagQ: out std_logic_vector(7 downto 0);
 		flagClear: in std_logic_vector(7 downto 0));
 	end lab2_datapath;
-	
 
 ##### Flag Register
 In Lab 3, we will be integrating most of the components from this lab with the MicroBlaze processor (a processor 
