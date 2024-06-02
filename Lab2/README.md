@@ -191,8 +191,7 @@ The control unit or Finite State Machine (FSM) has selected states that have to 
 
 ![finite state machine flowchart](Images/flowchart.PNG)
 
-Below is the control word and set word table that determines the states and output of the FSM. Each word is 3 bits long and can be set individually. However, the cw two lower bytes determines the counter and the higher bit controls write enable. The set word has its 3 bits controlled individually where they are also checked according to its respective state that 
-it is in at the time. 
+Below is the control word and set word table that determines the states and output of the FSM. Each word is 3 bits long and can be set individually. However, the cw two lower bytes determines the counter and the higher bit controls write enable. The set word has its 3 bits controlled individually where they are also checked according to its respective state that it is in at the time. 
 
     -----------------------------------------------------------------------------
 	--		The cw
