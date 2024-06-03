@@ -18,9 +18,9 @@
 * [Lab 4 - Function Generation] review-ready
 * [Exam 1]
 * [Exam 2]
+* [Final Project: ] refer to other github repo
 
 ## Demos
-
 
 Class Link: https://cse.unl.edu/~jfalkinburg/cse_courses/2021/436/index.html
 
