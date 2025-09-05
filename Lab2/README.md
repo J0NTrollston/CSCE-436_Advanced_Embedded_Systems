@@ -223,12 +223,12 @@ Debugging Gate Check 1 was simple but implementing it for the first time was dif
 find a trigger but would reset before it came close. 
 
 ### Testing methodology or results
-Testing in lab 2 was done by either making a testbench for a certain entity or to generate the bitstream and figure out what was not working. The generation of the bitstream was not as fast as simply making a testbench and runnin the simulation, but I would look aroun my code while the bitstream was being generatesd. I had created a testbench for both the control unit and flag register but not the top level entity. The Lab2 entity was tested on the board using Lab2.vhd. Other testing such as checking the mux values and unsigned values were done in the datapath testbench where we could confirm that the in/out signals
+Testing in lab 2 was done by either making a testbench for a certain entity or to generate the bitstream and figure out what was not working. The generation of the bitstream was not as fast as simply making a testbench and running the simulation, but I would look around my code while the bitstream was being generated. I had created a testbench for both the control unit and flag register but not the top level entity. The Lab2 entity was tested on the board using Lab2.vhd. Other testing such as checking the mux values and unsigned values were done in the datapath testbench where we could confirm that the in/out signals
 were the same.
 
 
 ### Answers to Lab Questions
-From 18 bits coming in from the audio codec to the scopeface. We had to ask ourselves how to get it to fit on the screen. With essentially 18 bits we took the top 10 bits of ths signal and changed it to unsigned and added 2^17. This gave us a positive integer that was from 0 to 1024. From there the signal was not centered on the x axis so by decreasig the value 
+From 18 bits coming in from the audio codec to the scopeface. We had to ask ourselves how to get it to fit on the screen. With essentially 18 bits we took the top 10 bits of ths signal and changed it to unsigned and added 2^17. This gave us a positive integer that was from 0 to 1024. From there the signal was not centered on the x axis so by decreasing the value 
 by -292 we had the signal centered. 
 
 The other question we had to answer before making the FSM was what would our cw and sw be? I went with the standard shown in the datapath testbench and created the sw as it is in the flowchart shown earlier. 
@@ -245,7 +245,7 @@ The other question we had to answer before making the FSM was what would our cw 
 
 5. How long does it take to completely draw the display once? Roughly 1/60 = 16.7ms.
 
-6. The question is likely relevant to Lab 3 - how long is the vsynch signal held low? Since the screen is esentially 800 pixels wide, it would be 800x2 = 1,600pixels/7000pixels/s = 229ms.
+6. The question is likely relevant to Lab 3 - how long is the vsynch signal held low? Since the screen is essentially 800 pixels wide, it would be 800x2 = 1,600pixels/7000pixels/s = 229ms.
 
 ### Observations and Conclusions
 During this lab, we learned about how data is transfered with finite state machines. Using the control unit and the datapath, we are able to send out signals to the board to change states. The purpose of the lab was to use the in class knowledge we have with the finite state machine and create two channels that would be sent through BRAM. In our case, we were able to get ch1 to print out to the screen with the waveform constricted to the trigger volt and the rising edge of the waveform. As seen in the functionality this was able to be sent through BRAM and printed to the scopeface at a frequency of 440Hz. Ch2 was held at a frequency of 441Hz to create a frequency beat of 1Hz if not connected to the board. What was noteworthy in the lab was how simple the FSM was in order to get the trigger to work correctly. Only 4 with some simple states that reset, count, and wait. Ending this lab 2, we will use this for the later labs that have to deal with external signals. Applying the flag register now and setting up the external signals will be helpful for implementing a soft CPU. 
