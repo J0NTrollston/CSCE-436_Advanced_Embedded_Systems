@@ -63,7 +63,7 @@ time.
 
 #### B-level Functionality
 - Achieve required functionality.
-- Use the ready bit of the flag register to trigger an interrupt. The ISR should store the samples (left and right), look for a triggering event, and signal when the stored samples should be transfered to the 
+- Use the ready bit of the flag register to trigger an interrupt. The ISR should store the samples (left and right), look for a triggering event, and signal when the stored samples should be transferred to the 
 BRAM in the oscilloscope component.
 
 #### A-level Functionality
@@ -82,10 +82,10 @@ The video can be seen in the documentation as Functionality. [^4] [review refere
 - Any register with bit fields will have the bit index setup as #define's with a name ending in "Bit".
 - The flagQ and flagClear registers need to be at the same address.
 
-Below is a flowchart of reading in data from the Left and Right bus using the ready signal. Note that the flowchart is reffering to an algorithm where the Interrupt Service Routine (ISR) is not being used. In this case the algorithm uses polling to grab data where it waits in essentially a while loop waiting for the ready signal to go high. For later functionality this is disgarded and a ISR is used instead. This way we can enter the ISR when the data is ready instead of slowing down the software further waiting 
+Below is a flowchart of reading in data from the Left and Right bus using the ready signal. Note that the flowchart is referring to an algorithm where the Interrupt Service Routine (ISR) is not being used. In this case the algorithm uses polling to grab data where it waits in essentially a while loop waiting for the ready signal to go high. For later functionality this is discarded and a ISR is used instead. This way we can enter the ISR when the data is ready instead of slowing down the software further waiting 
 for the ready signal.
 
-##### Functionality flowchart showing algorithm withoug ISR (Interrupt Service Routine)
+##### Functionality flowchart showing algorithm without ISR (Interrupt Service Routine)
 ![flowchart for reading in L/R bus](Images/flowchart.PNG)
 
 A good portion of the functionality i.e. Rising/Falling Edge trigger, Ch1/Ch2 trigger or Lab2 internal functionality can all be changed by using a u8 data type and changing the values to their respective "Boolean" values. For example, to trigger off of channel 1 we would need to enable a variable. From the variable we look at an if statement and send it off to the slave register to be read in the datapath. 
@@ -107,7 +107,7 @@ The setup used in lab was a 3.5mm audio jack from a computer to the board for si
 
 The first step will be to create a component for the lab2 component in a Vivado repository. This will require the programmer to think about what signals are routed to the MicroBlaze and what signals are going outside the Artix 7 chip. The following table should help.
 
-##### Lab 2 signals to port out to sofware and outside design
+##### Lab 2 signals to port out to software and outside design
 ![signals to/from MicroBlaze and going out of the Artix 7](Images/hardware_table_2.PNG) 
 
 ### Debugging
@@ -115,22 +115,22 @@ Gate Check 1 came with its own set of problems. Gate Check 1 used slave register
 
 Gate Check 2 required the functionality of the slave registers to read data from the hardware. The problem that I was having with this gate check was the use of initial values to the read side of the registers. The debugging process included deleting the wrapper files in Vivado that were in the SDK and then rebuilding them and exporting it back to the SDK. Once I rebuilt the software and compiled, rumnning the software allowed for trigger manipulation with the "wasd" keys
 
-Later in the lab before implementing the ISR, it was found that organized scattering of the waveform could be seen below in the picture. This is known to happen if the software is slow enough that it essentially skips the array index. Once the ISR is added to the software, this was seen to show better results and less scattering. A good idea was to use printf's whenever checking if the ISR was being used or if values were as expected. At one point the ISR was not loading and this caused the Left and Right bus arrays to be all zeros.Following the wire it was shown that there was an active low reset that was causing the flag register to be zero all the time. As soon as this was reversed, the ISR was working as expected.
+Later in the lab before implementing the ISR, it was found that organized scattering of the waveform could be seen below in the picture. This is known to happen if the software is slow enough that it essentially skips the array index. Once the ISR is added to the software, this was seen to show better results and less scattering. A good idea was to use printf's whenever checking if the ISR was being used or if values were as expected. At one point the ISR was not loading and this caused the Left and Right bus arrays to be all zeros. Following the wire it was shown that there was an active low reset that was causing the flag register to be zero all the time. As soon as this was reversed, the ISR was working as expected.
 
 Towards the end of the lab looking at the waveform. It was apparent that the software was not printing through all of the values in the bus array. On the Scopeface there was scattering pixels of a sine wave. This can be seen in the figure below. The image shows that the scopeface was printing out to the screen.
 
 ##### Pixels being printed to screen with spaces
 ![scattering of the sine wave](Images/scattered.PNG) 
 
-Though this O'Scope is not bulletproof, it was interesting to see that even with a perfect array of values of the sine wave, it was not printing every index. In the software, I used a for loop to make sure everytime the index 'i' was being sent to the slave register. This included both the address and value to BRAM. After building this I was able to get my waveform to look as it did in previous labs.
+Though this O'Scope is not bulletproof, it was interesting to see that even with a perfect array of values of the sine wave, it was not printing every index. In the software, I used a for loop to make sure every time the index 'i' was being sent to the slave register. This included both the address and value to BRAM. After building this I was able to get my waveform to look as it did in previous labs.
 
-The last problem I encountered occured during the process of getting A-level functionality. It seemed as if the Right bus was being printed out exactly as the Left bus was. Using Ctrl+F to find the instances where I used the Right ram. For the longest time looking at all the code in the software. Professor Falkinburg and I both were looking in the hardware to see if there was a possibility that the values were not correctly connected to the external L/R bus. Following the wires it seemed that the connections were in the right place, but when in the datapath there was one little mistake. VHDL is not a case sensitive language, there was one letter that was lowercased that I changed to make sure it couldn't cause any problems. While in the file for the datapath. I saw this line of code: 
+The last problem I encountered occurred during the process of getting A-level functionality. It seemed as if the Right bus was being printed out exactly as the Left bus was. Using Ctrl+F to find the instances where I used the Right ram. For the longest time looking at all the code in the software. Professor Falkinburg and I both were looking in the hardware to see if there was a possibility that the values were not correctly connected to the external L/R bus. Following the wires it seemed that the connections were in the right place, but when in the datapath there was one little mistake. VHDL is not a case sensitive language, there was one letter that was lowercased that I changed to make sure it couldn't cause any problems. While in the file for the datapath. I saw this line of code: 
 
 	'Rbus_out <= STD_LOGIC_VECTOR(L_bus_unsigned(17 downto 2));'
 	
 This was the Rbus_out that sent the data from the Audio Codec to the external bus. The code was checking the Left unsigned bus and putting it into the Right channel, essentially duplicating the waveform. A simple L to R change allowed the right to properly be displayed. A good part of debugging in this lab was using printf. The printf is what showed what was being put into registers and onto the slave register. 
 
-A noteworthy comment is that while you may trigger off channel 1 or 2, you must print the other channel on the screen. Otherwise in the figure below you will get a line for channel 2 accross the screen while printing channel 1
+A noteworthy comment is that while you may trigger off channel 1 or 2, you must print the other channel on the screen. Otherwise in the figure below you will get a line for channel 2 across the screen while printing channel 1
 
 ##### Printing Channel 1 but not Channel 2
 ![channel 2 printed as a line](Images/organizedScatter.PNG)
@@ -142,7 +142,7 @@ the broken code.
 ### Answers to Lab Questions
 As there were no formal question to this Lab 3, other questions had to be ansered. One question that was brought up quickly was that the buttons were supposed to be removed but were not. They were allowed to stay on as long as they did not cause any trouble with Lab 3 but were eventually removed. This was for the sake of time, resources and complexity. They were more trouble than needed, although they were only needed for Lab 2.
 
-Another question that was easier to answer was where to enable the interrupt after disableing it. Due to how Vivado [^3] [review reference]()ran, disabling interrupts inside the ISR was not an option. Instead, there was a funciton that did the data manipulation to get the trigger intersection and the two options for placement for the enable ISR was either before or after the funciton. It would be in real time if the enable interrupt was set before the data manipulation but would be eaiser to enable it after the function whereas the array would be the previous state. This meant that the L/R bus values would not be the most recent values contained withing the ISR. But this was okay since the software was not time sensitive for its application so to speak. 
+Another question that was easier to answer was where to enable the interrupt after disabling it. Due to how Vivado [^3] [review reference]()ran, disabling interrupts inside the ISR was not an option. Instead, there was a function that did the data manipulation to get the trigger intersection and the two options for placement for the enable ISR was either before or after the function. It would be in real time if the enable interrupt was set before the data manipulation but would be easier to enable it after the function whereas the array would be the previous state. This meant that the L/R bus values would not be the most recent values contained withing the ISR. But this was okay since the software was not time sensitive for its application so to speak. 
 
 ### Observations and Conclusions
 In this lab, we will integrate the video display controller developed in Lab 2 with the MicroBlaze processor built using the fabric of the Artix-7 FPGA. In this assignment, I was able to build my knowledge on how hardware can be controlled by software. During the lectures leading up to the lab, it was interesting to see software change the hardware to turn on LEDs. The lab taught me how slave registers could move data from the software such as changing extenal select and changing logic in hardware to implement the change. What I also found noteworthy was that VHDL is not case sensitive, however when writing bulk code it is in my best interest to not write similar variable names. This is where I found myself with my final bug in the code which is discussed in the Debugging section. Fortunately we were able to add:
